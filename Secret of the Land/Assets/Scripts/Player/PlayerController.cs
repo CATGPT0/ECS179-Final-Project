@@ -4,36 +4,62 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField]
+    private float speed = 5.0f;
+    public float Speed
+    {
+        get { return speed; }
+        set { speed = value; }
+    }
+
+    private float velocityX;
+    public float VelocityX
+    {
+        get { return velocityX; }
+        set { velocityX = value; }
+    }
+
+    private float velocityY;
+    public float VelocityY
+    {
+        get { return velocityY; }
+        set { velocityY = value; }
+    }
+
+    private Vector3 direction;
+    public Vector3 Direction
+    {
+        get { return direction; }
+        private set { direction = value; }
+    }
+
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
     {
+        velocityX = Input.GetAxisRaw("Horizontal");
+        velocityY = Input.GetAxisRaw("Vertical");
         Move();
     }
 
     void Move()
     {
-        if (Input.GetKey(KeyCode.W))
-        {
-            this.transform.position += new Vector3(0, 0.01f, 0);
-        }
-        else if (Input.GetKey(KeyCode.S))
-        {
-            this.transform.position += new Vector3(0, -0.01f, 0);
-        }
-        if (Input.GetKey(KeyCode.A))
-        {
-            this.transform.position += new Vector3(-0.01f, 0, 0);
-        }
-        else if (Input.GetKey(KeyCode.D))
-        {
-            this.transform.position += new Vector3(0.01f, 0, 0);
-        }
+        this.direction = new Vector3(velocityX, velocityY, 0);
+        this.transform.position += GetCalculatedSpeed() * Time.deltaTime * direction;
+    }
 
+    private float GetCalculatedSpeed()
+    {
+        if (velocityX != 0 && velocityY != 0)
+        {
+            return speed / Mathf.Sqrt(2);
+        }
+        else
+        {
+            return speed;
+        }
     }
 }

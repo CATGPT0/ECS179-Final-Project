@@ -251,7 +251,7 @@ MonoBehaviour:
   m_PixelSnapping: 1
   m_CropFrameX: 1
   m_CropFrameY: 1
-  m_StretchFill: 0
+  m_StretchFill: 1
 --- !u!1 &534257333
 GameObject:
   m_ObjectHideFlags: 0
@@ -1685,6 +1685,7 @@ GameObject:
   - component: {fileID: 1536800472}
   - component: {fileID: 1536800474}
   - component: {fileID: 1536800475}
+  - component: {fileID: 1536800476}
   m_Layer: 7
   m_Name: player
   m_TagString: Untagged
@@ -1843,6 +1844,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9a4b31182f0d1744b62600eeb5be175, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 5
 --- !u!95 &1536800475
 Animator:
   serializedVersion: 5
@@ -1864,6 +1866,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1536800476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1536800469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c44e82d057fab4d428123d151b7fd061, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
