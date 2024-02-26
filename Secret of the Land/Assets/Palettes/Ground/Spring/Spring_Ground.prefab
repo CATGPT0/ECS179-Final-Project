@@ -2405,7 +2405,7 @@ GameObject:
   - component: {fileID: 1675113450504663077}
   - component: {fileID: 512854321798424694}
   m_Layer: 0
-  m_Name: New Palette
+  m_Name: Spring_Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
