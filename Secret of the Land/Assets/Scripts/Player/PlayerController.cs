@@ -12,6 +12,14 @@ public class PlayerController : MonoBehaviour
         set { speed = value; }
     }
 
+    [SerializeField]
+    private int health = 100;
+    public int Health
+    {
+        get { return health; }
+        set { health = value; }
+    }
+
     private float velocityX;
     public float VelocityX
     {
@@ -33,6 +41,13 @@ public class PlayerController : MonoBehaviour
         private set { direction = value; }
     }
 
+    private Vector3 latestMoveDirection;
+    public Vector3 LatestMoveDirection
+    {
+        get { return latestMoveDirection; }
+        private set { latestMoveDirection = value; }
+    }
+
     void Start()
     {
         
@@ -48,6 +63,12 @@ public class PlayerController : MonoBehaviour
     void Move()
     {
         this.direction = new Vector3(velocityX, velocityY, 0);
+
+        if (direction != Vector3.zero)
+        {
+            latestMoveDirection = direction;
+        }
+
         this.transform.position += GetCalculatedSpeed() * Time.deltaTime * direction;
     }
 
@@ -64,6 +85,19 @@ public class PlayerController : MonoBehaviour
         else
         {
             return speed;
+        }
+    }
+
+    private void ChangeHP(int amount)
+    {
+        this.health += amount;
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            ChangeHP(-10);
         }
     }
 }
