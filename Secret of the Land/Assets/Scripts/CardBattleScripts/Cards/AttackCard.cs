@@ -4,7 +4,13 @@ using UnityEngine;
 
 public class AttackCard : Card
 {
-    int energyCost = 2;
+
+    Transform spriteTransform;
+
+    private void Awake()
+    {
+        energyCost = 2;
+    }
 
     public AttackCard()
     {
