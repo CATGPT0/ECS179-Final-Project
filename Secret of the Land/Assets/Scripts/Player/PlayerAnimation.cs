@@ -34,9 +34,9 @@ public class PlayerAnimation : MonoBehaviour
         UpdateAnimator();
     }
 
-    /// <summary>
-    /// Update the animator of the object
-    /// </summary>
+    ///<summary>
+    ///Update the animator of the object
+    ///</summary>
     void UpdateAnimator()
     {
         var direction = playerController.Direction;
