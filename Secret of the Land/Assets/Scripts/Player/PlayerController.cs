@@ -51,6 +51,10 @@ public class PlayerController : MonoBehaviour
         this.transform.position += GetCalculatedSpeed() * Time.deltaTime * direction;
     }
 
+    ///<summary>
+    ///Get the calculated speed of the player
+    ///</summary>
+    ///<returns> The calculated speed of the player </returns>
     private float GetCalculatedSpeed()
     {
         if (velocityX != 0 && velocityY != 0)

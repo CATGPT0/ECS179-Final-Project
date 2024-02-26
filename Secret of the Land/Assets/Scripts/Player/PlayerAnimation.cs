@@ -31,6 +31,14 @@ public class PlayerAnimation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        UpdateAnimator();
+    }
+
+    /// <summary>
+    /// Update the animator of the object
+    /// </summary>
+    void UpdateAnimator()
+    {
         var direction = playerController.Direction;
 
         if (direction != Vector3.zero)
@@ -46,9 +54,13 @@ public class PlayerAnimation : MonoBehaviour
             UpdateBlendTree(latestMoveDirection, AnimationState.Idle);
             ChangeRoleDirection(latestMoveDirection);
         }
-
     }
 
+    ///<summary>
+    ///Update the blend tree of the animator
+    ///</summary>
+    ///<param name="direction">The direction of the object</param>
+    ///<param name="state">The state of the object</param>
     void UpdateBlendTree(Vector3 direction, AnimationState state)
     {
         var unitDirection = direction.normalized;
@@ -66,6 +78,10 @@ public class PlayerAnimation : MonoBehaviour
         }
     }
 
+    ///<summary>
+    ///Change the direction of the object (the flip of an object)
+    ///</summary>
+    ///<param name="direction">The direction vector of the object</param>
     void ChangeRoleDirection(Vector3 direction)
     {
         if (direction.x >= 0)
