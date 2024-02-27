@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,6 +11,14 @@ public class PlayerController : MonoBehaviour
     {
         get { return speed; }
         set { speed = value; }
+    }
+
+    [SerializeField]
+    private int health = 100;
+    public int Health
+    {
+        get { return health; }
+        set { health = value; }
     }
 
     private float velocityX;
@@ -33,9 +42,26 @@ public class PlayerController : MonoBehaviour
         private set { direction = value; }
     }
 
+    private Vector3 latestMoveDirection;
+    public Vector3 LatestMoveDirection
+    {
+        get { return latestMoveDirection; }
+        private set { latestMoveDirection = value; }
+    }
+
+    private BattleController battleController;
+
+    public Action<Vector3> AttackCallback;
+
+    void Awake()
+    {
+        battleController = FindObjectOfType<BattleController>();
+        AttackCallback += battleController.Attack;
+    }
+
     void Start()
     {
-        
+        battleController.transform.position = this.transform.position;
     }
 
     void Update()
@@ -48,6 +74,12 @@ public class PlayerController : MonoBehaviour
     void Move()
     {
         this.direction = new Vector3(velocityX, velocityY, 0);
+
+        if (direction != Vector3.zero)
+        {
+            latestMoveDirection = direction;
+        }
+
         this.transform.position += GetCalculatedSpeed() * Time.deltaTime * direction;
     }
 
@@ -65,5 +97,23 @@ public class PlayerController : MonoBehaviour
         {
             return speed;
         }
+    }
+
+    private void ChangeHP(int amount)
+    {
+        this.health += amount;
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            ChangeHP(-10);
+        }
+    }
+
+    public void Attack()
+    {
+        AttackCallback?.Invoke(latestMoveDirection);
     }
 }
