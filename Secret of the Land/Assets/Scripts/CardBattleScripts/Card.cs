@@ -8,15 +8,38 @@ public class Card : MonoBehaviour, ICard
 
     public GameObject sprite;
 
-    public GameObject handCard;
+    public HandCardManager handCard;
 
-    public GameObject GameManager;
+    public CardGameManager gameManager;
+
+    protected Transform spriteTransform;
+    
+    protected Vector3 originPosition;
 
     private void Awake()
     {
-        // Find the gameManager to get access of the game
-        GameManager = GameObject.Find("GameManger");
+        gameManager = GameObject.Find("GameManager").GetComponent<CardGameManager>();
+        handCard = GameObject.Find("HandCard").GetComponent<HandCardManager>();
+        spriteTransform = sprite.GetComponent<Transform>();
+        originPosition = spriteTransform.position;
     }
+
+    private void OnMouseEnter()
+    {
+        spriteTransform.position = spriteTransform.position + new Vector3(0f, 0.1f, 0f);
+    }
+
+    private void OnMouseExit()
+    {
+        spriteTransform.position = originPosition;
+    }
+
+    private void OnMouseDown()
+    {
+        Effect();
+        gameManager.UseACard(1);
+    }
+
     public virtual void Effect()
     {
         Debug.Log("Proccessing the effect of the card");

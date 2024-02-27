@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1586834896, guid: abc7fc0754c56c348b8857446bf5cc31, type: 3}
+  m_Sprite: {fileID: -1694968234, guid: abc7fc0754c56c348b8857446bf5cc31, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -93,10 +93,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4776413277681925269}
-  - component: {fileID: 2534580454860059289}
+  - component: {fileID: 7904616370660194516}
   - component: {fileID: 8802766519996786712}
   m_Layer: 0
-  m_Name: AttackCard
+  m_Name: DefendCard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -118,7 +118,7 @@ Transform:
   - {fileID: 3549917888704183484}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2534580454860059289
+--- !u!114 &7904616370660194516
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -127,12 +127,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 7137642390692191429}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 98d1cb566ce312e4892781de58b438c1, type: 3}
+  m_Script: {fileID: 11500000, guid: ecc57941fc24d6248a24fea592a7d445, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   sprite: {fileID: 547127581703841307}
   handCard: {fileID: 0}
-  GameManager: {fileID: 0}
+  gameManager: {fileID: 0}
 --- !u!61 &8802766519996786712
 BoxCollider2D:
   m_ObjectHideFlags: 0
