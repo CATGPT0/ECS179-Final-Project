@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -48,9 +49,19 @@ public class PlayerController : MonoBehaviour
         private set { latestMoveDirection = value; }
     }
 
+    private BattleController battleController;
+
+    public Action<Vector3> AttackCallback;
+
+    void Awake()
+    {
+        battleController = FindObjectOfType<BattleController>();
+        AttackCallback += battleController.Attack;
+    }
+
     void Start()
     {
-        
+        battleController.transform.position = this.transform.position;
     }
 
     void Update()
@@ -99,5 +110,10 @@ public class PlayerController : MonoBehaviour
         {
             ChangeHP(-10);
         }
+    }
+
+    public void Attack()
+    {
+        AttackCallback?.Invoke(latestMoveDirection);
     }
 }
