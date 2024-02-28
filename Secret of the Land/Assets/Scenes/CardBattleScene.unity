@@ -622,6 +622,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackCard: {fileID: 7137642390692191429, guid: 112892e654b11204db8194091085cdd7, type: 3}
+  defendCard: {fileID: 7137642390692191429, guid: 5ebc5419dc4d882488ea4b2d095881cc, type: 3}
 --- !u!1 &2011470884
 GameObject:
   m_ObjectHideFlags: 0

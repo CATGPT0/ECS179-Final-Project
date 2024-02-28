@@ -7,6 +7,8 @@ public class HandCardManager : MonoBehaviour
 
     public GameObject attackCard;
 
+    public GameObject defendCard;
+
     private List<GameObject> cards = new List<GameObject>();
 
     // Will take the list of hand card and update the cards
@@ -40,6 +42,8 @@ public class HandCardManager : MonoBehaviour
         {
             case 1:
                 return attackCard;
+            case 2:
+                return defendCard;
             default:
                 Debug.Log("No card prefeb found with code" + code);
                 return null;
