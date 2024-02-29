@@ -7,6 +7,7 @@ public class DefendCard : Card
     private void Start()
     {
         energyCost = 1;
+        cardCode = 2;
     }
 
     public override void Effect()

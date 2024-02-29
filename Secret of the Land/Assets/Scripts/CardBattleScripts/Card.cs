@@ -16,6 +16,8 @@ public class Card : MonoBehaviour, ICard
     
     protected Vector3 originPosition;
 
+    protected int cardCode;
+
     private void Awake()
     {
         gameManager = GameObject.Find("GameManager").GetComponent<CardGameManager>();
@@ -37,7 +39,8 @@ public class Card : MonoBehaviour, ICard
     private void OnMouseDown()
     {
         Effect();
-        gameManager.UseACard(1);
+        gameManager.UseACard(cardCode);
+        Destroy(this.gameObject);
     }
 
     public virtual void Effect()

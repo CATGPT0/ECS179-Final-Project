@@ -93,18 +93,17 @@ public class CardGameManager : MonoBehaviour
         {
             case 1:
                 return new AttackCard();
-            default:
-                Debug.Log("Card Code is not found");
-                return null;
         }
-        
+        Debug.Log("Card Code is not found in CodeToCard");
+        return null;
+
     }
 
     // This will remove a card in hand cards
     public void UseACard(int code)
     {
         handCards.Remove(code);
-        UpdateHandCard();
+        // UpdateHandCard();
     }
 
     
@@ -115,7 +114,8 @@ public class CardGameManager : MonoBehaviour
         this.deck = new List<int>();
         for(int i = 0; i < 10; i++)
         {
-            this.deck.Add(1);
+            int code = Random.Range(1, 3);
+            this.deck.Add(code);
         }
     }
 

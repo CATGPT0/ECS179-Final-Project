@@ -9,6 +9,7 @@ public class AttackCard : Card
     private void Start()
     {
         energyCost = 2;
+        cardCode = 1;
     }
 
     public override void Effect()
