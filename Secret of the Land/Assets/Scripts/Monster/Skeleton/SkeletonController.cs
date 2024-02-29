@@ -1,10 +1,17 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BattleManager : MonoBehaviour
+namespace Controller
+{
+    public class SkeletonController : EntityController
 {
     // Start is called before the first frame update
+    void Awake()
+    {
+        Init();
+    }
     void Start()
     {
         
@@ -13,6 +20,7 @@ public class BattleManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        CheckDeath();
     }
+}
 }

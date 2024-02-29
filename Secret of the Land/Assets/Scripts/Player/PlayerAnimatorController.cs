@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class PlayerAnimation : MonoBehaviour
+namespace Controller
+{
+    public class PlayerAnimation : MonoBehaviour
 {
     private Animator anim;
     private PlayerController playerController;
@@ -95,4 +97,11 @@ public class PlayerAnimation : MonoBehaviour
             spriteRenderer.flipX = true;
         }
     }
+
+    void OnDestory()
+    {
+        
+    }
+}
+
 }

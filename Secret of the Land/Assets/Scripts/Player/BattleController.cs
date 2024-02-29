@@ -3,7 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BattleController : MonoBehaviour
+namespace Controller
+{
+    public class BattleController : MonoBehaviour
 {
     private GameObject rightHitBox;
     private GameObject upHitBox;
@@ -116,4 +118,5 @@ public class BattleController : MonoBehaviour
         rightHitBox.SetActive(false);
         upHitBox.SetActive(false);
     }
+}
 }

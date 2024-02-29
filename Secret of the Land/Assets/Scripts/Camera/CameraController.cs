@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-
+namespace Controller
+{
     public class PushBoxCamera : MonoBehaviour
     {
         [SerializeField] public Vector2 topLeft;
@@ -46,3 +46,4 @@ using UnityEngine;
         }
     }
 
+}

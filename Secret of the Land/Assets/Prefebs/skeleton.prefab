@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7036940227597135491}
   - component: {fileID: 5860155115023453056}
   - component: {fileID: 8646871995654227278}
+  - component: {fileID: 1662205802175076702}
   m_Layer: 0
   m_Name: skeleton
   m_TagString: Enemy
@@ -158,3 +159,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
+--- !u!114 &1662205802175076702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4779254386224307938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c5f593f017edf0479e0d580d2a16d9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 20
+  attackPower: 0
+  armor: 5
+  magicResist: 0

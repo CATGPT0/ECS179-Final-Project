@@ -1,11 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
+using Engine;
 using UnityEngine;
 
-public class HitBoxController : MonoBehaviour
+namespace Controller
+{
+    public class HitBoxController : MonoBehaviour
 {
     [SerializeField] private string otherTag;
-    // Start is called before the first frame update
+    
+    private PlayerController playerController;
+
+    void Awake()
+    {
+        playerController = GetComponentInParent<PlayerController>();
+    }
 
     void Start()
     {
@@ -15,7 +24,7 @@ public class HitBoxController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        print(this.transform.position);
+
     }
     
     void OnEnable()
@@ -27,7 +36,11 @@ public class HitBoxController : MonoBehaviour
     {
         if (other.gameObject.CompareTag(otherTag))
         {
-            Destroy(other.gameObject);
+            BattleEngine.DealDamage(playerController, 
+                                         other.gameObject.GetComponent<EntityController>(),
+                                         AttackType.Physical);
         }
     }
+}
+
 }

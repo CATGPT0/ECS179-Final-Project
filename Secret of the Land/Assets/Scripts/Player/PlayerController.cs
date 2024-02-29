@@ -2,8 +2,11 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Manager;
 
-public class PlayerController : MonoBehaviour
+namespace Controller
+{
+    public class PlayerController : EntityController
 {
     [SerializeField]
     private float speed = 5.0f;
@@ -12,15 +15,6 @@ public class PlayerController : MonoBehaviour
         get { return speed; }
         set { speed = value; }
     }
-
-    [SerializeField]
-    private int health = 100;
-    public int Health
-    {
-        get { return health; }
-        set { health = value; }
-    }
-
     private float velocityX;
     public float VelocityX
     {
@@ -55,8 +49,10 @@ public class PlayerController : MonoBehaviour
 
     void Awake()
     {
-        battleController = FindObjectOfType<BattleController>();
+        //This should be modifed later because we may have multiple battle controllers
+        battleController = FindObjectOfType<BattleController>(); 
         AttackCallback += battleController.Attack;
+        Init();
     }
 
     void Start()
@@ -69,6 +65,7 @@ public class PlayerController : MonoBehaviour
         velocityX = Input.GetAxisRaw("Horizontal");
         velocityY = Input.GetAxisRaw("Vertical");
         Move();
+        CheckDeath();
     }
 
     void Move()
@@ -99,21 +96,10 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void ChangeHP(int amount)
-    {
-        this.health += amount;
-    }
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.gameObject.CompareTag("Enemy"))
-        {
-            ChangeHP(-10);
-        }
-    }
-
     public void Attack()
     {
         AttackCallback?.Invoke(latestMoveDirection);
     }
+
+}
 }
