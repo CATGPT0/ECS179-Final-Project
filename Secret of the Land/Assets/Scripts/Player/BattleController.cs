@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,16 +8,16 @@ public class BattleController : MonoBehaviour
     private GameObject rightHitBox;
     private GameObject upHitBox;
     [SerializeField]
-    private float right;
+    private Vector2 right;
     [SerializeField]
-    private float up;
+    private Vector2 up;
     private bool isAttack;
     public bool IsAttack
     {
         get { return isAttack; }
         private set { isAttack = value; }
     }
-
+    //public Action<GameObject, GameObject> attackCallback;
     public enum BattleState
     {
         LeftAttack,
@@ -33,9 +34,9 @@ public class BattleController : MonoBehaviour
     }
     void Start()
     {
-        upHitBox.transform.localPosition = new Vector3(0, up, 0);
+        upHitBox.transform.localPosition = new Vector3(up.x, up.y, 0);
         upHitBox.SetActive(false);
-        rightHitBox.transform.localPosition = new Vector3(right, 0, 0);
+        rightHitBox.transform.localPosition = new Vector3(right.x, right.y, 0);
         rightHitBox.SetActive(false);
     }
 
@@ -89,29 +90,28 @@ public class BattleController : MonoBehaviour
 
         if (state == BattleState.LeftAttack)
         {
-            rightHitBox.transform.localPosition = new Vector3(-right, 0, 0);
+            rightHitBox.transform.localPosition = new Vector3(-right.x, right.y, 0);
             rightHitBox.SetActive(true);
             Debug.Log("Left");
         }
         else if (state == BattleState.RightAttack)
         {
-            rightHitBox.transform.localPosition = new Vector3(right, 0, 0);
+            rightHitBox.transform.localPosition = new Vector3(right.x, right.y, 0);
             rightHitBox.SetActive(true);
             Debug.Log("Right");
         }
         else if (state == BattleState.UpAttack)
         {
-            upHitBox.transform.localPosition = new Vector3(0, up, 0);
+            upHitBox.transform.localPosition = new Vector3(up.x, up.y, 0);
             upHitBox.SetActive(true);
             Debug.Log("Up");
         }
         else
         {
-            upHitBox.transform.localPosition = new Vector3(0, -up, 0);
+            upHitBox.transform.localPosition = new Vector3(up.x, -up.y, 0);
             upHitBox.SetActive(true);
             Debug.Log("Down");
         }
-        print(this.transform.position);
         yield return new WaitForSeconds(0.1f);
         rightHitBox.SetActive(false);
         upHitBox.SetActive(false);
