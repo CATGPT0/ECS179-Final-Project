@@ -10,7 +10,6 @@ namespace Manager
     public Dictionary<GameObject, List<Action>> deathEvent = new Dictionary<GameObject, List<Action>>();
     public void DestroyObject(GameObject obj)
     {
-        //deathEvent[obj].Invoke();
         Destroy(obj);
     }
 }
