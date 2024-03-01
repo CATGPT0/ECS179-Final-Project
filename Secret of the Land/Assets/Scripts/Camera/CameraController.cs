@@ -45,5 +45,4 @@ namespace Controller
             this.transform.position = cameraPosition;
         }
     }
-
 }

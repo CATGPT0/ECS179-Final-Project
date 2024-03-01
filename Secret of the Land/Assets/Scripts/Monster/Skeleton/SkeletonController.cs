@@ -2,37 +2,32 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Manager;
+using Engine;
 
 namespace Controller
 {
     public class SkeletonController : EntityController
-{
-    // Start is called before the first frame update
-    void Awake()
     {
-        Init();
-    }
-    void Start()
-    {
-        
-    }
+        void Awake()
+        {
+            Init();
+            eventManager.deathEvent[this.gameObject].Add(SceneEngine.LoadGameOverScene);
+        }
+        void Start()
+        {
+            
+        }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+        // Update is called once per frame
+        void Update()
+        {
+            
+        }
 
-    public void DeactivateSelf()
-    {
-        this.enabled = false;
+        void Test()
+        {
+            Debug.Log("Skeleton is dead");
+        }
     }
-
-    public void DestroySelf()
-    {
-        Debug.Log("Destroying Skeleton");
-        eventManager.deathEvent[this.gameObject].ForEach(action => action());
-        Destroy(gameObject);
-    }
-}
 }
