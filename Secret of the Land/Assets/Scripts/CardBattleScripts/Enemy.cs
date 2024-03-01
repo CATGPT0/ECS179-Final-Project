@@ -4,7 +4,24 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    int HP = 10;
+    public int HP = 10;
     int maxAttackDamage = 5; // Inclusive
     int minAttackDamage = 3; // Inclusive
+
+    public void takenDamage(int damage)
+    {
+        HP -= damage;
+
+        if(HP <= 0)
+        {
+            Die();
+        }
+    }
+
+    public void Die()
+    {
+        Destroy(this.gameObject);
+    }
+
+    
 }

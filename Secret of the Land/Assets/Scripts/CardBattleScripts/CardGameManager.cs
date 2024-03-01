@@ -6,7 +6,7 @@ using UnityEngine;
 public class CardGameManager : MonoBehaviour
 {
     // The pile that you will draw card from
-    List<int> drawPile { get; set; }
+    public List<int> drawPile;
 
     // The pile that you will discard to
     List<int> discardPile { get; set; }
@@ -41,16 +41,26 @@ public class CardGameManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            Debug.Log("startDrawing");
-            DrawACard();
-            UpdateHandCard();
+            StartPlayerRound();
         }
     }
 
     // This will be used to start player round
     private void StartPlayerRound()
     {
-        DrawACard();
+        if(this.drawPile.Count > 0)
+        {
+            DrawACard();
+        }
+        else
+        {
+            Debug.Log("Trying to transfer cards from discard pile to draw pile");
+            drawPile = new List<int>(discardPile);
+            discardPile.Clear();
+            DrawACard();
+        }
+        UpdateHandCard();
+
     }
 
     private void UpdateHandCard()
@@ -64,21 +74,21 @@ public class CardGameManager : MonoBehaviour
         // If the number of cards is not maximum
         if(handCards.Count < maxHandCards)
         {
-            if(deck.Count > 0)
+
+            if(drawPile.Count > 0)
             {
                 // Get a card
-                int nextCard = deck[Random.Range(0, deck.Count)];
+                int nextCard = drawPile[Random.Range(0, drawPile.Count)];
 
                 // Put it into your hand cards
                 handCards.Add(nextCard);
 
-                deck.Remove(nextCard);
+                drawPile.Remove(nextCard);
             }
             else
             {
                 Debug.Log("No card in deck");
             }
-
 
         }
         else
@@ -99,23 +109,22 @@ public class CardGameManager : MonoBehaviour
 
     }
 
-    // This will remove a card in hand cards
+    // This will remove a card in hand cards and throw it into discardPile
     public void UseACard(int code)
     {
         handCards.Remove(code);
+        discardPile.Add(code);
         // UpdateHandCard();
     }
-
-    
 
     // For debugging, this will let the drawPile become a stack of attack cards
     private void OnlyGetAttackCard()
     {
-        this.deck = new List<int>();
+        this.drawPile = new List<int>();
         for(int i = 0; i < 10; i++)
         {
             int code = Random.Range(1, 3);
-            this.deck.Add(code);
+            this.drawPile.Add(code);
         }
     }
 
