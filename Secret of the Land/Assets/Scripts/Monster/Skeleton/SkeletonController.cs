@@ -20,7 +20,19 @@ namespace Controller
     // Update is called once per frame
     void Update()
     {
-        CheckDeath();
+        
+    }
+
+    public void DeactivateSelf()
+    {
+        this.enabled = false;
+    }
+
+    public void DestroySelf()
+    {
+        Debug.Log("Destroying Skeleton");
+        eventManager.deathEvent[this.gameObject].ForEach(action => action());
+        Destroy(gameObject);
     }
 }
 }

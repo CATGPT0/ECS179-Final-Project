@@ -7,10 +7,10 @@ namespace Manager
 {
     public class EventManager : MonoBehaviour
 {
-    private Dictionary<GameObject, Action> deathEvent = new Dictionary<GameObject, Action>();
+    public Dictionary<GameObject, List<Action>> deathEvent = new Dictionary<GameObject, List<Action>>();
     public void DestroyObject(GameObject obj)
     {
-        deathEvent[obj].Invoke();
+        //deathEvent[obj].Invoke();
         Destroy(obj);
     }
 }

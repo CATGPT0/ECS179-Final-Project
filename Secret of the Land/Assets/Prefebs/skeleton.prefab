@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 5860155115023453056}
   - component: {fileID: 8646871995654227278}
   - component: {fileID: 1662205802175076702}
+  - component: {fileID: 2865895437554976807}
+  - component: {fileID: 2797059359325159281}
   m_Layer: 0
   m_Name: skeleton
   m_TagString: Enemy
@@ -175,3 +177,36 @@ MonoBehaviour:
   attackPower: 0
   armor: 5
   magicResist: 0
+--- !u!95 &2865895437554976807
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4779254386224307938}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b1649620fac62df428cee9ac32cf0c26, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2797059359325159281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4779254386224307938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7aa5bc12481dcba4580ae8790bf07800, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

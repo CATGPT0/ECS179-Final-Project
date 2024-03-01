@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Manager;
+using System;
 
 namespace Controller
 {
@@ -41,6 +42,7 @@ namespace Controller
     protected void Init()
     {
         eventManager = FindObjectOfType<EventManager>();
+        eventManager.deathEvent.Add(this.gameObject, new List<Action>());
     }
     void Awake()
     {
@@ -56,18 +58,6 @@ namespace Controller
     void Update()
     {
         
-    }
-
-    protected void CheckDeath()
-    {
-        if (eventManager == null)
-        {
-            Debug.Log("Event Manager is null");
-        }
-        if (Health <= 0)
-        {
-            eventManager.DestroyObject(this.gameObject);
-        }
     }
 }
 }

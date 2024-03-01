@@ -98,10 +98,6 @@ namespace Controller
         }
     }
 
-    void OnDestory()
-    {
-        
-    }
 }
 
 }

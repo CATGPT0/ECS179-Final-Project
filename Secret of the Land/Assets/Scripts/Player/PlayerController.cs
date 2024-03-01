@@ -65,7 +65,6 @@ namespace Controller
         velocityX = Input.GetAxisRaw("Horizontal");
         velocityY = Input.GetAxisRaw("Vertical");
         Move();
-        CheckDeath();
     }
 
     void Move()
