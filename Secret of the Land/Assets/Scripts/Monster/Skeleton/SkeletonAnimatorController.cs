@@ -21,7 +21,7 @@ public class SkeletonAnimatorController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        anim.SetInteger("health", skeletonController.Health);
+        anim.SetInteger("health", skeletonController.Health.Get());
     }
 
     void OnDestory()

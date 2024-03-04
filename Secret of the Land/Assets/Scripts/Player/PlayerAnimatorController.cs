@@ -57,10 +57,6 @@ namespace Controller
             }
 
             anim.SetBool("isAttack", battleController.IsAttack);
-            if (battleController.IsAttack)
-            {
-                Debug.Log("Attack");
-            }
         }
 
         ///<summary>

@@ -7,7 +7,7 @@ using Engine;
 
 namespace Controller
 {
-    public class PlayerController : EntityController
+    public class PlayerController : Entity
     {
         [SerializeField]
         private float speed = 5.0f;
@@ -53,7 +53,6 @@ namespace Controller
             Init();
             battleController = FindObjectOfType<BattleController>(); 
             AttackCallback += battleController.Attack;
-            eventManager.deathEvent[this.gameObject].Add(SceneEngine.LoadGameOverScene);
         }
 
         void Start()
@@ -103,8 +102,6 @@ namespace Controller
 
         public override void DestroySelf()
         {
-            eventManager.deathEvent[this.gameObject].ForEach(action => action());
-            eventManager.deathEvent.Remove(this.gameObject);
             Destroy(gameObject);
         }
     }

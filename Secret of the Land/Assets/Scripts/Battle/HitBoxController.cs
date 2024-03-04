@@ -29,7 +29,6 @@ namespace Controller
         
         void OnEnable()
         {
-            print(otherTag);
         }
 
         void OnTriggerEnter2D(Collider2D other)
@@ -37,7 +36,7 @@ namespace Controller
             if (other.gameObject.CompareTag(otherTag))
             {
                 BattleEngine.DealDamage(playerController, 
-                                        other.gameObject.GetComponent<EntityController>(),
+                                        other.gameObject.GetComponent<Entity>(),
                                         AttackType.Physical);
             }
         }
