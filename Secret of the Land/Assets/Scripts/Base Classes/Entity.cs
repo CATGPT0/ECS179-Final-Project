@@ -6,9 +6,6 @@ using System;
 
 public class Entity : MonoBehaviour
 {
-
-    [SerializeField] 
-    private GameEvent deathEvent;
     
     protected HealthComponent health;
     public HealthComponent Health
@@ -36,40 +33,25 @@ public class Entity : MonoBehaviour
         set { magicResist = value; }
     }
 
-    protected void Init()
+    protected SpeedComponent speed;
+    public SpeedComponent Speed
+    {
+        get { return speed; }
+        set { speed = value; }
+    }
+
+    protected virtual void Init()
     {
         health = GetComponentInChildren<HealthComponent>();
         attackPower = GetComponentInChildren<AttackPowerComponent>();
         armor = GetComponentInChildren<ArmorComponent>();
         magicResist = GetComponentInChildren<MagicResistComponent>();
-    }
-
-    public void DeactivateSelf()
-    {
-        this.enabled = false;
-    }
-
-    public virtual void DestroySelf()
-    {
-        Destroy(gameObject);
+        speed = GetComponentInChildren<SpeedComponent>();
     }
 
     void Awake()
     {
         Init();
-    }
-    void Start()
-    {
-        
-    }
-    void Update()
-    {
-        
-    }
-
-    void OnDestroy()
-    {
-        deathEvent?.TriggerEvent();
     }
 }
 

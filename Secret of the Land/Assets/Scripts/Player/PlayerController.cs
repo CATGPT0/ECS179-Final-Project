@@ -7,15 +7,9 @@ using Engine;
 
 namespace Controller
 {
-    public class PlayerController : Entity
+    public class PlayerController : MonoBehaviour
     {
-        [SerializeField]
-        private float speed = 5.0f;
-        public float Speed
-        {
-            get { return speed; }
-            set { speed = value; }
-        }
+        private Player player;
         private float velocityX;
         public float VelocityX
         {
@@ -46,13 +40,10 @@ namespace Controller
 
         private BattleController battleController;
 
-        public Action<Vector3> AttackCallback;
-
         void Awake()
         {
-            Init();
+            player = GetComponentInChildren<Player>();
             battleController = FindObjectOfType<BattleController>(); 
-            AttackCallback += battleController.Attack;
         }
 
         void Start()
@@ -87,22 +78,16 @@ namespace Controller
         {
             if (velocityX != 0 && velocityY != 0)
             {
-                return speed / Mathf.Sqrt(2);
+                return player.Speed.Get() / Mathf.Sqrt(2);
             }
             else
             {
-                return speed;
+                return player.Speed.Get();
             }
         }
-
         public void Attack()
         {
-            AttackCallback?.Invoke(latestMoveDirection);
-        }
-
-        public override void DestroySelf()
-        {
-            Destroy(gameObject);
+            battleController.Attack();
         }
     }
 }

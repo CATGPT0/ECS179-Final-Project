@@ -6,22 +6,20 @@ using UnityEngine;
 public class SkeletonAnimatorController : MonoBehaviour
 {
     private Animator anim;
-    private SkeletonController skeletonController;
+    private Skeleton skeleton;
     void Awake()
     {
-        anim = GetComponent<Animator>();
-        skeletonController = GetComponent<SkeletonController>();
+        anim = GetComponentInParent<Animator>();
+        skeleton = FindFirstObjectByType<Skeleton>();
     }
 
     void Start()
     {
         
     }
-
-    // Update is called once per frame
     void Update()
     {
-        anim.SetInteger("health", skeletonController.Health.Get());
+        anim.SetInteger("health", skeleton.Health.Get());
     }
 
     void OnDestory()

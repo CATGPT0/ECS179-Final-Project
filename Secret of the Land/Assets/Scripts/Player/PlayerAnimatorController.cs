@@ -20,10 +20,10 @@ namespace Controller
 
         void Awake()
         {
-            anim = GetComponent<Animator>();
-            playerController = GetComponent<PlayerController>();
-            spriteRenderer = GetComponent<SpriteRenderer>();
-            battleController = FindObjectOfType<BattleController>();
+            anim = GetComponentInParent<Animator>();
+            playerController = GetComponentInParent<PlayerController>();
+            spriteRenderer = GetComponentInParent<SpriteRenderer>();
+            battleController = FindFirstObjectByType<BattleController>();
         }
 
         void Start()

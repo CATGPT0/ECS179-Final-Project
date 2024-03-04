@@ -2,12 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : Entity
+public class SkeletonEvent : EntityEvent
 {
-    void Awake()
-    {
-        Init();
-    }
+    // Start is called before the first frame update
     void Start()
     {
         
@@ -17,5 +14,9 @@ public class Player : Entity
     void Update()
     {
         
+    }
+    protected void OnDestroy()
+    {
+        base.OnDestroy();
     }
 }

@@ -1687,6 +1687,17 @@ Transform:
   - {fileID: 534257334}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &887366126 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4696569346210012590, guid: d53d9c91d0c5c614e800cf9b4eaa4e97, type: 3}
+  m_PrefabInstance: {fileID: 4772906920815280578}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72085bef68e4fea48b02f993cd64c8a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1120534705
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1742,6 +1753,22 @@ PrefabInstance:
     - target: {fileID: 7651366327615060983, guid: 3e37dd36dc4991e499d23d37ea566193, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9133822966990254126, guid: 3e37dd36dc4991e499d23d37ea566193, type: 3}
+      propertyPath: onEventTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9133822966990254126, guid: 3e37dd36dc4991e499d23d37ea566193, type: 3}
+      propertyPath: onEventTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 887366126}
+    - target: {fileID: 9133822966990254126, guid: 3e37dd36dc4991e499d23d37ea566193, type: 3}
+      propertyPath: onEventTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: GetXP
+      objectReference: {fileID: 0}
+    - target: {fileID: 9133822966990254126, guid: 3e37dd36dc4991e499d23d37ea566193, type: 3}
+      propertyPath: onEventTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: LevelManager, Assembly-CSharp
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1852,7 +1879,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4779254386224307938, guid: f2f1f820c8cb3724ab4f1ec78d6b1e63, type: 3}
       propertyPath: m_Name
-      value: skeleton
+      value: Skeleton
       objectReference: {fileID: 0}
     - target: {fileID: 4819731080560503140, guid: f2f1f820c8cb3724ab4f1ec78d6b1e63, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1909,7 +1936,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 758100282786713308, guid: d53d9c91d0c5c614e800cf9b4eaa4e97, type: 3}
       propertyPath: m_Name
-      value: player
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 8040247579197784690, guid: d53d9c91d0c5c614e800cf9b4eaa4e97, type: 3}
       propertyPath: m_LocalPosition.x

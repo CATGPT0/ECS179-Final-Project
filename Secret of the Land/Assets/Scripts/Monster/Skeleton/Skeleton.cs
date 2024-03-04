@@ -6,7 +6,7 @@ using Manager;
 using Engine;
 using UnityEngine.Events;
 
-public class SkeletonController : Entity
+public class Skeleton : Entity
 {
 
     void Awake()
@@ -23,11 +23,4 @@ public class SkeletonController : Entity
     {
         
     }
-
-    public void Test()
-    {
-        Debug.Log("Skeleton is dead");
-    }
-
-    
 }

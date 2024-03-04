@@ -9,6 +9,7 @@ namespace Controller
     {
         private GameObject rightHitBox;
         private GameObject upHitBox;
+        private PlayerController playerController;
         [SerializeField]
         private Vector2 right;
         [SerializeField]
@@ -30,6 +31,7 @@ namespace Controller
 
         void Awake()
         {
+            playerController = GetComponentInParent<PlayerController>();
             rightHitBox = transform.Find("RightHitBox").gameObject;
             upHitBox = transform.Find("UpHitBox").gameObject;
             isAttack = false;
@@ -60,9 +62,9 @@ namespace Controller
             }
         }
 
-        public void Attack(Vector3 lastMoveDirection)
+        public void Attack()
         {
-            var attackDirection = lastMoveDirection.normalized;
+            var attackDirection = playerController.LatestMoveDirection.normalized;
             BattleState state;
 
             if (attackDirection.x < 0)
