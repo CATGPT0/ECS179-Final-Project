@@ -8,7 +8,7 @@ using UnityEngine.Events;
 
 public class Skeleton : Entity
 {
-
+    public EntityType.MonsterType entityType = EntityType.MonsterType.Skeleton;
     void Awake()
     {
         Init();

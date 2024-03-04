@@ -459,6 +459,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deathEvent: {fileID: 11400000, guid: 565d0b1a23201f441b35b10224887513, type: 2}
+  levelUpEvent: {fileID: 0}
 --- !u!1 &7191094433765666338
 GameObject:
   m_ObjectHideFlags: 0
@@ -668,8 +669,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72085bef68e4fea48b02f993cd64c8a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xpComponent: {fileID: 0}
-  levelComponent: {fileID: 0}
+  xp: {fileID: 0}
+  level: {fileID: 0}
+  healthPerLevel: 10
+  attackPowerPerLevel: 1
+  armorPerLevel: 2
+  magicResistPerLevel: 2
 --- !u!1001 &166509352697021533
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -850,6 +855,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Armor
       objectReference: {fileID: 0}
+    - target: {fileID: 8891258620577895779, guid: 77e3c22ef372193439d03d2b1e61f229, type: 3}
+      propertyPath: armor
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -868,6 +877,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6381341975393399324}
     m_Modifications:
+    - target: {fileID: 4880445046157844032, guid: d67bd2f728a6cf84faa93b738ada7a12, type: 3}
+      propertyPath: magicResist
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 6612172993857242079, guid: d67bd2f728a6cf84faa93b738ada7a12, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1039,6 +1052,10 @@ PrefabInstance:
     - target: {fileID: 6894909378150152394, guid: 15088d5f9eef63042a2292fb3f2ae6eb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7711721290443060761, guid: 15088d5f9eef63042a2292fb3f2ae6eb, type: 3}
+      propertyPath: speed
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

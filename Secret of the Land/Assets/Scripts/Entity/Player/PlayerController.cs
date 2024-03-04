@@ -10,6 +10,35 @@ namespace Controller
     public class PlayerController : MonoBehaviour
     {
         private Player player;
+        public Player Player
+        {
+            get { return player; }
+            set { player = value; }
+        }
+        private BattleController battleController;
+        public BattleController BattleController
+        {
+            get { return battleController; }
+            set { battleController = value; }
+        }
+        private LevelManager levelManager;
+        public LevelManager LevelManager
+        {
+            get { return levelManager; }
+            set { levelManager = value; }
+        }
+        private PlayerAnimation playerAnimation;
+        public PlayerAnimation PlayerAnimation
+        {
+            get { return playerAnimation; }
+            set { playerAnimation = value; }
+        }
+        private PlayerEvent playerEvent;
+        public PlayerEvent PlayerEvent
+        {
+            get { return playerEvent; }
+            set { playerEvent = value; }
+        }
         private float velocityX;
         public float VelocityX
         {
@@ -38,12 +67,13 @@ namespace Controller
             private set { latestMoveDirection = value; }
         }
 
-        private BattleController battleController;
-
         void Awake()
         {
             player = GetComponentInChildren<Player>();
-            battleController = FindObjectOfType<BattleController>(); 
+            battleController = GetComponentInChildren<BattleController>(); 
+            levelManager = GetComponentInChildren<LevelManager>();
+            playerAnimation = GetComponentInChildren<PlayerAnimation>();
+            playerEvent = GetComponentInChildren<PlayerEvent>();
         }
 
         void Start()

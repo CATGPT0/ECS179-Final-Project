@@ -5,7 +5,14 @@ using UnityEngine;
 
 public class PlayerEvent : EntityEvent
 {
-    // Start is called before the first frame update
+    [SerializeField]
+    protected GameEvent levelUpEvent;
+    public GameEvent LevelUpEvent
+    {
+        get { return levelUpEvent; }
+        set { levelUpEvent = value; }
+    }
+    [SerializeField]
     void Start()
     {
         
