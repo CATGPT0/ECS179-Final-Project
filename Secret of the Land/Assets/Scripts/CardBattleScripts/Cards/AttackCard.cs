@@ -2,19 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using CardBattle;
 
-public class AttackCard : Card
+namespace CardBattle
 {
-
-    private void Start()
+    public class AttackCard : Card
     {
-        energyCost = 2;
-        cardCode = 1;
-    }
 
-    public override void Effect()
-    {
-        Debug.Log("Processing the AttackCard effect");
-    }
+        private void Start()
+        {
+            energyCost = 2;
+            cardCode = 1;
+        }
 
+        public override void Effect()
+        {
+            enemy.takenDamage(2);
+        }
+
+    }
 }
