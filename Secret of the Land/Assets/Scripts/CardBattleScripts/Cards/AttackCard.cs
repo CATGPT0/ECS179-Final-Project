@@ -18,6 +18,7 @@ namespace CardBattle
         public override void Effect()
         {
             enemy.takenDamage(2);
+            Debug.Log("Processing Attack Effect");
         }
 
     }

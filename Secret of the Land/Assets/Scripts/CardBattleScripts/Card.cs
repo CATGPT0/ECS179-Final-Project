@@ -16,6 +16,8 @@ namespace CardBattle
 
         public CardGameManager gameManager;
 
+        public CardBattleManager cardBattleManager;
+
         protected Transform spriteTransform;
 
         protected Vector3 originPosition;
@@ -24,11 +26,14 @@ namespace CardBattle
 
         protected Enemy enemy;
 
+
+
         private void Awake()
         {
             gameManager = GameObject.Find("GameManager").GetComponent<CardGameManager>();
             handCard = GameObject.Find("HandCard").GetComponent<HandCardManager>();
             enemy = GameObject.Find("Enemy").GetComponent<Enemy>();
+            cardBattleManager = GameObject.Find("CardBattleManager").GetComponent<CardBattleManager>();
             spriteTransform = sprite.GetComponent<Transform>();
             originPosition = spriteTransform.position;
         }
@@ -45,7 +50,7 @@ namespace CardBattle
 
         private void OnMouseDown()
         {
-            Effect();
+            ProcessEffect();
             gameManager.UseACard(cardCode);
             Destroy(this.gameObject);
         }
@@ -53,6 +58,12 @@ namespace CardBattle
         public virtual void Effect()
         {
             Debug.Log("Proccessing the effect of the card");
+        }
+
+        public void ProcessEffect()
+        {
+            this.cardBattleManager.EffectDelegate = Effect;
+            this.cardBattleManager.ProcessCardEffect();
         }
 
 

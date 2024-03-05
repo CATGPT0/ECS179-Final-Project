@@ -23,11 +23,19 @@ namespace CardBattle
         public List<int> deck = new List<int>();
 
         // Hand card game object
-        public GameObject handCard;
+        public GameObject handCardGameObject;
+        public HandCardManager handCardManager;
 
         // Record the stage of the game
         public GameStage gameStage;
         private bool finishedTheStage;
+
+        // Game Battle manager
+        public GameObject cardBattleManagerGameObject;
+        private CardBattleManager cardBattleManager;
+
+        // If the "End Your Turn buttom was pressed
+        private bool OnClickEndYourTurn;
 
 
 
@@ -46,6 +54,11 @@ namespace CardBattle
             gameStage = GameStage.beforePlayerRound;
             finishedTheStage = false;
             OnlyGetAttackCard();
+
+            OnClickEndYourTurn = false;
+
+            handCardManager = handCardGameObject.GetComponent<HandCardManager>();
+            cardBattleManager = cardBattleManagerGameObject.GetComponent<CardBattleManager>();
         }
 
         // Check the stage of our game and manage them
@@ -117,9 +130,18 @@ namespace CardBattle
 
         }
 
+        // This is for player round
+        // Following actions will happen:
+        // 1. If the "End Your Turn Was Pressed", move the next stage
         private void PlayerRoundUpdate()
         {
-
+            // 1. If the "End Your Turn Was Pressed", move the next stage
+            if (OnClickEndYourTurn)
+            {
+                finishedTheStage = true;
+                OnClickEndYourTurn = false;
+            }
+            
         }
 
         private void AfterPlayerRoundUpdate()
@@ -149,7 +171,7 @@ namespace CardBattle
 
             if(this.gameStage == GameStage.playerRound)
             {
-                finishedTheStage = true;
+                OnClickEndYourTurn = true;
             }
             
         }
@@ -157,7 +179,7 @@ namespace CardBattle
 
         private void UpdateHandCard()
         {
-            handCard.GetComponent<HandCardManager>().UpdateHandCard(this.handCards);
+            handCardManager.UpdateHandCard(this.handCards);
         }
 
         // DrawACard will randomly choose a card from drawPile and put it into your hand cards
@@ -201,12 +223,18 @@ namespace CardBattle
 
         }
 
-        // This will remove a card in hand cards and throw it into discardPile
+        /// <summary>
+        /// This will remove a card in hand cards and throw it into discardPile.
+        /// </summary>
+        /// <param name="code">
+        /// The code of the card that will be used
+        /// </param>
         public void UseACard(int code)
         {
+            cardBattleManager.ProcessCardEffect();
             handCards.Remove(code);
             discardPile.Add(code);
-            // UpdateHandCard();
+
         }
 
         // For debugging, this will let the drawPile become a stack of attack cards
