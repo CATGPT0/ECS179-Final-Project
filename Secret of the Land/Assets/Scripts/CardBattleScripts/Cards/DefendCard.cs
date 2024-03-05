@@ -1,17 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class DefendCard : Card
+using CardBattle;
+namespace CardBattle
 {
-    private void Start()
+    public class DefendCard : Card
     {
-        energyCost = 1;
-        cardCode = 2;
-    }
+        private void Start()
+        {
+            energyCost = 1;
+            cardCode = 2;
+        }
 
-    public override void Effect()
-    {
-        Debug.Log("Processing DefendCard effect");
+        public override void Effect()
+        {
+            Debug.Log("Processing DefendCard effect");
+        }
     }
 }

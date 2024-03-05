@@ -1,26 +1,31 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using CardBattle;
 
-public class Enemy : MonoBehaviour
+namespace CardBattle
 {
-    public int HP = 10;
-    int maxAttackDamage = 5; // Inclusive
-    int minAttackDamage = 3; // Inclusive
 
-    public void takenDamage(int damage)
+    public class Enemy : MonoBehaviour
     {
-        HP -= damage;
+        public int HP = 10;
+        int maxAttackDamage = 5; // Inclusive
+        int minAttackDamage = 3; // Inclusive
 
-        if(HP <= 0)
+        public void takenDamage(int damage)
         {
-            Die();
+            HP -= damage;
+
+            if (HP <= 0)
+            {
+                Die();
+            }
         }
-    }
 
-    public void Die()
-    {
-        Destroy(this.gameObject);
-    }
+        public void Die()
+        {
+            Destroy(this.gameObject);
+        }
 
+    }
 }
