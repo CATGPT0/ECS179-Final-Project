@@ -48,3 +48,6 @@ TagManager:
   - name: Living Entity
     uniqueID: 3249926037
     locked: 0
+  - name: Text
+    uniqueID: 388379875
+    locked: 0
