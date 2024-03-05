@@ -4,14 +4,14 @@ using UnityEngine;
 
 public static class BootyEngine
 {
-    private static Dictionary<EntityType.MonsterType, int> monsterXp = new Dictionary<EntityType.MonsterType, int>()
+    private static Dictionary<EntityType.Type, int> monsterXp = new Dictionary<EntityType.Type, int>()
     {
-        { EntityType.MonsterType.Slime, 1 },
-        { EntityType.MonsterType.Goblin, 2 },
-        { EntityType.MonsterType.Orc, 3 },
-        { EntityType.MonsterType.Troll, 4 },
-        { EntityType.MonsterType.Dragon, 5 },
-        { EntityType.MonsterType.Skeleton, 30 }
+        { EntityType.Type.Slime, 1 },
+        { EntityType.Type.Goblin, 2 },
+        { EntityType.Type.Orc, 3 },
+        { EntityType.Type.Troll, 4 },
+        { EntityType.Type.Dragon, 5 },
+        { EntityType.Type.Skeleton, 30 }
     };
 
     private static Dictionary<int, float> levelDifferenceModifier = new Dictionary<int, float>()
@@ -40,7 +40,7 @@ public static class BootyEngine
         { 9, 1.8f },
         { 10, 1.9f }
     };
-    public static int CalculateXP(int monsterLevel, int playerLevel, EntityType.MonsterType monsterType)
+    public static int CalculateXP(int monsterLevel, int playerLevel, EntityType.Type monsterType)
     {
         int levelDifference = monsterLevel - playerLevel;
 

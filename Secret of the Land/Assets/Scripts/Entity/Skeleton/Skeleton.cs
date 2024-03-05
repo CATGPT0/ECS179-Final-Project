@@ -3,12 +3,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Manager;
-using Engine;
 using UnityEngine.Events;
 
 public class Skeleton : Entity
 {
-    public EntityType.MonsterType entityType = EntityType.MonsterType.Skeleton;
+    protected override void Init()
+    {
+        base.Init();
+        entityType = EntityType.Type.Skeleton;
+    }
     void Awake()
     {
         Init();
@@ -21,6 +24,7 @@ public class Skeleton : Entity
     // Update is called once per frame
     void Update()
     {
+        
         
     }
 }

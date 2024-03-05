@@ -4,13 +4,14 @@ using UnityEngine;
 
 public static class EntityType
 {
-    public enum MonsterType
+    public enum Type
     {
         Slime,
         Goblin,
         Orc,
         Troll,
         Dragon,
-        Skeleton
+        Skeleton,
+        Player
     }
 }

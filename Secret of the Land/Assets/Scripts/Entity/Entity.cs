@@ -39,6 +39,7 @@ public class Entity : MonoBehaviour
         get { return speed; }
         set { speed = value; }
     }
+    public EntityType.Type entityType;
 
     protected virtual void Init()
     {

@@ -366,6 +366,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c5be0bacd4aa3947934078942d3455d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  entityType: 0
 --- !u!1 &2755008580854587542
 GameObject:
   m_ObjectHideFlags: 0
@@ -459,7 +460,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deathEvent: {fileID: 11400000, guid: 565d0b1a23201f441b35b10224887513, type: 2}
-  levelUpEvent: {fileID: 0}
+  levelUpEvent: {fileID: 11400000, guid: 811b80439dd521745a6ed1ea260e15db, type: 2}
 --- !u!1 &7191094433765666338
 GameObject:
   m_ObjectHideFlags: 0
