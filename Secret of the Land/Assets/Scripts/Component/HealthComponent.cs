@@ -7,6 +7,8 @@ public class HealthComponent : MonoBehaviour, IProperty
     
     [SerializeField]
     private int health;
+    [SerializeField]
+    private int maxHealth;
 
     public void ReduceBy(int amount)
     {

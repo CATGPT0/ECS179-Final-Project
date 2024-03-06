@@ -1,0 +1,528 @@
+fileFormatVersion: 2
+guid: b6d1b0856ef41ba42bce891347dc4c3d
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 62a9f0aa5b59740cfbadc7e5f9823bb0, type: 3}
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+    swizzle: 50462976
+    isReadable: 0
+    streamingMipmaps: 0
+    streamingMipmapsPriority: 0
+    vTOnly: 0
+    ignoreMipmapLimit: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 2
+    spriteExtrude: 1
+    spriteMeshType: 1
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 100
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    flipbookRows: 0
+    flipbookColumns: 0
+    ignorePngGamma: 0
+    cookieMode: 0
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+    applyGammaDecoding: 0
+  previousAsepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  asepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  importFileNodeState: 1
+  platformSettingsDirtyTick: 0
+  textureAssetName: 
+  singleSpriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  animatedSpriteImportData:
+  - name: UI_Pumpkin_Frame_0
+    originalName: 
+    pivot: {x: 0.5059289, y: -0.14285715}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 253
+      height: 224
+    spriteID: 94cce0c8d7142c94da094b54ebd8ee2e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 4}
+  - name: UI_Pumpkin_Frame_1
+    originalName: 
+    pivot: {x: 0.5059289, y: -0.14285715}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 236
+      width: 253
+      height: 224
+    spriteID: 47e48362f5ff7b34cb7a431c1dbffe8c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 236}
+  - name: UI_Pumpkin_Frame_2
+    originalName: 
+    pivot: {x: 0.5059289, y: -0.14285715}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 468
+      width: 253
+      height: 224
+    spriteID: 91107c448af12c64996e221841b2def0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 468}
+  - name: UI_Pumpkin_Frame_3
+    originalName: 
+    pivot: {x: 0.5059289, y: -0.14285715}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 700
+      width: 253
+      height: 224
+    spriteID: 52c6010a08d3733409a75505bb145ea4
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 700}
+  - name: UI_Pumpkin_Frame_4
+    originalName: 
+    pivot: {x: 0.5059289, y: -0.14285715}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 932
+      width: 253
+      height: 224
+    spriteID: 49f29e261b310df4b8f76e9fa0a6474a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 932}
+  - name: UI_Pumpkin_Frame_5
+    originalName: 
+    pivot: {x: 0.5059289, y: -0.14285715}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 1164
+      width: 253
+      height: 224
+    spriteID: 20bb502be0633b246908b1e35a2a6c3a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 1164}
+  - name: UI_Pumpkin_Frame_6
+    originalName: 
+    pivot: {x: 0.5059289, y: -0.14285715}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 1396
+      width: 253
+      height: 224
+    spriteID: 50849dd4b0e0e834aac1f8138f12e53c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 1396}
+  - name: UI_Pumpkin_Frame_7
+    originalName: 
+    pivot: {x: 0.5059289, y: -0.14285715}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 1628
+      width: 253
+      height: 224
+    spriteID: a0e6984d741d8974db83915fe67ef1c6
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 1628}
+  - name: UI_Pumpkin_Frame_8
+    originalName: 
+    pivot: {x: 0.5059289, y: -0.14285715}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 265
+      y: 4
+      width: 253
+      height: 224
+    spriteID: db81807db2394b04d9fbdbda32a36e1a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 265, y: 4}
+  - name: UI_Pumpkin_Frame_9
+    originalName: 
+    pivot: {x: 0.5059289, y: -0.14285715}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 265
+      y: 236
+      width: 253
+      height: 224
+    spriteID: 7ee68bdbad332ad4b8d6845da6fd7666
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 265, y: 236}
+  - name: UI_Pumpkin_Frame_10
+    originalName: 
+    pivot: {x: 0.5059289, y: -0.14285715}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 265
+      y: 468
+      width: 253
+      height: 224
+    spriteID: 44540ef77284ba14baed86149b724981
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 265, y: 468}
+  - name: UI_Pumpkin_Frame_11
+    originalName: 
+    pivot: {x: 0.5059289, y: -0.14285715}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 265
+      y: 700
+      width: 253
+      height: 224
+    spriteID: dd674de12c4f52b4ab9545fda7c095de
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 265, y: 700}
+  - name: UI_Pumpkin_Frame_12
+    originalName: 
+    pivot: {x: 0.5059289, y: -0.14285715}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 265
+      y: 932
+      width: 253
+      height: 224
+    spriteID: 2047785a54480fc40841659ad9f7e550
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 265, y: 932}
+  - name: UI_Pumpkin_Frame_13
+    originalName: 
+    pivot: {x: 0.5059289, y: -0.14285715}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 265
+      y: 1164
+      width: 253
+      height: 224
+    spriteID: 9f1de02c7c3157d41abf00cbc4d14f8a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 265, y: 1164}
+  spriteSheetImportData: []
+  asepriteLayers:
+  - layerIndex: 0
+    guid: -1636540869
+    name: UI_Pumpkin
+    layerFlags: 0
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: UI_Pumpkin_Frame_0
+      frameIndex: 0
+      cellRect:
+        x: 32
+        y: 32
+        width: 253
+        height: 224
+      spriteId: 94cce0c8d7142c94da094b54ebd8ee2e
+    - name: UI_Pumpkin_Frame_1
+      frameIndex: 1
+      cellRect:
+        x: 32
+        y: 32
+        width: 253
+        height: 224
+      spriteId: 47e48362f5ff7b34cb7a431c1dbffe8c
+    - name: UI_Pumpkin_Frame_2
+      frameIndex: 2
+      cellRect:
+        x: 32
+        y: 32
+        width: 253
+        height: 224
+      spriteId: 91107c448af12c64996e221841b2def0
+    - name: UI_Pumpkin_Frame_3
+      frameIndex: 3
+      cellRect:
+        x: 32
+        y: 32
+        width: 253
+        height: 224
+      spriteId: 52c6010a08d3733409a75505bb145ea4
+    - name: UI_Pumpkin_Frame_4
+      frameIndex: 4
+      cellRect:
+        x: 32
+        y: 32
+        width: 253
+        height: 224
+      spriteId: 49f29e261b310df4b8f76e9fa0a6474a
+    - name: UI_Pumpkin_Frame_5
+      frameIndex: 5
+      cellRect:
+        x: 32
+        y: 32
+        width: 253
+        height: 224
+      spriteId: 20bb502be0633b246908b1e35a2a6c3a
+    - name: UI_Pumpkin_Frame_6
+      frameIndex: 6
+      cellRect:
+        x: 32
+        y: 32
+        width: 253
+        height: 224
+      spriteId: 50849dd4b0e0e834aac1f8138f12e53c
+    - name: UI_Pumpkin_Frame_7
+      frameIndex: 7
+      cellRect:
+        x: 32
+        y: 32
+        width: 253
+        height: 224
+      spriteId: a0e6984d741d8974db83915fe67ef1c6
+    - name: UI_Pumpkin_Frame_8
+      frameIndex: 8
+      cellRect:
+        x: 32
+        y: 32
+        width: 253
+        height: 224
+      spriteId: db81807db2394b04d9fbdbda32a36e1a
+    - name: UI_Pumpkin_Frame_9
+      frameIndex: 9
+      cellRect:
+        x: 32
+        y: 32
+        width: 253
+        height: 224
+      spriteId: 7ee68bdbad332ad4b8d6845da6fd7666
+    - name: UI_Pumpkin_Frame_10
+      frameIndex: 10
+      cellRect:
+        x: 32
+        y: 32
+        width: 253
+        height: 224
+      spriteId: 44540ef77284ba14baed86149b724981
+    - name: UI_Pumpkin_Frame_11
+      frameIndex: 11
+      cellRect:
+        x: 32
+        y: 32
+        width: 253
+        height: 224
+      spriteId: dd674de12c4f52b4ab9545fda7c095de
+    - name: UI_Pumpkin_Frame_12
+      frameIndex: 12
+      cellRect:
+        x: 32
+        y: 32
+        width: 253
+        height: 224
+      spriteId: 2047785a54480fc40841659ad9f7e550
+    - name: UI_Pumpkin_Frame_13
+      frameIndex: 13
+      cellRect:
+        x: 32
+        y: 32
+        width: 253
+        height: 224
+      spriteId: 9f1de02c7c3157d41abf00cbc4d14f8a
+    linkedCells: []
+    parentIndex: -1
+  platformSettings: []
+  secondarySpriteTextures: []
+  spritePackingTag: 
+  canvasSize: {x: 320, y: 288}

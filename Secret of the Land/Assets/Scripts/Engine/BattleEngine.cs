@@ -21,16 +21,16 @@ public class BattleEngine : MonoBehaviour
 
     public void DealDamage(Entity attacker, Entity victim, AttackType type)
     {
-        int attackPower = attacker.AttackPower.Get();
+        int attackPower = attacker.AttackPower;
         int damage = 0;
         
         if (type == AttackType.Physical)
         {
-            damage = attackPower - victim.Armor.Get();
+            damage = attackPower - victim.Armor;
         }
         else if (type == AttackType.Magical)
         {
-            damage = attackPower - victim.MagicResist.Get();
+            damage = attackPower - victim.MagicResist;
         }
 
         if (damage < 0)
@@ -38,11 +38,11 @@ public class BattleEngine : MonoBehaviour
             damage = 0;
         }
 
-        victim.Health.ReduceBy(damage);
+        victim.Health -= damage;
 
         if (victim.entityType == EntityType.Type.Player)
         {
-            healthBarController.SetHealth(victim.Health.Get());
+            healthBarController.SetHealth(victim.Health);
         }
     }
 }

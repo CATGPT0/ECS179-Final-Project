@@ -34,7 +34,7 @@ public class SkeletonController : MonoBehaviour
         skeleton = GetComponentInChildren<Skeleton>();
         skeletonAnimatorController = GetComponentInChildren<SkeletonAnimatorController>();
         skeletonEvent = GetComponentInChildren<SkeletonEvent>();
-        levelManager = FindFirstObjectByType<LevelManager>();
+        levelManager = GetComponentInChildren<LevelManager>();
     }
     void Start()
     {

@@ -13,6 +13,7 @@ public class PlayerEvent : EntityEvent
         set { levelUpEvent = value; }
     }
     [SerializeField]
+    
     void Start()
     {
         

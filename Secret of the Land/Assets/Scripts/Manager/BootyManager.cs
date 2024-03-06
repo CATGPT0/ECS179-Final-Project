@@ -7,13 +7,6 @@ public class BootyManager : MonoBehaviour
 {
     protected SkeletonController skeletonController;
     protected PlayerController playerController;
-    [SerializeField]
-    private int xp;
-    public int Xp
-    {
-        get { return xp; }
-        set { xp = value; }
-    }
 
     [SerializeField]
     private GameObject[] booties;
@@ -31,8 +24,8 @@ public class BootyManager : MonoBehaviour
 
     protected void OnDestroy()
     {
-        int monsterLevel = skeletonController.LevelManager.Level.Get();
-        int playerLevel = playerController.LevelManager.Level.Get();
+        int monsterLevel = skeletonController.LevelManager.Level;
+        int playerLevel = playerController.LevelManager.Level;
         int xp = BootyEngine.CalculateXP(monsterLevel, playerLevel, skeletonController.Skeleton.entityType);
         playerController.LevelManager.ReceiveXP(xp);
     }

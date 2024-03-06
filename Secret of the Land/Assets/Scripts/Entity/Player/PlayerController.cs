@@ -107,11 +107,11 @@ namespace Controller
         {
             if (velocityX != 0 && velocityY != 0)
             {
-                return player.Speed.Get() / Mathf.Sqrt(2);
+                return player.Speed / Mathf.Sqrt(2);
             }
             else
             {
-                return player.Speed.Get();
+                return player.Speed;
             }
         }
         public void Attack()

@@ -19,7 +19,7 @@ public class SkeletonAnimatorController : MonoBehaviour
     }
     void Update()
     {
-        anim.SetInteger("health", skeleton.Health.Get());
+        anim.SetInteger("health", skeleton.Health);
     }
 
     void OnDestory()

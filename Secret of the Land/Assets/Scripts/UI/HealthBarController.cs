@@ -19,7 +19,7 @@ public class HealthBarController : MonoBehaviour
 
     void Start()
     {
-        SetMaxHealth(player.Health.Get());
+        SetMaxHealth(player.Health);
     }
 
     public void SetHealth(int health)

@@ -6,35 +6,44 @@ using System;
 
 public class Entity : MonoBehaviour
 {
-    
-    protected HealthComponent health;
-    public HealthComponent Health
+    [SerializeField]
+    protected int health;
+    public int Health
     {
         get { return health; }
         set { health = value; }
     }
-    protected AttackPowerComponent attackPower;
-    public AttackPowerComponent AttackPower
+    [SerializeField]
+    protected int maxHealth;
+    public int MaxHealth
+    {
+        get { return maxHealth; }
+        set { maxHealth = value; }
+    }
+    [SerializeField]
+    protected int attackPower;
+    public int AttackPower
     {
         get { return attackPower; }
         set { attackPower = value; }
     }
-    protected ArmorComponent armor;
-    public ArmorComponent Armor
+    [SerializeField]
+    protected int armor;
+    public int Armor
     {
         get { return armor; }
         set { armor = value; }
     }
-
-    protected MagicResistComponent magicResist;
-    public MagicResistComponent MagicResist
+    [SerializeField]
+    protected int magicResist;
+    public int MagicResist
     {
         get { return magicResist; }
         set { magicResist = value; }
     }
-
-    protected SpeedComponent speed;
-    public SpeedComponent Speed
+    [SerializeField]
+    protected int speed;
+    public int Speed
     {
         get { return speed; }
         set { speed = value; }
@@ -43,11 +52,6 @@ public class Entity : MonoBehaviour
 
     protected virtual void Init()
     {
-        health = GetComponentInChildren<HealthComponent>();
-        attackPower = GetComponentInChildren<AttackPowerComponent>();
-        armor = GetComponentInChildren<ArmorComponent>();
-        magicResist = GetComponentInChildren<MagicResistComponent>();
-        speed = GetComponentInChildren<SpeedComponent>();
     }
 
     void Awake()

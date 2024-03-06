@@ -42,6 +42,8 @@ public static class BootyEngine
     };
     public static int CalculateXP(int monsterLevel, int playerLevel, EntityType.Type monsterType)
     {
+        Debug.Log("Monster Level: " + monsterLevel);
+        Debug.Log("Player Level: " + playerLevel);
         int levelDifference = monsterLevel - playerLevel;
 
         if (levelDifference > 4)

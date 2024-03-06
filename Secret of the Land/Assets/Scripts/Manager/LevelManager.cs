@@ -6,15 +6,15 @@ public class LevelManager : MonoBehaviour
 {
     private PlayerEvent playerEvent;
     [SerializeField]
-    private XPComponent xp;
-    public XPComponent XP
+    private int xp;
+    public int XP
     {
         get { return xp; }
         set { xp = value; }
     }
     [SerializeField]
-    private LevelComponent level;
-    public LevelComponent Level
+    private int level;
+    public int Level
     {
         get { return level; }
         set { level = value; }
@@ -29,7 +29,7 @@ public class LevelManager : MonoBehaviour
     private int magicResistPerLevel;
 
     private Entity entity;
-    private Dictionary<int, int> levelThresholds = new Dictionary<int, int>()
+    public Dictionary<int, int> levelThresholds = new Dictionary<int, int>()
     {
         {1, 100},
         {2, 250},
@@ -45,30 +45,28 @@ public class LevelManager : MonoBehaviour
 
     void Awake()
     {
-        xp = GetComponentInChildren<XPComponent>();
-        level = GetComponentInChildren<LevelComponent>();
         entity = FindFirstObjectByType<Entity>();
         playerEvent = FindFirstObjectByType<PlayerEvent>();
     }
 
     public void ReceiveXP(int amount)
     {
-        xp.IncreaseBy(amount);
-        while (xp.Get() >= levelThresholds[level.Get()])
+        xp += amount;
+        while (xp >= levelThresholds[level])
         {
-            xp.SetTo(xp.Get() - levelThresholds[level.Get()]);
-            level.IncreaseBy(1);
-            entity.AttackPower.IncreaseBy(attackPowerPerLevel);
-            entity.Health.IncreaseBy(healthPerLevel);
-            entity.Armor.IncreaseBy(armorPerLevel);
-            entity.MagicResist.IncreaseBy(magicResistPerLevel);
-            Debug.Log("Level Become: " + level.Get());
-            Debug.Log("Attack Power Become: " + entity.AttackPower.Get());
-            Debug.Log("Health Become: " + entity.Health.Get());
-            Debug.Log("Armor Become: " + entity.Armor.Get());
-            Debug.Log("Magic Resist Become: " + entity.MagicResist.Get());
+            xp = xp - levelThresholds[level];
+            ++level;
+            entity.AttackPower += attackPowerPerLevel;
+            entity.Health += healthPerLevel;
+            entity.Armor += armorPerLevel;
+            entity.MagicResist += magicResistPerLevel;
+            Debug.Log("Level Become: " + level);
+            Debug.Log("Attack Power Become: " + entity.AttackPower);
+            Debug.Log("Health Become: " + entity.Health);
+            Debug.Log("Armor Become: " + entity.Armor);
+            Debug.Log("Magic Resist Become: " + entity.MagicResist);
         }  
-        Debug.Log("XP Become: " + xp.Get());
+        Debug.Log("XP Become: " + xp);
         playerEvent.LevelUpEvent?.TriggerEvent();
     }
 }
