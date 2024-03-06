@@ -73,7 +73,10 @@ public class LevelManager : MonoBehaviour
         }
         if (levelUp)
         {
-            levelUpController.LevelUIShowUp(healthPerLevel, speedPerLevel, attackPowerPerLevel, armorPerLevel, level);
+            if (levelUpController != null)
+            {
+                levelUpController.LevelUIShowUp(healthPerLevel, speedPerLevel, attackPowerPerLevel, armorPerLevel, level);
+            }
             entity.Health = entity.MaxHealth;
         }
         Debug.Log("XP Become: " + xp);
