@@ -170,7 +170,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f8e8d659b4a4d94781b014765f483e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xp: 0
   booties: []
 --- !u!1 &4779254386224307938
 GameObject:
@@ -252,8 +251,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1045041259
-  m_SortingLayer: 2
-  m_SortingOrder: 1
+  m_SortingLayer: 3
+  m_SortingOrder: 0
   m_Sprite: {fileID: -621378972, guid: dbeceae009db7954d889caeac05e21e9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -420,3 +419,4 @@ MonoBehaviour:
   attackPowerPerLevel: 0
   armorPerLevel: 0
   magicResistPerLevel: 0
+  speedPerLevel: 0

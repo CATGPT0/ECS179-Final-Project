@@ -80,8 +80,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1045041259
-  m_SortingLayer: 2
-  m_SortingOrder: 0
+  m_SortingLayer: 3
+  m_SortingOrder: 1
   m_Sprite: {fileID: 145855304, guid: 95665cbb9d18f8645a9e07ebd4c0fe1b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -675,3 +675,4 @@ MonoBehaviour:
   attackPowerPerLevel: 1
   armorPerLevel: 2
   magicResistPerLevel: 2
+  speedPerLevel: 0.2

@@ -45,6 +45,15 @@ TagManager:
   - name: Ground
     uniqueID: 3493717599
     locked: 0
+  - name: Decoration
+    uniqueID: 1459452531
+    locked: 0
+  - name: Obstacle
+    uniqueID: 2235085267
+    locked: 0
+  - name: Bridge
+    uniqueID: 1968235509
+    locked: 0
   - name: Living Entity
     uniqueID: 3249926037
     locked: 0
