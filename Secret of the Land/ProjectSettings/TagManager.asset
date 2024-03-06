@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Enemy
   - Grass
+  - Road
+  - Water
   layers:
   - Default
   - TransparentFX
@@ -18,7 +20,7 @@ TagManager:
   - PlayerAttack
   - Enemy
   - EnemyAttack
-  - Grass
+  - 
   - 
   - 
   - 

@@ -118,13 +118,5 @@ namespace Controller
         {
             battleController.Attack();
         }
-
-        void OnTriggerEnter2D(Collider2D other)
-        {
-            if (other.CompareTag("Grass"))
-            {
-                Debug.Log("Grass");
-            }
-        }
     }
 }

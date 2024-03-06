@@ -7,8 +7,16 @@ using Unity.VisualScripting;
 
 public class SoundEffectController : MonoBehaviour
 {
-    public AudioSource audioSource;
+    [SerializeField]
+    private AudioSource audioSource;
+    [SerializeField]
+    private TerrainDetector terrainDetector;
+    [SerializeField]
+    private AudioClip grassSound;
+    [SerializeField]
+    private AudioClip roadSound;
     private PlayerController playerController;
+
     void Awake()
     {
         playerController = FindFirstObjectByType<PlayerController>();
@@ -28,6 +36,15 @@ public class SoundEffectController : MonoBehaviour
         else
         {
             audioSource.enabled = false;
+        }
+
+        if (terrainDetector.Type == TerrainDetector.TerrainType.Grass)
+        {
+            audioSource.clip = grassSound;
+        }
+        else if (terrainDetector.Type == TerrainDetector.TerrainType.Road)
+        {
+            audioSource.clip = roadSound;
         }
     }
 }
