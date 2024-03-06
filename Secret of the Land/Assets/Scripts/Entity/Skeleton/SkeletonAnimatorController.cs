@@ -6,11 +6,11 @@ using UnityEngine;
 public class SkeletonAnimatorController : MonoBehaviour
 {
     private Animator anim;
-    private Skeleton skeleton;
+    private SkeletonController skeletonController;
     void Awake()
     {
         anim = GetComponentInParent<Animator>();
-        skeleton = FindFirstObjectByType<Skeleton>();
+        skeletonController = GetComponentInParent<SkeletonController>();
     }
 
     void Start()
@@ -19,7 +19,7 @@ public class SkeletonAnimatorController : MonoBehaviour
     }
     void Update()
     {
-        anim.SetInteger("health", skeleton.Health);
+        anim.SetInteger("health", skeletonController.Skeleton.Health);
     }
 
     void OnDestory()

@@ -21,9 +21,5 @@ public class Player : Entity
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("health: " + health);
-        Debug.Log("maxHealth: " + maxHealth);
-        Debug.Log("attackPower: " + attackPower);
-        Debug.Log("armor: " + armor);
     }
 }

@@ -6,6 +6,7 @@ public class LevelManager : MonoBehaviour
 {
     private PlayerEvent playerEvent;
     private LevelUpController levelUpController;
+    private GetXPTextController getXPTextController;
     [SerializeField]
     private int xp;
     public int XP
@@ -50,11 +51,13 @@ public class LevelManager : MonoBehaviour
         entity = FindFirstObjectByType<Player>();
         playerEvent = FindFirstObjectByType<PlayerEvent>();
         levelUpController = FindFirstObjectByType<LevelUpController>();
+        getXPTextController = FindFirstObjectByType<GetXPTextController>();
     }
 
     public void ReceiveXP(int amount)
     {
         xp += amount;
+        getXPTextController.XPUIShowUp(amount);
         bool levelUp = false;
         while (xp >= levelThresholds[level])
         {
@@ -65,11 +68,6 @@ public class LevelManager : MonoBehaviour
             entity.Armor += armorPerLevel;
             entity.MagicResist += magicResistPerLevel;
             entity.Speed += speedPerLevel;
-            Debug.Log("healthnow: " + entity.Health);
-            Debug.Log("maxhealthnow: " + entity.MaxHealth);
-            Debug.Log("attackpowernow: " + entity.AttackPower);
-            Debug.Log("armornow: " + entity.Armor);
-            Debug.Log("speednow: " + entity.Speed);
 
             levelUp = true;
         }
