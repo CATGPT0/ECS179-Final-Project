@@ -8,6 +8,11 @@ namespace CardBattle
 
     public class CardGameManager : MonoBehaviour
     {
+        // The input of Card Game Manger should include:
+        // Player HP
+        // Deck
+
+
         // The pile that you will draw card from
         public List<int> drawPile;
 
@@ -17,7 +22,7 @@ namespace CardBattle
         // The list for your hand cards
         List<int> handCards { get; set; }
         // The maximum hand cards you can hold
-        public int maxHandCards { get; set; }
+        public int maxHandCards;
 
         // List to store your deck
         public List<int> deck = new List<int>();
@@ -37,6 +42,22 @@ namespace CardBattle
         // If the "End Your Turn buttom was pressed
         private bool OnClickEndYourTurn;
 
+        // Enemy
+        public GameObject enemyGameObject;
+        public Enemy enemy;
+
+        // Player
+        public GameObject playerGameObject;
+        public Player player;
+
+        // Bool for checking of enemy is dead
+        private bool enemyIsDead = false;
+
+        // number of cards player used
+        private int cardsUsedNum;
+
+
+
 
 
 
@@ -46,7 +67,8 @@ namespace CardBattle
             drawPile = new List<int>();
             discardPile = new List<int>();
             handCards = new List<int>();
-            maxHandCards = 5;
+            maxHandCards = 10;
+            cardsUsedNum = 0;
         }
 
         private void Start()
@@ -59,6 +81,8 @@ namespace CardBattle
 
             handCardManager = handCardGameObject.GetComponent<HandCardManager>();
             cardBattleManager = cardBattleManagerGameObject.GetComponent<CardBattleManager>();
+            enemy = enemyGameObject.GetComponent<Enemy>();
+            player = playerGameObject.GetComponent<Player>();
         }
 
         // Check the stage of our game and manage them
@@ -107,7 +131,11 @@ namespace CardBattle
         // Following actions will happen:
         // 1. Draw card for player
         // 2. If the draw pile is empty, use discard pile to refill draw pile
-        // 3. Move to next stage
+        // 3. If the player didn't use any card last round, get some energy
+        // 4. Move to next stage
+        /// <summary>
+        /// The method for preparing player round
+        /// </summary>
         private void BeforePlayerRoundUpdate()
         {
             // 1. Draw cards for player
@@ -125,7 +153,15 @@ namespace CardBattle
 
             UpdateHandCard();
 
-            // 3. Move to next stage
+            // 3. If the player didn't use any card last round, get some energy
+            if(cardsUsedNum == 0)
+            {
+                player.energy += 2;
+            }
+
+            cardsUsedNum = 0;
+
+            // 4. Move to next stage
             finishedTheStage = true;
 
         }
@@ -229,11 +265,42 @@ namespace CardBattle
         /// <param name="code">
         /// The code of the card that will be used
         /// </param>
-        public void UseACard(int code)
+        /// <returns>
+        /// True if the card is used, false if the card is fail to use
+        /// </returns>
+        public bool UseACard(int code, int energyCost)
         {
-            cardBattleManager.ProcessCardEffect();
+            
+            // If the energy is not enough, tell the card that should not destroy itself
+            if(player.energy < energyCost)
+            {
+                return false;
+            }
+
+            // Accumulate the cards used
+            ++cardsUsedNum;
+
+            // Reduce the energy
+            player.energy -= energyCost;
+
+            // Remove the card from hand
             handCards.Remove(code);
+
+            // process the card effect
+            cardBattleManager.ProcessCardEffect(code);
+            
+            // Put the used card in discard pile
             discardPile.Add(code);
+
+            // If the enemy is dead, do something else
+            if (enemy.HP <= 0)
+            {
+                enemy.Die();
+                enemyIsDead = true;
+            }
+
+            // return 
+            return true;
 
         }
 

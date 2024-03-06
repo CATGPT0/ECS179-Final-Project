@@ -11,7 +11,7 @@ namespace CardBattle
 
         private void Start()
         {
-            energyCost = 2;
+            energyCost = 1;
             cardCode = 1;
         }
 
