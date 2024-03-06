@@ -8,7 +8,8 @@ public class TerrainDetector : MonoBehaviour
     public enum TerrainType
     {
         Grass,
-        Road
+        Road,
+        Bridge
     }
     private TerrainType type;
     public TerrainType Type
@@ -27,6 +28,11 @@ public class TerrainDetector : MonoBehaviour
         {
             Debug.Log("Road detected");
             type = TerrainType.Road;
+        }
+        else if (other.CompareTag("Bridge"))
+        {
+            Debug.Log("Bridge detected");
+            type = TerrainType.Bridge;
         }
     }
 }

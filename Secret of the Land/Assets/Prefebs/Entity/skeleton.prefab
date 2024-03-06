@@ -171,6 +171,57 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   booties: []
+--- !u!1 &3839175396616235686
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1172466311518592115}
+  - component: {fileID: 8577427600283017064}
+  m_Layer: 9
+  m_Name: FSM
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1172466311518592115
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3839175396616235686}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4819731080560503140}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8577427600283017064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3839175396616235686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f77c89e0f2eb2d42be1d53dead13801, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 2865895437554976807}
+  properties:
+    name: Skeleton
+    health: 20
+    damage: 15
+    speed: 4
+    armor: 5
 --- !u!1 &4779254386224307938
 GameObject:
   m_ObjectHideFlags: 0
@@ -186,7 +237,7 @@ GameObject:
   - component: {fileID: 2865895437554976807}
   - component: {fileID: 5426827054505485722}
   m_Layer: 9
-  m_Name: Skeleton
+  m_Name: skeleton
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -210,6 +261,7 @@ Transform:
   - {fileID: 8044489684306326003}
   - {fileID: 3672449433339692553}
   - {fileID: 4903083810595553200}
+  - {fileID: 1172466311518592115}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7036940227597135491
@@ -251,7 +303,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1045041259
-  m_SortingLayer: 3
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: -621378972, guid: dbeceae009db7954d889caeac05e21e9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

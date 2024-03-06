@@ -15,6 +15,8 @@ public class SoundEffectController : MonoBehaviour
     private AudioClip grassSound;
     [SerializeField]
     private AudioClip roadSound;
+    [SerializeField]
+    private AudioClip woodSound;
     private PlayerController playerController;
 
     void Awake()
@@ -46,6 +48,10 @@ public class SoundEffectController : MonoBehaviour
         else if (terrainDetector.Type == TerrainDetector.TerrainType.Road)
         {
             audioSource.clip = roadSound;
+        }
+        else if (terrainDetector.Type == TerrainDetector.TerrainType.Bridge)
+        {
+            audioSource.clip = woodSound;
         }
     }
 }
