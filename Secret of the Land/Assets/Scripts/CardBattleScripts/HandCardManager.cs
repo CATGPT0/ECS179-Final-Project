@@ -9,11 +9,12 @@ namespace CardBattle
 
     public class HandCardManager : MonoBehaviour
     {
-
+        // Prefebs
         public GameObject attackCard;
-
         public GameObject defendCard;
 
+        // Game object for new card after Update
+        private GameObject newCard;
         private List<GameObject> cards = new List<GameObject>();
 
         // Will take the list of hand card and update the cards
@@ -22,20 +23,28 @@ namespace CardBattle
             // Every time we update the hand card, we will destroy the previous one and create a new list
             DestroyAllCards();
 
-            if (handCards.Count > 5)
+            if (handCards.Count > 10)
             {
                 Debug.Log("Cannot update handCards due to the size of handCard is" + handCards.Count);
                 return;
             }
 
-            Vector3 xOffset = new Vector3(2, 0, 0);
+            float xOffsetEachCard = 1f;
             int counter = 0;
+            Vector3 newPosition;
+            int numberOfCard = handCards.Count;
 
+            // Because the object hand card is in the middle, we need to use TotalXOffset
+            // to make sure the hand card is in the middle of screen
+            float TotalXOffset = - xOffsetEachCard * (handCards.Count - 1) / 2;
+            Debug.Log("TotalXOffset is " + TotalXOffset);
             foreach (int i in handCards)
             {
                 GameObject cardPrefeb = codeToCardObject(i);
-
-                cards.Add(Instantiate(cardPrefeb, this.transform.position + xOffset * counter, Quaternion.identity, this.transform));
+                newPosition = this.transform.position + new Vector3(xOffsetEachCard * counter + TotalXOffset, 0f, 0f);
+                newCard = Instantiate(cardPrefeb, newPosition, Quaternion.identity, this.transform);
+                cards.Add(newCard);
+                newCard.GetComponent<Card>().sprite.GetComponent<SpriteRenderer>().sortingOrder = counter;
 
                 ++counter;
             }

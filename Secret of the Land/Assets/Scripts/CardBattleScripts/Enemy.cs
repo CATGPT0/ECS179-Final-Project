@@ -15,11 +15,6 @@ namespace CardBattle
         public void takenDamage(int damage)
         {
             HP -= damage;
-
-            if (HP <= 0)
-            {
-                Die();
-            }
         }
 
         public void Die()
