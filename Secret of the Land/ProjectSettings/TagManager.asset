@@ -48,6 +48,9 @@ TagManager:
   - name: Decoration
     uniqueID: 1459452531
     locked: 0
+  - name: Water
+    uniqueID: 3105325493
+    locked: 0
   - name: Obstacle
     uniqueID: 2235085267
     locked: 0
