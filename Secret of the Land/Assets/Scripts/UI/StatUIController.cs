@@ -28,12 +28,10 @@ public class StatUIController : MonoBehaviour
     public void OpenStatPanel()
     {
         statPanel.SetActive(true);
-        GamePauseEvent.Trigger();
     }
 
     public void CloseStatPanel()
     {
         statPanel.SetActive(false);
-        GameResumeEvent.Trigger();
     }
 }

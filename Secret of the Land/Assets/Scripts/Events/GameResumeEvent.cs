@@ -5,20 +5,20 @@ using UnityEngine;
 
 public static class GameResumeEvent
 {
-    public static Action resumeEvent;
+    public static Action pauseEvent;
 
     public static void Register(Action onEvent)
     {
-        resumeEvent += onEvent;
+        pauseEvent += onEvent;
     }
 
     public static void Unregister(Action onEvent)
     {
-        resumeEvent -= onEvent;
+        pauseEvent -= onEvent;
     }
 
     public static void Trigger()
     {
-        resumeEvent?.Invoke();
+        pauseEvent?.Invoke();
     }
 }
