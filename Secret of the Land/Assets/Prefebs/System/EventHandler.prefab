@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7651366327615060983}
   - component: {fileID: 6286764865094612411}
+  - component: {fileID: 1083314355603870009}
   m_Layer: 0
   m_Name: EventHandler
   m_TagString: Untagged
@@ -60,3 +61,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1083314355603870009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3545899792338857371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dc89d17a71c85a40b90f3410509b597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 811b80439dd521745a6ed1ea260e15db, type: 2}
+  onEventTrigger:
+    m_PersistentCalls:
+      m_Calls: []

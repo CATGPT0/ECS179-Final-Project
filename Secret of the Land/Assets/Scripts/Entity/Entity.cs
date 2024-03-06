@@ -42,8 +42,8 @@ public class Entity : MonoBehaviour
         set { magicResist = value; }
     }
     [SerializeField]
-    protected int speed;
-    public int Speed
+    protected float speed;
+    public float Speed
     {
         get { return speed; }
         set { speed = value; }

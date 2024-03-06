@@ -5,6 +5,7 @@ using UnityEngine;
 public class LevelManager : MonoBehaviour
 {
     private PlayerEvent playerEvent;
+    private LevelUpController levelUpController;
     [SerializeField]
     private int xp;
     public int XP
@@ -27,7 +28,8 @@ public class LevelManager : MonoBehaviour
     private int armorPerLevel;
     [SerializeField]
     private int magicResistPerLevel;
-
+    [SerializeField]
+    private float speedPerLevel;
     private Entity entity;
     public Dictionary<int, int> levelThresholds = new Dictionary<int, int>()
     {
@@ -45,27 +47,37 @@ public class LevelManager : MonoBehaviour
 
     void Awake()
     {
-        entity = FindFirstObjectByType<Entity>();
+        entity = FindFirstObjectByType<Player>();
         playerEvent = FindFirstObjectByType<PlayerEvent>();
+        levelUpController = FindFirstObjectByType<LevelUpController>();
     }
 
     public void ReceiveXP(int amount)
     {
         xp += amount;
+        bool levelUp = false;
         while (xp >= levelThresholds[level])
         {
             xp = xp - levelThresholds[level];
             ++level;
             entity.AttackPower += attackPowerPerLevel;
-            entity.Health += healthPerLevel;
+            entity.MaxHealth += healthPerLevel;
             entity.Armor += armorPerLevel;
             entity.MagicResist += magicResistPerLevel;
-            Debug.Log("Level Become: " + level);
-            Debug.Log("Attack Power Become: " + entity.AttackPower);
-            Debug.Log("Health Become: " + entity.Health);
-            Debug.Log("Armor Become: " + entity.Armor);
-            Debug.Log("Magic Resist Become: " + entity.MagicResist);
-        }  
+            entity.Speed += speedPerLevel;
+            Debug.Log("healthnow: " + entity.Health);
+            Debug.Log("maxhealthnow: " + entity.MaxHealth);
+            Debug.Log("attackpowernow: " + entity.AttackPower);
+            Debug.Log("armornow: " + entity.Armor);
+            Debug.Log("speednow: " + entity.Speed);
+
+            levelUp = true;
+        }
+        if (levelUp)
+        {
+            levelUpController.LevelUIShowUp(healthPerLevel, speedPerLevel, attackPowerPerLevel, armorPerLevel, level);
+            entity.Health = entity.MaxHealth;
+        }
         Debug.Log("XP Become: " + xp);
         playerEvent.LevelUpEvent?.TriggerEvent();
     }

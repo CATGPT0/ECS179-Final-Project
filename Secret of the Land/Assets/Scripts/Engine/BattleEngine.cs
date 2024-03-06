@@ -23,6 +23,10 @@ public class BattleEngine : MonoBehaviour
     {
         int attackPower = attacker.AttackPower;
         int damage = 0;
+        if (victim == null)
+        {
+            Debug.Log("Victim is null");
+        }
         
         if (type == AttackType.Physical)
         {
