@@ -50,7 +50,7 @@ namespace CardBattle
         public GameObject playerGameObject;
         public Player player;
 
-        // Bool for checking of enemy is dead
+        // Bool for checking if enemy is dead
         private bool enemyIsDead = false;
 
         // number of cards player used
@@ -164,13 +164,17 @@ namespace CardBattle
             // 3. If the player didn't use any card last round, get some energy
             if(cardsUsedNum == 0)
             {
-                IncreaseEnergy(2);
+                player.IncreaseEnergy(2);
             }
 
             cardsUsedNum = 0;
 
             // 4. Move to next stage
             finishedTheStage = true;
+
+            // 5. Update UI
+            playerUIManager.setEnergy(player.energy);
+            playerUIManager.setHealth(player.health);
 
         }
 
@@ -207,6 +211,7 @@ namespace CardBattle
         private void AfterEnemyRoundUpdate()
         {
             cardBattleManager.LoadNextEnemyAction(enemy);
+            enemy.ResetDamage();
             finishedTheStage = true;
         }
 
@@ -282,16 +287,13 @@ namespace CardBattle
         {
             
             // If the energy is not enough, tell the card that should not destroy itself
-            if(player.energy < energyCost)
+            if(!player.ReduceEnergy(energyCost))
             {
                 return false;
             }
 
             // Accumulate the cards used
             ++cardsUsedNum;
-
-            // Reduce the energy
-            ReduceEnergy(energyCost);
 
             // Reset energy
             playerUIManager.setEnergy(player.energy);
@@ -326,18 +328,6 @@ namespace CardBattle
                 int code = Random.Range(1, 3);
                 this.drawPile.Add(code);
             }
-        }
-
-        private void ReduceEnergy(int amount)
-        {
-            this.player.energy -= amount;
-            this.playerUIManager.setEnergy(this.player.energy);
-        }
-
-        private void IncreaseEnergy(int amount)
-        {
-            this.player.energy += amount;
-            this.playerUIManager.setEnergy(this.player.energy);
         }
 
 

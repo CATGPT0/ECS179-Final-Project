@@ -8,10 +8,17 @@ namespace CardBattle
 {
     public class EnemyActions : MonoBehaviour
     {
-        public GameObject EnemyGameObject;
-        private Enemy enemy;
+        public GameObject cardGameMangerObject;
+        private CardGameManager cardGameManger;
+
+        private void Awake()
+        {
+            cardGameManger = cardGameMangerObject.GetComponent<CardGameManager>();
+        }
         public void EnemyAction_1_Attack()
         {
+            int enemyDamage = cardGameManger.enemy.currentDamage;
+            cardGameManger.player.takenDamage(enemyDamage);
             Debug.Log("Enemy Attacking");
         }
 

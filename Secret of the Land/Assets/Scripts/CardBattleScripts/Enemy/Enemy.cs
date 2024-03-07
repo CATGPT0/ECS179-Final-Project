@@ -4,14 +4,16 @@ using UnityEngine;
 using CardBattle;
 using System;
 
+
 namespace CardBattle
 {
 
     public class Enemy : MonoBehaviour
     {
         public int HP = 10;
-        int maxAttackDamage = 5; // Inclusive
+        int maxAttackDamage = 6; // Exclusive
         int minAttackDamage = 3; // Inclusive
+        public int currentDamage;
 
         // The Action pattern should be passed from other scene
         // It should be a list of code of actions
@@ -22,6 +24,7 @@ namespace CardBattle
         /// </summary>
         private void Awake()
         {
+            currentDamage = UnityEngine.Random.Range(minAttackDamage, maxAttackDamage);
             enemyActionsPattern = new List<int> { 1, 2 };
         }
 
@@ -37,6 +40,11 @@ namespace CardBattle
         public void Die()
         {
             Destroy(this.gameObject);
+        }
+
+        public void ResetDamage()
+        {
+            currentDamage = UnityEngine.Random.Range(minAttackDamage, maxAttackDamage);
         }
     }
 }

@@ -13,14 +13,23 @@ namespace CardBattle
     {
         public GameObject energyTextGameObject;
         private Text energyText;
+        public GameObject healthTextGameObject;
+        private Text healthText;
         private void Start()
         {
             energyText = energyTextGameObject.GetComponent<Text>();
+            healthText = healthTextGameObject.GetComponent<Text>();
         }
         
         public void setEnergy(int energy)
         {
             energyText.text = energy.ToString();
+        }
+
+
+        public void setHealth(int health)
+        {
+            healthText.text = health.ToString();
         }
 
     }
