@@ -21,7 +21,6 @@ public class Listener : MonoBehaviour
 
     public void OnEventTrigger()
     {
-        Debug.Log("OnEvent Triggered");
         onEventTrigger.Invoke();
     }
 }
