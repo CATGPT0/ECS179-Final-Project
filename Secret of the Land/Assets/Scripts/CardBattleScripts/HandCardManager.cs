@@ -37,7 +37,7 @@ namespace CardBattle
             // Because the object hand card is in the middle, we need to use TotalXOffset
             // to make sure the hand card is in the middle of screen
             float TotalXOffset = - xOffsetEachCard * (handCards.Count - 1) / 2;
-            Debug.Log("TotalXOffset is " + TotalXOffset);
+            // Debug.Log("TotalXOffset is " + TotalXOffset);
             foreach (int i in handCards)
             {
                 GameObject cardPrefeb = codeToCardObject(i);

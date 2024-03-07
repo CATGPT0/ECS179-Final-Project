@@ -56,6 +56,10 @@ namespace CardBattle
         // number of cards player used
         private int cardsUsedNum;
 
+        // Card UI manager
+        public GameObject UIManagerGameObject;
+        private PlayerUIManager playerUIManager;
+
 
 
 
@@ -83,6 +87,10 @@ namespace CardBattle
             cardBattleManager = cardBattleManagerGameObject.GetComponent<CardBattleManager>();
             enemy = enemyGameObject.GetComponent<Enemy>();
             player = playerGameObject.GetComponent<Player>();
+            playerUIManager = UIManagerGameObject.GetComponent<PlayerUIManager>();
+
+            // Reset the Action when start the game
+            cardBattleManager.LoadNextEnemyAction(enemy);
         }
 
         // Check the stage of our game and manage them
@@ -141,7 +149,7 @@ namespace CardBattle
             // 1. Draw cards for player
             if (this.drawPile.Count <= 0)
             {
-                Debug.Log("Trying to transfer cards from discard pile to draw pile");
+                // Debug.Log("Trying to transfer cards from discard pile to draw pile");
                 drawPile = new List<int>(discardPile);
                 discardPile.Clear();
             }
@@ -156,7 +164,7 @@ namespace CardBattle
             // 3. If the player didn't use any card last round, get some energy
             if(cardsUsedNum == 0)
             {
-                player.energy += 2;
+                IncreaseEnergy(2);
             }
 
             cardsUsedNum = 0;
@@ -192,11 +200,13 @@ namespace CardBattle
 
         private void EnemyRoundUpdate()
         {
+            cardBattleManager.DoEnemyAction();
             finishedTheStage = true;
         }
         
         private void AfterEnemyRoundUpdate()
         {
+            cardBattleManager.LoadNextEnemyAction(enemy);
             finishedTheStage = true;
         }
 
@@ -281,7 +291,10 @@ namespace CardBattle
             ++cardsUsedNum;
 
             // Reduce the energy
-            player.energy -= energyCost;
+            ReduceEnergy(energyCost);
+
+            // Reset energy
+            playerUIManager.setEnergy(player.energy);
 
             // Remove the card from hand
             handCards.Remove(code);
@@ -313,6 +326,18 @@ namespace CardBattle
                 int code = Random.Range(1, 3);
                 this.drawPile.Add(code);
             }
+        }
+
+        private void ReduceEnergy(int amount)
+        {
+            this.player.energy -= amount;
+            this.playerUIManager.setEnergy(this.player.energy);
+        }
+
+        private void IncreaseEnergy(int amount)
+        {
+            this.player.energy += amount;
+            this.playerUIManager.setEnergy(this.player.energy);
         }
 
 

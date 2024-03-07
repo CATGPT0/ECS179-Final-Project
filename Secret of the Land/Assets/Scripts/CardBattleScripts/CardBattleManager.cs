@@ -8,13 +8,22 @@ namespace CardBattle {
 
     public class CardBattleManager : MonoBehaviour
     {
-        public Action EffectDelegate;
+        public Action CardEffectDelegate;
 
         private CardEffects cardEffects;
 
-        private void Start()
+        private EnemyActions enemyActions;
+
+        public Action enemyActionDelegate;
+
+        // counter for decide which action in counter should be used
+        public int enemyActionCounter;
+
+        private void Awake()
         {
             cardEffects = this.gameObject.GetComponent<CardEffects>();
+            enemyActions = this.gameObject.GetComponent<EnemyActions>();
+            enemyActionCounter = 0;
         }
 
         /// <summary>
@@ -26,25 +35,46 @@ namespace CardBattle {
         public void ProcessCardEffect(int cardCode) 
         {
 
+            // Set delegate
             switch (cardCode)
             {
                 // Attack card
                 case 1:
-                    EffectDelegate = cardEffects.Effect_1_Attack;
+                    CardEffectDelegate = cardEffects.Effect_1_Attack;
+                    break;
+                case 2:
+                    CardEffectDelegate = cardEffects.Effect_2_Defend;
                     break;
                 default:
                     throw new Exception("Card effect does not find with code " + cardCode);
             }
 
-            if (EffectDelegate == null)
+            if (CardEffectDelegate == null)
             {
                 throw new Exception("Delegate EffectDelegate in CardBattleManger is null");
             }
 
             // Process the effect
-            EffectDelegate();
+            CardEffectDelegate();
         }
 
+        public void DoEnemyAction()
+        {
+            enemyActionDelegate();
+        }
+
+        public void LoadNextEnemyAction(Enemy enemy)
+        {
+            // use counter to decide which code we should use in enemyActions
+            enemyActionCounter = enemyActionCounter % enemy.enemyActionsPattern.Count;
+            int code = enemy.enemyActionsPattern[enemyActionCounter];
+
+            // Code to Action
+            enemyActionDelegate = enemyActions.CodeToAction(code);
+
+            // Increase counter
+            enemyActionCounter++;
+        }
         
 
 

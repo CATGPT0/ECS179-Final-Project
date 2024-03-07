@@ -20,6 +20,11 @@ namespace CardBattle
             cardGameManager.enemy.takenDamage(2);
         }
 
+        public void Effect_2_Defend()
+        {
+            Debug.Log("defend");
+        }
+
 
     }
 }
