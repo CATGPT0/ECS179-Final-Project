@@ -9,21 +9,23 @@ namespace CardBattle
     public class EnemyActions : MonoBehaviour
     {
         public GameObject cardGameMangerObject;
-        private CardGameManager cardGameManger;
+        private CardGameManager cardGameManager;
 
         private void Awake()
         {
-            cardGameManger = cardGameMangerObject.GetComponent<CardGameManager>();
+            cardGameManager = cardGameMangerObject.GetComponent<CardGameManager>();
         }
         public void EnemyAction_1_Attack()
         {
-            int enemyDamage = cardGameManger.enemy.currentDamage;
-            cardGameManger.player.takenDamage(enemyDamage);
+            int enemyDamage = cardGameManager.enemy.currentDamage;
+            cardGameManager.player.TakenDamage(enemyDamage);
             Debug.Log("Enemy Attacking");
         }
 
         public void EnemyAction_2_Defend()
         {
+            int enemyDefendShield = UnityEngine.Random.Range
+                (cardGameManager.enemy.minShield, cardGameManager.enemy.maxShield);
             Debug.Log("Enemy defending");
         }
 

@@ -169,12 +169,19 @@ namespace CardBattle
 
             cardsUsedNum = 0;
 
-            // 4. Move to next stage
-            finishedTheStage = true;
+            // 4. Reset shield
+            this.player.ResetShield();
 
             // 5. Update UI
             playerUIManager.setEnergy(player.energy);
             playerUIManager.setHealth(player.health);
+
+            
+
+            // 6. Move to next stage
+            finishedTheStage = true;
+
+            
 
         }
 

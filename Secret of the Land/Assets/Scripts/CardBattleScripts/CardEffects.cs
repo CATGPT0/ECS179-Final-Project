@@ -22,6 +22,7 @@ namespace CardBattle
 
         public void Effect_2_Defend()
         {
+            cardGameManager.player.addShield(2);
             Debug.Log("defend");
         }
 
