@@ -221,7 +221,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HP: 10
-  enemyPatternInput: 
+  currentDamage: 0
+  enemyActionsPattern: 
 --- !u!1 &618499335
 GameObject:
   m_ObjectHideFlags: 0
@@ -268,6 +269,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HP: 10
   energy: 2
+  health: 5
 --- !u!1 &654001869
 GameObject:
   m_ObjectHideFlags: 0
@@ -876,6 +878,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee61b4b5d48a42840b81a87be047a879, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyActionCounter: 0
 --- !u!4 &1463707431
 Transform:
   m_ObjectHideFlags: 0
@@ -916,6 +919,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 521b2be1de3e3e443ba585d5c79d115a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cardGameMangerObject: {fileID: 798728539}
 --- !u!1 &1653265863
 GameObject:
   m_ObjectHideFlags: 0
@@ -1242,6 +1246,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   energyTextGameObject: {fileID: 1042690728}
+  healthTextGameObject: {fileID: 1681739458}
 --- !u!4 &2131966560
 Transform:
   m_ObjectHideFlags: 0

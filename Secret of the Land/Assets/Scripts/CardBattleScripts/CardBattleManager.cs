@@ -34,7 +34,6 @@ namespace CardBattle {
         /// </param>
         public void ProcessCardEffect(int cardCode) 
         {
-
             // Set delegate
             switch (cardCode)
             {
@@ -58,6 +57,9 @@ namespace CardBattle {
             CardEffectDelegate();
         }
 
+
+
+        // Enemy
         public void DoEnemyAction()
         {
             enemyActionDelegate();
