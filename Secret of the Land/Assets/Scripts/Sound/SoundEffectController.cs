@@ -17,8 +17,11 @@ public class SoundEffectController : MonoBehaviour
     private AudioClip roadSound;
     [SerializeField]
     private AudioClip woodSound;
+    [SerializeField]
+    private AudioClip attackSound;
     private PlayerController playerController;
     private TerrainDetector.TerrainType currentTerrainType;
+    private bool isAttacking = false;
 
     void Awake()
     {
@@ -70,4 +73,20 @@ public class SoundEffectController : MonoBehaviour
         }
         audioSource.Play();
     }
+
+    public void PlayAttackSound()
+    {
+        isAttacking = true;
+        audioSource.enabled = true;
+        audioSource.PlayOneShot(attackSound);
+        Debug.Log("Attack sound played");
+    }
+
+    public void StopAttackSound()
+    {
+        isAttacking = false;
+        audioSource.enabled = false;
+    }
+
+    
 }

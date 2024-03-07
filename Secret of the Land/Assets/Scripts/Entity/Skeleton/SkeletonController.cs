@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class SkeletonController : MonoBehaviour
 {
+    public Transform target;
+    private NavMeshAgent agent;
     private Skeleton skeleton;
     public Skeleton Skeleton
     {
@@ -35,6 +38,9 @@ public class SkeletonController : MonoBehaviour
         skeletonAnimatorController = GetComponentInChildren<SkeletonAnimatorController>();
         skeletonEvent = GetComponentInChildren<SkeletonEvent>();
         levelManager = GetComponentInChildren<LevelManager>();
+        agent = GetComponent<NavMeshAgent>();
+        agent.updateUpAxis = false;
+        agent.updateRotation = false;
     }
     void Start()
     {
@@ -44,7 +50,7 @@ public class SkeletonController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        // agent.SetDestination(new Vector3(0, 0, 0));
     }
 
     void DeactivateSelf()

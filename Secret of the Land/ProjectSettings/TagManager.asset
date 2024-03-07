@@ -9,6 +9,7 @@ TagManager:
   - Road
   - Water
   - Bridge
+  - Obstacle
   layers:
   - Default
   - TransparentFX
@@ -21,7 +22,7 @@ TagManager:
   - PlayerAttack
   - Enemy
   - EnemyAttack
-  - 
+  - Obstacle
   - 
   - 
   - 

@@ -6,23 +6,31 @@ public class IdleState : IState
 {
     private FSM machine;
     private Properties properties;
+    private SoundClips soundClips;
+    private float timer = 0;
+    private float maxIdleTime = 3f;
 
     public IdleState(FSM machine)
     {
         this.machine = machine;
         this.properties = machine.properties;
+        this.soundClips = machine.soundClips;
     }
     public void OnEnter()
     {
-        Debug.Log("IdleState: OnEnter");
+        maxIdleTime = Random.Range(3f, 5f);
         machine.anim.Play("idle");
     }
     public void OnExit()
     {
-        Debug.Log("IdleState: OnExit");
+        timer = 0;
     }
     public void OnUpdate()
     {
-        Debug.Log("IdleState: OnUpdate");
+        timer += Time.deltaTime;
+        if (timer > maxIdleTime)
+        {
+            machine.ToState(State.Patrol);
+        }
     }
 }

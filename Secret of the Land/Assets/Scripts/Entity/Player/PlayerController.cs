@@ -3,11 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Manager;
+using UnityEngine.AI;
 
 namespace Controller
 {
     public class PlayerController : MonoBehaviour
     {
+        [SerializeField]
+        private SoundEffectController soundEffectController;
         private Player player;
         public Player Player
         {
@@ -65,6 +68,7 @@ namespace Controller
             get { return latestMoveDirection; }
             private set { latestMoveDirection = value; }
         }
+        private NavMeshAgent agent;
 
         void Awake()
         {
@@ -73,6 +77,9 @@ namespace Controller
             levelManager = GetComponentInChildren<LevelManager>();
             playerAnimation = GetComponentInChildren<PlayerAnimation>();
             playerEvent = GetComponentInChildren<PlayerEvent>();
+            agent = GetComponent<NavMeshAgent>();
+            agent.updateUpAxis = false;
+            agent.updateRotation = false;
         }
 
         void Start()
@@ -117,6 +124,12 @@ namespace Controller
         public void Attack()
         {
             battleController.Attack();
+            //soundEffectController.PlayAttackSound();
+        }
+
+        public void StopAttack()
+        {
+            soundEffectController.StopAttackSound();
         }
     }
 }
