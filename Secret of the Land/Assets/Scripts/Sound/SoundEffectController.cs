@@ -18,6 +18,7 @@ public class SoundEffectController : MonoBehaviour
     [SerializeField]
     private AudioClip woodSound;
     private PlayerController playerController;
+    private TerrainDetector.TerrainType currentTerrainType;
 
     void Awake()
     {
@@ -41,6 +42,15 @@ public class SoundEffectController : MonoBehaviour
             audioSource.enabled = false;
         }
 
+        if (currentTerrainType != terrainDetector.Type)
+        {
+            currentTerrainType = terrainDetector.Type;
+            ChangeSound();
+        }
+    }
+
+    void ChangeSound()
+    {
         if (terrainDetector.Type == TerrainDetector.TerrainType.Grass)
         {
             audioSource.clip = grassSound;
@@ -53,5 +63,11 @@ public class SoundEffectController : MonoBehaviour
         {
             audioSource.clip = woodSound;
         }
+
+        if (audioSource.isPlaying)
+        {
+            audioSource.Stop();
+        }
+        audioSource.Play();
     }
 }
