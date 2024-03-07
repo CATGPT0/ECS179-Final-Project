@@ -16766,6 +16766,18 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 1536800475}
+    - target: {fileID: 7724193571588700469, guid: f2f1f820c8cb3724ab4f1ec78d6b1e63, type: 3}
+      propertyPath: m_Speed
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8646871995654227278, guid: f2f1f820c8cb3724ab4f1ec78d6b1e63, type: 3}
+      propertyPath: m_Mass
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 8646871995654227278, guid: f2f1f820c8cb3724ab4f1ec78d6b1e63, type: 3}
+      propertyPath: m_BodyType
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -16853,6 +16865,14 @@ PrefabInstance:
     - target: {fileID: 758100282786713308, guid: d53d9c91d0c5c614e800cf9b4eaa4e97, type: 3}
       propertyPath: m_TagString
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 2860222560371751067, guid: d53d9c91d0c5c614e800cf9b4eaa4e97, type: 3}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2860222560371751067, guid: d53d9c91d0c5c614e800cf9b4eaa4e97, type: 3}
+      propertyPath: m_Constraints
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4350193381208514564, guid: d53d9c91d0c5c614e800cf9b4eaa4e97, type: 3}
       propertyPath: soundEffectController

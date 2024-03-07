@@ -12,20 +12,17 @@ public class GameEvent : ScriptableObject
     {
         foreach (var listener in listeners)
         {
-            Debug.Log("Event Triggered");
             listener.OnEventTrigger();
         }
     }
 
     public void AddListener(Listener listener)
     {
-        Debug.Log("Listener added");
         listeners.Add(listener);
     }
 
     public void RemoveListener(Listener listener)
     {
-        Debug.Log("Listener removed");
         listeners.Remove(listener);
     }
 }

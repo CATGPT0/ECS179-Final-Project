@@ -19,6 +19,8 @@ public class PatrolState : IState
     }
     public void OnEnter()
     {
+        machine.agent.ResetPath();
+        machine.anim.Play("walk");
         // Choose a random position within the patrol radius
         var randomPos = Random.insideUnitCircle * properties.patrolRadius;
         targetPos = new Vector2(properties.currentPos.x + randomPos.x, properties.currentPos.y + randomPos.y);
@@ -30,7 +32,6 @@ public class PatrolState : IState
             targetPos = new Vector2(properties.currentPos.x + randomPos.x, properties.currentPos.y + randomPos.y);
         }
         machine.agent.SetDestination(targetPos);
-        machine.anim.Play("walk");
 
         // Set audio clip based on the ground type
         machine.audioSource.enabled = true;
@@ -52,6 +53,7 @@ public class PatrolState : IState
     public void OnExit()
     {
         machine.audioSource.enabled = false;
+        machine.agent.ResetPath();
         stuckTimer = 0;
     }
     public void OnUpdate()
