@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using CardBattle;
 using UnityEngine;
 
 public class IdleState : IState
@@ -31,6 +32,11 @@ public class IdleState : IState
         if (timer > maxIdleTime)
         {
             machine.ToState(State.Patrol);
+        }
+
+        if (properties.seePlayer)
+        {
+            machine.ToState(State.Chase);
         }
     }
 }

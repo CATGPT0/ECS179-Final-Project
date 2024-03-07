@@ -63,6 +63,11 @@ public class PatrolState : IState
         machine.FlipTo(targetPos);
         HandleStuck();
         ChangeAudioClip();
+
+        if (properties.seePlayer)
+        {
+            machine.ToState(State.Chase);
+        }
     }
 
     public void ChangeAudioClip()

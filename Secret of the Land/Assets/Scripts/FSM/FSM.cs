@@ -14,6 +14,8 @@ public class Properties
     public int armor;
     public Vector2 spawnPosition;
     public Vector2 currentPos;
+    public Transform player;
+    public bool seePlayer = false;
     public float patrolRadius = 10f;
     public TerrainDetector.TerrainType groundType;
 }
@@ -34,6 +36,7 @@ public enum State
     Idle,
     Walk,
     Patrol,
+    Chase,
     Attack,
     Death
 }
@@ -61,6 +64,7 @@ public class FSM : MonoBehaviour
         states.Add(State.Attack, new AttackState(this));
         states.Add(State.Death, new DeathState(this));
         states.Add(State.Patrol, new PatrolState(this));
+        states.Add(State.Chase, new ChaseState(this));
         currentState = states[State.Idle];
         currentState.OnEnter();
     }
@@ -69,7 +73,6 @@ public class FSM : MonoBehaviour
     {
         properties.currentPos = transform.position;
         currentState.OnUpdate();
-        Debug.Log("VelocityX: " + agent.velocity.x + " VelocityY: " + agent.velocity.y);
     }
 
     public void ToState(State state)
@@ -114,5 +117,15 @@ public class FSM : MonoBehaviour
         {
             properties.groundType = TerrainDetector.TerrainType.Bridge;
         }
+    }
+
+    public void FindPlayer()
+    {
+        properties.seePlayer = true;
+    }
+
+    public void LosePlayer()
+    {
+        properties.seePlayer = false;
     }
 }
