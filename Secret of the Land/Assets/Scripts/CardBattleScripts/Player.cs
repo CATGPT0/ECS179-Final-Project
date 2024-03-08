@@ -55,11 +55,12 @@ namespace CardBattle
         /// </param>
         public void TakenDamage(int damage)
         {
-            int trueDamage = this.shield - damage;
-            if (trueDamage < 0)
+            if (damage <= this.shield)
             {
-                this.shield = 0;
+                this.shield -= damage;
+                return;
             }
+            int trueDamage = this.shield - damage;
             this.health += trueDamage;
         }
 

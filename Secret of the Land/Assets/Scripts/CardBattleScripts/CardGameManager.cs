@@ -189,8 +189,7 @@ namespace CardBattle
                 // Reset card used
                 cardsUsedNum = 0;
 
-                // 4. Reset shield
-                this.player.ResetShield();
+                
 
                 // 5. Update UI
                 playerUIManager.setEnergy(player.energy);
@@ -243,6 +242,8 @@ namespace CardBattle
         {
             cardBattleManager.LoadNextEnemyAction(enemy);
             enemy.ResetDamage();
+            // Reset player shield
+            this.player.ResetShield();
             finishedTheStage = true;
         }
 
@@ -307,18 +308,6 @@ namespace CardBattle
             {
                 Debug.Log("Your hand cards are full");
             }
-        }
-
-        private Card CodeToCard(int code)
-        {
-            switch (code)
-            {
-                case 1:
-                    return new AttackCard();
-            }
-            Debug.Log("Card Code is not found in CodeToCard");
-            return null;
-
         }
 
         /// <summary>

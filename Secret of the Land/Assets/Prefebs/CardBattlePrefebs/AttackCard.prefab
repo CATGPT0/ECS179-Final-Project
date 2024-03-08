@@ -93,8 +93,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4776413277681925269}
-  - component: {fileID: 2534580454860059289}
   - component: {fileID: 8802766519996786712}
+  - component: {fileID: 5410070912656411577}
   m_Layer: 0
   m_Name: AttackCard
   m_TagString: Untagged
@@ -118,22 +118,6 @@ Transform:
   - {fileID: 3549917888704183484}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2534580454860059289
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7137642390692191429}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 98d1cb566ce312e4892781de58b438c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sprite: {fileID: 547127581703841307}
-  handCard: {fileID: 0}
-  gameManager: {fileID: 0}
-  cardBattleManager: {fileID: 0}
 --- !u!61 &8802766519996786712
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -179,3 +163,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.33016226, y: 0.4853099}
   m_EdgeRadius: 0
+--- !u!114 &5410070912656411577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7137642390692191429}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7915398f424ea548a4c7068a56f057b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprite: {fileID: 547127581703841307}
+  handCard: {fileID: 0}
+  gameManager: {fileID: 0}
+  cardBattleManager: {fileID: 0}
+  cardCode: 0
+  cardScriptableObject: {fileID: 11400000, guid: 448b20bd9ac32554598715856ae29656, type: 2}
+  name: 
