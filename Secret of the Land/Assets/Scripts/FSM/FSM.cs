@@ -5,14 +5,15 @@ using UnityEngine;
 using UnityEngine.AI;
 
 [Serializable]
-public class SkeletonProperties : Properties
+public class Properties
 {
-    public Vector2 spawnPosition;
-    public Vector2 currentPos;
-    public Transform player;
-    public bool seePlayer = false;
-    public float patrolRadius = 10f;
-    public TerrainDetector.TerrainType groundType;
+    public int health;
+    public int attackPower;
+    public int speed;
+    public int armor;
+    public int magicResist;
+    public int level;
+    public AttackType attackType;
 }
 
 [Serializable]
@@ -40,20 +41,19 @@ public class FSM : MonoBehaviour
     public NavMeshAgent agent;
     public Animator anim;
     public AudioSource audioSource;
-    public SkeletonProperties properties = new SkeletonProperties();
+    public Properties properties = new Properties();
     public SoundClips soundClips = new SoundClips();
-    private IState currentState;
-    private Dictionary<State, IState> states = new Dictionary<State, IState>();
+    protected IState currentState;
+    protected Dictionary<State, IState> states = new Dictionary<State, IState>();
 
-    void Awake()
+    protected void Awake()
     {
         anim = GetComponent<Animator>();
         agent = GetComponent<NavMeshAgent>();
         audioSource = GetComponent<AudioSource>();
     }
-    void Start()
+    protected void Start()
     {
-        properties.spawnPosition = transform.position;
         states.Add(State.Idle, new IdleState(this));
         states.Add(State.Walk, new WalkState(this));
         states.Add(State.Attack, new AttackState(this));
@@ -64,15 +64,13 @@ public class FSM : MonoBehaviour
         currentState.OnEnter();
     }
     
-    void Update()
+    protected void Update()
     {
-        properties.currentPos = transform.position;
         currentState.OnUpdate();
     }
 
     public void ToState(State state)
     {
-        Debug.Log(state.ToString() + " state");
         currentState.OnExit();
         currentState = states[state];
         currentState.OnEnter();
@@ -88,40 +86,5 @@ public class FSM : MonoBehaviour
         {
             transform.localScale = new Vector3(1, 1, 1);
         }
-    }
-
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("Obstacle"))
-        {
-            ToState(State.Idle);
-        }
-        else if (other.CompareTag("Water"))
-        {
-            ToState(State.Idle);
-        }
-
-        if (other.CompareTag("Grass"))
-        {
-            properties.groundType = TerrainDetector.TerrainType.Grass;
-        }
-        else if (other.CompareTag("Road"))
-        {
-            properties.groundType = TerrainDetector.TerrainType.Road;
-        }
-        else if (other.CompareTag("Bridge"))
-        {
-            properties.groundType = TerrainDetector.TerrainType.Bridge;
-        }
-    }
-
-    public void FindPlayer()
-    {
-        properties.seePlayer = true;
-    }
-
-    public void LosePlayer()
-    {
-        properties.seePlayer = false;
     }
 }

@@ -2,25 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ReactState : IState
+public class SkeletonReactState : ReactState
 {
-    protected FSM machine;
-    protected Properties properties;
-
-    public ReactState(FSM machine)
+    private new SkeletonFSM machine;
+    private new SkeletonProperties properties;
+    public SkeletonReactState(SkeletonFSM machine) : base(machine)
     {
         this.machine = machine;
         this.properties = machine.properties;
     }
-    public void OnEnter()
+
+    public new void OnEnter()
     {
         Debug.Log("DeathState: OnEnter");
     }
-    public void OnExit()
+    public new void OnExit()
     {
         Debug.Log("DeathState: OnExit");
     }
-    public void OnUpdate()
+    public new void OnUpdate()
     {
         Debug.Log("DeathState: OnUpdate");
     }

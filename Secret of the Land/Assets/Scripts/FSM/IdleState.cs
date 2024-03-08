@@ -5,11 +5,11 @@ using UnityEngine;
 
 public class IdleState : IState
 {
-    private FSM machine;
-    private Properties properties;
-    private SoundClips soundClips;
-    private float timer = 0;
-    private float maxIdleTime = 3f;
+    protected FSM machine;
+    protected Properties properties;
+    protected SoundClips soundClips;
+    protected float timer = 0;
+    protected float maxIdleTime = 3f;
 
     public IdleState(FSM machine)
     {
@@ -17,28 +17,16 @@ public class IdleState : IState
         this.properties = machine.properties;
         this.soundClips = machine.soundClips;
     }
-    public void OnEnter()
+    public virtual void OnEnter()
     {
-        maxIdleTime = Random.Range(3f, 5f);
-        machine.agent.ResetPath();
-        machine.anim.Play("idle");
+        
     }
-    public void OnExit()
+    public virtual void OnExit()
     {
-        machine.agent.ResetPath();
-        timer = 0;
-    }
-    public void OnUpdate()
-    {
-        timer += Time.deltaTime;
-        if (timer > maxIdleTime)
-        {
-            machine.ToState(State.Patrol);
-        }
 
-        if (properties.seePlayer)
-        {
-            machine.ToState(State.Chase);
-        }
+    }
+    public virtual void OnUpdate()
+    {
+        
     }
 }
