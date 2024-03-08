@@ -43,7 +43,21 @@ public class SkeletonProperties : Properties
         get { return groundType; }
         set { groundType = value; }
     }
-    public SkeletonProperties(int level, EntityType.Type type) : base(level, type)
+
+    private bool canReact = true;
+    public bool CanReact
+    {
+        get { return canReact; }
+        set { canReact = value; }
+    }
+
+    private bool canAttack = true;
+    public bool CanAttack
+    {
+        get { return canAttack; }
+        set { canAttack = value; }
+    }
+    public SkeletonProperties(int level, EntityType.Type type) : base()
     {
         this.level = level;
         thisType = type;
@@ -59,6 +73,9 @@ public class SkeletonProperties : Properties
 public class SkeletonFSM : FSM
 {
     public new SkeletonProperties properties = new SkeletonProperties(1, EntityType.Type.Skeleton);
+    public LayerMask targetLayer;
+    public Transform attackPoint;
+    public float attackRange;
     protected new void Awake()
     {
         base.Awake();
@@ -68,6 +85,7 @@ public class SkeletonFSM : FSM
         properties.SpawnPosition = transform.position;
         states.Add(State.Idle, new SkeletonIdleState(this));
         states.Add(State.Attack, new SkeletonAttackState(this));
+        states.Add(State.React, new SkeletonReactState(this));
         states.Add(State.Death, new SkeletonDeathState(this));
         states.Add(State.Patrol, new SkeletonPatrolState(this));
         states.Add(State.Chase, new SkeletonChaseState(this));
@@ -117,5 +135,23 @@ public class SkeletonFSM : FSM
     public void LosePlayer()
     {
         properties.SeePlayer = false;
+        properties.CanReact = true;
+    }
+
+    public void FlipToPlayer()
+    {
+        if (properties.Player.position.x > transform.position.x)
+        {
+            transform.localScale = new Vector3(1, 1, 1);
+        }
+        else
+        {
+            transform.localScale = new Vector3(-1, 1, 1);
+        }
+    }
+
+    protected void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(attackPoint.position, attackRange);
     }
 }

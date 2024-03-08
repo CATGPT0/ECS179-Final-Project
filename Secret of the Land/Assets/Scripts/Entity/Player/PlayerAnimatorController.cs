@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor.Animations;
 using UnityEngine;
 
 namespace Controller
@@ -11,6 +12,10 @@ namespace Controller
         private PlayerController playerController;
         private SpriteRenderer spriteRenderer;
         private BattleController battleController;
+        [SerializeField]
+        private GameEvent playerDeathEvent;
+        private AnimatorState animationState;
+        private AnimatorStateInfo animInfo;
         private enum AnimationState
         {
             Idle,
@@ -36,7 +41,7 @@ namespace Controller
         {
             MakeTransition();
             UpdateBlendTree();
-            ChangeRoleDirection(playerController.LatestMoveDirection);
+            ChangeRoleDirection(playerController.Player.properties.LatestMoveDirection);
         }
 
         ///<summary>
@@ -44,7 +49,8 @@ namespace Controller
         ///</summary>
         void MakeTransition()
         {
-            var direction = playerController.Direction;
+            animInfo = anim.GetCurrentAnimatorStateInfo(0);
+            var direction = playerController.Player.properties.Direction;
 
             if (direction != Vector3.zero)
             {
@@ -57,6 +63,17 @@ namespace Controller
             }
 
             anim.SetBool("isAttack", battleController.IsAttack);
+            anim.SetInteger("health", playerController.Player.properties.Health);
+
+            if (animInfo.normalizedTime >= .99f)
+            {
+                Debug.Log("normalizedTime: " + animInfo.normalizedTime);
+            }
+            if (animInfo.normalizedTime >= .99f && animInfo.IsName("death"))
+            {
+                anim.SetTrigger("isDead");
+                playerDeathEvent.TriggerEvent();
+            }
         }
 
         ///<summary>
@@ -66,8 +83,8 @@ namespace Controller
         ///<param name="state">The state of the object</param>
         void UpdateBlendTree()
         {
-            var unitDirection = playerController.Direction;
-            var unitLatestMoveDirection = playerController.LatestMoveDirection;
+            var unitDirection = playerController.Player.properties.Direction;
+            var unitLatestMoveDirection = playerController.Player.properties.LatestMoveDirection;
 
 
             anim.SetFloat("lastMoveX", unitLatestMoveDirection.x);

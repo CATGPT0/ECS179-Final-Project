@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class Entity : MonoBehaviour
 {
-    public Properties properties = new Properties(1, EntityType.Type.Player);
+    public Properties properties = new Properties();
 }

@@ -41,33 +41,7 @@ namespace Controller
             get { return playerEvent; }
             set { playerEvent = value; }
         }
-        private float velocityX;
-        public float VelocityX
-        {
-            get { return velocityX; }
-            set { velocityX = value; }
-        }
-
-        private float velocityY;
-        public float VelocityY
-        {
-            get { return velocityY; }
-            set { velocityY = value; }
-        }
-
-        private Vector3 direction;
-        public Vector3 Direction
-        {
-            get { return direction; }
-            private set { direction = value; }
-        }
-
-        private Vector3 latestMoveDirection;
-        public Vector3 LatestMoveDirection
-        {
-            get { return latestMoveDirection; }
-            private set { latestMoveDirection = value; }
-        }
+       
         private NavMeshAgent agent;
 
         void Awake()
@@ -89,21 +63,21 @@ namespace Controller
 
         void Update()
         {
-            velocityX = Input.GetAxisRaw("Horizontal");
-            velocityY = Input.GetAxisRaw("Vertical");
+            Player.properties.VelocityX = Input.GetAxisRaw("Horizontal");
+            Player.properties.VelocityY = Input.GetAxisRaw("Vertical");
             Move();
         }
 
         void Move()
         {
-            this.direction = new Vector3(velocityX, velocityY, 0);
+            Player.properties.Direction = new Vector3(Player.properties.VelocityX, Player.properties.VelocityY, 0);
 
-            if (direction != Vector3.zero)
+            if (Player.properties.Direction != Vector3.zero)
             {
-                latestMoveDirection = direction;
+                Player.properties.LatestMoveDirection = Player.properties.Direction;
             }
 
-            this.transform.position += GetCalculatedSpeed() * Time.deltaTime * direction;
+            this.transform.position += GetCalculatedSpeed() * Time.deltaTime * Player.properties.Direction;
         }
 
         ///<summary>
@@ -112,7 +86,7 @@ namespace Controller
         ///<returns> The calculated speed of the player </returns>
         private float GetCalculatedSpeed()
         {
-            if (velocityX != 0 && velocityY != 0)
+            if (Player.properties.VelocityX != 0 && Player.properties.VelocityY != 0)
             {
                 return player.properties.Speed / Mathf.Sqrt(2);
             }

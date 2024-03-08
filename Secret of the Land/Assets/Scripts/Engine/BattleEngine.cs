@@ -19,10 +19,14 @@ public class BattleEngine : MonoBehaviour
         healthBarController = FindFirstObjectByType<HealthBarController>();
     }
 
-    public void DealDamage(ref Properties attacker, ref Properties victim, AttackType type)
+    public void DealDamage<TAttacker, TVictim>(ref TAttacker attacker, ref TVictim victim) where TAttacker : Properties where TVictim : Properties
     {
+        Debug.Log("damage:" + attacker.AttackPower);
+        Debug.Log("armor:" + victim.Armor);
+        Debug.Log("health:" + victim.Health);
         int attackPower = attacker.AttackPower;
         int damage = 0;
+        var type = attacker.AttackType;
         if (victim == null)
         {
             Debug.Log("Victim is null");

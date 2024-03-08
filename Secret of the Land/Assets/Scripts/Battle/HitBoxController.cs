@@ -6,14 +6,13 @@ namespace Controller
 {
     public class HitBoxController : MonoBehaviour
     {
-        [SerializeField] private string otherTag;
         private BattleEngine battleEngine;
         
-        private Entity player;
+        private Player player;
 
         void Awake()
         {
-            player = FindFirstObjectByType<Entity>();
+            player = FindFirstObjectByType<Player>();
             battleEngine = FindFirstObjectByType<BattleEngine>();
         }
 
@@ -34,12 +33,13 @@ namespace Controller
 
         void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.gameObject.CompareTag(otherTag))
+            if (other.gameObject.CompareTag("Skeleton"))
             {
-                FSM fsm = other.gameObject.GetComponentInChildren<FSM>();
+                SkeletonFSM fsm = other.gameObject.GetComponentInChildren<SkeletonFSM>();
+                Debug.Log("Health Left: " + fsm.properties.Health);
                 battleEngine.DealDamage(ref player.properties, 
-                                        ref fsm.properties,
-                                        AttackType.Physical);
+                                        ref fsm.properties);
+                
             }
         }
     }

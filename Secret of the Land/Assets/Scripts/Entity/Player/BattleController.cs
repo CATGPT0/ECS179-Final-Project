@@ -64,7 +64,7 @@ namespace Controller
 
         public void Attack()
         {
-            var attackDirection = playerController.LatestMoveDirection.normalized;
+            var attackDirection = playerController.Player.properties.LatestMoveDirection.normalized;
             BattleState state;
 
             if (attackDirection.x < 0)

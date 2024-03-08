@@ -13,16 +13,22 @@ public class SkeletonAttackState : AttackState
         this.properties = machine.properties;
     }
 
-    public new void OnEnter()
+    public override void OnEnter()
     {
-        Debug.Log("AttackState: OnEnter");
+        properties.CanAttack = false;
+        machine.anim.Play("attack");
     }
-    public new void OnExit()
+    public override void OnExit()
     {
         Debug.Log("AttackState: OnExit");
     }
-    public new void OnUpdate()
+    public override void OnUpdate()
     {
-        Debug.Log("AttackState: OnUpdate");
+        animInfo = machine.anim.GetCurrentAnimatorStateInfo(0);
+        if (animInfo.normalizedTime >= 0.99f)
+        {
+            properties.CanAttack = true;
+            machine.ToState(State.Chase);
+        }
     }
 }

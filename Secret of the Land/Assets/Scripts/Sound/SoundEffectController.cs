@@ -35,7 +35,7 @@ public class SoundEffectController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Mathf.Abs(playerController.VelocityX) > 0.1f || Mathf.Abs(playerController.VelocityY) > 0.1f)
+        if (Mathf.Abs(playerController.Player.properties.VelocityX) > 0.1f || Mathf.Abs(playerController.Player.properties.VelocityY) > 0.1f)
         {
             audioSource.enabled = true;
             audioSource.loop = true;

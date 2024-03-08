@@ -6,23 +6,24 @@ public class AttackState : IState
 {
     protected FSM machine;
     protected Properties properties;
+    protected AnimatorStateInfo animInfo;
 
     public AttackState(FSM machine)
     {
         this.machine = machine;
         this.properties = machine.properties;
     }
-    public void OnEnter()
+    public virtual void OnEnter()
     {
-        Debug.Log("AttackState: OnEnter");
+
     }
-    public void OnExit()
+    public virtual void OnExit()
     {
-        Debug.Log("AttackState: OnExit");
+
     }
-    public void OnUpdate()
+    public virtual void OnUpdate()
     {
-        Debug.Log("AttackState: OnUpdate");
+
     }
 }
 

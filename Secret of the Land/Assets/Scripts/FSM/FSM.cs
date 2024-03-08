@@ -60,19 +60,6 @@ public class Properties
         get { return thisType; }
         set { thisType = value; }
     }
-
-    public Properties(int level, EntityType.Type type)
-    {
-        thisType = type;
-        this.level = level;
-        maxHealth = Table.healthTable[type][level];
-        health = maxHealth;
-        attackPower = Table.attackPowerTable[type][level];
-        armor = Table.armorTable[type][level];
-        magicResist = Table.magicResistTable[type][level];
-        speed = Table.speedTable[type][level];
-        attackType = Table.attackTypeTable[type];
-    }
 }
 
 [Serializable]
@@ -90,6 +77,7 @@ public enum State
 {
     Idle,
     Walk,
+    React,
     Patrol,
     Chase,
     Attack,
@@ -100,7 +88,7 @@ public class FSM : MonoBehaviour
     public NavMeshAgent agent;
     public Animator anim;
     public AudioSource audioSource;
-    public Properties properties = new Properties(1, EntityType.Type.Player);
+    public Properties properties = new Properties();
     public SoundClips soundClips = new SoundClips();
     protected IState currentState;
     protected Dictionary<State, IState> states = new Dictionary<State, IState>();
@@ -115,6 +103,7 @@ public class FSM : MonoBehaviour
     {
         states.Add(State.Idle, new IdleState(this));
         states.Add(State.Walk, new WalkState(this));
+        states.Add(State.React, new ReactState(this));
         states.Add(State.Attack, new AttackState(this));
         states.Add(State.Death, new DeathState(this));
         states.Add(State.Patrol, new PatrolState(this));
@@ -137,7 +126,7 @@ public class FSM : MonoBehaviour
         currentState.OnEnter();
     } 
 
-    public void FlipTo()
+    public void Flip()
     {
         if (agent.velocity.x > 0)
         {
@@ -149,4 +138,5 @@ public class FSM : MonoBehaviour
         }
 
     }
+
 }

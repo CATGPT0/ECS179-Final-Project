@@ -4,24 +4,32 @@ using UnityEngine;
 
 public class SkeletonReactState : ReactState
 {
-    private new SkeletonFSM machine;
-    private new SkeletonProperties properties;
+    protected new SkeletonFSM machine;
+    protected new SkeletonProperties properties;
     public SkeletonReactState(SkeletonFSM machine) : base(machine)
     {
         this.machine = machine;
         this.properties = machine.properties;
     }
 
-    public new void OnEnter()
+    public override void OnEnter()
     {
-        Debug.Log("DeathState: OnEnter");
+        machine.anim.Play("react");
+        originalSpeed = machine.agent.speed;
+        machine.agent.speed = 0;
+        properties.CanReact = false;
     }
-    public new void OnExit()
+    public override void OnExit()
     {
-        Debug.Log("DeathState: OnExit");
+        machine.agent.speed = originalSpeed;
     }
-    public new void OnUpdate()
+    public override void OnUpdate()
     {
-        Debug.Log("DeathState: OnUpdate");
+        animInfo = machine.anim.GetCurrentAnimatorStateInfo(0);
+        machine.FlipToPlayer();
+        if (animInfo.normalizedTime >= 0.99f)
+        {
+            machine.ToState(State.Chase);
+        }
     }
 }

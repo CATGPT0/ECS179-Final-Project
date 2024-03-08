@@ -22,16 +22,16 @@ public class PlayerProperties : Properties
     public Vector3 Direction
     {
         get { return direction; }
-        private set { direction = value; }
+        set { direction = value; }
     }
 
     private Vector3 latestMoveDirection;
     public Vector3 LatestMoveDirection
     {
         get { return latestMoveDirection; }
-        private set { latestMoveDirection = value; }
+        set { latestMoveDirection = value; }
     }
-    public PlayerProperties(int level, EntityType.Type type) : base(level, type)
+    public PlayerProperties(int level, EntityType.Type type) : base()
     {
         thisType = type;
         this.level = level;
@@ -59,5 +59,6 @@ public class Player : Entity
     // Update is called once per frame
     void Update()
     {
+
     }
 }

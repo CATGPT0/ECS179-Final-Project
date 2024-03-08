@@ -29,10 +29,14 @@ public class SkeletonChaseState : ChaseState
     public override void OnUpdate()
     {
         machine.agent.SetDestination(properties.Player.position);
-        machine.FlipTo();
+        machine.Flip();
         if (!properties.SeePlayer)
         {
             machine.ToState(State.Idle);
+        }
+        if (Physics2D.OverlapCircle(machine.attackPoint.position, machine.attackRange, machine.targetLayer) && properties.CanAttack)
+        {
+            machine.ToState(State.Attack);
         }
     }
 }
