@@ -5,7 +5,7 @@ using Controller;
 
 public class BootyManager : MonoBehaviour
 {
-    protected SkeletonController skeletonController;
+    protected SkeletonFSM skeleton;
     protected PlayerController playerController;
 
     [SerializeField]
@@ -18,15 +18,15 @@ public class BootyManager : MonoBehaviour
 
     void Awake()
     {
-        skeletonController = FindFirstObjectByType<SkeletonController>();
+        skeleton = FindFirstObjectByType<SkeletonFSM>();
         playerController = FindFirstObjectByType<PlayerController>();
     }
 
     protected void OnDestroy()
     {
-        int monsterLevel = skeletonController.LevelManager.Level;
+        int monsterLevel = skeleton.properties.Level;
         int playerLevel = playerController.LevelManager.Level;
-        int xp = BootyEngine.CalculateXP(monsterLevel, playerLevel, skeletonController.Skeleton.entityType);
+        int xp = BootyEngine.CalculateXP(monsterLevel, playerLevel, skeleton.properties.ThisType);
         playerController.LevelManager.ReceiveXP(xp);
     }
 }

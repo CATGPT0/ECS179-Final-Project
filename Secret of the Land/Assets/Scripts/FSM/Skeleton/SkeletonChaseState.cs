@@ -28,9 +28,9 @@ public class SkeletonChaseState : ChaseState
 
     public override void OnUpdate()
     {
-        machine.agent.SetDestination(properties.player.position);
-        machine.FlipTo(properties.player.position);
-        if (!properties.seePlayer)
+        machine.agent.SetDestination(properties.Player.position);
+        machine.FlipTo();
+        if (!properties.SeePlayer)
         {
             machine.ToState(State.Idle);
         }

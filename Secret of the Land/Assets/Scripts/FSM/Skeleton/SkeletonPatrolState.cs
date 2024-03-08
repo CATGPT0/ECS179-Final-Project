@@ -19,20 +19,20 @@ public class SkeletonPatrolState : PatrolState
         machine.agent.ResetPath();
         machine.anim.Play("walk");
         // Choose a random position within the patrol radius
-        var randomPos = Random.insideUnitCircle * properties.patrolRadius;
-        targetPos = new Vector2(properties.currentPos.x + randomPos.x, properties.currentPos.y + randomPos.y);
+        var randomPos = Random.insideUnitCircle * properties.PatrolRadius;
+        targetPos = new Vector2(properties.CurrentPos.x + randomPos.x, properties.CurrentPos.y + randomPos.y);
         // bool isSuccessful = false;
 
-        while (Vector2.Distance(targetPos, properties.spawnPosition) > properties.patrolRadius)
+        while (Vector2.Distance(targetPos, properties.SpawnPosition) > properties.PatrolRadius)
         {
-            randomPos = Random.insideUnitCircle * properties.patrolRadius;
-            targetPos = new Vector2(properties.currentPos.x + randomPos.x, properties.currentPos.y + randomPos.y);
+            randomPos = Random.insideUnitCircle * properties.PatrolRadius;
+            targetPos = new Vector2(properties.CurrentPos.x + randomPos.x, properties.CurrentPos.y + randomPos.y);
         }
         machine.agent.SetDestination(targetPos);
 
         // Set audio clip based on the ground type
         machine.audioSource.enabled = true;
-        currentTerrainType = properties.groundType;
+        currentTerrainType = properties.GroundType;
 
         if (currentTerrainType == TerrainDetector.TerrainType.Grass)
         {
@@ -57,15 +57,15 @@ public class SkeletonPatrolState : PatrolState
 
     public override void OnUpdate()
     {
-        if (Vector2.Distance(properties.currentPos, targetPos) < 0.1f)
+        if (Vector2.Distance(properties.CurrentPos, targetPos) < 0.1f)
         {
             machine.ToState(State.Idle);
         }
-        machine.FlipTo(targetPos);
+        machine.FlipTo();
         HandleStuck();
         ChangeAudioClip();
 
-        if (properties.seePlayer)
+        if (properties.SeePlayer)
         {
             machine.ToState(State.Chase);
         }
@@ -73,9 +73,9 @@ public class SkeletonPatrolState : PatrolState
 
     public void ChangeAudioClip()
     {
-        if (currentTerrainType != properties.groundType)
+        if (currentTerrainType != properties.GroundType)
         {
-            currentTerrainType = properties.groundType;
+            currentTerrainType = properties.GroundType;
             if (currentTerrainType == TerrainDetector.TerrainType.Grass)
             {
                 machine.audioSource.clip = soundClips.grass;

@@ -35,7 +35,7 @@ public class SkeletonIdleState : IdleState
             machine.ToState(State.Patrol);
         }
 
-        if (properties.seePlayer)
+        if (properties.SeePlayer)
         {
             machine.ToState(State.Chase);
         }

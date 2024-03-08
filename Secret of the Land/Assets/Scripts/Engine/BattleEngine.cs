@@ -19,7 +19,7 @@ public class BattleEngine : MonoBehaviour
         healthBarController = FindFirstObjectByType<HealthBarController>();
     }
 
-    public void DealDamage(Entity attacker, Entity victim, AttackType type)
+    public void DealDamage(ref Properties attacker, ref Properties victim, AttackType type)
     {
         int attackPower = attacker.AttackPower;
         int damage = 0;
@@ -44,7 +44,7 @@ public class BattleEngine : MonoBehaviour
 
         victim.Health -= damage;
 
-        if (victim.entityType == EntityType.Type.Player)
+        if (victim.ThisType == EntityType.Type.Player)
         {
             healthBarController.SetHealth(victim.Health);
         }

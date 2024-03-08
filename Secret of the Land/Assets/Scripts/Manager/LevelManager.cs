@@ -31,7 +31,7 @@ public class LevelManager : MonoBehaviour
     private int magicResistPerLevel;
     [SerializeField]
     private float speedPerLevel;
-    private Entity entity;
+    private Player player;
     public Dictionary<int, int> levelThresholds = new Dictionary<int, int>()
     {
         {1, 100},
@@ -48,7 +48,7 @@ public class LevelManager : MonoBehaviour
 
     void Awake()
     {
-        entity = FindFirstObjectByType<Player>();
+        player = FindFirstObjectByType<Player>();
         playerEvent = FindFirstObjectByType<PlayerEvent>();
         levelUpController = FindFirstObjectByType<LevelUpController>();
         getXPTextController = FindFirstObjectByType<GetXPTextController>();
@@ -63,11 +63,11 @@ public class LevelManager : MonoBehaviour
         {
             xp = xp - levelThresholds[level];
             ++level;
-            entity.AttackPower += attackPowerPerLevel;
-            entity.MaxHealth += healthPerLevel;
-            entity.Armor += armorPerLevel;
-            entity.MagicResist += magicResistPerLevel;
-            entity.Speed += speedPerLevel;
+            player.properties.AttackPower += attackPowerPerLevel;
+            player.properties.MaxHealth += healthPerLevel;
+            player.properties.Armor += armorPerLevel;
+            player.properties.MagicResist += magicResistPerLevel;
+            player.properties.Speed += speedPerLevel;
 
             levelUp = true;
         }
@@ -77,7 +77,7 @@ public class LevelManager : MonoBehaviour
             {
                 levelUpController.LevelUIShowUp(healthPerLevel, speedPerLevel, attackPowerPerLevel, armorPerLevel, level);
             }
-            entity.Health = entity.MaxHealth;
+            player.properties.Health = player.properties.MaxHealth;
         }
         Debug.Log("XP Become: " + xp);
         playerEvent.LevelUpEvent?.TriggerEvent();

@@ -32,11 +32,11 @@ public class PropertyTextController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        healthText.text = "Health: " + playerController.Player.Health + "/" + playerController.Player.MaxHealth;
-        speedText.text = "Speed: " + playerController.Player.Speed;
-        attackPowerText.text = "Attack Power: " + playerController.Player.AttackPower;
-        armorText.text = "Armor: " + playerController.Player.Armor;
-        healthBarText.text = playerController.Player.Health + "/" + playerController.Player.MaxHealth;
+        healthText.text = "Health: " + playerController.Player.properties.Health + "/" + playerController.Player.properties.MaxHealth;
+        speedText.text = "Speed: " + playerController.Player.properties.Speed;
+        attackPowerText.text = "Attack Power: " + playerController.Player.properties.AttackPower;
+        armorText.text = "Armor: " + playerController.Player.properties.Armor;
+        healthBarText.text = playerController.Player.properties.Health + "/" + playerController.Player.properties.MaxHealth;
         levelText.text = "Level: " + playerController.LevelManager.Level + " XP: " + playerController.LevelManager.XP + "/" + playerController.LevelManager.levelThresholds[playerController.LevelManager.Level];
     }
 }

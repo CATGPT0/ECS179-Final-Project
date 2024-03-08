@@ -9,11 +9,11 @@ namespace Controller
         [SerializeField] private string otherTag;
         private BattleEngine battleEngine;
         
-        private Player player;
+        private Entity player;
 
         void Awake()
         {
-            player = FindFirstObjectByType<Player>();
+            player = FindFirstObjectByType<Entity>();
             battleEngine = FindFirstObjectByType<BattleEngine>();
         }
 
@@ -36,8 +36,9 @@ namespace Controller
         {
             if (other.gameObject.CompareTag(otherTag))
             {
-                battleEngine.DealDamage(player, 
-                                        other.gameObject.GetComponentInChildren<Entity>(),
+                FSM fsm = other.gameObject.GetComponentInChildren<FSM>();
+                battleEngine.DealDamage(ref player.properties, 
+                                        ref fsm.properties,
                                         AttackType.Physical);
             }
         }

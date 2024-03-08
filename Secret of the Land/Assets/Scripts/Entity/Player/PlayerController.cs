@@ -114,11 +114,11 @@ namespace Controller
         {
             if (velocityX != 0 && velocityY != 0)
             {
-                return player.Speed / Mathf.Sqrt(2);
+                return player.properties.Speed / Mathf.Sqrt(2);
             }
             else
             {
-                return player.Speed;
+                return player.properties.Speed;
             }
         }
         public void Attack()
