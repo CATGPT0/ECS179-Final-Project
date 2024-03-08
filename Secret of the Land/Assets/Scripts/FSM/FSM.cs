@@ -5,13 +5,8 @@ using UnityEngine;
 using UnityEngine.AI;
 
 [Serializable]
-public class Properties
+public class SkeletonProperties : Properties
 {
-    public string name;
-    public int health;
-    public int damage;
-    public int speed;
-    public int armor;
     public Vector2 spawnPosition;
     public Vector2 currentPos;
     public Transform player;
@@ -45,7 +40,7 @@ public class FSM : MonoBehaviour
     public NavMeshAgent agent;
     public Animator anim;
     public AudioSource audioSource;
-    public Properties properties = new Properties();
+    public SkeletonProperties properties = new SkeletonProperties();
     public SoundClips soundClips = new SoundClips();
     private IState currentState;
     private Dictionary<State, IState> states = new Dictionary<State, IState>();
@@ -77,6 +72,7 @@ public class FSM : MonoBehaviour
 
     public void ToState(State state)
     {
+        Debug.Log(state.ToString() + " state");
         currentState.OnExit();
         currentState = states[state];
         currentState.OnEnter();

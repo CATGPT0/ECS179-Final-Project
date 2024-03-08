@@ -21,13 +21,11 @@ public class IdleState : IState
     {
         maxIdleTime = Random.Range(3f, 5f);
         machine.agent.ResetPath();
-        machine.agent.isStopped = true;
         machine.anim.Play("idle");
     }
     public void OnExit()
     {
         machine.agent.ResetPath();
-        machine.agent.isStopped = false;
         timer = 0;
     }
     public void OnUpdate()
