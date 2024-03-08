@@ -21,13 +21,13 @@ public class SkeletonAttackState : AttackState
     public override void OnExit()
     {
         Debug.Log("AttackState: OnExit");
+        properties.CanAttack = true;
     }
     public override void OnUpdate()
     {
         animInfo = machine.anim.GetCurrentAnimatorStateInfo(0);
         if (animInfo.normalizedTime >= 0.99f)
         {
-            properties.CanAttack = true;
             machine.ToState(State.Chase);
         }
     }

@@ -67,7 +67,7 @@ namespace Controller
 
             if (animInfo.normalizedTime >= .99f)
             {
-                Debug.Log("normalizedTime: " + animInfo.normalizedTime);
+
             }
             if (animInfo.normalizedTime >= .99f && animInfo.IsName("death"))
             {

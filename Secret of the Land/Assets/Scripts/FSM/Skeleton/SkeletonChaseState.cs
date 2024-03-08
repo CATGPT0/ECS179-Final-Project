@@ -14,6 +14,7 @@ public class SkeletonChaseState : ChaseState
 
     public override void OnEnter()
     {
+        Debug.Log("ChaseState: OnEnter");
         originalSpeed = machine.agent.speed;
         machine.agent.speed = chaseSpeed;
         machine.agent.ResetPath();
