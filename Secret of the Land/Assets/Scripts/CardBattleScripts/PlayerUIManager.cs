@@ -15,7 +15,7 @@ namespace CardBattle
         private Text energyText;
         public GameObject healthTextGameObject;
         private Text healthText;
-        private void Start()
+        private void Awake()
         {
             energyText = energyTextGameObject.GetComponent<Text>();
             healthText = healthTextGameObject.GetComponent<Text>();
@@ -24,6 +24,7 @@ namespace CardBattle
         public void setEnergy(int energy)
         {
             energyText.text = energy.ToString();
+            
         }
 
 

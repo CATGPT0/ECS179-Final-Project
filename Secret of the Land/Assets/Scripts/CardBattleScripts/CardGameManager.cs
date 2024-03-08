@@ -60,6 +60,9 @@ namespace CardBattle
         public GameObject UIManagerGameObject;
         private PlayerUIManager playerUIManager;
 
+        // Bool for checking if the player choose to draw card or get energy
+        // 1 when player get energy, 2 when player draw card, 0 when player have not decided yet
+        private int playerChoice = 0;
 
 
 
@@ -91,6 +94,14 @@ namespace CardBattle
 
             // Reset the Action when start the game
             cardBattleManager.LoadNextEnemyAction(enemy);
+
+            DrawACard();
+            DrawACard();
+            DrawACard();
+            UpdateHandCard();
+            
+            playerUIManager.setEnergy(player.energy);
+            playerUIManager.setHealth(player.health);
         }
 
         // Check the stage of our game and manage them
@@ -132,7 +143,6 @@ namespace CardBattle
 
             }
 
-
         }
 
         // This is for before player round
@@ -146,7 +156,7 @@ namespace CardBattle
         /// </summary>
         private void BeforePlayerRoundUpdate()
         {
-            // 1. Draw cards for player
+            // 1. If the draw pile is empty, use discard pile to refill draw pile
             if (this.drawPile.Count <= 0)
             {
                 // Debug.Log("Trying to transfer cards from discard pile to draw pile");
@@ -154,32 +164,44 @@ namespace CardBattle
                 discardPile.Clear();
             }
 
-            // 2. If the draw pile is empty, use discard pile to refill draw pile
-
-            DrawACard();
-            DrawACard();
-
-            UpdateHandCard();
-
-            // 3. If the player didn't use any card last round, get some energy
-            if(cardsUsedNum == 0)
+            switch (playerChoice)
             {
-                player.IncreaseEnergy(2);
+                case 1:
+                    player.IncreaseEnergy(2);
+                    break;
+                case 2:
+                    DrawACard();
+                    DrawACard();
+                    break;
+                default:
+                    break;
             }
 
-            cardsUsedNum = 0;
-
-            // 4. Reset shield
-            this.player.ResetShield();
-
-            // 5. Update UI
-            playerUIManager.setEnergy(player.energy);
-            playerUIManager.setHealth(player.health);
+            // DrawACard();
+            // DrawACard();
 
             
 
-            // 6. Move to next stage
-            finishedTheStage = true;
+            
+
+            if (playerChoice != 0)
+            {
+                // Reset card used
+                cardsUsedNum = 0;
+
+                // 4. Reset shield
+                this.player.ResetShield();
+
+                // 5. Update UI
+                playerUIManager.setEnergy(player.energy);
+                playerUIManager.setHealth(player.health);
+
+                // Update Hand Card
+                UpdateHandCard();
+                playerChoice = 0;
+                // 6. Move to next stage
+                finishedTheStage = true;
+            }
 
             
 
@@ -201,6 +223,7 @@ namespace CardBattle
 
         private void AfterPlayerRoundUpdate()
         {
+            UpdateHandCard();
             finishedTheStage = true;
         }
 
@@ -213,6 +236,7 @@ namespace CardBattle
         {
             cardBattleManager.DoEnemyAction();
             finishedTheStage = true;
+            playerUIManager.setHealth(player.health);
         }
         
         private void AfterEnemyRoundUpdate()
@@ -234,6 +258,22 @@ namespace CardBattle
             
         }
         
+        public void PressedEnergyButton()
+        {
+            if(this.gameStage == GameStage.beforePlayerRound)
+            {
+                playerChoice = 1;
+            }
+        }
+
+        public void PressedDrawPileButton()
+        {
+            if(this.gameStage == GameStage.beforePlayerRound)
+            {
+                // Debug.Log("Draw Pile was pressed");
+                playerChoice = 2;
+            }
+        }
 
         private void UpdateHandCard()
         {
@@ -292,12 +332,20 @@ namespace CardBattle
         /// </returns>
         public bool UseACard(int code, int energyCost)
         {
-            
-            // If the energy is not enough, tell the card that should not destroy itself
-            if(!player.ReduceEnergy(energyCost))
+
+            // If it is not player stage, stop using card
+            if (this.gameStage != GameStage.playerRound)
             {
                 return false;
             }
+
+            // If the energy is not enough, tell the card that should not destroy itself
+            if (!player.ReduceEnergy(energyCost))
+            {
+                return false;
+            }
+
+            
 
             // Accumulate the cards used
             ++cardsUsedNum;

@@ -45,6 +45,7 @@ namespace CardBattle
 
         private void OnMouseEnter()
         {
+            Debug.Log("MouseEnter");
             spriteTransform.position = spriteTransform.position + new Vector3(0f, 0.2f, 0f);
             originLayerOrder = this.sprite.GetComponent<SpriteRenderer>().sortingOrder;
             this.sprite.GetComponent<SpriteRenderer>().sortingOrder += 40;
