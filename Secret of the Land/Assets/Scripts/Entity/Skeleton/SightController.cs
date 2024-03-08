@@ -6,6 +6,8 @@ public class SightController : MonoBehaviour
 {
     public GameEvent onPlayerSighted;
     public GameEvent onPlayerLost;
+    [SerializeField]
+    private SkeletonFSM fsm;
     void Start()
     {
         
@@ -21,17 +23,20 @@ public class SightController : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            onPlayerSighted.TriggerEvent();
-            Debug.Log("Player Sighted");
+            fsm.properties.SeePlayer = true;
+            //onPlayerSighted.TriggerEvent();
+            //Debug.Log("Player Sighted");
         }
+        
     }
 
     void OnTriggerExit2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
-            onPlayerLost.TriggerEvent();
-            Debug.Log("Player Lost");
+            fsm.properties.SeePlayer = false;
+            //onPlayerLost.TriggerEvent();
+            //Debug.Log("Player Lost");
         }
     }
 }
