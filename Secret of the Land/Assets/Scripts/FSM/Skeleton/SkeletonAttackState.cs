@@ -2,27 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AttackState : IState
+public class SkeletonAttackState : AttackState
 {
-    protected FSM machine;
-    protected Properties properties;
+    protected new SkeletonFSM machine;
+    protected new SkeletonProperties properties;
 
-    public AttackState(FSM machine)
+    public SkeletonAttackState(SkeletonFSM machine) : base(machine)
     {
         this.machine = machine;
         this.properties = machine.properties;
     }
-    public void OnEnter()
+
+    public new void OnEnter()
     {
         Debug.Log("AttackState: OnEnter");
     }
-    public void OnExit()
+    public new void OnExit()
     {
         Debug.Log("AttackState: OnExit");
     }
-    public void OnUpdate()
+    public new void OnUpdate()
     {
         Debug.Log("AttackState: OnUpdate");
     }
 }
-

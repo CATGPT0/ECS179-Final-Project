@@ -1,5 +1,10 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Secret of the Land/Assets/NavMeshPlus.meta
+guid: 38965f70c9c13754db97139fb57fdc99
+folderAsset: yes
+========
 guid: 4aafea534cdccb843b27a8b6e839a76f
+>>>>>>>> e5a0b860062ee51d9907d14e729c47affec54b8f:Secret of the Land/Assets/NavMeshPlus/LICENSE.meta
 DefaultImporter:
   externalObjects: {}
   userData: 

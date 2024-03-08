@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class DeathState : IState
 {
-    private FSM machine;
-    private Properties properties;
+    protected FSM machine;
+    protected Properties properties;
 
     public DeathState(FSM machine)
     {
