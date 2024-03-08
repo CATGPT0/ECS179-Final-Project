@@ -22,11 +22,15 @@ namespace CardBattle
 
         protected Vector3 originPosition;
 
-        protected int cardCode;
+        public int cardCode;
 
         protected int originLayerOrder;
 
         protected Enemy enemy;
+
+        public CardScriptableObject cardScriptableObject;
+
+        public new string name;
 
 
 
@@ -40,6 +44,16 @@ namespace CardBattle
             originPosition = spriteTransform.position;
 
         }
+
+        private void Start()
+        {
+            energyCost = cardScriptableObject.energyCost;
+
+            cardCode = cardScriptableObject.cardCode;
+            name = cardScriptableObject.cardName;
+            Debug.Log("CardName is " + cardScriptableObject.cardName);
+        }
+
 
 
 
