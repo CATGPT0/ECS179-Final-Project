@@ -72,12 +72,15 @@ public class SkeletonProperties : Properties
 }
 public class SkeletonFSM : FSM
 {
-    public new SkeletonProperties properties = new SkeletonProperties(1, EntityType.Type.Skeleton);
+    [SerializeField]
+    private int spawnLevel;
+    public new SkeletonProperties properties;
     public LayerMask targetLayer;
     public Transform attackPoint;
     public float attackRange;
     protected new void Awake()
     {
+        properties = new SkeletonProperties(spawnLevel, EntityType.Type.Skeleton);
         base.Awake();
     }
     protected new void Start()

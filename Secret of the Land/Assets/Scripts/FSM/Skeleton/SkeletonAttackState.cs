@@ -17,16 +17,18 @@ public class SkeletonAttackState : AttackState
     {
         properties.CanAttack = false;
         machine.anim.Play("attack");
+        Physics2D.IgnoreLayerCollision(9, 0, true);
     }
     public override void OnExit()
     {
         Debug.Log("AttackState: OnExit");
         properties.CanAttack = true;
+        Physics2D.IgnoreLayerCollision(9, 0, false);
     }
     public override void OnUpdate()
     {
         animInfo = machine.anim.GetCurrentAnimatorStateInfo(0);
-        if (animInfo.normalizedTime >= 0.9f)
+        if (animInfo.normalizedTime >= 0.95f)
         {
             machine.ToState(State.Chase);
         }

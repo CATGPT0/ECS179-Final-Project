@@ -5,7 +5,8 @@ using UnityEngine;
 public class SpawnManager : MonoBehaviour
 {
     [SerializeField]
-    private List<GameObject> prefabs;
+    private GameObject skeletonPrefab;
+
     void Start()
     {
         

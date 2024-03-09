@@ -35,7 +35,7 @@ public class SkeletonChaseState : ChaseState
         {
             machine.ToState(State.Idle);
         }
-        if (Physics2D.OverlapCircle(machine.attackPoint.position, machine.attackRange, machine.targetLayer) && properties.CanAttack)
+        if (Physics2D.OverlapCircle(machine.attackPoint.position, machine.attackRange, machine.targetLayer) && properties.CanAttack && machine.agent.isOnNavMesh)
         {
             machine.ToState(State.Attack);
         }
