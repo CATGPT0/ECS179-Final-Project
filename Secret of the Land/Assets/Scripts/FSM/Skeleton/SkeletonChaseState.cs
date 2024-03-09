@@ -18,7 +18,7 @@ public class SkeletonChaseState : ChaseState
     {
         Debug.Log("ChaseState: OnEnter");
         originalSpeed = machine.agent.speed;
-        machine.agent.speed = chaseSpeed;
+        machine.agent.speed *= chaseSpeedMultiplier;
         machine.agent.ResetPath();
         machine.anim.Play("walk");
     }

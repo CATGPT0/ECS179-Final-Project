@@ -95,6 +95,7 @@ public class SkeletonFSM : FSM
         states.Add(State.Chase, new SkeletonChaseState(this));
         agent.updateRotation = false;
         agent.updateUpAxis = false;
+        agent.speed = properties.Speed;
         currentState = states[State.Idle];
         currentState.OnEnter();
     }

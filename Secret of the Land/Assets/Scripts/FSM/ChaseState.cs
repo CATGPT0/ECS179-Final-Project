@@ -6,7 +6,7 @@ public class ChaseState : IState
 {
     protected FSM machine;
     protected Properties properties;
-    protected float chaseSpeed = 3.5f;
+    protected float chaseSpeedMultiplier = 1.5f;
     protected float originalSpeed;
     public ChaseState(FSM machine)
     {
