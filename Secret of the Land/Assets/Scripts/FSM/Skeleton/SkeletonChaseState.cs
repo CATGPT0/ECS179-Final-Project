@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +7,7 @@ public class SkeletonChaseState : ChaseState
 {
     protected new SkeletonFSM machine;
     protected new SkeletonProperties properties;
+    public event EventHandler OnChase;
     public SkeletonChaseState(SkeletonFSM machine) : base(machine)
     {
         this.machine = machine;
@@ -25,6 +27,7 @@ public class SkeletonChaseState : ChaseState
     {
         machine.agent.ResetPath();
         machine.agent.speed = originalSpeed;
+        machine.stuckTimer = 0;
     }
 
     public override void OnUpdate()
