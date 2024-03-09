@@ -23,12 +23,6 @@ namespace Controller
             get { return battleController; }
             set { battleController = value; }
         }
-        private LevelManager levelManager;
-        public LevelManager LevelManager
-        {
-            get { return levelManager; }
-            set { levelManager = value; }
-        }
         private PlayerAnimation playerAnimation;
         public PlayerAnimation PlayerAnimation
         {
@@ -43,15 +37,20 @@ namespace Controller
         }
        
         private NavMeshAgent agent;
+        public LevelUpController levelUpController;
+        public GetXPTextController getXPTextController;
+        public HealthBarController healthBarController;
 
         void Awake()
         {
             player = GetComponentInChildren<Player>();
             battleController = GetComponentInChildren<BattleController>(); 
-            levelManager = GetComponentInChildren<LevelManager>();
             playerAnimation = GetComponentInChildren<PlayerAnimation>();
             playerEvent = GetComponentInChildren<PlayerEvent>();
             agent = GetComponent<NavMeshAgent>();
+            levelUpController = FindFirstObjectByType<LevelUpController>();
+            getXPTextController = FindFirstObjectByType<GetXPTextController>();
+            healthBarController = FindFirstObjectByType<HealthBarController>();
             agent.updateUpAxis = false;
             agent.updateRotation = false;
         }

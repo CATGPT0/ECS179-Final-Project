@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Controller;
 using UnityEngine;
 
 public class PlayerProperties : Properties
@@ -31,6 +32,13 @@ public class PlayerProperties : Properties
         get { return latestMoveDirection; }
         set { latestMoveDirection = value; }
     }
+
+    private int xp;
+    public int XP
+    {
+        get { return xp; }
+        set { xp = value; }
+    }
     public PlayerProperties(int level, EntityType.Type type) : base()
     {
         thisType = type;
@@ -42,11 +50,18 @@ public class PlayerProperties : Properties
         armor = Table.armorTable[type][level];
         magicResist = Table.magicResistTable[type][level];
         attackType = Table.attackTypeTable[type];
+        xp = 0;
     }
 }
 public class Player : Entity
 {
     public new PlayerProperties properties = new PlayerProperties(1, EntityType.Type.Player);
+    private PlayerController playerController;
+    void Awake()
+    {
+        playerController = GetComponentInParent<PlayerController>();
+    }
+    
     void Start()
     {
         Debug.Log("Player Start");
@@ -60,5 +75,43 @@ public class Player : Entity
     void Update()
     {
 
+    }
+
+    public void Test(int a)
+    {
+        Debug.Log("Test" + a);
+    }
+
+    public void ReceiveXP(int amount)
+    {
+        properties.XP += amount;
+        Debug.Log("XP Become: " + properties.XP);
+        bool levelUp = false;
+        while (properties.XP >= Table.levelThresholds[properties.Level])
+        {
+            properties.XP = properties.XP - Table.levelThresholds[properties.Level];
+            ++properties.Level;
+            properties.AttackPower = Table.attackPowerTable[properties.ThisType][properties.Level];
+            properties.MaxHealth = Table.healthTable[properties.ThisType][properties.Level];
+            properties.Armor = Table.armorTable[properties.ThisType][properties.Level];
+            properties.MagicResist = Table.magicResistTable[properties.ThisType][properties.Level];
+            properties.Speed = Table.speedTable[properties.ThisType][properties.Level];
+
+            levelUp = true;
+        }
+        if (levelUp)
+        {
+            playerController.levelUpController.LevelUIShowUp(Table.healthTable[properties.ThisType][properties.Level] - Table.healthTable[properties.ThisType][properties.Level - 1],
+                                                             Table.speedTable[properties.ThisType][properties.Level] - Table.speedTable[properties.ThisType][properties.Level - 1],
+                                                             Table.attackPowerTable[properties.ThisType][properties.Level] - Table.attackPowerTable[properties.ThisType][properties.Level - 1],
+                                                             Table.armorTable[properties.ThisType][properties.Level] - Table.armorTable[properties.ThisType][properties.Level - 1],
+                                                             properties.Level);
+            properties.Health = properties.MaxHealth;
+            playerController.healthBarController.SetMaxHealth(properties.MaxHealth);
+        }
+        else
+        {
+            playerController.getXPTextController.XPUIShowUp(amount);
+        }
     }
 }

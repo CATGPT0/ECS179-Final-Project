@@ -12,16 +12,17 @@ public class SkeletonDeathState : DeathState
         this.properties = machine.properties;
     }
 
-    public new void OnEnter()
+    public override void OnEnter()
     {
-        Debug.Log("DeathState: OnEnter");
+        machine.anim.Play("death");
+        machine.agent.speed = 0;
     }
-    public new void OnExit()
+    public override void OnExit()
     {
         Debug.Log("DeathState: OnExit");
     }
-    public new void OnUpdate()
+    public override void OnUpdate()
     {
-        Debug.Log("DeathState: OnUpdate");
+        stateInfo = machine.anim.GetCurrentAnimatorStateInfo(0);
     }
 }

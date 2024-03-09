@@ -23,7 +23,7 @@ public static class Table
         { EntityType.Type.Troll, new Dictionary<int, int>() { { 1, 10 }, { 2, 12 }, { 3, 14 }, { 4, 16 }, { 5, 18 }, { 6, 20 }, { 7, 22 }, { 8, 24 }, { 9, 26 }, { 10, 30 } } },
         { EntityType.Type.Dragon, new Dictionary<int, int>() { { 1, 10 }, { 2, 12 }, { 3, 14 }, { 4, 16 }, { 5, 18 }, { 6, 20 }, { 7, 22 }, { 8, 24 }, { 9, 26 }, { 10, 30 } } },
         { EntityType.Type.Skeleton, new Dictionary<int, int>() { { 1, 14 }, { 2, 16 }, { 3, 18 }, { 4, 20 }, { 5, 22 }, { 6, 24 }, { 7, 26 }, { 8, 28 }, { 9, 30 }, { 10, 32 } } },
-        { EntityType.Type.Player, new Dictionary<int, int>() { { 1, 20 }, { 2, 12 }, { 3, 14 }, { 4, 16 }, { 5, 18 }, { 6, 20 }, { 7, 22 }, { 8, 24 }, { 9, 26 }, { 10, 30 } } }
+        { EntityType.Type.Player, new Dictionary<int, int>() { { 1, 10 }, { 2, 12 }, { 3, 14 }, { 4, 16 }, { 5, 18 }, { 6, 20 }, { 7, 22 }, { 8, 24 }, { 9, 26 }, { 10, 30 } } }
     };
 
     public static Dictionary<EntityType.Type, Dictionary<int, int>> armorTable = new Dictionary<EntityType.Type, Dictionary<int, int>>()
@@ -84,4 +84,57 @@ public static class Table
         {9, 5000},
         {10, 7000}
     };
+
+     private static Dictionary<EntityType.Type, int> monsterXp = new Dictionary<EntityType.Type, int>()
+    {
+        { EntityType.Type.Slime, 1 },
+        { EntityType.Type.Goblin, 2 },
+        { EntityType.Type.Orc, 3 },
+        { EntityType.Type.Troll, 4 },
+        { EntityType.Type.Dragon, 5 },
+        { EntityType.Type.Skeleton, 30 }
+    };
+
+    private static Dictionary<int, float> levelDifferenceModifier = new Dictionary<int, float>()
+    {
+        { -4, 0.6f },
+        { -3, 0.7f },
+        { -2, 0.8f },
+        { -1, 0.9f },
+        { 0, 1f },
+        { 1, 1.1f },
+        { 2, 1.2f },
+        { 3, 1.3f },
+        { 4, 1.4f }
+    };
+
+    private static Dictionary<int, float> playerLevelModifier = new Dictionary<int, float>()
+    {
+        { 1, 1f },
+        { 2, 1.1f },
+        { 3, 1.2f },
+        { 4, 1.3f },
+        { 5, 1.4f },
+        { 6, 1.5f },
+        { 7, 1.6f },
+        { 8, 1.7f },
+        { 9, 1.8f },
+        { 10, 1.9f }
+    };
+    public static int CalculateXP(int monsterLevel, int playerLevel, EntityType.Type monsterType)
+    {
+        Debug.Log("Monster Level: " + monsterLevel);
+        Debug.Log("Player Level: " + playerLevel);
+        int levelDifference = monsterLevel - playerLevel;
+
+        if (levelDifference > 4)
+        {
+            levelDifference = 4;
+        }
+        else if (levelDifference < -4)
+        {
+            return 0;
+        }
+        return Mathf.RoundToInt(monsterXp[monsterType] * levelDifferenceModifier[levelDifference] * playerLevelModifier[playerLevel]);
+    }
 }

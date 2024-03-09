@@ -60,6 +60,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4960268806007123486}
+  - component: {fileID: 7139601708003606519}
   m_Layer: 0
   m_Name: EventManager
   m_TagString: Untagged
@@ -82,6 +83,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4444713100278178301}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7139601708003606519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2298701481852416674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc21a079f2fbbbc4ab76cedb4f87ae2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4125215120261089256
 GameObject:
   m_ObjectHideFlags: 0
@@ -307,6 +320,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onPlayerSighted: {fileID: 11400000, guid: bf07bf3edf8b2ec4cbcadf0b87caf676, type: 2}
   onPlayerLost: {fileID: 11400000, guid: 812ace6b852d51b489c88edd977857f8, type: 2}
+  fsm: {fileID: 7222095419942555203}
 --- !u!1 &7407224530523094574
 GameObject:
   m_ObjectHideFlags: 0
@@ -370,7 +384,7 @@ GameObject:
   - component: {fileID: 1505387847751257226}
   - component: {fileID: 7222095419942555203}
   m_Layer: 9
-  m_Name: Skeleton
+  m_Name: skeleton
   m_TagString: Skeleton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -384,7 +398,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7647518961789912043}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5.85, y: 0.06, z: -0.00039958954}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

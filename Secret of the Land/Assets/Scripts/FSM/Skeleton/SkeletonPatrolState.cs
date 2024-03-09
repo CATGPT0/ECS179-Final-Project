@@ -76,6 +76,10 @@ public class SkeletonPatrolState : PatrolState
                 machine.ToState(State.Chase);
             }
         }
+        if (properties.Health <= 0)
+        {
+            machine.ToState(State.Death);
+        }
     }
 
     public void ChangeAudioClip()

@@ -26,9 +26,13 @@ public class SkeletonAttackState : AttackState
     public override void OnUpdate()
     {
         animInfo = machine.anim.GetCurrentAnimatorStateInfo(0);
-        if (animInfo.normalizedTime >= 0.99f)
+        if (animInfo.normalizedTime >= 0.9f)
         {
             machine.ToState(State.Chase);
+        }
+        if (properties.Health <= 0)
+        {
+            machine.ToState(State.Death);
         }
     }
 }

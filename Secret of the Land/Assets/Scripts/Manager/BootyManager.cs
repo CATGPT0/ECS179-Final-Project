@@ -24,9 +24,9 @@ public class BootyManager : MonoBehaviour
 
     protected void OnDestroy()
     {
-        int monsterLevel = skeleton.properties.Level;
-        int playerLevel = playerController.LevelManager.Level;
-        int xp = BootyEngine.CalculateXP(monsterLevel, playerLevel, skeleton.properties.ThisType);
-        playerController.LevelManager.ReceiveXP(xp);
+        // int monsterLevel = skeleton.properties.Level;
+        // int playerLevel = playerController.LevelManager.Level;
+        // int xp = BootyEngine.CalculateXP(monsterLevel, playerLevel, skeleton.properties.ThisType);
+        // playerController.LevelManager.ReceiveXP(xp);
     }
 }

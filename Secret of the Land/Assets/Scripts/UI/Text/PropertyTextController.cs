@@ -37,6 +37,6 @@ public class PropertyTextController : MonoBehaviour
         attackPowerText.text = "Attack Power: " + playerController.Player.properties.AttackPower;
         armorText.text = "Armor: " + playerController.Player.properties.Armor;
         healthBarText.text = playerController.Player.properties.Health + "/" + playerController.Player.properties.MaxHealth;
-        levelText.text = "Level: " + playerController.LevelManager.Level + " XP: " + playerController.LevelManager.XP + "/" + playerController.LevelManager.levelThresholds[playerController.LevelManager.Level];
+        levelText.text = "Level: " + playerController.Player.properties.Level + " XP: " + playerController.Player.properties.XP + "/" + Table.levelThresholds[playerController.Player.properties.Level];
     }
 }

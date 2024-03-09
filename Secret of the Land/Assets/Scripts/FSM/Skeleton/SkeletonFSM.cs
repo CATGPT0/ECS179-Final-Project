@@ -30,7 +30,7 @@ public class SkeletonProperties : Properties
         get { return seePlayer; }
         set { seePlayer = value; }
     }
-    protected float patrolRadius = 10f;
+    protected float patrolRadius = 8f;
     public float PatrolRadius
     {
         get { return patrolRadius; }
