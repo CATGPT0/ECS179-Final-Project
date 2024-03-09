@@ -30,7 +30,7 @@ public class SkeletonProperties : Properties
         get { return seePlayer; }
         set { seePlayer = value; }
     }
-    protected float patrolRadius = 8f;
+    protected float patrolRadius;
     public float PatrolRadius
     {
         get { return patrolRadius; }
@@ -68,6 +68,7 @@ public class SkeletonProperties : Properties
         armor = Table.armorTable[type][level];
         magicResist = Table.magicResistTable[type][level];
         attackType = Table.attackTypeTable[type];
+        patrolRadius = 5f;
     }
 }
 public class SkeletonFSM : FSM

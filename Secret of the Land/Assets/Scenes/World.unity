@@ -17717,6 +17717,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agent: {fileID: 0}
   anim: {fileID: 0}
+  thisPosition: {fileID: 0}
+  stuckTimer: 0
   audioSource: {fileID: 0}
   soundClips:
     attack: {fileID: 0}
@@ -17725,7 +17727,7 @@ MonoBehaviour:
     wood: {fileID: 0}
     grass: {fileID: 0}
     road: {fileID: 0}
-  spawnLevel: 10
+  spawnLevel: 5
   targetLayer:
     serializedVersion: 2
     m_Bits: 128
