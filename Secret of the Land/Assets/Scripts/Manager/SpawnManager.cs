@@ -21,15 +21,15 @@ public class SpawnManager : MonoBehaviour
     }
     void Start()
     {
-        // for (int i = 0; i < 5; i++)
-        // {
-        //     Vector3 spawnPosition = new Vector3(Random.Range(topLeft.position.x+8, bottomRight.position.x-8), Random.Range(bottomRight.position.y+8, topLeft.position.y-8), 0);
-        //     spawnPosition = GetNearestPoint(spawnPosition);
-        //     GameObject skeleton = SpawnEngine.Spawn(skeletonPrefab, spawnPosition, Quaternion.identity, 1);
-        //     Transform a = GameObject.Find("Monsters").transform;
-        //     skeleton.transform.SetParent(a);
-        //     skeleton.GetComponentInChildren<SkeletonEvent>().onMonsterDeath += playerController.Player.ReceiveXP;
-        // }
+        for (int i = 0; i < 5; i++)
+        {
+            Vector3 spawnPosition = new Vector3(Random.Range(topLeft.position.x+8, bottomRight.position.x-8), Random.Range(bottomRight.position.y+8, topLeft.position.y-8), 0);
+            spawnPosition = GetNearestPoint(spawnPosition);
+            GameObject skeleton = SpawnEngine.Spawn(skeletonPrefab, spawnPosition, Quaternion.identity, 1);
+            Transform a = GameObject.Find("Monsters").transform;
+            skeleton.transform.SetParent(a);
+            skeleton.GetComponentInChildren<SkeletonEvent>().onMonsterDeath += playerController.Player.ReceiveXP;
+        }
     }
 
     // Update is called once per frame

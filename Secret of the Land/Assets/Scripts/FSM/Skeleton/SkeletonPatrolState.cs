@@ -25,12 +25,12 @@ public class SkeletonPatrolState : PatrolState
         // targetPos = FindWalkablePoint(targetPos, properties.PatrolRadius);
         // bool isSuccessful = false;
 
-        while (Vector2.Distance(targetPos, properties.SpawnPosition) > properties.PatrolRadius)
-        {
-            randomPos = Random.insideUnitCircle * properties.PatrolRadius;
-            targetPos = new Vector2(properties.CurrentPos.x + randomPos.x, properties.CurrentPos.y + randomPos.y);
-            // targetPos = FindWalkablePoint(targetPos, properties.PatrolRadius);
-        }
+        // while (Vector2.Distance(targetPos, properties.SpawnPosition) > properties.PatrolRadius)
+        // {
+        //     randomPos = Random.insideUnitCircle * properties.PatrolRadius;
+        //     targetPos = new Vector2(properties.CurrentPos.x + randomPos.x, properties.CurrentPos.y + randomPos.y);
+        //     // targetPos = FindWalkablePoint(targetPos, properties.PatrolRadius);
+        // }
         machine.agent.SetDestination(targetPos);
 
         // Set audio clip based on the ground type
