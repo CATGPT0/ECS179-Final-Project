@@ -4,7 +4,7 @@ using UnityEngine;
 
 public static class SpawnEngine
 {
-    public static GameObject Spawn(GameObject prefab, Vector3 position, Quaternion rotation, int level = 0)
+    public static GameObject Spawn(GameObject prefab, Vector3 position, Quaternion rotation, int level = 1)
     {
         switch (prefab.tag)
         {
