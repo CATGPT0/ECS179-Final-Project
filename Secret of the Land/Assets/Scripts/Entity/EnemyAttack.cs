@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Controller;
 using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
 
@@ -13,6 +14,7 @@ public class EnemyAttack : MonoBehaviour
     void Awake()
     {
         battleEngine = FindFirstObjectByType<BattleEngine>();
+        player = FindFirstObjectByType<PlayerController>().Player;
     }
     void Start()
     {

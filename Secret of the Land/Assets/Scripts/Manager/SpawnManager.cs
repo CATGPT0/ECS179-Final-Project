@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Controller;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class SpawnManager : MonoBehaviour
 {
@@ -22,11 +23,8 @@ public class SpawnManager : MonoBehaviour
     {
         for (int i = 0; i < 5; i++)
         {
-            Vector3 spawnPosition = new Vector3(Random.Range(topLeft.position.x+3, bottomRight.position.x-3), Random.Range(bottomRight.position.y+3, topLeft.position.y-3), 0);
-            while (!IsWalkable(spawnPosition))
-            {
-                spawnPosition = new Vector3(Random.Range(topLeft.position.x+3, bottomRight.position.x-3), Random.Range(bottomRight.position.y+3, topLeft.position.y-3), 0);
-            }
+            Vector3 spawnPosition = new Vector3(Random.Range(topLeft.position.x+8, bottomRight.position.x-8), Random.Range(bottomRight.position.y+8, topLeft.position.y-8), 0);
+            spawnPosition = GetNearestPoint(spawnPosition);
             GameObject skeleton = SpawnEngine.Spawn(skeletonPrefab, spawnPosition, Quaternion.identity, 1);
             Transform a = GameObject.Find("Monsters").transform;
             skeleton.transform.SetParent(a);
@@ -40,10 +38,17 @@ public class SpawnManager : MonoBehaviour
         
     }
 
-    private bool IsWalkable(Vector2 worldPosition)
+    private Vector2 GetNearestPoint(Vector2 oldPoint)
     {
-        Collider2D hitCollider = Physics2D.OverlapPoint(worldPosition);
-        return hitCollider == null;
+        bool canWalk = NavMesh.SamplePosition(oldPoint, out NavMeshHit hit, 2.0f, NavMesh.AllAreas);
+        if (canWalk)
+        {
+            Debug.Log("Spawned at " + hit.position + "successfully!");
+        }
+        else
+        {
+            Debug.LogError("Can't spawn skeleton at " + oldPoint);
+        }
+        return hit.position;
     }
-
 }

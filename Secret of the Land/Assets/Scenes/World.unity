@@ -13332,7 +13332,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddf2c8a9a2e341b44a7244fe8a94ffbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonPrefab: {fileID: 7088851687258025425, guid: 96558e868f908564d806c8c8a244d639, type: 3}
+  skeletonPrefab: {fileID: 5584464266047458886, guid: 96558e868f908564d806c8c8a244d639, type: 3}
   topLeft: {fileID: 1724680961}
   bottomRight: {fileID: 1977481079}
   playerController: {fileID: 0}

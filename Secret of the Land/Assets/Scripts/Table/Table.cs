@@ -11,7 +11,7 @@ public static class Table
         { EntityType.Type.Orc, new Dictionary<int, int>() { { 1, 100 }, { 2, 120 }, { 3, 140 }, { 4, 160 }, { 5, 180 }, { 6, 200 }, { 7, 220 }, { 8, 240 }, { 9, 260 }, { 10, 300 } } },
         { EntityType.Type.Troll, new Dictionary<int, int>() { { 1, 100 }, { 2, 120 }, { 3, 140 }, { 4, 160 }, { 5, 180 }, { 6, 200 }, { 7, 220 }, { 8, 240 }, { 9, 260 }, { 10, 300 } } },
         { EntityType.Type.Dragon, new Dictionary<int, int>() { { 1, 100 }, { 2, 120 }, { 3, 140 }, { 4, 160 }, { 5, 180 }, { 6, 200 }, { 7, 220 }, { 8, 240 }, { 9, 260 }, { 10, 300 } } },
-        { EntityType.Type.Skeleton, new Dictionary<int, int>() { { 1, 140 }, { 2, 160 }, { 3, 180 }, { 4, 200 }, { 5, 220 }, { 6, 240 }, { 7, 260 }, { 8, 280 }, { 9, 300 }, { 10, 320 } } },
+        { EntityType.Type.Skeleton, new Dictionary<int, int>() { { 1, 40 }, { 2, 50 }, { 3, 60 }, { 4, 70 }, { 5, 80 }, { 6, 120 }, { 7, 140 }, { 8, 160 }, { 9, 180 }, { 10, 200 } } },
         { EntityType.Type.Player, new Dictionary<int, int>() { { 1, 100 }, { 2, 120 }, { 3, 140 }, { 4, 160 }, { 5, 180 }, { 6, 200 }, { 7, 220 }, { 8, 240 }, { 9, 260 }, { 10, 300 } } }
     };
 

@@ -12,12 +12,6 @@ public class SkeletonProperties : Properties
         get { return spawnPosition; }
         set { spawnPosition = value; }
     }
-    protected Vector2 currentPos;
-    public Vector2 CurrentPos
-    {
-        get { return currentPos; }
-        set { currentPos = value; }
-    }
     protected Transform player;
     public Transform Player
     {

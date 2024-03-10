@@ -48,6 +48,12 @@ public class Properties
         get { return level; }
         set { level = value; }
     }
+    protected Vector2 currentPos;
+    public Vector2 CurrentPos
+    {
+        get { return currentPos; }
+        set { currentPos = value; }
+    }
     protected AttackType attackType;
     public AttackType AttackType
     {
