@@ -52,7 +52,7 @@ public class SkeletonPatrolState : PatrolState
     {
         machine.audioSource.enabled = false;
         machine.agent.ResetPath();
-        stuckTimer = 0;
+        machine.stuckTimer = 0;
     }
 
     public override void OnUpdate()
@@ -62,7 +62,6 @@ public class SkeletonPatrolState : PatrolState
             machine.ToState(State.Idle);
         }
         machine.Flip();
-        HandleStuck();
         ChangeAudioClip();
 
         if (properties.SeePlayer)

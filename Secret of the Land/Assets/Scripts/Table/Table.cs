@@ -55,7 +55,7 @@ public static class Table
         { EntityType.Type.Orc, new Dictionary<int, float>() { { 1, 5 }, { 2, 5.5f }, { 3, 6 }, { 4, 6.5f }, { 5, 7 }, { 6, 7.5f }, { 7, 8 }, { 8, 8.5f }, { 9, 9 }, { 10, 10 } } },
         { EntityType.Type.Troll, new Dictionary<int, float>() { { 1, 5 }, { 2, 5.5f }, { 3, 6 }, { 4, 6.5f }, { 5, 7 }, { 6, 7.5f }, { 7, 8 }, { 8, 8.5f }, { 9, 9 }, { 10, 10 } } },
         { EntityType.Type.Dragon, new Dictionary<int, float>() { { 1, 5 }, { 2, 5.5f }, { 3, 6 }, { 4, 6.5f }, { 5, 7 }, { 6, 7.5f }, { 7, 8 }, { 8, 8.5f }, { 9, 9 }, { 10, 10 } } },
-        { EntityType.Type.Skeleton, new Dictionary<int, float>() { { 1, 5 }, { 2, 5.5f }, { 3, 6 }, { 4, 6.5f }, { 5, 7 }, { 6, 7.5f }, { 7, 8 }, { 8, 8.5f }, { 9, 9 }, { 10, 10 } } },
+        { EntityType.Type.Skeleton, new Dictionary<int, float>() { { 1, 2 }, { 2, 2.2f }, { 3, 2.4f }, { 4, 2.6f }, { 5, 2.8f }, { 6, 3.2f }, { 7, 3.6f }, { 8, 4f }, { 9, 4.5f }, { 10, 5f } } },
         { EntityType.Type.Player, new Dictionary<int, float>() { { 1, 5 }, { 2, 5.5f }, { 3, 6 }, { 4, 6.5f }, { 5, 7 }, { 6, 7.5f }, { 7, 8 }, { 8, 8.5f }, { 9, 9 }, { 10, 10 } } }
     };
 

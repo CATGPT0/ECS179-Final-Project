@@ -30,7 +30,7 @@ public class SkeletonProperties : Properties
         get { return seePlayer; }
         set { seePlayer = value; }
     }
-    protected float patrolRadius = 8f;
+    protected float patrolRadius;
     public float PatrolRadius
     {
         get { return patrolRadius; }
@@ -68,16 +68,20 @@ public class SkeletonProperties : Properties
         armor = Table.armorTable[type][level];
         magicResist = Table.magicResistTable[type][level];
         attackType = Table.attackTypeTable[type];
+        patrolRadius = 3f;
     }
 }
 public class SkeletonFSM : FSM
 {
-    public new SkeletonProperties properties = new SkeletonProperties(1, EntityType.Type.Skeleton);
+    [SerializeField]
+    private int spawnLevel;
+    public new SkeletonProperties properties;
     public LayerMask targetLayer;
     public Transform attackPoint;
     public float attackRange;
     protected new void Awake()
     {
+        properties = new SkeletonProperties(spawnLevel, EntityType.Type.Skeleton);
         base.Awake();
     }
     protected new void Start()
@@ -91,6 +95,7 @@ public class SkeletonFSM : FSM
         states.Add(State.Chase, new SkeletonChaseState(this));
         agent.updateRotation = false;
         agent.updateUpAxis = false;
+        agent.speed = properties.Speed;
         currentState = states[State.Idle];
         currentState.OnEnter();
     }

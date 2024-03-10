@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class SightController : MonoBehaviour
 {
-    public GameEvent onPlayerSighted;
-    public GameEvent onPlayerLost;
     [SerializeField]
     private SkeletonFSM fsm;
     void Start()
     {
+        
         
     }
 
@@ -24,8 +23,6 @@ public class SightController : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             fsm.properties.SeePlayer = true;
-            //onPlayerSighted.TriggerEvent();
-            //Debug.Log("Player Sighted");
         }
         
     }
@@ -35,8 +32,6 @@ public class SightController : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             fsm.properties.SeePlayer = false;
-            //onPlayerLost.TriggerEvent();
-            //Debug.Log("Player Lost");
         }
     }
 }

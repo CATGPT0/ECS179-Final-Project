@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +7,7 @@ public class SkeletonChaseState : ChaseState
 {
     protected new SkeletonFSM machine;
     protected new SkeletonProperties properties;
+    public event EventHandler OnChase;
     public SkeletonChaseState(SkeletonFSM machine) : base(machine)
     {
         this.machine = machine;
@@ -16,7 +18,7 @@ public class SkeletonChaseState : ChaseState
     {
         Debug.Log("ChaseState: OnEnter");
         originalSpeed = machine.agent.speed;
-        machine.agent.speed = chaseSpeed;
+        machine.agent.speed *= chaseSpeedMultiplier;
         machine.agent.ResetPath();
         machine.anim.Play("walk");
     }
@@ -25,6 +27,7 @@ public class SkeletonChaseState : ChaseState
     {
         machine.agent.ResetPath();
         machine.agent.speed = originalSpeed;
+        machine.stuckTimer = 0;
     }
 
     public override void OnUpdate()
@@ -35,7 +38,7 @@ public class SkeletonChaseState : ChaseState
         {
             machine.ToState(State.Idle);
         }
-        if (Physics2D.OverlapCircle(machine.attackPoint.position, machine.attackRange, machine.targetLayer) && properties.CanAttack)
+        if (Physics2D.OverlapCircle(machine.attackPoint.position, machine.attackRange, machine.targetLayer) && properties.CanAttack && machine.agent.isOnNavMesh)
         {
             machine.ToState(State.Attack);
         }

@@ -87,6 +87,8 @@ public class FSM : MonoBehaviour
 {
     public NavMeshAgent agent;
     public Animator anim;
+    public Transform thisPosition;
+    public float stuckTimer;
     public AudioSource audioSource;
     public Properties properties = new Properties();
     public SoundClips soundClips = new SoundClips();
@@ -98,6 +100,7 @@ public class FSM : MonoBehaviour
         anim = GetComponent<Animator>();
         agent = GetComponent<NavMeshAgent>();
         audioSource = GetComponent<AudioSource>();
+        thisPosition = transform;
     }
     protected void Start()
     {
@@ -138,6 +141,23 @@ public class FSM : MonoBehaviour
         }
 
     }
+
+    // public void HandleStuck()
+    // {
+    //     if (agent.velocity.x < 0.1f && agent.velocity.y < 0.1f)
+    //     {
+    //         stuckTimer += Time.deltaTime;
+    //         if (stuckTimer > 5f)
+    //         {
+    //             Vector2 newPosition = UnityEngine.Random.insideUnitCircle * 10;
+    //             thisPosition.position = (Vector3)newPosition;
+    //         }
+    //     }
+    //     else
+    //     {
+    //         stuckTimer = 0;
+    //     }
+    // }
 
     public void DestroySelf()
     {

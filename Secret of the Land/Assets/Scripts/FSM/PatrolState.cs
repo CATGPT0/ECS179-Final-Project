@@ -9,7 +9,6 @@ public class PatrolState : IState
     protected SoundClips soundClips;
     protected Vector2 targetPos;
     protected TerrainDetector.TerrainType currentTerrainType;
-    protected float stuckTimer = 0;
 
     public PatrolState(FSM machine)
     {
@@ -28,21 +27,5 @@ public class PatrolState : IState
     public virtual void OnUpdate()
     {
 
-    }
-
-    protected void HandleStuck()
-    {
-        if (machine.agent.velocity.x < 0.1f && machine.agent.velocity.y < 0.1f)
-        {
-            stuckTimer += Time.deltaTime;
-            if (stuckTimer > 0.2f)
-            {
-                machine.ToState(State.Patrol);
-            }
-        }
-        else
-        {
-            stuckTimer = 0;
-        }
     }
 }
