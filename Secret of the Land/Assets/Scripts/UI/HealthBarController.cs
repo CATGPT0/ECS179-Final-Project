@@ -11,15 +11,18 @@ public class HealthBarController : MonoBehaviour
     private Image fill;
     private Slider slider;
     private Player player;
+    private PlayerEvent playerEvent;
     void Awake()
     {
         slider = GetComponent<Slider>();
         player = FindFirstObjectByType<Player>();
+        playerEvent = FindFirstObjectByType<PlayerEvent>();
     }
 
     void Start()
     {
         SetMaxHealth(player.properties.Health);
+        playerEvent.OnPlayerHealthChanged += SetHealth;
     }
 
     public void SetHealth(int health)

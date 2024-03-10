@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using Controller;
+using Controller;                                                                                   
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -41,6 +41,7 @@ public class SpawnManager : MonoBehaviour
     private Vector2 GetNearestPoint(Vector2 oldPoint)
     {
         bool canWalk = NavMesh.SamplePosition(oldPoint, out NavMeshHit hit, 2.0f, NavMesh.AllAreas);
+
         if (canWalk)
         {
             Debug.Log("Spawned at " + hit.position + "successfully!");

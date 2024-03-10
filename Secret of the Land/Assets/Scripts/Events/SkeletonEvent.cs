@@ -29,7 +29,6 @@ public class SkeletonEvent : MonoBehaviour
 
     void OnDestroy()
     {
-        Debug.Log("XP: " + Table.CalculateXP(fsm.properties.Level, playerController.Player.properties.Level, fsm.properties.ThisType));
         onMonsterDeath?.Invoke(Table.CalculateXP(fsm.properties.Level, playerController.Player.properties.Level, fsm.properties.ThisType));
     }
 }

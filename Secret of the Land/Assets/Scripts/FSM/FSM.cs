@@ -134,7 +134,6 @@ public class FSM : MonoBehaviour
         currentState.OnExit();
         currentState = states[state];
         currentState.OnEnter();
-        Debug.Log("Current State: " + currentState.ToString());
     } 
 
     public void Flip()

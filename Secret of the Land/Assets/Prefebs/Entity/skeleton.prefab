@@ -157,7 +157,7 @@ GameObject:
   - component: {fileID: 9031213428456376601}
   - component: {fileID: 5450852129768648597}
   - component: {fileID: 112078576289322614}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Sight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -211,7 +211,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 1.7559557, y: -0.17290711}
+  m_Offset: {x: 1.0169678, y: -0.27682686}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -222,7 +222,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 12.888102, y: 7.7234187}
+  m_Size: {x: 14.366077, y: 11.071957}
   m_EdgeRadius: 0
 --- !u!114 &112078576289322614
 MonoBehaviour:

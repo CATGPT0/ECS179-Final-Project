@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using Microsoft.Unity.VisualStudio.Editor;
 using UnityEngine;
 
-public class StatUIController : MonoBehaviour
+public class UIController : MonoBehaviour
 {
     [SerializeField]
     private GameObject statPanel;
+
     void Awake()
     {
         statPanel.SetActive(false);

@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class PlayerEvent : MonoBehaviour
 {
-    public event Action OnPlayerGetXP;
+    public Action<int> OnPlayerHealthChanged;
     void Start()
     {
   
