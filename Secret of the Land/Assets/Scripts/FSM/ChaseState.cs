@@ -37,6 +37,7 @@ public class ChaseState : IState
             if (machine.stuckTimer > 3)
             {
                 machine.gameObject.transform.position = UnityEngine.Random.insideUnitCircle * 2f;
+                machine.ToState(State.Idle);
             }
         }
         else

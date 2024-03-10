@@ -134,6 +134,7 @@ public class FSM : MonoBehaviour
         currentState.OnExit();
         currentState = states[state];
         currentState.OnEnter();
+        Debug.Log("Current State: " + currentState.ToString());
     } 
 
     public void Flip()
@@ -148,23 +149,6 @@ public class FSM : MonoBehaviour
         }
 
     }
-
-    // public void HandleStuck()
-    // {
-    //     if (agent.velocity.x < 0.1f && agent.velocity.y < 0.1f)
-    //     {
-    //         stuckTimer += Time.deltaTime;
-    //         if (stuckTimer > 5f)
-    //         {
-    //             Vector2 newPosition = UnityEngine.Random.insideUnitCircle * 10;
-    //             thisPosition.position = (Vector3)newPosition;
-    //         }
-    //     }
-    //     else
-    //     {
-    //         stuckTimer = 0;
-    //     }
-    // }
 
     public void DestroySelf()
     {

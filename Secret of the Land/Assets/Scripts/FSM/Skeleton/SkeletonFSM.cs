@@ -62,7 +62,7 @@ public class SkeletonProperties : Properties
         armor = Table.armorTable[type][level];
         magicResist = Table.magicResistTable[type][level];
         attackType = Table.attackTypeTable[type];
-        patrolRadius = 3f;
+        patrolRadius = 8f;
     }
 }
 public class SkeletonFSM : FSM

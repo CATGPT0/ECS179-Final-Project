@@ -37,14 +37,7 @@ public class SkeletonIdleState : IdleState
 
         if (properties.SeePlayer)
         {
-            if (properties.CanReact)
-            {
-                machine.ToState(State.React);
-            }
-            else
-            {
-                machine.ToState(State.Chase);
-            }
+            machine.ToState(State.React);
         }
         if (properties.Health <= 0)
         {

@@ -22,6 +22,7 @@ public class SkeletonReactState : ReactState
     public override void OnExit()
     {
         machine.agent.speed = originalSpeed;
+        properties.CanReact = true;
     }
     public override void OnUpdate()
     {
