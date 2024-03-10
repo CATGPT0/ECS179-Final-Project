@@ -22,14 +22,14 @@ public class SkeletonPatrolState : PatrolState
         // Choose a random position within the patrol radius
         var randomPos = Random.insideUnitCircle * properties.PatrolRadius;
         targetPos = new Vector2(properties.CurrentPos.x + randomPos.x, properties.CurrentPos.y + randomPos.y);
-        targetPos = FindWalkablePoint(targetPos, properties.PatrolRadius);
+        // targetPos = FindWalkablePoint(targetPos, properties.PatrolRadius);
         // bool isSuccessful = false;
 
         while (Vector2.Distance(targetPos, properties.SpawnPosition) > properties.PatrolRadius)
         {
             randomPos = Random.insideUnitCircle * properties.PatrolRadius;
             targetPos = new Vector2(properties.CurrentPos.x + randomPos.x, properties.CurrentPos.y + randomPos.y);
-            targetPos = FindWalkablePoint(targetPos, properties.PatrolRadius);
+            // targetPos = FindWalkablePoint(targetPos, properties.PatrolRadius);
         }
         machine.agent.SetDestination(targetPos);
 

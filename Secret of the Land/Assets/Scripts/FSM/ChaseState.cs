@@ -29,14 +29,14 @@ public class ChaseState : IState
         
     }
 
-    public bool DetectStuck()
+    public void HandleStuck()
     {
-        if (Vector2.Distance(lastPos, properties.CurrentPos) < 0.1f)
+        if (Vector2.Distance(lastPos, properties.CurrentPos) < 0.05f)
         {
             machine.stuckTimer += Time.deltaTime;
-            if (machine.stuckTimer > 1)
+            if (machine.stuckTimer > 3)
             {
-                return true;
+                machine.gameObject.transform.position = UnityEngine.Random.insideUnitCircle * 2f;
             }
         }
         else
@@ -44,6 +44,5 @@ public class ChaseState : IState
             lastPos = properties.CurrentPos;
             machine.stuckTimer = 0;
         }
-        return false;
     }
 }

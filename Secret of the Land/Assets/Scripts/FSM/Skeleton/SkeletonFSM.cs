@@ -97,7 +97,6 @@ public class SkeletonFSM : FSM
     protected new void Update()
     {
         base.Update();
-        properties.CurrentPos = transform.position;
         properties.Player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 

@@ -125,6 +125,7 @@ public class FSM : MonoBehaviour
     
     protected void Update()
     {
+        properties.CurrentPos = transform.position;
         currentState.OnUpdate();
     }
 

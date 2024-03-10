@@ -46,10 +46,7 @@ public class SkeletonChaseState : ChaseState
         {
             machine.ToState(State.Death);
         }
-        if (DetectStuck())
-        {
-            machine.gameObject.transform.position = UnityEngine.Random.insideUnitCircle * 2f;
-        }
+        //HandleStuck();
     }
 }
 
