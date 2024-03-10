@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using Controller;
 using UnityEngine;
 
-public class SkeletonEvent : MonoBehaviour
+public class OnMonsterDeath : MonoBehaviour
 {
     public Action<int> onMonsterDeath = new Action<int>(a => { });
     private PlayerController playerController;
