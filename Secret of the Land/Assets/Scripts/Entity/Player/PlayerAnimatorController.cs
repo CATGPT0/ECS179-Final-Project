@@ -36,6 +36,7 @@ namespace Controller
         void Start()
         {
             playerController.PlayerEvent.OnPlayerRespawn.AddListener(Respawn);
+            playerController.PlayerEvent.OnPlayerGitHit += GitHitAnimation;
         }
 
         // Update is called once per frame
@@ -148,6 +149,27 @@ namespace Controller
         {
             playerController.Player.properties.CanMove = true;
             anim.Play("Idle");
+        }
+
+        private void GitHitAnimation()
+        {
+            Debug.Log("Git Hit");
+            Transform tr = playerController.gameObject.transform;
+            float maxTime = 0.5f;
+            float timer = 0;
+            IEnumerator GitHitAni()
+            {
+                while (timer < maxTime)
+                {
+                    tr.position += new Vector3(0.02f, 0, 0);
+                    timer += Time.deltaTime;
+                    yield return new WaitForSeconds(Time.deltaTime);
+                    timer += Time.deltaTime;
+                    tr.position -= new Vector3(0.02f, 0, 0);
+                    yield return new WaitForSeconds(Time.deltaTime);
+                }
+            }
+            StartCoroutine(GitHitAni());
         }
     }
 }

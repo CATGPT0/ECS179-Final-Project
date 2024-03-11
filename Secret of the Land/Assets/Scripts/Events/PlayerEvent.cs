@@ -14,6 +14,8 @@ public class PlayerEvent : MonoBehaviour
     public Action<int> OnPlayerGetXP;
     public Action OnPlayerGetXPSound;
     public Action OnPlayerLevelUpSound;
+    public Action OnGetHitSound;
+    public Action OnPlayerGitHit;
     public Action<int, float, int, int, int> OnPlayerLevelUp;
 
     void Start()

@@ -105,6 +105,8 @@ namespace Controller
         void ReactivateSelf()
         {
             this.gameObject.SetActive(true);
+            this.transform.position = player.properties.RespawnPoint;
+            player.properties.CanMove = true;
         }
 
     }

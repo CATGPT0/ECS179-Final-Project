@@ -8,7 +8,8 @@ public class AttackSoundController : MonoBehaviour
     private AudioSource audioSource;
     [SerializeField]
     private AudioClip attackSound;
-    private bool isAttacking = false;
+    [SerializeField]
+    private AudioClip gethitSound;
     private PlayerController playerController;
 
     void Awake()
@@ -18,6 +19,7 @@ public class AttackSoundController : MonoBehaviour
     void Start()
     {
         playerController.PlayerEvent.OnPlayerAttack.AddListener(PlayAttackSound);
+        playerController.PlayerEvent.OnGetHitSound += PlayGetHitSound;
         audioSource = GetComponent<AudioSource>();
     }
 
@@ -29,16 +31,28 @@ public class AttackSoundController : MonoBehaviour
 
     public void PlayAttackSound()
     {
-        if (isAttacking)
+        if (audioSource.isPlaying)
         {
             return;
         }
         IEnumerator AttackSound()
         {
-            isAttacking = true;
             audioSource.PlayOneShot(attackSound);
             yield return new WaitForSeconds(0.5f);
-            isAttacking = false;
+        }
+        StartCoroutine(AttackSound());
+    }
+
+    public void PlayGetHitSound()
+    {
+        if (audioSource.isPlaying)
+        {
+            return;
+        }
+        IEnumerator AttackSound()
+        {
+            audioSource.PlayOneShot(gethitSound);
+            yield return new WaitForSeconds(0.5f);
         }
         StartCoroutine(AttackSound());
     }

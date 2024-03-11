@@ -172,7 +172,7 @@ public class SkeletonFSM : FSM
         {
             var sr = GetComponent<SpriteRenderer>();
             var originalColor = sr.color;
-            sr.color = new Color(255 / 255f, 155 / 255f, 155 / 255f, 255 / 255f);;
+            sr.color = new Color(255 / 255f, 155 / 255f, 155 / 255f, 255 / 255f);
             yield return new WaitForSeconds(0.1f);
             sr.color = originalColor;
         }

@@ -35,6 +35,13 @@ public class PlayerProperties : Properties
         set { latestMoveDirection = value; }
     }
 
+    private Vector3 respawnPoint;
+    public Vector3 RespawnPoint
+    {
+        get { return respawnPoint; }
+        set { respawnPoint = value; }
+    }
+
     private int xp;
     public int XP
     {
@@ -53,6 +60,11 @@ public class PlayerProperties : Properties
         get { return health; }
         set
         {
+            if (value < health)
+            {
+                playerEvent.OnGetHitSound?.Invoke();
+                playerEvent.OnPlayerGitHit?.Invoke();
+            }
             health = value;
             playerEvent.OnPlayerHealthChanged?.Invoke(health);
         }
@@ -104,6 +116,7 @@ public class Player : Entity
     {
         properties = new PlayerProperties(1, EntityType.Type.Player);
         properties.playerEvent = FindFirstObjectByType<PlayerEvent>();
+        properties.RespawnPoint = transform.position;
         playerController = GetComponentInParent<PlayerController>();
     }
     

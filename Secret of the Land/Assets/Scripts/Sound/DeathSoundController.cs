@@ -8,7 +8,6 @@ public class DeathSoundController : MonoBehaviour
     private AudioSource audioSource;
     [SerializeField]
     private AudioClip deathSound;
-    private bool isDead = false;
     private PlayerController playerController;
 
     void Awake()
@@ -19,27 +18,20 @@ public class DeathSoundController : MonoBehaviour
     void Start()
     {
         playerController.PlayerEvent.OnPlayerDeathEnter.AddListener(PlayDeathSound);
-        playerController.PlayerEvent.OnPlayerRespawn.AddListener(ResetDeadProperty);
     }
 
     public void PlayDeathSound()
     {
-        if (isDead)
+        if (audioSource.isPlaying)
         {
             return;
         }
         IEnumerator DeathSound()
         {
-            isDead = true;
             audioSource.PlayOneShot(deathSound);
-            yield return new WaitForSeconds(1.5f);
-            isDead = false;
+            yield return new WaitForSeconds(1f);
         }
         StartCoroutine(DeathSound());
     }
 
-    public void ResetDeadProperty()
-    {
-        isDead = false;
-    }
 }
