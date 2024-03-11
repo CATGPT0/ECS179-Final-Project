@@ -12,6 +12,7 @@ public class PlayerEvent : MonoBehaviour
     public UnityEvent OnPlayerDeathExit;
     public UnityEvent OnPlayerRespawn;
     public Action<int> OnPlayerGetXP;
+    public Action<int, float, int, int, int> OnPlayerLevelUp;
 
     void Start()
     {

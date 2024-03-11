@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Controller;
@@ -53,6 +54,20 @@ public class PlayerProperties : Properties
         {
             health = value;
             playerEvent.OnPlayerHealthChanged?.Invoke(health);
+        }
+    }
+
+    public override int Level
+    {
+        get { return level; }
+        set
+        {
+            level = value;
+            playerEvent.OnPlayerLevelUp?.Invoke(Table.healthTable[thisType][level] - Table.healthTable[thisType][level - 1],
+                                                Table.speedTable[thisType][level] - Table.speedTable[thisType][level - 1],
+                                                Table.attackPowerTable[thisType][level] - Table.attackPowerTable[thisType][level - 1],
+                                                Table.armorTable[thisType][level] - Table.armorTable[thisType][level - 1],
+                                                level);
         }
     }
 
@@ -120,22 +135,12 @@ public class Player : Entity
             properties.Armor = Table.armorTable[properties.ThisType][properties.Level];
             properties.MagicResist = Table.magicResistTable[properties.ThisType][properties.Level];
             properties.Speed = Table.speedTable[properties.ThisType][properties.Level];
-
             levelUp = true;
         }
         if (levelUp)
         {
-            playerController.levelUpController.LevelUIShowUp(Table.healthTable[properties.ThisType][properties.Level] - Table.healthTable[properties.ThisType][properties.Level - 1],
-                                                             Table.speedTable[properties.ThisType][properties.Level] - Table.speedTable[properties.ThisType][properties.Level - 1],
-                                                             Table.attackPowerTable[properties.ThisType][properties.Level] - Table.attackPowerTable[properties.ThisType][properties.Level - 1],
-                                                             Table.armorTable[properties.ThisType][properties.Level] - Table.armorTable[properties.ThisType][properties.Level - 1],
-                                                             properties.Level);
             properties.Health = properties.MaxHealth;
             playerController.healthBarController.SetMaxHealth(properties.MaxHealth);
-        }
-        else
-        {
-            // playerController.getXPTextController.XPUIShowUp(amount);
         }
     }
     

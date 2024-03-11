@@ -33,6 +33,7 @@ public class LevelUpController : MonoBehaviour
     private Image attackPowerIconImage;
     private Image armorIconImage;
     private Image levelIconImage;
+    private PlayerEvent playerEvent;
     void Awake()
     {
         healthText = healthUI.GetComponentInChildren<TextMeshProUGUI>();
@@ -50,6 +51,7 @@ public class LevelUpController : MonoBehaviour
         attackPowerIconImage = GameObject.Find("ApIcon").GetComponent<Image>();
         armorIconImage = GameObject.Find("ArmorIcon").GetComponent<Image>();
         levelIconImage = GameObject.Find("LevelIcon").GetComponent<Image>();
+        playerEvent = FindFirstObjectByType<PlayerEvent>();
     }
     void Start()
     {
@@ -58,6 +60,7 @@ public class LevelUpController : MonoBehaviour
         attackPowerUI.SetActive(false);
         armorUI.SetActive(false);
         levelUI.SetActive(false);
+        playerEvent.OnPlayerLevelUp += LevelUIShowUp;
     }
 
     // Update is called once per frame
