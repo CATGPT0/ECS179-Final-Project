@@ -1,50 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &56647199652795303
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7529172543915697581}
-  - component: {fileID: 6789498258819979962}
-  m_Layer: 0
-  m_Name: BootyManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &7529172543915697581
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 56647199652795303}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.2827663, y: 2.6568909, z: -0.043022037}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 6366359570344390293}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6789498258819979962
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 56647199652795303}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f8e8d659b4a4d94781b014765f483e9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  booties: []
 --- !u!1 &1619695277477957897
 GameObject:
   m_ObjectHideFlags: 0
@@ -281,6 +236,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc21a079f2fbbbc4ab76cedb4f87ae2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onMonsterDeath:
+    m_PersistentCalls:
+      m_Calls: []
+  onMonsterHealthChanged:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &5584464266047458886
 GameObject:
   m_ObjectHideFlags: 0
@@ -318,7 +279,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7960273135407103248}
-  - {fileID: 7529172543915697581}
   - {fileID: 9031213428456376601}
   - {fileID: 2060446577369908093}
   m_Father: {fileID: 0}
@@ -616,6 +576,7 @@ MonoBehaviour:
     m_Bits: 128
   attackPoint: {fileID: 2060446577369908093}
   attackRange: 0.73
+  player: {fileID: 0}
 --- !u!1 &8026930605416517285
 GameObject:
   m_ObjectHideFlags: 0

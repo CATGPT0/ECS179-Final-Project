@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Schema.Builtin.Nodes;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
