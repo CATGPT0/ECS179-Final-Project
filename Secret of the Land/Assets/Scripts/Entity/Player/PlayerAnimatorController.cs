@@ -1,7 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEditor.Animations;
 using UnityEngine;
 
 namespace Controller
@@ -14,7 +11,6 @@ namespace Controller
         private BattleController battleController;
         [SerializeField]
         private GameEvent playerDeathEvent;
-        private AnimatorState animationState;
         private AnimatorStateInfo animInfo;
         private bool canAttack = true;
         private bool isAttack = false;

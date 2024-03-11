@@ -8,13 +8,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: feb7c394bde7fcc4ea35936bec851954
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/World.unity
     guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/CardBattleScene.unity
     guid: 568c4d73f42ec88439023b03679cf5c6
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/GameOver.unity
     guid: a1c650728a7c1c94a9527619fa4610e0
   m_configObjects: {}

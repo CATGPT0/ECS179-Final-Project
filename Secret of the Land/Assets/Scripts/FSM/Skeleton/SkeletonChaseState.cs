@@ -7,7 +7,6 @@ public class SkeletonChaseState : ChaseState
 {
     protected new SkeletonFSM machine;
     protected new SkeletonProperties properties;
-    public event EventHandler OnChase;
     public SkeletonChaseState(SkeletonFSM machine) : base(machine)
     {
         this.machine = machine;
