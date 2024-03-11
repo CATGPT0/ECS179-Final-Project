@@ -44,6 +44,7 @@ public class PlayerProperties : Properties
             int temp = value - xp;
             xp = value; 
             playerEvent.OnPlayerGetXP?.Invoke(temp);
+            playerEvent.OnPlayerGetXPSound?.Invoke();
         }
     }
 
@@ -68,6 +69,7 @@ public class PlayerProperties : Properties
                                                 Table.attackPowerTable[thisType][level] - Table.attackPowerTable[thisType][level - 1],
                                                 Table.armorTable[thisType][level] - Table.armorTable[thisType][level - 1],
                                                 level);
+            playerEvent.OnPlayerLevelUpSound?.Invoke();
         }
     }
 
