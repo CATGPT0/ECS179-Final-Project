@@ -84,11 +84,18 @@ namespace Controller
                 }
             }
 
-            if (animInfo.normalizedTime >= .99f && animInfo.IsName("death"))
+            if (animInfo.IsName("death"))
             {
+                playerController.Player.properties.CanMove = false;
+                playerController.PlayerEvent.OnPlayerDeathEnter?.Invoke();
+                if (animInfo.normalizedTime >= .99f)
+                {
                 anim.SetTrigger("isDead");
-                playerDeathEvent.TriggerEvent();
+                playerController.PlayerEvent.OnPlayerDeathExit?.Invoke();
+                }   
+                
             }
+            
         }
 
         ///<summary>

@@ -20,9 +20,12 @@ public class SoundEffectController : MonoBehaviour
     private AudioClip woodSound;
     [SerializeField]
     private AudioClip attackSound;
+    [SerializeField]
+    private AudioClip deathSound;
     private PlayerController playerController;
     private TerrainDetector.TerrainType currentTerrainType;
     private bool isAttacking = false;
+    private bool isDead = false;
 
 
     void Awake()
@@ -32,12 +35,13 @@ public class SoundEffectController : MonoBehaviour
     void Start()
     {
         playerController.PlayerEvent.OnPlayerAttack.AddListener(PlayAttackSound);
+        playerController.PlayerEvent.OnPlayerDeathEnter.AddListener(PlayDeathSound);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Mathf.Abs(playerController.Player.properties.VelocityX) > 0.1f || Mathf.Abs(playerController.Player.properties.VelocityY) > 0.1f || isAttacking)
+        if (Mathf.Abs(playerController.Player.properties.VelocityX) > 0.1f || Mathf.Abs(playerController.Player.properties.VelocityY) > 0.1f || isAttacking || isDead)
         {
             audioSource.enabled = true;
             audioSource.loop = true;
@@ -95,6 +99,22 @@ public class SoundEffectController : MonoBehaviour
         StartCoroutine(AttackSound());
     }
 
-
+    public void PlayDeathSound()
+    {
+        if (isDead)
+        {
+            return;
+        }
+        IEnumerator DeathSound()
+        {
+            isDead = true;
+            audioSource.enabled = true;
+            audioSource.loop = false;
+            audioSource.PlayOneShot(deathSound);
+            yield return new WaitForSeconds(1.5f);
+            audioSource.enabled = false;
+        }
+        StartCoroutine(DeathSound());
+    }
     
 }

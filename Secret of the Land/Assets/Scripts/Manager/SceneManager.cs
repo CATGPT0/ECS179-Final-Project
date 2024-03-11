@@ -6,6 +6,7 @@ namespace Manager
 {
     public class SceneManager : MonoBehaviour
     {
+        private PlayerEvent playerEvent;
         public enum Scene
         {
             MainMenu,
@@ -15,6 +16,12 @@ namespace Manager
         void Awake()
         {
             DontDestroyOnLoad(gameObject);
+            playerEvent = FindFirstObjectByType<PlayerEvent>();
+        }
+
+        void Start()
+        {
+            playerEvent.OnPlayerDeathExit.AddListener(LoadGameOverScene);
         }
 
         public void LoadScene(Scene scene)
