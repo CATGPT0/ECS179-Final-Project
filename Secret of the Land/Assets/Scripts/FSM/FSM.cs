@@ -7,43 +7,43 @@ using UnityEngine.AI;
 public class Properties
 {
     protected int maxHealth;
-    public int MaxHealth
+    public virtual int MaxHealth
     {
         get { return maxHealth; }
         set { maxHealth = value; }
     }
     protected int health;
-    public int Health
+    public virtual int Health
     {
         get { return health; }
         set { health = value; }
     }
     protected int attackPower;
-    public int AttackPower
+    public virtual int AttackPower
     {
         get { return attackPower; }
         set { attackPower = value; }
     }
     protected float speed;
-    public float Speed
+    public virtual float Speed
     {
         get { return speed; }
         set { speed = value; }
     }
     protected int armor;
-    public int Armor
+    public virtual int Armor
     {
         get { return armor; }
         set { armor = value; }
     }
     protected int magicResist;
-    public int MagicResist
+    public virtual int MagicResist
     {
         get { return magicResist; }
         set { magicResist = value; }
     }
     protected int level;
-    public int Level
+    public virtual int Level
     {
         get { return level; }
         set { level = value; }

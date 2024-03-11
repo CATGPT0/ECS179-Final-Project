@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Controller;
+using Schema.Builtin.Nodes;
 using UnityEngine;
 
 public class PlayerProperties : Properties
@@ -39,6 +40,25 @@ public class PlayerProperties : Properties
         get { return xp; }
         set { xp = value; }
     }
+
+    public override int Health
+    {
+        get { return health; }
+        set
+        {
+            health = value;
+            playerEvent.OnPlayerHealthChanged?.Invoke(health);
+        }
+    }
+
+    private bool canMove;
+    public bool CanMove
+    {
+        get { return canMove; }
+        set { canMove = value; }
+    }
+   
+    public PlayerEvent playerEvent;
     public PlayerProperties(int level, EntityType.Type type) : base()
     {
         thisType = type;
@@ -50,15 +70,18 @@ public class PlayerProperties : Properties
         armor = Table.armorTable[type][level];
         magicResist = Table.magicResistTable[type][level];
         attackType = Table.attackTypeTable[type];
+        canMove = true;
         xp = 0;
     }
 }
 public class Player : Entity
 {
-    public new PlayerProperties properties = new PlayerProperties(1, EntityType.Type.Player);
+    public new PlayerProperties properties;
     private PlayerController playerController;
     void Awake()
     {
+        properties = new PlayerProperties(1, EntityType.Type.Player);
+        properties.playerEvent = FindFirstObjectByType<PlayerEvent>();
         playerController = GetComponentInParent<PlayerController>();
     }
     

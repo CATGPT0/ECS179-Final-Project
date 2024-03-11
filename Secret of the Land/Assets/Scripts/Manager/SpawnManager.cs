@@ -21,14 +21,19 @@ public class SpawnManager : MonoBehaviour
     }
     void Start()
     {
+        playerController = FindFirstObjectByType<PlayerController>();
         for (int i = 0; i < 5; i++)
         {
             Vector3 spawnPosition = new Vector3(Random.Range(transform.position.x+8, transform.position.x-8), Random.Range(transform.position.y+8, transform.position.y-8), 0);
             spawnPosition = GetNearestPoint(spawnPosition);
-            GameObject skeleton = SpawnEngine.Spawn(skeletonPrefab, spawnPosition, Quaternion.identity, 1);
-            Transform a = GameObject.Find("Monsters").transform;
+            int level = 1;
+            GameObject skeleton = SpawnEngine.Spawn(skeletonPrefab, spawnPosition, Quaternion.identity, level);
+            Transform a = GameObject.Find("MonsterManager").transform;
             skeleton.transform.SetParent(a);
-            skeleton.GetComponentInChildren<SkeletonEvent>().onMonsterDeath += playerController.Player.ReceiveXP;
+            SkeletonFSM skeletonFSM = skeleton.GetComponent<SkeletonFSM>();
+            skeleton.GetComponentInChildren<SkeletonEvent>().onMonsterDeath.AddListener(() => { playerController.Player.ReceiveXP(Table.CalculateXP(level,
+                                                                                                                                                    playerController.Player.properties.Level,
+                                                                                                                                                    skeletonFSM.properties.ThisType)); });
         }
     }
 

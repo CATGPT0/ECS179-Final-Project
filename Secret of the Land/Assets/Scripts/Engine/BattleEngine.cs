@@ -45,10 +45,5 @@ public class BattleEngine : MonoBehaviour
         }
 
         victim.Health -= damage;
-
-        if (victim.ThisType == EntityType.Type.Player)
-        {
-            playerController.PlayerEvent.OnPlayerHealthChanged?.Invoke(victim.Health);
-        }
     }
 }

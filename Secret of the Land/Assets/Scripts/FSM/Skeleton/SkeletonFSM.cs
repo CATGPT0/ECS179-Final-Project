@@ -51,6 +51,25 @@ public class SkeletonProperties : Properties
         get { return canAttack; }
         set { canAttack = value; }
     }
+
+    public override int Health
+    {
+        get { return health; }
+        set
+        {
+            health = value;
+            skeletonEvent.onMonsterHealthChanged?.Invoke();
+            if (health <= 0)
+            {
+                Debug.Log("Skeleton died");
+                health = 0;
+                skeletonEvent.onMonsterDeath?.Invoke();
+            }
+        }
+    }
+
+    public SkeletonEvent skeletonEvent;
+    
     public SkeletonProperties(int level, EntityType.Type type) : base()
     {
         this.level = level;
@@ -80,6 +99,9 @@ public class SkeletonFSM : FSM
     }
     protected new void Start()
     {
+        properties.skeletonEvent = GetComponentInChildren<SkeletonEvent>();
+        properties.skeletonEvent.onMonsterDeath.AddListener(() => ToState(State.Death));
+        properties.skeletonEvent.onMonsterHealthChanged.AddListener(() => GetHurtAnimation());
         properties.SpawnPosition = transform.position;
         states.Add(State.Idle, new SkeletonIdleState(this));
         states.Add(State.Attack, new SkeletonAttackState(this));
@@ -97,7 +119,7 @@ public class SkeletonFSM : FSM
     protected new void Update()
     {
         base.Update();
-        properties.Player = GameObject.FindGameObjectWithTag("Player").transform;
+        properties.Player = GameObject.Find("Player").transform;
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -146,6 +168,19 @@ public class SkeletonFSM : FSM
         {
             transform.localScale = new Vector3(-1, 1, 1);
         }
+    }
+
+    public void GetHurtAnimation()
+    {
+        IEnumerator HurtAnimation()
+        {
+            var sr = GetComponent<SpriteRenderer>();
+            var originalColor = sr.color;
+            sr.color = new Color(255 / 255f, 155 / 255f, 155 / 255f, 255 / 255f);;
+            yield return new WaitForSeconds(0.1f);
+            sr.color = originalColor;
+        }
+        StartCoroutine(HurtAnimation());
     }
 
     protected void OnDrawGizmos()

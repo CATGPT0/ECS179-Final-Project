@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Controller;
 using Unity.VisualScripting;
+using JetBrains.Annotations;
 
 
 public class SoundEffectController : MonoBehaviour
@@ -23,19 +24,20 @@ public class SoundEffectController : MonoBehaviour
     private TerrainDetector.TerrainType currentTerrainType;
     private bool isAttacking = false;
 
+
     void Awake()
     {
         playerController = FindFirstObjectByType<PlayerController>();
     }
     void Start()
     {
-
+        playerController.PlayerEvent.OnPlayerAttack.AddListener(PlayAttackSound);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Mathf.Abs(playerController.Player.properties.VelocityX) > 0.1f || Mathf.Abs(playerController.Player.properties.VelocityY) > 0.1f)
+        if (Mathf.Abs(playerController.Player.properties.VelocityX) > 0.1f || Mathf.Abs(playerController.Player.properties.VelocityY) > 0.1f || isAttacking)
         {
             audioSource.enabled = true;
             audioSource.loop = true;
@@ -76,17 +78,23 @@ public class SoundEffectController : MonoBehaviour
 
     public void PlayAttackSound()
     {
-        isAttacking = true;
-        audioSource.enabled = true;
-        audioSource.PlayOneShot(attackSound);
-        Debug.Log("Attack sound played");
+        if (isAttacking)
+        {
+            return;
+        }
+        IEnumerator AttackSound()
+        {
+            isAttacking = true;
+            audioSource.enabled = true;
+            audioSource.PlayOneShot(attackSound);
+            Debug.Log("Attack sound played");
+            yield return new WaitForSeconds(0.5f);
+            isAttacking = false;
+            audioSource.enabled = false;
+        }
+        StartCoroutine(AttackSound());
     }
 
-    public void StopAttackSound()
-    {
-        isAttacking = false;
-        audioSource.enabled = false;
-    }
 
     
 }

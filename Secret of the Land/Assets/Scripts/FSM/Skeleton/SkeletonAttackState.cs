@@ -32,9 +32,9 @@ public class SkeletonAttackState : AttackState
         {
             machine.ToState(State.Chase);
         }
-        if (properties.Health <= 0)
-        {
-            machine.ToState(State.Death);
-        }
+        // if (properties.Health <= 0)
+        // {
+        //     machine.ToState(State.Death);
+        // }
     }
 }

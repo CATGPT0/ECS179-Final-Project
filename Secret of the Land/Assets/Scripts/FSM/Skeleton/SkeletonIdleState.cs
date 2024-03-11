@@ -39,9 +39,9 @@ public class SkeletonIdleState : IdleState
         {
             machine.ToState(State.React);
         }
-        if (properties.Health <= 0)
-        {
-            machine.ToState(State.Death);
-        }
+        // if (properties.Health <= 0)
+        // {
+        //     machine.ToState(State.Death);
+        // }
     }
 }

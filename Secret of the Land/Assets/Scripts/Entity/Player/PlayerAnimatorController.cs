@@ -16,6 +16,8 @@ namespace Controller
         private GameEvent playerDeathEvent;
         private AnimatorState animationState;
         private AnimatorStateInfo animInfo;
+        private bool canAttack = true;
+        private bool isAttack = false;
         private enum AnimationState
         {
             Idle,
@@ -40,8 +42,9 @@ namespace Controller
         void Update()
         {
             MakeTransition();
+            DetectAttack();
             UpdateBlendTree();
-            ChangeRoleDirection(playerController.Player.properties.LatestMoveDirection);
+            FlipTo(playerController.Player.properties.LatestMoveDirection);
         }
 
         ///<summary>
@@ -62,13 +65,25 @@ namespace Controller
                 
             }
 
-            anim.SetBool("isAttack", battleController.IsAttack);
+            anim.SetBool("isAttack", isAttack);
             anim.SetInteger("health", playerController.Player.properties.Health);
+            anim.SetBool("canAttack", canAttack);
 
-            if (animInfo.normalizedTime >= .99f)
+            if (animInfo.IsName("Attack"))
             {
-
+                playerController.PlayerEvent.OnPlayerAttack?.Invoke();
+                if (animInfo.normalizedTime <= .90f)
+                {
+                    canAttack = false;
+                    playerController.Player.properties.CanMove = false;
+                }
+                else
+                {
+                    canAttack = true;
+                    playerController.Player.properties.CanMove = true;
+                }
             }
+
             if (animInfo.normalizedTime >= .99f && animInfo.IsName("death"))
             {
                 anim.SetTrigger("isDead");
@@ -99,15 +114,27 @@ namespace Controller
         ///Change the direction of the object (the flip of an object)
         ///</summary>
         ///<param name="direction">The direction vector of the object</param>
-        void ChangeRoleDirection(Vector3 direction)
+        void FlipTo(Vector3 direction)
         {
             if (direction.x >= 0)
             {
-                spriteRenderer.flipX = false;
+                GetComponentInParent<PlayerController>().gameObject.transform.localScale = new Vector3(1, 1, 1);
             }
             else
             {
-                spriteRenderer.flipX = true;
+                GetComponentInParent<PlayerController>().gameObject.transform.localScale = new Vector3(-1, 1, 1);
+            }
+        }
+
+        private void DetectAttack()
+        {
+            if (Input.GetButtonDown("Fire1"))
+            {
+                isAttack = true;
+            }
+            else
+            {
+                isAttack = false;
             }
         }
     }

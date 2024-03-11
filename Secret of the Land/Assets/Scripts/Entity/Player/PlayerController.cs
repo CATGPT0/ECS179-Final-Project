@@ -17,12 +17,12 @@ namespace Controller
             get { return player; }
             set { player = value; }
         }
-        private BattleController battleController;
-        public BattleController BattleController
-        {
-            get { return battleController; }
-            set { battleController = value; }
-        }
+        // private BattleController battleController;
+        // public BattleController BattleController
+        // {
+        //     get { return battleController; }
+        //     set { battleController = value; }
+        // }
         private PlayerAnimation playerAnimation;
         public PlayerAnimation PlayerAnimation
         {
@@ -44,7 +44,7 @@ namespace Controller
         void Awake()
         {
             player = GetComponentInChildren<Player>();
-            battleController = GetComponentInChildren<BattleController>(); 
+            //battleController = GetComponentInChildren<BattleController>(); 
             playerAnimation = GetComponentInChildren<PlayerAnimation>();
             playerEvent = GetComponentInChildren<PlayerEvent>();
             agent = GetComponent<NavMeshAgent>();
@@ -57,7 +57,7 @@ namespace Controller
 
         void Start()
         {
-            battleController.transform.position = this.transform.position;
+            //battleController.transform.position = this.transform.position;
         }
 
         void Update()
@@ -76,7 +76,14 @@ namespace Controller
                 Player.properties.LatestMoveDirection = Player.properties.Direction;
             }
 
-            this.transform.position += GetCalculatedSpeed() * Time.deltaTime * Player.properties.Direction;
+            if (Player.properties.CanMove)
+            {
+                this.transform.position += GetCalculatedSpeed() * Time.deltaTime * Player.properties.Direction;
+            }
+            else
+            {
+                Debug.Log("Can't move");
+            } 
         }
 
         ///<summary>
@@ -94,15 +101,15 @@ namespace Controller
                 return player.properties.Speed;
             }
         }
-        public void Attack()
-        {
-            battleController.Attack();
-            //soundEffectController.PlayAttackSound();
-        }
+        // public void Attack()
+        // {
+        //     battleController.Attack();
+        //     //soundEffectController.PlayAttackSound();
+        // }
 
-        public void StopAttack()
-        {
-            soundEffectController.StopAttackSound();
-        }
+        // public void StopAttack()
+        // {
+        //     soundEffectController.StopAttackSound();
+        // }
     }
 }

@@ -42,10 +42,10 @@ public class SkeletonChaseState : ChaseState
         {
             machine.ToState(State.Attack);
         }
-        if (properties.Health <= 0)
-        {
-            machine.ToState(State.Death);
-        }
+        // if (properties.Health <= 0)
+        // {
+        //     machine.ToState(State.Death);
+        // }
         HandleStuck();
     }
 }

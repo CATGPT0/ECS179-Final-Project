@@ -3,17 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using Controller;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class SkeletonEvent : MonoBehaviour
 {
-    public Action<int> onMonsterDeath = new Action<int>(a => { });
-    private PlayerController playerController;
-    private SkeletonFSM fsm;
+    public UnityEvent onMonsterDeath;
+    public UnityEvent onMonsterHealthChanged;
     void Awake()
     {
-        
-        playerController = FindFirstObjectByType<PlayerController>();
-        fsm = GetComponentInParent<SkeletonFSM>();
         
     }
     void Start()
@@ -29,6 +26,6 @@ public class SkeletonEvent : MonoBehaviour
 
     void OnDestroy()
     {
-        onMonsterDeath?.Invoke(Table.CalculateXP(fsm.properties.Level, playerController.Player.properties.Level, fsm.properties.ThisType));
+        
     }
 }
