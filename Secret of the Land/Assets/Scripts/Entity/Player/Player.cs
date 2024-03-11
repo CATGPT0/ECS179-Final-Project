@@ -87,6 +87,7 @@ public class Player : Entity
     
     void Start()
     {
+        playerController.PlayerEvent.OnPlayerRespawn.AddListener(SetHealthToFull);
         Debug.Log("Player Start");
         Debug.Log("Player Level: " + properties.Level);
         Debug.Log("Player Health: " + properties.Health);
@@ -136,5 +137,10 @@ public class Player : Entity
         {
             playerController.getXPTextController.XPUIShowUp(amount);
         }
+    }
+    
+    public void SetHealthToFull()
+    {
+        properties.Health = properties.MaxHealth;
     }
 }

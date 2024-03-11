@@ -92,9 +92,11 @@ public class SkeletonFSM : FSM
     public LayerMask targetLayer;
     public Transform attackPoint;
     public float attackRange;
+    public GameObject player;
     protected new void Awake()
     {
         properties = new SkeletonProperties(spawnLevel, EntityType.Type.Skeleton);
+        player = GameObject.FindGameObjectWithTag("Player");
         base.Awake();
     }
     protected new void Start()
@@ -119,7 +121,10 @@ public class SkeletonFSM : FSM
     protected new void Update()
     {
         base.Update();
-        properties.Player = GameObject.Find("Player").transform;
+        if (player != null)
+        {
+            properties.Player = player.transform;
+        }
     }
 
     void OnTriggerEnter2D(Collider2D other)

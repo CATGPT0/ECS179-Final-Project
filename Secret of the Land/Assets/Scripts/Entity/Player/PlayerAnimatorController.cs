@@ -35,7 +35,7 @@ namespace Controller
 
         void Start()
         {
-            
+            playerController.PlayerEvent.OnPlayerRespawn.AddListener(Respawn);
         }
 
         // Update is called once per frame
@@ -90,7 +90,6 @@ namespace Controller
                 playerController.PlayerEvent.OnPlayerDeathEnter?.Invoke();
                 if (animInfo.normalizedTime >= .99f)
                 {
-                anim.SetTrigger("isDead");
                 playerController.PlayerEvent.OnPlayerDeathExit?.Invoke();
                 }   
                 
@@ -143,6 +142,12 @@ namespace Controller
             {
                 isAttack = false;
             }
+        }
+
+        private void Respawn()
+        {
+            playerController.Player.properties.CanMove = true;
+            anim.Play("Idle");
         }
     }
 }

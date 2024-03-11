@@ -36,7 +36,7 @@ public class ChaseState : IState
             machine.stuckTimer += Time.deltaTime;
             if (machine.stuckTimer > 1f)
             {
-                machine.agent.Warp(UnityEngine.Random.insideUnitCircle * 2f);
+                machine.agent.Warp(properties.CurrentPos + Random.insideUnitCircle * 2f);
                 machine.ToState(State.Idle);
             }
         }

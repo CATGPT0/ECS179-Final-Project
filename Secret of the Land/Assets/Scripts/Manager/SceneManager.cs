@@ -15,13 +15,14 @@ namespace Manager
         }
         void Awake()
         {
-            DontDestroyOnLoad(gameObject);
             playerEvent = FindFirstObjectByType<PlayerEvent>();
+            DontDestroyOnLoad(gameObject);
         }
 
         void Start()
         {
-            playerEvent.OnPlayerDeathExit.AddListener(LoadGameOverScene);
+            //playerEvent.OnPlayerDeathExit.AddListener(LoadGameOverScene);
+            //playerEvent.OnPlayerRespawn.AddListener(LoadWorldScene);
         }
 
         public void LoadScene(Scene scene)

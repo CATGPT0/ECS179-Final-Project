@@ -9,8 +9,6 @@ namespace Controller
 {
     public class PlayerController : MonoBehaviour
     {
-        [SerializeField]
-        private SoundEffectController soundEffectController;
         private Player player;
         public Player Player
         {
@@ -57,7 +55,8 @@ namespace Controller
 
         void Start()
         {
-            //battleController.transform.position = this.transform.position;
+            playerEvent.OnPlayerDeathExit.AddListener(DeactivateSelf);
+            playerEvent.OnPlayerRespawn.AddListener(ReactivateSelf);
         }
 
         void Update()
@@ -80,10 +79,6 @@ namespace Controller
             {
                 this.transform.position += GetCalculatedSpeed() * Time.deltaTime * Player.properties.Direction;
             }
-            else
-            {
-                Debug.Log("Can't move");
-            } 
         }
 
         ///<summary>
@@ -101,15 +96,16 @@ namespace Controller
                 return player.properties.Speed;
             }
         }
-        // public void Attack()
-        // {
-        //     battleController.Attack();
-        //     //soundEffectController.PlayAttackSound();
-        // }
+        
+        void DeactivateSelf()
+        {
+            this.gameObject.SetActive(false);
+        }
 
-        // public void StopAttack()
-        // {
-        //     soundEffectController.StopAttackSound();
-        // }
+        void ReactivateSelf()
+        {
+            this.gameObject.SetActive(true);
+        }
+
     }
 }
