@@ -10,14 +10,17 @@ public class GetXPTextController : MonoBehaviour
     private GameObject xpUI;
     private TextMeshProUGUI xpText;
     private Image xpImage;
+    private PlayerEvent playerEvent;
     void Awake()
     {
         xpText = xpUI.GetComponentInChildren<TextMeshProUGUI>();
         xpImage = xpUI.GetComponent<Image>();
+        playerEvent = FindFirstObjectByType<PlayerEvent>();
     }
     void Start()
     {
         xpUI.SetActive(false);
+        playerEvent.OnPlayerGetXP += XPUIShowUp;
     }
 
     // Update is called once per frame

@@ -129,15 +129,6 @@ public class SkeletonFSM : FSM
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Obstacle"))
-        {
-            ToState(State.Idle);
-        }
-        else if (other.CompareTag("Water"))
-        {
-            ToState(State.Idle);
-        }
-
         if (other.CompareTag("Grass"))
         {
             properties.GroundType = TerrainDetector.TerrainType.Grass;

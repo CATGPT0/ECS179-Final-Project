@@ -38,7 +38,12 @@ public class PlayerProperties : Properties
     public int XP
     {
         get { return xp; }
-        set { xp = value; }
+        set 
+        {   
+            int temp = value - xp;
+            xp = value; 
+            playerEvent.OnPlayerGetXP?.Invoke(temp);
+        }
     }
 
     public override int Health
@@ -88,11 +93,6 @@ public class Player : Entity
     void Start()
     {
         playerController.PlayerEvent.OnPlayerRespawn.AddListener(SetHealthToFull);
-        Debug.Log("Player Start");
-        Debug.Log("Player Level: " + properties.Level);
-        Debug.Log("Player Health: " + properties.Health);
-        Debug.Log("Player AttackPower: " + properties.AttackPower);
-        Debug.Log("Player Speed: " + properties.Speed);
     }
 
     // Update is called once per frame
@@ -135,7 +135,7 @@ public class Player : Entity
         }
         else
         {
-            playerController.getXPTextController.XPUIShowUp(amount);
+            // playerController.getXPTextController.XPUIShowUp(amount);
         }
     }
     

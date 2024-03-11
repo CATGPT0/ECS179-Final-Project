@@ -29,10 +29,8 @@ public class EnemyAttack : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
         {
-            Debug.Log("Enemy is hit");
             if (other.gameObject.CompareTag("Player"))
             {
-                Debug.Log("Player is hit");
                 battleEngine.DealDamage(ref fsm.properties, 
                                         ref player.properties);
                 

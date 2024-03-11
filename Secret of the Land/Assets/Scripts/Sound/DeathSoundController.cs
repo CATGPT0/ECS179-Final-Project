@@ -22,12 +22,6 @@ public class DeathSoundController : MonoBehaviour
         playerController.PlayerEvent.OnPlayerRespawn.AddListener(ResetDeadProperty);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        Debug.Log(isDead);
-    }
-
     public void PlayDeathSound()
     {
         if (isDead)

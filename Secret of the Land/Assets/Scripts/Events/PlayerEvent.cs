@@ -11,6 +11,7 @@ public class PlayerEvent : MonoBehaviour
     public UnityEvent OnPlayerDeathEnter;
     public UnityEvent OnPlayerDeathExit;
     public UnityEvent OnPlayerRespawn;
+    public Action<int> OnPlayerGetXP;
 
     void Start()
     {
