@@ -36,6 +36,14 @@ namespace Controller
             if (other.gameObject.CompareTag("Skeleton"))
             {
                 SkeletonFSM fsm = other.gameObject.GetComponentInChildren<SkeletonFSM>();
+                //Debug.Log("Health Left: " + fsm.properties.Health);
+                battleEngine.DealDamage(ref player.properties, 
+                                        ref fsm.properties);
+                
+            }
+            else if (other.gameObject.CompareTag("Slime"))
+            {
+                SlimeFSM fsm = other.gameObject.GetComponentInChildren<SlimeFSM>();
                 Debug.Log("Health Left: " + fsm.properties.Health);
                 battleEngine.DealDamage(ref player.properties, 
                                         ref fsm.properties);

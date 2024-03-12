@@ -28,22 +28,4 @@ public class ChaseState : IState
     {
         
     }
-
-    public void HandleStuck()
-    {
-        if (Vector2.Distance(lastPos, properties.CurrentPos) < 0.05f)
-        {
-            machine.stuckTimer += Time.deltaTime;
-            if (machine.stuckTimer > 1f)
-            {
-                machine.agent.Warp(properties.CurrentPos + Random.insideUnitCircle * 2f);
-                machine.ToState(State.Idle);
-            }
-        }
-        else
-        {
-            lastPos = properties.CurrentPos;
-            machine.stuckTimer = 0;
-        }
-    }
 }

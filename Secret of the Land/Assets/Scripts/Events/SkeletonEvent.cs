@@ -9,23 +9,5 @@ public class SkeletonEvent : MonoBehaviour
 {
     public UnityEvent onMonsterDeath;
     public Action onMonsterHealthChanged;
-    void Awake()
-    {
-        
-    }
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    void OnDestroy()
-    {
-        
-    }
 }

@@ -68,17 +68,6 @@ public class Properties
     }
 }
 
-[Serializable]
-public class SoundClips
-{
-    public AudioClip attack;
-    public AudioClip death;
-    public AudioClip hit;
-    public AudioClip wood;
-    public AudioClip grass;
-    public AudioClip road;
-}
-
 public enum State
 {
     Idle,
@@ -95,20 +84,17 @@ public class FSM : MonoBehaviour
     public Animator anim;
     public Transform thisPosition;
     public float stuckTimer;
-    public AudioSource audioSource;
     public Properties properties = new Properties();
-    public SoundClips soundClips = new SoundClips();
     protected IState currentState;
     protected Dictionary<State, IState> states = new Dictionary<State, IState>();
 
-    protected void Awake()
+    protected virtual void Awake()
     {
         anim = GetComponent<Animator>();
         agent = GetComponent<NavMeshAgent>();
-        audioSource = GetComponent<AudioSource>();
         thisPosition = transform;
     }
-    protected void Start()
+    protected virtual void Start()
     {
         states.Add(State.Idle, new IdleState(this));
         states.Add(State.Walk, new WalkState(this));
@@ -123,9 +109,9 @@ public class FSM : MonoBehaviour
         currentState.OnEnter();
     }
     
-    protected void Update()
+    protected virtual void Update()
     {
-        properties.CurrentPos = transform.position;
+        
         currentState.OnUpdate();
     }
 

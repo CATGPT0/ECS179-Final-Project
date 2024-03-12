@@ -18,7 +18,7 @@ public class SkeletonChaseState : ChaseState
         Debug.Log("ChaseState: OnEnter");
         originalSpeed = machine.agent.speed;
         machine.agent.speed *= chaseSpeedMultiplier;
-        machine.agent.ResetPath();
+        //machine.agent.ResetPath();
         machine.anim.Play("walk");
     }
 
@@ -41,11 +41,26 @@ public class SkeletonChaseState : ChaseState
         {
             machine.ToState(State.Attack);
         }
-        // if (properties.Health <= 0)
-        // {
-        //     machine.ToState(State.Death);
-        // }
         HandleStuck();
+    }
+
+    public void HandleStuck()
+    {
+        if (Vector2.Distance(lastPos, properties.CurrentPos) < 0.02f)
+        {
+            machine.stuckTimer += Time.deltaTime;
+            if (machine.stuckTimer > 2f)
+            {
+                Debug.Log("Stuck");
+                machine.agent.Warp(properties.CurrentPos + UnityEngine.Random.insideUnitCircle * 2f);
+                machine.ToState(State.Idle);
+            }
+        }
+        else
+        {
+            lastPos = properties.CurrentPos;
+            machine.stuckTimer = 0;
+        }
     }
 }
 

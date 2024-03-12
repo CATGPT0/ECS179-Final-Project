@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,9 +13,18 @@ public static class SpawnEngine
                 return SpawnPlayer(prefab, position, rotation, level);
             case "Skeleton":
                 return SpawnSkeleton(prefab, position, rotation, level);
+            case "Slime":
+                return SpawnSlime(prefab, position, rotation, level);
             default:
                 return null;
         }
+    }
+
+    private static GameObject SpawnSlime(GameObject prefab, Vector3 position, Quaternion rotation, int level)
+    {
+        GameObject slime = GameObject.Instantiate(prefab, position, rotation);
+        slime.GetComponentInChildren<SlimeFSM>().properties = new SlimeProperties(level, EntityType.Type.Slime);
+        return slime;
     }
 
     public static GameObject SpawnPlayer(GameObject prefab, Vector3 position, Quaternion rotation, int level)

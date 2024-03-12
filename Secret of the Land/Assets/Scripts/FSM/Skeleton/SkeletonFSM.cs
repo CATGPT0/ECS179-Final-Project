@@ -94,13 +94,13 @@ public class SkeletonFSM : FSM
     public float attackRange;
     public GameObject player;
     private Coroutine hurtCoroutine;
-    protected new void Awake()
+    protected override void Awake()
     {
         properties = new SkeletonProperties(spawnLevel, EntityType.Type.Skeleton);
         player = GameObject.FindGameObjectWithTag("Player");
         base.Awake();
     }
-    protected new void Start()
+    protected override void Start()
     {
         properties.skeletonEvent = GetComponentInChildren<SkeletonEvent>();
         properties.skeletonEvent.onMonsterDeath.AddListener(() => ToState(State.Death));
@@ -119,9 +119,10 @@ public class SkeletonFSM : FSM
         currentState.OnEnter();
     }
 
-    protected new void Update()
+    protected override void Update()
     {
         base.Update();
+        properties.CurrentPos = transform.position;
         if (player != null)
         {
             properties.Player = player.transform;

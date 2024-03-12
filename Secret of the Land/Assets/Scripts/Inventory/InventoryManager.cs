@@ -98,6 +98,26 @@ public class InventoryManager : MonoBehaviour
 
     }
 
+    public void DeleteItem()
+    {
+        if (instance.currentSlot == null)
+        {
+            return;
+        }
+        instance.currentSlot.item.item.count--;
+        instance.currentSlot.countText.text = "x" + instance.currentSlot.item.item.count.ToString();
+        if (instance.currentSlot.item == equipControler.weapon)
+        {
+            equipControler.TearDown();
+        }
+        if (instance.currentSlot.item.item.count <= 0)
+        {
+            Destroy(instance.currentSlot.gameObject);
+            instance.slotCount--;
+            bag.items.Remove(instance.currentSlot.item);
+        }
+    }
+
     public static void UpdateItemInfo(string itemDescription)
     {
         instance.itemInfo.text = itemDescription;

@@ -11,19 +11,16 @@ public class SkeletonIdleState : IdleState
     {
         this.machine = machine;
         this.properties = this.machine.properties;
-        this.soundClips = machine.soundClips;
     }
 
     public override void OnEnter()
     {
         maxIdleTime = Random.Range(3f, 5f);
-        machine.agent.ResetPath();
         machine.anim.Play("idle");
     }
 
     public override void OnExit()
     {
-        machine.agent.ResetPath();
         timer = 0;
     }
 

@@ -7,7 +7,6 @@ public class PatrolState : IState
 {
     protected FSM machine;
     protected Properties properties;
-    protected SoundClips soundClips;
     protected Vector2 targetPos;
     protected TerrainDetector.TerrainType currentTerrainType;
 
@@ -15,7 +14,6 @@ public class PatrolState : IState
     {
         this.machine = machine;
         this.properties = machine.properties;
-        this.soundClips = machine.soundClips;
     }
     public virtual void OnEnter()
     {

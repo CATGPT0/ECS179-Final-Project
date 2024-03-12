@@ -5,8 +5,14 @@ using UnityEngine;
 
 public class EquipControler : MonoBehaviour
 {
-    private GameItem weapon;
+    public GameItem weapon;
     public Image image;
+    public Sprite originalImage;
+
+    void Start()
+    {
+        originalImage = image.sprite;
+    }
 
     public void EquipUp(GameItem inputItem)
     {
@@ -22,5 +28,7 @@ public class EquipControler : MonoBehaviour
     public void TearDown()
     {
         weapon.onItemTeardown.Invoke(-weapon.item.value);
+        weapon = null;
+        image.sprite = originalImage;
     }
 }

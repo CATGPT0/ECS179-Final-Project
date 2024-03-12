@@ -7,7 +7,6 @@ public class IdleState : IState
 {
     protected FSM machine;
     protected Properties properties;
-    protected SoundClips soundClips;
     protected float timer = 0;
     protected float maxIdleTime = 3f;
 
@@ -15,7 +14,6 @@ public class IdleState : IState
     {
         this.machine = machine;
         this.properties = machine.properties;
-        this.soundClips = machine.soundClips;
     }
     public virtual void OnEnter()
     {

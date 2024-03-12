@@ -11,7 +11,6 @@ public class SkeletonPatrolState : PatrolState
     {
         this.machine = machine;
         this.properties = this.machine.properties;
-        this.soundClips = machine.soundClips;
     }
 
     public override void OnEnter()
@@ -21,29 +20,11 @@ public class SkeletonPatrolState : PatrolState
         // Choose a random position within the patrol radius
         var randomPos = Random.insideUnitCircle * properties.PatrolRadius;
         targetPos = new Vector2(properties.CurrentPos.x + randomPos.x, properties.CurrentPos.y + randomPos.y);
-
         machine.agent.SetDestination(targetPos);
-
-        machine.audioSource.enabled = true;
-        currentTerrainType = properties.GroundType;
-
-        if (currentTerrainType == TerrainDetector.TerrainType.Grass)
-        {
-            machine.audioSource.clip = soundClips.grass;
-        }
-        else if (currentTerrainType == TerrainDetector.TerrainType.Road)
-        {
-            machine.audioSource.clip = soundClips.road;
-        }
-        else if (currentTerrainType == TerrainDetector.TerrainType.Bridge)
-        {
-            machine.audioSource.clip = soundClips.wood;
-        }
     }
 
     public override void OnExit()
     {
-        machine.audioSource.enabled = false;
         machine.agent.ResetPath();
         machine.stuckTimer = 0;
     }
@@ -55,7 +36,6 @@ public class SkeletonPatrolState : PatrolState
             machine.ToState(State.Idle);
         }
         machine.Flip();
-        ChangeAudioClip();
 
         if (properties.SeePlayer)
         {
@@ -65,31 +45,5 @@ public class SkeletonPatrolState : PatrolState
         // {
         //     machine.ToState(State.Death);
         // }
-    }
-
-    public void ChangeAudioClip()
-    {
-        if (currentTerrainType != properties.GroundType)
-        {
-            currentTerrainType = properties.GroundType;
-            if (currentTerrainType == TerrainDetector.TerrainType.Grass)
-            {
-                machine.audioSource.clip = soundClips.grass;
-            }
-            else if (currentTerrainType == TerrainDetector.TerrainType.Road)
-            {
-                machine.audioSource.clip = soundClips.road;
-            }
-            else if (currentTerrainType == TerrainDetector.TerrainType.Bridge)
-            {
-                machine.audioSource.clip = soundClips.wood;
-            }
-
-            if (machine.audioSource.isPlaying)
-            {
-                machine.audioSource.Stop();
-            }
-                machine.audioSource.Play();
-        }
     }
 }
