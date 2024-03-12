@@ -8,7 +8,7 @@ using UnityEngine.Events;
 public class SkeletonEvent : MonoBehaviour
 {
     public UnityEvent onMonsterDeath;
-    public UnityEvent onMonsterHealthChanged;
+    public Action onMonsterHealthChanged;
     void Awake()
     {
         

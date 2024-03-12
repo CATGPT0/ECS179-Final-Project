@@ -103,7 +103,7 @@ public class SkeletonFSM : FSM
     {
         properties.skeletonEvent = GetComponentInChildren<SkeletonEvent>();
         properties.skeletonEvent.onMonsterDeath.AddListener(() => ToState(State.Death));
-        properties.skeletonEvent.onMonsterHealthChanged.AddListener(() => GetHurtAnimation());
+        properties.skeletonEvent.onMonsterHealthChanged += GetHurtAnimation;
         properties.SpawnPosition = transform.position;
         states.Add(State.Idle, new SkeletonIdleState(this));
         states.Add(State.Attack, new SkeletonAttackState(this));
