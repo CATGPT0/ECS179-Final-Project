@@ -93,6 +93,7 @@ public class SkeletonFSM : FSM
     public Transform attackPoint;
     public float attackRange;
     public GameObject player;
+    private Coroutine hurtCoroutine;
     protected new void Awake()
     {
         properties = new SkeletonProperties(spawnLevel, EntityType.Type.Skeleton);
@@ -168,6 +169,11 @@ public class SkeletonFSM : FSM
 
     public void GetHurtAnimation()
     {
+        if (hurtCoroutine != null)
+        {
+            return;
+        }
+        hurtCoroutine = StartCoroutine(HurtAnimation());
         IEnumerator HurtAnimation()
         {
             var sr = GetComponent<SpriteRenderer>();
@@ -175,8 +181,8 @@ public class SkeletonFSM : FSM
             sr.color = new Color(255 / 255f, 155 / 255f, 155 / 255f, 255 / 255f);
             yield return new WaitForSeconds(0.1f);
             sr.color = originalColor;
+            hurtCoroutine = null;
         }
-        StartCoroutine(HurtAnimation());
     }
 
     protected void OnDrawGizmos()
