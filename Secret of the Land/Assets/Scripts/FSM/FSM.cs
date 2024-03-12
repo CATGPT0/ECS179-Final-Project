@@ -92,6 +92,10 @@ public class FSM : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         agent = GetComponent<NavMeshAgent>();
+        if (agent == null)
+        {
+            Debug.LogError("No NavMeshAgent found on " + gameObject.name);
+        }
         thisPosition = transform;
     }
     protected virtual void Start()
@@ -122,7 +126,7 @@ public class FSM : MonoBehaviour
         currentState.OnEnter();
     } 
 
-    public void Flip()
+    public virtual void Flip()
     {
         if (agent.velocity.x > 0)
         {

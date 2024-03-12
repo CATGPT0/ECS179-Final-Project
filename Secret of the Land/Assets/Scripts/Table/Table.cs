@@ -6,7 +6,7 @@ public static class Table
 {
     public static Dictionary<EntityType.Type, Dictionary<int, int>> healthTable = new Dictionary<EntityType.Type, Dictionary<int, int>>()
     {
-        { EntityType.Type.Slime, new Dictionary<int, int>() { { 1, 100 }, { 2, 120 }, { 3, 140 }, { 4, 160 }, { 5, 180 }, { 6, 200 }, { 7, 220 }, { 8, 240 }, { 9, 260 }, { 10, 300 } } },
+        { EntityType.Type.Slime, new Dictionary<int, int>() { { 1, 30 }, { 2, 120 }, { 3, 140 }, { 4, 160 }, { 5, 180 }, { 6, 200 }, { 7, 220 }, { 8, 240 }, { 9, 260 }, { 10, 300 } } },
         { EntityType.Type.Goblin, new Dictionary<int, int>() { { 1, 100 }, { 2, 120 }, { 3, 140 }, { 4, 160 }, { 5, 180 }, { 6, 200 }, { 7, 220 }, { 8, 240 }, { 9, 260 }, { 10, 300 } } },
         { EntityType.Type.Orc, new Dictionary<int, int>() { { 1, 100 }, { 2, 120 }, { 3, 140 }, { 4, 160 }, { 5, 180 }, { 6, 200 }, { 7, 220 }, { 8, 240 }, { 9, 260 }, { 10, 300 } } },
         { EntityType.Type.Troll, new Dictionary<int, int>() { { 1, 100 }, { 2, 120 }, { 3, 140 }, { 4, 160 }, { 5, 180 }, { 6, 200 }, { 7, 220 }, { 8, 240 }, { 9, 260 }, { 10, 300 } } },

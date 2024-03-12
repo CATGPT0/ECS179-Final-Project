@@ -24,7 +24,7 @@ public class SpawnManager : MonoBehaviour
     void Start()
     {
         //SpawnPlayer();
-        SpawnSkeleton();
+        //SpawnSkeleton();
         SpawnSlime();
     }
 

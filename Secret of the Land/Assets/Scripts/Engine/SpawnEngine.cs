@@ -23,7 +23,7 @@ public static class SpawnEngine
     private static GameObject SpawnSlime(GameObject prefab, Vector3 position, Quaternion rotation, int level)
     {
         GameObject slime = GameObject.Instantiate(prefab, position, rotation);
-        slime.GetComponentInChildren<SlimeFSM>().properties = new SlimeProperties(level, EntityType.Type.Slime);
+        slime.GetComponent<SlimeFSM>().properties = new SlimeProperties(level, EntityType.Type.Slime);
         return slime;
     }
 
@@ -37,7 +37,7 @@ public static class SpawnEngine
     public static GameObject SpawnSkeleton(GameObject prefab, Vector3 position, Quaternion rotation, int level)
     {
         GameObject skeleton = GameObject.Instantiate(prefab, position, rotation);
-        skeleton.GetComponentInChildren<SkeletonFSM>().properties = new SkeletonProperties(level, EntityType.Type.Skeleton);
+        skeleton.GetComponent<SkeletonFSM>().properties = new SkeletonProperties(level, EntityType.Type.Skeleton);
         return skeleton;
     }
 }

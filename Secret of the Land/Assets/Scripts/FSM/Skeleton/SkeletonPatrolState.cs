@@ -41,9 +41,5 @@ public class SkeletonPatrolState : PatrolState
         {
             machine.ToState(State.React);
         }
-        // if (properties.Health <= 0)
-        // {
-        //     machine.ToState(State.Death);
-        // }
     }
 }

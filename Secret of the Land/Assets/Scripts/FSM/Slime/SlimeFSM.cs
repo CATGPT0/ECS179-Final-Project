@@ -70,6 +70,7 @@ public class SlimeProperties : Properties
     {
         this.level = level;
         thisType = type;
+        
         maxHealth = Table.healthTable[type][level];
         health = maxHealth;
         attackPower = Table.attackPowerTable[type][level];
@@ -106,11 +107,11 @@ public class SlimeFSM : FSM
         properties.slimeEvent.onMonsterHealthChanged += GetHurtAnimation;
         properties.SpawnPosition = transform.position;
         states.Add(State.Idle, new SlimeIdleState(this));
-        //states.Add(State.Attack, new SkeletonAttackState(this));
-        //states.Add(State.React, new SkeletonReactState(this));
-        //states.Add(State.Death, new SkeletonDeathState(this));
-        //states.Add(State.Patrol, new SkeletonPatrolState(this));
-        //states.Add(State.Chase, new SkeletonChaseState(this));
+        states.Add(State.Attack, new SlimeAttackState(this));
+        states.Add(State.React, new SlimeReactState(this));
+        states.Add(State.Death, new SlimeDeathState(this));
+        states.Add(State.Patrol, new SlimePatrolState(this));
+        states.Add(State.Chase, new SlimeChaseState(this));
         agent.updateRotation = false;
         agent.updateUpAxis = false;
         agent.speed = properties.Speed;
@@ -121,8 +122,6 @@ public class SlimeFSM : FSM
     protected override void Update()
     {
         base.Update();
-        agent.updateRotation = false;
-        agent.updateUpAxis = false;
         properties.CurrentPos = transform.position;
         if (player != null)
         {
@@ -145,11 +144,11 @@ public class SlimeFSM : FSM
     {
         if (properties.Player.position.x > transform.position.x)
         {
-            transform.localScale = new Vector3(1, 1, 1);
+            transform.localScale = new Vector3(6, 6, 1);
         }
         else
         {
-            transform.localScale = new Vector3(-1, 1, 1);
+            transform.localScale = new Vector3(-6, 6, 1);
         }
     }
 
@@ -174,5 +173,18 @@ public class SlimeFSM : FSM
     protected void OnDrawGizmos()
     {
         Gizmos.DrawWireSphere(attackPoint.position, attackRange);
+    }
+
+    public override void Flip()
+    {
+        if (agent.velocity.x > 0)
+        {
+            transform.localScale = new Vector3(6, 6, 1);
+        }
+        else
+        {
+            transform.localScale = new Vector3(-6, 6, 1);
+        }
+
     }
 }

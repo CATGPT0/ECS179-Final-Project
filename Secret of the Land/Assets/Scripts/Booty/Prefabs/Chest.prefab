@@ -147,7 +147,7 @@ MonoBehaviour:
   consumables:
   - {fileID: 4497545176673609530, guid: b88609155a622e643b529a1049ae23f0, type: 3}
   equips:
-  - {fileID: 3157986801739538594, guid: bfc99e625213045489290df7d20363b1, type: 3}
+  - {fileID: 4497545176673609530, guid: f1e5583ca13f9974dae77d21322e34f1, type: 3}
 --- !u!95 &2244845218072845059
 Animator:
   serializedVersion: 5
