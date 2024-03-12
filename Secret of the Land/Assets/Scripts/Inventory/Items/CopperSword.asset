@@ -15,6 +15,6 @@ MonoBehaviour:
   itemName: CopperSword
   itemImage: {fileID: 109899703, guid: 44ee90999b4e76b40ab6188abe2c0f5c, type: 3}
   count: 1
-  itemInfo: A copper sword.
+  itemInfo: A copper sword. Better than wood.
   itemType: 0
   value: 5
