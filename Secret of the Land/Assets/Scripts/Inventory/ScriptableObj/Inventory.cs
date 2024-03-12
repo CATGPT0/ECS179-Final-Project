@@ -6,5 +6,10 @@ using UnityEngine;
 public class Inventory : ScriptableObject
 {
     public List<GameItem> items = new List<GameItem>();
+
+    void OnDisable()
+    {
+        items.Clear();
+    }
     
 }

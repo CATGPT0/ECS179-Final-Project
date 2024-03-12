@@ -19,4 +19,9 @@ public class Item : ScriptableObject
     public string itemInfo;
     public ItemType itemType;
     public int value;
+
+    void OnDisable()
+    {
+        count = 0;
+    }
 }
