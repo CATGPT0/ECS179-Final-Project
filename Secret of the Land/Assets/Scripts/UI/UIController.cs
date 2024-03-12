@@ -5,6 +5,7 @@ public class UIController : MonoBehaviour
 {
     [SerializeField]
     private GameObject statPanel;
+    private bool isStatPanelOpen = false;
 
     void Awake()
     {
@@ -20,17 +21,13 @@ public class UIController : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Tab))
         {
-            OpenStatPanel();
+            OpenCloseStatPanel();
         }
     }
 
-    public void OpenStatPanel()
+    public void OpenCloseStatPanel()
     {
-        statPanel.SetActive(true);
-    }
-
-    public void CloseStatPanel()
-    {
-        statPanel.SetActive(false);
+        isStatPanelOpen = !isStatPanelOpen;
+        statPanel.SetActive(isStatPanelOpen);
     }
 }
