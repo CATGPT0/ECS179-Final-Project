@@ -69,7 +69,7 @@ namespace Controller
             if (animInfo.IsName("Attack"))
             {
                 playerController.PlayerEvent.OnPlayerAttack?.Invoke();
-                if (animInfo.normalizedTime <= .60f)
+                if (animInfo.normalizedTime <= .70f)
                 {
                     canAttack = false;
                     playerController.Player.properties.CanMove = false;
