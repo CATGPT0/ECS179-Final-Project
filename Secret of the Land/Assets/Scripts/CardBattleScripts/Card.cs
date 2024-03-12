@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using CardBattle;
+using Schema;
+using Unity.VisualScripting;
 
 namespace CardBattle
 {
@@ -20,7 +22,7 @@ namespace CardBattle
 
         protected Transform spriteTransform;
 
-        protected Vector3 originPosition;
+        protected Vector3 spriteOriginPosition;
 
         public int cardCode;
 
@@ -32,6 +34,17 @@ namespace CardBattle
 
         public new string name;
 
+        private Transform gameObjectTransform;
+
+        private Vector3 gameObjectOriginPosition;
+
+
+        // For using card animation
+        private bool usingTheCard = false;
+
+        private float timeCounter = 0;
+        private float duration = 0.3f;
+        private Vector3 velocity = Vector3.zero;
 
 
         private void Awake()
@@ -41,7 +54,11 @@ namespace CardBattle
             enemy = GameObject.Find("Enemy").GetComponent<Enemy>();
             cardBattleManager = GameObject.Find("CardBattleManager").GetComponent<CardBattleManager>();
             spriteTransform = sprite.GetComponent<Transform>();
-            originPosition = spriteTransform.position;
+            spriteOriginPosition = spriteTransform.position;
+            gameObjectTransform = this.gameObject.GetComponent<Transform>();
+            gameObjectOriginPosition = gameObjectTransform.position;
+
+
 
         }
 
@@ -51,15 +68,27 @@ namespace CardBattle
 
             cardCode = cardScriptableObject.cardCode;
             name = cardScriptableObject.cardName;
-            Debug.Log("CardName is " + cardScriptableObject.cardName);
         }
 
-
+        private void Update()
+        {
+            if (usingTheCard)
+            {
+                timeCounter += Time.deltaTime;
+                gameObjectTransform.position = Vector3.SmoothDamp(gameObjectTransform.position, Vector3.zero, ref velocity, duration);
+                gameObjectTransform.localScale = Vector3.Lerp(gameObjectTransform.localScale, Vector3.zero, timeCounter/(duration*150));
+                Debug.Log(gameObjectTransform.localScale);
+                if(timeCounter >= duration + 1)
+                {
+                    Destroy(this.gameObject);
+                }
+            }
+            
+        }
 
 
         private void OnMouseEnter()
         {
-            Debug.Log("MouseEnter");
             spriteTransform.position = spriteTransform.position + new Vector3(0f, 0.2f, 0f);
             originLayerOrder = this.sprite.GetComponent<SpriteRenderer>().sortingOrder;
             this.sprite.GetComponent<SpriteRenderer>().sortingOrder += 40;
@@ -67,17 +96,23 @@ namespace CardBattle
 
         private void OnMouseExit()
         {
-            spriteTransform.position = originPosition;
+            spriteTransform.position = spriteOriginPosition;
             this.sprite.GetComponent<SpriteRenderer>().sortingOrder = originLayerOrder;
         }
 
         private void OnMouseDown()
         {
-
-            if (gameManager.UseACard(cardCode, energyCost))
+            if(gameManager.CanUseACard(cardCode, energyCost))
             {
-                Destroy(this.gameObject);
+                usingTheCard = true;
+                this.GetComponent<Collider2D>().enabled = false;
+                Debug.Log("can use the card");
             }
+
+            //if (gameManager.UseACard(cardCode, energyCost))
+            //{
+            //    Destroy(this.gameObject);
+            //}
             
         }
 
