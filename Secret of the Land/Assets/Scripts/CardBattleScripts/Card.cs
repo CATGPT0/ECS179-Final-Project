@@ -38,6 +38,8 @@ namespace CardBattle
 
         private Vector3 gameObjectOriginPosition;
 
+        private Vector3 drawPilePosition;
+
 
         // For using card animation
         private bool usingTheCard = false;
@@ -68,6 +70,9 @@ namespace CardBattle
 
             cardCode = cardScriptableObject.cardCode;
             name = cardScriptableObject.cardName;
+            drawPilePosition = gameManager.drawPileGameObject.GetComponent<Transform>().position;
+
+
         }
 
         private void Update()
@@ -75,7 +80,7 @@ namespace CardBattle
             if (usingTheCard)
             {
                 timeCounter += Time.deltaTime;
-                gameObjectTransform.position = Vector3.SmoothDamp(gameObjectTransform.position, Vector3.zero, ref velocity, duration);
+                gameObjectTransform.position = Vector3.SmoothDamp(gameObjectTransform.position, drawPilePosition, ref velocity, duration);
                 gameObjectTransform.localScale = Vector3.Lerp(gameObjectTransform.localScale, Vector3.zero, timeCounter/(duration*150));
                 Debug.Log(gameObjectTransform.localScale);
                 if(timeCounter >= duration + 1)

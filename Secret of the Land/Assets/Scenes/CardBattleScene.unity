@@ -1580,6 +1580,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 618499335}
     - target: {fileID: 5378721174993731460, guid: d89b1cd9883d51f44952b350b3965c39, type: 3}
+      propertyPath: drawPileGameObject
+      value: 
+      objectReference: {fileID: 1436210328}
+    - target: {fileID: 5378721174993731460, guid: d89b1cd9883d51f44952b350b3965c39, type: 3}
       propertyPath: handCardGameObject
       value: 
       objectReference: {fileID: 1653265863}
