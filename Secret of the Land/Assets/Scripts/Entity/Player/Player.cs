@@ -1,4 +1,3 @@
-
 using Controller;
 using UnityEngine;
 
@@ -159,5 +158,16 @@ public class Player : Entity
     public void SetHealthToFull()
     {
         properties.Health = properties.MaxHealth;
+    }
+
+    public void ChangeAttackPower(int value)
+    {
+        properties.AttackPower += value;
+    }
+
+    public void ChangeHealth(int value)
+    {
+        Debug.Log("Potion Used!");
+        properties.Health += value;
     }
 }

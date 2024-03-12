@@ -9,6 +9,7 @@ namespace Controller
 {
     public class PlayerController : MonoBehaviour
     {
+        public static PlayerController Instance { get; private set; }
         private Player player;
         public Player Player
         {
@@ -41,6 +42,14 @@ namespace Controller
 
         void Awake()
         {
+            if (Instance == null)
+            {
+                Instance = this;
+            }
+            else
+            {
+                Destroy(this);
+            }
             player = GetComponentInChildren<Player>();
             //battleController = GetComponentInChildren<BattleController>(); 
             playerAnimation = GetComponentInChildren<PlayerAnimation>();

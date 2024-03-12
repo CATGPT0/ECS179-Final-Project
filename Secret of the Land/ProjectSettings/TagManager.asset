@@ -25,7 +25,7 @@ TagManager:
   - EnemyAttack
   - Obstacle
   - Sight
-  - 
+  - Item
   - 
   - 
   - 
@@ -65,6 +65,9 @@ TagManager:
     locked: 0
   - name: Living Entity
     uniqueID: 3249926037
+    locked: 0
+  - name: Ground Booty
+    uniqueID: 2232615081
     locked: 0
   - name: Text
     uniqueID: 388379875

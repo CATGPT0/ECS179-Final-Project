@@ -29,7 +29,7 @@ public class SpawnManager : MonoBehaviour
     {
         for (int i = 0; i < 20; i++)
         {
-            Vector3 spawnPosition = new Vector3(Random.Range(transform.position.x+20, transform.position.x-20), Random.Range(transform.position.y+20, transform.position.y-20), 0);
+        Vector3 spawnPosition = new Vector3(Random.Range(transform.position.x+20, transform.position.x-20), Random.Range(transform.position.y+20, transform.position.y-20), 0);
         spawnPosition = GetNearestPoint(spawnPosition);
         int level = 1;
         GameObject skeleton = SpawnEngine.Spawn(skeletonPrefab, spawnPosition, Quaternion.identity, level);
