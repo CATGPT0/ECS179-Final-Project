@@ -79,7 +79,7 @@ namespace Controller
         {
             Player.properties.Direction = new Vector3(Player.properties.VelocityX, Player.properties.VelocityY, 0);
 
-            if (Player.properties.Direction != Vector3.zero)
+            if (Player.properties.Direction != Vector3.zero && Player.properties.CanMove)
             {
                 Player.properties.LatestMoveDirection = Player.properties.Direction;
             }
