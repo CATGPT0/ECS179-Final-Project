@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 1619695277477957897}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.49, y: 0.38, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -239,9 +239,6 @@ MonoBehaviour:
   onMonsterDeath:
     m_PersistentCalls:
       m_Calls: []
-  onMonsterHealthChanged:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &5584464266047458886
 GameObject:
   m_ObjectHideFlags: 0
@@ -259,7 +256,7 @@ GameObject:
   - component: {fileID: 8028918939512953807}
   - component: {fileID: 6920550068004953415}
   m_Layer: 9
-  m_Name: Skeleton
+  m_Name: skeleton
   m_TagString: Skeleton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -457,7 +454,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5584464266047458886}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
@@ -562,14 +559,6 @@ MonoBehaviour:
   anim: {fileID: 0}
   thisPosition: {fileID: 0}
   stuckTimer: 0
-  audioSource: {fileID: 0}
-  soundClips:
-    attack: {fileID: 0}
-    death: {fileID: 0}
-    hit: {fileID: 0}
-    wood: {fileID: 0}
-    grass: {fileID: 0}
-    road: {fileID: 0}
   spawnLevel: 1
   targetLayer:
     serializedVersion: 2

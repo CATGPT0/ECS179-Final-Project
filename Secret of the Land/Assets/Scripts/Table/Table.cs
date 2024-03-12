@@ -87,7 +87,7 @@ public static class Table
 
      private static Dictionary<EntityType.Type, int> monsterXp = new Dictionary<EntityType.Type, int>()
     {
-        { EntityType.Type.Slime, 1 },
+        { EntityType.Type.Slime, 20 },
         { EntityType.Type.Goblin, 2 },
         { EntityType.Type.Orc, 3 },
         { EntityType.Type.Troll, 4 },

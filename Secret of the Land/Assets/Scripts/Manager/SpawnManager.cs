@@ -24,13 +24,13 @@ public class SpawnManager : MonoBehaviour
     void Start()
     {
         //SpawnPlayer();
-        //SpawnSkeleton();
+        SpawnSkeleton();
         SpawnSlime();
     }
 
     void SpawnSkeleton()
     {
-        for (int i = 0; i < 20; i++)
+        for (int i = 0; i < 10; i++)
         {
         Vector3 spawnPosition = new Vector3(Random.Range(transform.position.x+20, transform.position.x-20), Random.Range(transform.position.y+20, transform.position.y-20), 0);
         spawnPosition = GetNearestPoint(spawnPosition);
@@ -47,7 +47,7 @@ public class SpawnManager : MonoBehaviour
 
     void SpawnSlime()
     {
-        for (int i = 0; i < 20; i++)
+        for (int i = 0; i < 10; i++)
         {
         Vector3 spawnPosition = new Vector3(Random.Range(transform.position.x+20, transform.position.x-20), Random.Range(transform.position.y+20, transform.position.y-20), 0);
         spawnPosition = GetNearestPoint(spawnPosition);
