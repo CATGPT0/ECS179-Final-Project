@@ -85,6 +85,7 @@ namespace CardBattle
                 Debug.Log(gameObjectTransform.localScale);
                 if(timeCounter >= duration + 1)
                 {
+                    ProcessEffect();
                     Destroy(this.gameObject);
                 }
             }
