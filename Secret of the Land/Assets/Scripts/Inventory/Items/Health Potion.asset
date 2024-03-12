@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Health Potion
   itemImage: {fileID: 1076416506, guid: 563994f832edbf346b1f871c2974aeb4, type: 3}
-  count: 0
+  count: 2
   itemInfo: A bottle of health potion.
   itemType: 1
   value: 40

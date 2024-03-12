@@ -15,6 +15,7 @@ public class InventoryManager : MonoBehaviour
     public TextMeshProUGUI itemInfo;
     public TextMeshProUGUI ItemInfo => itemInfo;
     public SlotController currentSlot;
+    public EquipControler equipControler;
     private const int maxSlots = 10;
     private int slotCount = 0;
     private bool isOpen = false;
@@ -26,6 +27,7 @@ public class InventoryManager : MonoBehaviour
             Debug.LogWarning("More than one instance of InventoryManager found!");
             return;
         }
+        equipControler = GetComponent<EquipControler>();
         instance = this;
         itemInfo.text = "";
     }
@@ -81,6 +83,10 @@ public class InventoryManager : MonoBehaviour
             instance.currentSlot.item.onItemUse?.Invoke(instance.currentSlot.item.item.value);
             instance.currentSlot.item.item.count--;
             instance.currentSlot.countText.text = "x" + instance.currentSlot.item.item.count.ToString();
+        }
+        else if (instance.currentSlot.item.item.itemType == ItemType.Equipment)
+        {
+            equipControler.EquipUp(instance.currentSlot.item);
         }
 
         if (instance.currentSlot.item.item.count <= 0)

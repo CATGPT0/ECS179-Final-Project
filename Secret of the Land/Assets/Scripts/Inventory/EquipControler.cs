@@ -5,22 +5,22 @@ using UnityEngine;
 
 public class EquipControler : MonoBehaviour
 {
-    private Weapon weapon;
-    private Image image;
+    private GameItem weapon;
+    public Image image;
 
-    void Awake()
+    public void EquipUp(GameItem inputItem)
     {
-        image = GetComponent<Image>();
-    }
-
-    public void EquipUp()
-    {
-        //weapon.onItemEquip?.Invoke(weapon.value);
-        image.sprite = weapon.itemImage;
+        if (weapon != null)
+        {
+            TearDown();
+        }
+        inputItem.onItemEquip.Invoke(inputItem.item.value);
+        image.sprite = inputItem.item.itemImage;
+        weapon = inputItem;
     }
 
     public void TearDown()
     {
-        //weapon.onItemTearDown.Invoke(-weapon.value);
+        weapon.onItemTeardown.Invoke(-weapon.item.value);
     }
 }
