@@ -363,6 +363,23 @@ namespace CardBattle
 
         }
 
+
+        public bool CanUseACard(int code, int energyCost)
+        {
+            if (this.gameStage != GameStage.playerRound)
+            {
+                return false;
+            }
+
+            // If the energy is not enough, tell the card that should not destroy itself
+            if (player.energy < energyCost)
+            {
+                return false;
+            }
+
+            return true;
+        }
+
         // For debugging, this will let the drawPile become a stack of attack cards
         private void OnlyGetAttackCard()
         {
