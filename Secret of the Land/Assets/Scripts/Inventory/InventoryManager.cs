@@ -38,7 +38,7 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
-    public static void CreateNewItem(Item item)
+    public static void CreateNewItem(GameItem item)
     {
         if (instance.slotCount >= maxSlots)
         {
@@ -48,15 +48,15 @@ public class InventoryManager : MonoBehaviour
         SlotController newItem = Instantiate(instance.slotPrefab, instance.grid.transform.position, Quaternion.identity);
         newItem.transform.SetParent(instance.grid.transform);
         newItem.item = item;
-        newItem.image.sprite = item.itemImage;
-        newItem.countText.text = "x" + item.count.ToString();
+        newItem.image.sprite = item.item.itemImage;
+        newItem.countText.text = "x" + item.item.count.ToString();
     }
 
-    public static void Refresh(Item item)
+    public static void Refresh(GameItem item)
     {
         foreach (var child in instance.grid.GetComponentsInChildren<SlotController>())
         {
-            if (child.item.itemName == item.itemName)
+            if (child.item.item.itemName == item.item.itemName)
             {
                 var countText = child.countText.text;
                 int count = int.Parse(countText[1..]) + 1;
@@ -72,18 +72,18 @@ public class InventoryManager : MonoBehaviour
             return;
         }
 
-        if (instance.currentSlot.item.itemType == ItemType.Consumable)
+        if (instance.currentSlot.item.item.itemType == ItemType.Consumable)
         {
             // if (instance.currentSlot.item.onItemUse == null)
             // {
             //     Debug.Log("No use action found for this item");
             // }
-            //instance.currentSlot.item.onItemUse?.Invoke(instance.currentSlot.item.thisItem.value);
-            instance.currentSlot.item.count--;
-            instance.currentSlot.countText.text = "x" + instance.currentSlot.item.count.ToString();
+            instance.currentSlot.item.onItemUse?.Invoke(instance.currentSlot.item.item.value);
+            instance.currentSlot.item.item.count--;
+            instance.currentSlot.countText.text = "x" + instance.currentSlot.item.item.count.ToString();
         }
 
-        if (instance.currentSlot.item.count <= 0)
+        if (instance.currentSlot.item.item.count <= 0)
         {
             Destroy(instance.currentSlot.gameObject);
             instance.slotCount--;

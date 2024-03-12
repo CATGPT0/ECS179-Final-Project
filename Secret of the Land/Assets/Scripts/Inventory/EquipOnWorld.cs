@@ -11,11 +11,12 @@ public class EquipOnWorld : ItemOnWorld
 
     protected override void AddItem()
     {
-        if (!inventory.items.Contains(item))
+        GameItem thisItem = new GameItem(item);
+        if (thisItem.item.count == 0)
         {
-            item.count = 1;
-            inventory.items.Add(item);
-            InventoryManager.CreateNewItem(item);
+            thisItem.item.count = 1;
+            inventory.items.Add(thisItem);
+            InventoryManager.CreateNewItem(thisItem);
         }
     }
 }

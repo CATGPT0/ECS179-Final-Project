@@ -62,6 +62,10 @@ public class PlayerProperties : Properties
                 playerEvent.OnPlayerGitHit?.Invoke();
             }
             health = value;
+            if (health > maxHealth)
+            {
+                health = maxHealth;
+            }
             playerEvent.OnPlayerHealthChanged?.Invoke(health);
         }
     }

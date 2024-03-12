@@ -6,7 +6,7 @@ using TMPro;
 
 public class SlotController : MonoBehaviour
 {
-    public Item item;
+    public GameItem item;
     public Image image;
     public TextMeshProUGUI countText;
 
@@ -18,7 +18,7 @@ public class SlotController : MonoBehaviour
 
     public void OnItemClicked()
     {
-        InventoryManager.instance.ItemInfo.text = item.itemInfo;
+        InventoryManager.instance.ItemInfo.text = item.item.itemInfo;
         InventoryManager.instance.currentSlot = this;
     }
 }

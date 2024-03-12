@@ -13,17 +13,18 @@ public class ConsumeOnWorld : ItemOnWorld
 
     protected override void AddItem()
     {
-        if (!inventory.items.Contains(item))
+        GameItem thisItem = new GameItem(item);
+        if (thisItem.item.count == 0)
         {
-            item.count = 1;
-            inventory.items.Add(item);
-            InventoryManager.CreateNewItem(item);
+            thisItem.item.count = 1;
+            inventory.items.Add(thisItem);
+            InventoryManager.CreateNewItem(thisItem);
             //item.onItemUse += PlayerController.Instance.Player.ChangeHealth;
         }
-        else if (item.count < 9)
+        else if (thisItem.item.count < 9)
         {
-            item.count++;
-            InventoryManager.Refresh(item);
+            thisItem.item.count++;
+            InventoryManager.Refresh(thisItem);
             //item.onItemUse += PlayerController.Instance.Player.ChangeHealth;
         }
     }
