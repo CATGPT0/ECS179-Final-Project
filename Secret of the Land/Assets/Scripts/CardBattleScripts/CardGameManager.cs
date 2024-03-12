@@ -64,6 +64,8 @@ namespace CardBattle
         // 1 when player get energy, 2 when player draw card, 0 when player have not decided yet
         private int playerChoice = 0;
 
+        public GameObject drawPileGameObject;
+
 
 
 
