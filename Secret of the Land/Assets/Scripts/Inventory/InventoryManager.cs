@@ -11,11 +11,13 @@ public class InventoryManager : MonoBehaviour
     public Inventory bag;
     public SlotController slotPrefab;
     public GameObject grid;
+    public GameObject inventoryPanel;
     public TextMeshProUGUI itemInfo;
     public TextMeshProUGUI ItemInfo => itemInfo;
     public SlotController currentSlot;
     private const int maxSlots = 10;
     private int slotCount = 0;
+    private bool isOpen = false;
     
     void Awake()
     {
@@ -26,6 +28,14 @@ public class InventoryManager : MonoBehaviour
         }
         instance = this;
         itemInfo.text = "";
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            OpenCloseInventory();
+        }
     }
 
     public static void CreateNewItem(Item item)
@@ -85,5 +95,11 @@ public class InventoryManager : MonoBehaviour
     public static void UpdateItemInfo(string itemDescription)
     {
         instance.itemInfo.text = itemDescription;
+    }
+
+    public void OpenCloseInventory()
+    {
+        isOpen = !isOpen;
+        inventoryPanel.SetActive(isOpen);
     }
 }
