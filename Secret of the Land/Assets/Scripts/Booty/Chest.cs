@@ -33,7 +33,7 @@ public class Chest : MonoBehaviour
     void OnDestroy()
     {
         int count = Random.Range(1, 4);
-        bool haveEquip = Random.Range(0, 4) == 0;
+        bool haveEquip = Random.Range(0, 2) == 0;
         List<GameObject> items = new List<GameObject>();
         if (haveEquip)
         {
