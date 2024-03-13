@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Controller;
+using Plugins.KennethDevelops.Events;
 
 public class LevelingSoundController : MonoBehaviour
 {
@@ -20,7 +21,7 @@ public class LevelingSoundController : MonoBehaviour
     void Start()
     {
         playerController.PlayerEvent.OnPlayerGetXPSound += PlayXPSound;
-        playerController.PlayerEvent.OnPlayerLevelUpSound += PlayLevelSound;
+        EventManager.Subscribe<OnPlayerLevelUp>(PlayLevelSound, this);
     }
 
     public void PlayXPSound()
@@ -36,7 +37,7 @@ public class LevelingSoundController : MonoBehaviour
         StartCoroutine(XPSound());
     }
 
-    public void PlayLevelSound()
+    public void PlayLevelSound(OnPlayerLevelUp eventData)
     {
         IEnumerator LevelSound()
         {

@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Plugins.KennethDevelops.Events;
+using Plugins.KennethDevelops.Extensions;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -59,7 +61,8 @@ public class LevelUpController : MonoBehaviour
         attackPowerUI.SetActive(false);
         armorUI.SetActive(false);
         levelUI.SetActive(false);
-        playerEvent.OnPlayerLevelUp += LevelUIShowUp;
+        //playerEvent.OnPlayerLevelUp += LevelUIShowUp;
+        EventManager.Subscribe<OnPlayerLevelUp>(LevelUIShowUp, this);
     }
 
     // Update is called once per frame
@@ -68,9 +71,9 @@ public class LevelUpController : MonoBehaviour
         
     }
 
-    public void LevelUIShowUp(int health, float speed, int attackPower, int armor, int level)
+    public void LevelUIShowUp(OnPlayerLevelUp eventData)
     {
-        StartCoroutine(LevelUIShowUpCoroutine(health, speed, attackPower, armor, level));
+        StartCoroutine(LevelUIShowUpCoroutine(eventData.health, eventData.speed, eventData.attack, eventData.defense, eventData.level));
     }
 
     public IEnumerator LevelUIShowUpCoroutine(int health, float speed, int attackPower, int armor, int level)

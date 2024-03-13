@@ -76,12 +76,18 @@ public class PlayerProperties : Properties
         set
         {
             level = value;
-            playerEvent.OnPlayerLevelUp?.Invoke(Table.healthTable[thisType][level] - Table.healthTable[thisType][level - 1],
-                                                Table.speedTable[thisType][level] - Table.speedTable[thisType][level - 1],
-                                                Table.attackPowerTable[thisType][level] - Table.attackPowerTable[thisType][level - 1],
-                                                Table.armorTable[thisType][level] - Table.armorTable[thisType][level - 1],
-                                                level);
-            playerEvent.OnPlayerLevelUpSound?.Invoke();
+            // playerEvent.OnPlayerLevelUp?.Invoke(Table.healthTable[thisType][level] - Table.healthTable[thisType][level - 1],
+            //                                     Table.speedTable[thisType][level] - Table.speedTable[thisType][level - 1],
+            //                                     Table.attackPowerTable[thisType][level] - Table.attackPowerTable[thisType][level - 1],
+            //                                     Table.armorTable[thisType][level] - Table.armorTable[thisType][level - 1],
+            //                                     level);
+            playerEvent.onPlayerLevelUp.health = Table.healthTable[thisType][level] - Table.healthTable[thisType][level - 1];
+            playerEvent.onPlayerLevelUp.speed = Table.speedTable[thisType][level] - Table.speedTable[thisType][level - 1];
+            playerEvent.onPlayerLevelUp.attack = Table.attackPowerTable[thisType][level] - Table.attackPowerTable[thisType][level - 1];
+            playerEvent.onPlayerLevelUp.defense = Table.armorTable[thisType][level] - Table.armorTable[thisType][level - 1];
+            playerEvent.onPlayerLevelUp.level = level;
+            playerEvent.onPlayerLevelUp.Trigger(this);
+            
         }
     }
 
