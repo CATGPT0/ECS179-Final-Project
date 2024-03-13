@@ -30,6 +30,7 @@ public class SlimeAttack : MonoBehaviour
         {
             if (other.gameObject.CompareTag("Player"))
             {
+                Debug.Log("SlimeAttack: OnTriggerEnter2D");
                 battleEngine.DealDamage(ref fsm.properties, 
                                         ref player.properties);
                 

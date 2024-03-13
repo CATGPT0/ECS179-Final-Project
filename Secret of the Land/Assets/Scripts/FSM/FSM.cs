@@ -139,7 +139,7 @@ public class FSM : MonoBehaviour
 
     }
 
-    public void DestroySelf()
+    public virtual void DestroySelf()
     {
         Destroy(gameObject);
     }

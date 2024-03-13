@@ -187,4 +187,9 @@ public class SlimeFSM : FSM
         }
 
     }
+
+    public override void DestroySelf()
+    {
+        Destroy(gameObject);
+    }
 }
