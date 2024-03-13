@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Plugins.KennethDevelops.Events;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -20,7 +21,8 @@ public class GetXPTextController : MonoBehaviour
     void Start()
     {
         xpUI.SetActive(false);
-        playerEvent.OnPlayerGetXP += XPUIShowUp;
+        //playerEvent.OnPlayerGetXP += XPUIShowUp;
+        EventManager.Subscribe<OnPlayerGetXP>(XPUIShowUp, this);
     }
 
     // Update is called once per frame
@@ -29,9 +31,9 @@ public class GetXPTextController : MonoBehaviour
         
     }
 
-    public void XPUIShowUp(int xp)
+    public void XPUIShowUp(OnPlayerGetXP e)
     {
-        StartCoroutine(XPUIShowUpCoroutine(xp));
+        StartCoroutine(XPUIShowUpCoroutine(e.xp));
     }
 
     public IEnumerator XPUIShowUpCoroutine(int xp)

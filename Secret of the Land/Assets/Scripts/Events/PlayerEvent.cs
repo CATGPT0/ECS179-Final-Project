@@ -15,6 +15,11 @@ public class OnPlayerLevelUp : BaseEvent<OnPlayerLevelUp>
     public float speed;
 }
 
+public class OnPlayerGetXP : BaseEvent<OnPlayerGetXP>
+{
+    public int xp;
+}
+
 public class PlayerEvent : MonoBehaviour
 {
     public Action<int> OnPlayerHealthChanged;
@@ -22,17 +27,19 @@ public class PlayerEvent : MonoBehaviour
     public UnityEvent OnPlayerDeathEnter;
     public UnityEvent OnPlayerDeathExit;
     public UnityEvent OnPlayerRespawn;
-    public Action<int> OnPlayerGetXP;
+    //public Action<int> OnPlayerGetXP;
     public Action OnPlayerGetXPSound;
     //public Action OnPlayerLevelUpSound;
     public Action OnGetHitSound;
     public Action OnPlayerGitHit;
     //public Action<int, float, int, int, int> OnPlayerLevelUp;
     public OnPlayerLevelUp onPlayerLevelUp;
+    public OnPlayerGetXP onPlayerGetXP;
 
     void Awake()
     {
         onPlayerLevelUp = new OnPlayerLevelUp();
+        onPlayerGetXP = new OnPlayerGetXP();
     }
     void Start()
     {

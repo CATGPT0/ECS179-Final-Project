@@ -1,4 +1,5 @@
 using Controller;
+using Plugins.KennethDevelops.Events;
 using UnityEngine;
 
 public class PlayerProperties : Properties
@@ -46,8 +47,10 @@ public class PlayerProperties : Properties
         {   
             int temp = value - xp;
             xp = value; 
-            playerEvent.OnPlayerGetXP?.Invoke(temp);
-            playerEvent.OnPlayerGetXPSound?.Invoke();
+            //playerEvent.OnPlayerGetXP?.Invoke(temp);
+            //playerEvent.OnPlayerGetXPSound?.Invoke();
+            playerEvent.onPlayerGetXP.xp = temp;
+            playerEvent.onPlayerGetXP.Trigger(this);
         }
     }
 
