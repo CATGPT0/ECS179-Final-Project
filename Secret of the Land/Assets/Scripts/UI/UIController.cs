@@ -1,4 +1,6 @@
 
+using Plugins.KennethDevelops.Events;
+using Plugins.KennethDevelops.Extensions;
 using UnityEngine;
 
 public class UIController : MonoBehaviour
@@ -7,17 +9,21 @@ public class UIController : MonoBehaviour
     private GameObject statPanel;
     [SerializeField]
     private GameObject helpPanel;
+    [SerializeField]
+    private GameObject dialoguePanel;
     private bool isStatPanelOpen = false;
     private bool isHelpPanelOpen = false;
+    private bool isDialoguePanelOpen = false;
 
     void Awake()
     {
         statPanel.SetActive(false);
         helpPanel.SetActive(false);
+        dialoguePanel.SetActive(false);
     }
     void Start()
     {
-        
+        EventManager.Subscribe<OnPlayerEnterDialogue>(OpenDialoguePanel, this);
     }
 
     // Update is called once per frame
@@ -43,5 +49,12 @@ public class UIController : MonoBehaviour
     {
         isHelpPanelOpen = !isHelpPanelOpen;
         helpPanel.SetActive(isHelpPanelOpen);
+    }
+
+    public void OpenDialoguePanel(OnPlayerEnterDialogue e)
+    {
+        Debug.Log("Starting conversation 111with " + e.dialogue.name);
+        isDialoguePanelOpen = !isDialoguePanelOpen;
+        dialoguePanel.SetActive(isDialoguePanelOpen);
     }
 }
