@@ -24,6 +24,7 @@ public class UIController : MonoBehaviour
     void Start()
     {
         EventManager.Subscribe<OnPlayerEnterDialogue>(OpenDialoguePanel, this);
+        EventManager.Subscribe<OnPlayerExitDialogue>(CloseDialoguePanel, this);
     }
 
     // Update is called once per frame
@@ -53,8 +54,11 @@ public class UIController : MonoBehaviour
 
     public void OpenDialoguePanel(OnPlayerEnterDialogue e)
     {
-        Debug.Log("Starting conversation 111with " + e.dialogue.name);
-        isDialoguePanelOpen = !isDialoguePanelOpen;
-        dialoguePanel.SetActive(isDialoguePanelOpen);
+        dialoguePanel.SetActive(true);
+    }
+
+    public void CloseDialoguePanel(OnPlayerExitDialogue e)
+    {
+        dialoguePanel.SetActive(false);
     }
 }

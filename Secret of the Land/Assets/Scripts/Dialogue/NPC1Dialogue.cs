@@ -7,7 +7,6 @@ using Plugins.KennethDevelops.Events;
 public class NPC1Dialogue : MonoBehaviour
 {
     public Dialogue dialogue;
-    private PlayerEvent playerEvent;
     
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -15,7 +14,19 @@ public class NPC1Dialogue : MonoBehaviour
         {
             Debug.Log("Player entered dialogue");
             PlayerEvent.Instance.onPlayerEnterDialogue.dialogue = dialogue;
+            PlayerEvent.Instance.onPlayerEnterDialogue.currentSentence = 0;
             PlayerEvent.Instance.onPlayerEnterDialogue.Trigger(this);
         }
     }
+
+    // void OnTriggerExit2D(Collider2D other)
+    // {
+    //     if (other.CompareTag("PlayerAttack"))
+    //     {
+    //         Debug.Log("Player entered dialogue");
+    //         PlayerEvent.Instance.onPlayerEnterDialogue.dialogue = dialogue;
+    //         PlayerEvent.Instance.onPlayerEnterDialogue.currentSentence = 0;
+    //         PlayerEvent.Instance.onPlayerEnterDialogue.Trigger(this);
+    //     }
+    // }
 }

@@ -9,6 +9,12 @@ public class Dialogue
     public string name;
     [TextArea]
     public string[] sentences;
+
+    public Dialogue(Dialogue dialogue)
+    {
+        name = dialogue.name;
+        sentences = dialogue.sentences;
+    }
 }
 
 namespace Manager
@@ -26,14 +32,6 @@ namespace Manager
             {
                 Destroy(gameObject);
             }
-        }
-
-        public static void StartDialogue(Dialogue dialogue)
-        {
-            Debug.Log("Starting conversation with " + dialogue.name);
-            // DialogueUI.Instance.dialogueName.text = dialogue.name;
-            // DialogueUI.Instance.dialogueSentences.text = "";
-            // StartCoroutine(TypeSentence(dialogue));
         }
     }
 }
