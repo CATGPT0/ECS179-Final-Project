@@ -20,18 +20,6 @@ public class OnPlayerGetXP : BaseEvent<OnPlayerGetXP>
     public int xp;
 }
 
-public class OnPlayerEnterDialogue : BaseEvent<OnPlayerEnterDialogue>
-{
-    public Dialogue dialogue;
-    public int currentSentence;
-}
-
-public class OnPlayerExitDialogue : BaseEvent<OnPlayerExitDialogue>
-{
-    public Dialogue dialogue;
-    public int currentSentence;
-}
-
 public class PlayerEvent : MonoBehaviour
 {
     public static PlayerEvent Instance;
@@ -48,8 +36,8 @@ public class PlayerEvent : MonoBehaviour
     //public Action<int, float, int, int, int> OnPlayerLevelUp;
     public OnPlayerLevelUp onPlayerLevelUp;
     public OnPlayerGetXP onPlayerGetXP;
-    public OnPlayerEnterDialogue onPlayerEnterDialogue;
-    public OnPlayerExitDialogue onPlayerExitDialogue;
+    public UnityEvent onPlayerEnterDialogue;
+    public UnityEvent onPlayerExitDialogue;
 
     void Awake()
     {
@@ -63,8 +51,6 @@ public class PlayerEvent : MonoBehaviour
         }
         onPlayerLevelUp = new OnPlayerLevelUp();
         onPlayerGetXP = new OnPlayerGetXP();
-        onPlayerEnterDialogue = new OnPlayerEnterDialogue();
-        onPlayerExitDialogue = new OnPlayerExitDialogue();
     }
     void Start()
     {

@@ -35,8 +35,8 @@ namespace Controller
         {
             playerController.PlayerEvent.OnPlayerRespawn.AddListener(Respawn);
             playerController.PlayerEvent.OnPlayerGitHit += GitHitAnimation;
-            EventManager.Subscribe<OnPlayerEnterDialogue>(StartDialogue, this);
-            EventManager.Subscribe<OnPlayerExitDialogue>(ExitDialogue, this);
+            PlayerEvent.Instance.onPlayerEnterDialogue.AddListener(StartDialogue);
+            PlayerEvent.Instance.onPlayerExitDialogue.AddListener(ExitDialogue);
         }
 
         // Update is called once per frame
@@ -177,12 +177,12 @@ namespace Controller
             StartCoroutine(GitHitAni());
         }
 
-        private void StartDialogue(OnPlayerEnterDialogue e)
+        private void StartDialogue()
         {
             inDialogue = true;
         }
 
-        private void ExitDialogue(OnPlayerExitDialogue e)
+        private void ExitDialogue()
         {
             inDialogue = false;
         }

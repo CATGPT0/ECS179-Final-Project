@@ -26,7 +26,6 @@ public class DialogueTrigger : MonoBehaviour
     {
         if (other.CompareTag("PlayerAttack"))
         {
-            Debug.Log("PlayerAttack");
             DialogueManager.Instance.StartDialogue(dialogue, sprite);
         }
     }

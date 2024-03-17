@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using CardBattle;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -42,6 +43,7 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue(Dialogue dialogue, Sprite sprite)
     {
+        PlayerEvent.Instance.onPlayerEnterDialogue.Invoke();
         OpenPanel();
         this.dialogue = dialogue;
         if (image == null)
@@ -77,6 +79,7 @@ public class DialogueManager : MonoBehaviour
 
     public void ClosePanel()
     {
+        PlayerEvent.Instance.onPlayerExitDialogue.Invoke();
         gameObject.SetActive(false);
     }
 }
