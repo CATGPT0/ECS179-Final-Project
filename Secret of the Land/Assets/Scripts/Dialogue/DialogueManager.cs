@@ -1,38 +1,82 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
-[Serializable]
-public class Dialogue
+public class DialogueManager : MonoBehaviour
 {
-    public string name;
-    [TextArea]
-    public string[] sentences;
+    public static DialogueManager Instance { get; private set; }
+    [SerializeField]
+    private TextMeshProUGUI NPCname;
+    [SerializeField]
+    private TextMeshProUGUI text;
+    [SerializeField]
+    private Image image;
+    public Dialogue dialogue;
+    public Image border;
+    private int activeMessage = 0;
 
-    public Dialogue(Dialogue dialogue)
+    void Awake()
     {
-        name = dialogue.name;
-        sentences = dialogue.sentences;
+        Instance = this;
+        border = GetComponent<Image>();
     }
-}
 
-namespace Manager
-{
-    public class DialogueManager : MonoBehaviour
+    void Start()
     {
-        public static DialogueManager Instance;
-        void Start()
+        if (border == null)
         {
-            if (Instance == null)
-            {
-                Instance = this;
-            }
-            else
-            {
-                Destroy(gameObject);
-            }
+            Debug.LogError("Border is null");
         }
+        if (NPCname == null)
+        {
+            Debug.LogError("NPCname is null");
+        }
+        if (dialogue == null)
+        {
+            Debug.LogError("dialogue is null");
+        }
+        ClosePanel();
+    }
+
+    public void StartDialogue(Dialogue dialogue, Sprite sprite)
+    {
+        OpenPanel();
+        this.dialogue = dialogue;
+        if (image == null)
+        {
+            Debug.LogError("Image is null");
+        }
+        image.sprite = sprite;
+        activeMessage = 0;
+        ShowMessage();
+    }
+
+    public void ShowMessage()
+    {
+        NPCname.text = dialogue.name;
+        if (activeMessage >= dialogue.text.Length)
+        {
+            ClosePanel();
+            return;
+        }
+        text.text = dialogue.text[activeMessage];
+        activeMessage++;
+    }
+
+    public void ContinueDialogue()
+    {
+        ShowMessage();
+    }
+
+    public void OpenPanel()
+    {
+        gameObject.SetActive(true);
+    }
+
+    public void ClosePanel()
+    {
+        gameObject.SetActive(false);
     }
 }
-

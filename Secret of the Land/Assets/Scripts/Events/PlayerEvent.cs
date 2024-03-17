@@ -51,9 +51,6 @@ public class PlayerEvent : MonoBehaviour
     public OnPlayerEnterDialogue onPlayerEnterDialogue;
     public OnPlayerExitDialogue onPlayerExitDialogue;
 
-    public UnityEvent OnPlayerEnterDialogueEvent;
-    public UnityEvent OnPlayerExitDialogueEvent;
-
     void Awake()
     {
         if (Instance == null)
