@@ -29,7 +29,8 @@ namespace CardBattle
                 return;
             }
 
-            float xOffsetEachCard = 1f;
+            float xOffsetEachCard = 1f - (float)handCards.Count/20;
+            Debug.Log(xOffsetEachCard);
             int counter = 0;
             Vector3 newPosition;
             int numberOfCard = handCards.Count;

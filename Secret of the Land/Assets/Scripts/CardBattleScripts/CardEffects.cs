@@ -18,6 +18,7 @@ namespace CardBattle
         public void Effect_1_Attack()
         {
             cardGameManager.enemy.takenDamage(2);
+            Debug.Log("Attack");
         }
 
         public void Effect_2_Defend()

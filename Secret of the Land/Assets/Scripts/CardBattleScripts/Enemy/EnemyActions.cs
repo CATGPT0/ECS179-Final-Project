@@ -31,13 +31,15 @@ namespace CardBattle
 
 
 
-        public Action CodeToAction(int code)
+        public Action CodeToAction(int code, ref String actionInformation)
         {
             switch (code)
             {
                 case 1:
+                    actionInformation = "Enemy will attack " + cardGameManager.enemy.currentDamage + " in next round";
                     return EnemyAction_1_Attack;
                 case 2:
+                    actionInformation = "Enemy will defend in next round";
                     return EnemyAction_2_Defend;
                 default:
                     throw new Exception("Enemy action not found with code " + code);

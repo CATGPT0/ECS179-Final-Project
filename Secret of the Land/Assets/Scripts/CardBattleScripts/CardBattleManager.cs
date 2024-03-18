@@ -16,6 +16,8 @@ namespace CardBattle {
 
         public Action enemyActionDelegate;
 
+        public String enemyNextActionInformation = "None";
+
         // counter for decide which action in counter should be used
         public int enemyActionCounter;
 
@@ -72,7 +74,7 @@ namespace CardBattle {
             int code = enemy.enemyActionsPattern[enemyActionCounter];
 
             // Code to Action
-            enemyActionDelegate = enemyActions.CodeToAction(code);
+            enemyActionDelegate = enemyActions.CodeToAction(code, ref enemyNextActionInformation);
 
             // Increase counter
             enemyActionCounter++;

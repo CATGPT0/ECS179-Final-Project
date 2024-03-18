@@ -20,7 +20,7 @@ namespace CardBattle
         List<int> discardPile { get; set; }
 
         // The list for your hand cards
-        List<int> handCards { get; set; }
+        public List<int> handCards;
         // The maximum hand cards you can hold
         public int maxHandCards;
 
@@ -101,9 +101,14 @@ namespace CardBattle
             DrawACard();
             DrawACard();
             UpdateHandCard();
+
+            // UI setting
             
             playerUIManager.setEnergy(player.energy);
             playerUIManager.setHealth(player.health);
+            playerUIManager.setEnemyAction(cardBattleManager.enemyNextActionInformation);
+            playerUIManager.setEnemyHealth(enemy.HP);
+            playerUIManager.setShield(player.shield);
         }
 
         // Check the stage of our game and manage them
@@ -172,8 +177,17 @@ namespace CardBattle
                     player.IncreaseEnergy(2);
                     break;
                 case 2:
-                    DrawACard();
-                    DrawACard();
+                    // If player's cards are max
+                    if(handCards.Count >= 10)
+                    {
+                        playerChoice = 0;
+                        break;
+                    }
+                    else
+                    {
+                        DrawACard();
+                        DrawACard();
+                    }
                     break;
                 default:
                     break;
@@ -236,16 +250,21 @@ namespace CardBattle
         private void EnemyRoundUpdate()
         {
             cardBattleManager.DoEnemyAction();
-            finishedTheStage = true;
+            
             playerUIManager.setHealth(player.health);
+
+            finishedTheStage = true;
         }
         
         private void AfterEnemyRoundUpdate()
         {
-            cardBattleManager.LoadNextEnemyAction(enemy);
             enemy.ResetDamage();
+            cardBattleManager.LoadNextEnemyAction(enemy);
+            
+            playerUIManager.setEnemyAction(cardBattleManager.enemyNextActionInformation);
             // Reset player shield
             this.player.ResetShield();
+            playerUIManager.setShield(player.shield);
             finishedTheStage = true;
         }
 
@@ -286,6 +305,8 @@ namespace CardBattle
         // DrawACard will randomly choose a card from drawPile and put it into your hand cards
         public void DrawACard()
         {
+            ResetDrawPile();
+            // Debug.Log("Draw card");
             // If the number of cards is not maximum
             if (handCards.Count < maxHandCards)
             {
@@ -353,6 +374,12 @@ namespace CardBattle
             // Put the used card in discard pile
             discardPile.Add(code);
 
+            // Update enemy UI
+            playerUIManager.setEnemyHealth(enemy.HP);
+
+            // Update player Ui
+            playerUIManager.setShield(player.shield);
+
             // If the enemy is dead, do something else
             if (enemy.HP <= 0)
             {
@@ -390,6 +417,15 @@ namespace CardBattle
             {
                 int code = Random.Range(1, 3);
                 this.drawPile.Add(code);
+            }
+        }
+
+        private void ResetDrawPile()
+        {
+            if (this.drawPile.Count <= 0)
+            {
+                drawPile = new List<int>(discardPile);
+                discardPile.Clear();
             }
         }
 

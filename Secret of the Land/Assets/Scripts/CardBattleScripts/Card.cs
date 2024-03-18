@@ -40,6 +40,8 @@ namespace CardBattle
 
         private Vector3 drawPilePosition;
 
+        private bool processedEffect = false;
+
 
         // For using card animation
         private bool usingTheCard = false;
@@ -79,13 +81,19 @@ namespace CardBattle
         {
             if (usingTheCard)
             {
+                if (!processedEffect)
+                {
+                    gameManager.UseACard(cardCode, energyCost);
+                    processedEffect = true;
+                }
+                
                 timeCounter += Time.deltaTime;
                 gameObjectTransform.position = Vector3.SmoothDamp(gameObjectTransform.position, drawPilePosition, ref velocity, duration);
                 gameObjectTransform.localScale = Vector3.Lerp(gameObjectTransform.localScale, Vector3.zero, timeCounter/(duration*150));
-                Debug.Log(gameObjectTransform.localScale);
+                // Debug.Log(gameObjectTransform.localScale);
                 if(timeCounter >= duration + 1)
                 {
-                    ProcessEffect();
+                   
                     Destroy(this.gameObject);
                 }
             }
@@ -112,7 +120,7 @@ namespace CardBattle
             {
                 usingTheCard = true;
                 this.GetComponent<Collider2D>().enabled = false;
-                Debug.Log("can use the card");
+                // Debug.Log("can use the card");
             }
 
             //if (gameManager.UseACard(cardCode, energyCost))
