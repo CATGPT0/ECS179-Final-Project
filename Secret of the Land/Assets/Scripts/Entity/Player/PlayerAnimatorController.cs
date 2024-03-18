@@ -1,4 +1,5 @@
 using System.Collections;
+using Plugins.KennethDevelops.Events;
 using UnityEngine;
 
 namespace Controller
@@ -14,6 +15,7 @@ namespace Controller
         private AnimatorStateInfo animInfo;
         private bool canAttack = true;
         private bool isAttack = false;
+        private bool inDialogue = false;
         private enum AnimationState
         {
             Idle,
@@ -33,6 +35,8 @@ namespace Controller
         {
             playerController.PlayerEvent.OnPlayerRespawn.AddListener(Respawn);
             playerController.PlayerEvent.OnPlayerGitHit += GitHitAnimation;
+            PlayerEvent.Instance.onPlayerEnterDialogue.AddListener(StartDialogue);
+            PlayerEvent.Instance.onPlayerExitDialogue.AddListener(ExitDialogue);
         }
 
         // Update is called once per frame
@@ -131,6 +135,11 @@ namespace Controller
 
         private void DetectAttack()
         {
+            if (inDialogue)
+            {
+                isAttack = false;
+                return;
+            }
             if (Input.GetButtonDown("Fire1"))
             {
                 isAttack = true;
@@ -166,6 +175,16 @@ namespace Controller
                 }
             }
             StartCoroutine(GitHitAni());
+        }
+
+        private void StartDialogue()
+        {
+            inDialogue = true;
+        }
+
+        private void ExitDialogue()
+        {
+            inDialogue = false;
         }
     }
 }

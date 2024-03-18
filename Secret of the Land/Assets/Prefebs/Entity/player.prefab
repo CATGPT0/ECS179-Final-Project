@@ -281,6 +281,12 @@ MonoBehaviour:
   OnPlayerRespawn:
     m_PersistentCalls:
       m_Calls: []
+  onPlayerLevelUp:
+    level: 0
+    health: 0
+    attack: 0
+    defense: 0
+    speed: 0
 --- !u!1 &1537406840361129457
 GameObject:
   m_ObjectHideFlags: 0
@@ -328,7 +334,7 @@ GameObject:
   - component: {fileID: 4240129582776287606}
   m_Layer: 8
   m_Name: DownAttackRange
-  m_TagString: Untagged
+  m_TagString: PlayerAttack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -958,7 +964,7 @@ GameObject:
   - component: {fileID: 6426902937901619434}
   m_Layer: 8
   m_Name: UpAttackRange
-  m_TagString: Untagged
+  m_TagString: PlayerAttack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1056,7 +1062,7 @@ GameObject:
   - component: {fileID: 7601331653886011333}
   m_Layer: 8
   m_Name: RightAttackRange
-  m_TagString: Untagged
+  m_TagString: PlayerAttack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

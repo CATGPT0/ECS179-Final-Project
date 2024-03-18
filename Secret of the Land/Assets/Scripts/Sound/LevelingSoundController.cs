@@ -20,11 +20,12 @@ public class LevelingSoundController : MonoBehaviour
     }
     void Start()
     {
-        playerController.PlayerEvent.OnPlayerGetXPSound += PlayXPSound;
+        //playerController.PlayerEvent.OnPlayerGetXPSound += PlayXPSound;
         EventManager.Subscribe<OnPlayerLevelUp>(PlayLevelSound, this);
+        EventManager.Subscribe<OnPlayerGetXP>(PlayXPSound, this);
     }
 
-    public void PlayXPSound()
+    public void PlayXPSound(OnPlayerGetXP e)
     {
 
         IEnumerator XPSound()

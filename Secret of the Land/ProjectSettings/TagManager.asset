@@ -12,6 +12,8 @@ TagManager:
   - Obstacle
   - Skeleton
   - Slime
+  - NPC
+  - PlayerAttack
   layers:
   - Default
   - TransparentFX

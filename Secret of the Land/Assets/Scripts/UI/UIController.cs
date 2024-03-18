@@ -1,4 +1,6 @@
 
+using Plugins.KennethDevelops.Events;
+using Plugins.KennethDevelops.Extensions;
 using UnityEngine;
 
 public class UIController : MonoBehaviour
@@ -7,6 +9,8 @@ public class UIController : MonoBehaviour
     private GameObject statPanel;
     [SerializeField]
     private GameObject helpPanel;
+    [SerializeField]
+    private GameObject dialoguePanel;
     private bool isStatPanelOpen = false;
     private bool isHelpPanelOpen = false;
 
@@ -14,6 +18,7 @@ public class UIController : MonoBehaviour
     {
         statPanel.SetActive(false);
         helpPanel.SetActive(false);
+        //dialoguePanel.SetActive(false);
     }
     void Start()
     {
