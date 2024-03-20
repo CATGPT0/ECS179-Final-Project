@@ -82,7 +82,7 @@ namespace CardBattle
             name = cardScriptableObject.cardName;
             drawPilePosition = gameManager.drawPileGameObject.GetComponent<Transform>().position;
             description = cardScriptableObject.description;
-            Debug.Log(spriteOriginPosition);
+            // Debug.Log(spriteOriginPosition);
 
 
         }

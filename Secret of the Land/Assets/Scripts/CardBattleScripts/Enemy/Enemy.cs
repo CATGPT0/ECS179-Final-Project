@@ -11,8 +11,8 @@ namespace CardBattle
     public class Enemy : MonoBehaviour
     {
         public int HP = 10;
-        int maxAttackDamage = 5; // Exclusive
-        int minAttackDamage = 2; // Inclusive
+        public int maxAttackDamage = 5; // Exclusive
+        public int minAttackDamage = 2; // Inclusive
         public int maxShield = 4; // Exclusive
         public int minShield = 2; // Inclusive
         public int currentDamage;

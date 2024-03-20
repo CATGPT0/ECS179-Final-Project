@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using CardBattle;
 using Unity.VisualScripting;
+using Manager;
 
 namespace CardBattle
 {
@@ -72,6 +73,9 @@ namespace CardBattle
         public GameObject descriptionGameObject;
         private DescriptionController descriptionController;
 
+        // Result counter
+        float resultCounter = 0;
+
 
         private void Awake()
         {
@@ -122,7 +126,17 @@ namespace CardBattle
         // Check the stage of our game and manage them
         private void Update()
         {
-
+            if (enemyIsDead)
+            {
+                resultCounter += Time.deltaTime;
+                Debug.Log(resultCounter);
+                if(resultCounter > 3f)
+                {
+                    Debug.Log("Win!");
+                    SceneManager.LoadWorldScene();
+                }
+                return;
+            }
             // If we finished the stage, move to next stage
             if(finishedTheStage == true)
             {
@@ -393,11 +407,16 @@ namespace CardBattle
             // Update player Ui
             playerUIManager.setShield(player.shield);
 
-            // If the enemy is dead, do something else
+            // If the enemy is dead, tell world we won
             if (enemy.HP <= 0)
             {
-                enemy.Die();
+                //enemy.Die();
                 enemyIsDead = true;
+                this.GetComponent<EnemySetter>().GameStateSetter(true);
+                
+                
+
+
             }
 
             // return 
