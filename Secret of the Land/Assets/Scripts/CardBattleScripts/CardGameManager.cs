@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using CardBattle;
+using Unity.VisualScripting;
+
 namespace CardBattle
 {
 
@@ -66,8 +68,9 @@ namespace CardBattle
 
         public GameObject drawPileGameObject;
 
-
-
+        // description for cards
+        public GameObject descriptionGameObject;
+        private DescriptionController descriptionController;
 
 
         private void Awake()
@@ -93,6 +96,7 @@ namespace CardBattle
             enemy = enemyGameObject.GetComponent<Enemy>();
             player = playerGameObject.GetComponent<Player>();
             playerUIManager = UIManagerGameObject.GetComponent<PlayerUIManager>();
+            descriptionController = descriptionGameObject.GetComponent<DescriptionController>();
 
             // Reset the Action when start the game
             cardBattleManager.LoadNextEnemyAction(enemy);
@@ -106,9 +110,13 @@ namespace CardBattle
             
             playerUIManager.setEnergy(player.energy);
             playerUIManager.setHealth(player.health);
+            playerUIManager.setShield(player.shield);
             playerUIManager.setEnemyAction(cardBattleManager.enemyNextActionInformation);
             playerUIManager.setEnemyHealth(enemy.HP);
-            playerUIManager.setShield(player.shield);
+            playerUIManager.setEnemyShield(enemy.shield);
+            
+
+            
         }
 
         // Check the stage of our game and manage them
@@ -163,6 +171,8 @@ namespace CardBattle
         /// </summary>
         private void BeforePlayerRoundUpdate()
         {
+            // handCardManager.SetCardUnavaliableUpdate();
+            handCardManager.SetCardColorUnavaliable();
             // 1. If the draw pile is empty, use discard pile to refill draw pile
             if (this.drawPile.Count <= 0)
             {
@@ -228,6 +238,7 @@ namespace CardBattle
         private void PlayerRoundUpdate()
         {
             // 1. If the "End Your Turn Was Pressed", move the next stage
+            // handCardManager.SetCardAvaliableUpdate();
             if (OnClickEndYourTurn)
             {
                 finishedTheStage = true;
@@ -239,6 +250,7 @@ namespace CardBattle
         private void AfterPlayerRoundUpdate()
         {
             UpdateHandCard();
+            // handCardManager.SetCardUnavaliableUpdate();
             finishedTheStage = true;
         }
 
@@ -376,6 +388,7 @@ namespace CardBattle
 
             // Update enemy UI
             playerUIManager.setEnemyHealth(enemy.HP);
+            playerUIManager.setEnemyShield(enemy.shield);
 
             // Update player Ui
             playerUIManager.setShield(player.shield);
@@ -427,6 +440,30 @@ namespace CardBattle
                 drawPile = new List<int>(discardPile);
                 discardPile.Clear();
             }
+        }
+
+        public void SetDescription(string description)
+        {
+            descriptionController.SetDescription(description);
+        }
+
+        public void EnableDescription()
+        {
+            Debug.Log("EnableNow in game manager");
+            descriptionGameObject.SetActive(true);
+
+        }
+        public void EnableDescription(string description)
+        {
+            Debug.Log("EnableNow in game manager");
+            descriptionGameObject.SetActive(true);
+            descriptionController.SetDescription(description);
+
+        }
+
+        public void DisableDescription()
+        {
+            descriptionGameObject.SetActive(false);
         }
 
 

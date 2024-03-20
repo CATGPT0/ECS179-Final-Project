@@ -11,5 +11,6 @@ namespace CardBattle {
         public int energyCost;
         public int cardCode;
         public string cardName;
+        public string description;
     }
 }

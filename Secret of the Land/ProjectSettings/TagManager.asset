@@ -72,6 +72,9 @@ TagManager:
   - name: Ground Booty
     uniqueID: 2232615081
     locked: 0
+  - name: Cards
+    uniqueID: 3795848891
+    locked: 0
   - name: Text
     uniqueID: 388379875
     locked: 0

@@ -21,6 +21,8 @@ namespace CardBattle
         private Text enemyActionText;
         public GameObject enemyHealthTextGameObject;
         private Text enemyHealthText;
+        public GameObject enemyShieldTextGameObject;
+        private Text enemyShieldText;
         private void Awake()
         {
             energyText = energyTextGameObject.GetComponent<Text>();
@@ -28,6 +30,7 @@ namespace CardBattle
             shieldText = shieldTextGameObject.GetComponent<Text>();
             enemyActionText = enemyActionTextGameObject.GetComponent<Text>();
             enemyHealthText = enemyHealthTextGameObject.GetComponent<Text>();
+            enemyShieldText = enemyShieldTextGameObject.GetComponent<Text>();
 
         }
         
@@ -56,6 +59,11 @@ namespace CardBattle
         public void setEnemyHealth(int amount)
         {
             enemyHealthText.text = amount.ToString();
+        }
+
+        public void setEnemyShield(int amount)
+        {
+            enemyShieldText.text = amount.ToString();
         }
 
     }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using CardBattle;
+using Schema.Builtin.Nodes;
 
 namespace CardBattle
 {
@@ -17,6 +18,15 @@ namespace CardBattle
         private GameObject newCard;
         private List<GameObject> cards = new List<GameObject>();
 
+        private Vector3 originalPosition;
+        private Vector3 unavaliablePosition;
+
+        private void Start()
+        {
+            originalPosition = this.GetComponent<Transform>().position;
+            unavaliablePosition = originalPosition + new Vector3(0, -0.5f, 0);
+        }
+
         // Will take the list of hand card and update the cards
         public void UpdateHandCard(List<int> handCards)
         {
@@ -30,7 +40,6 @@ namespace CardBattle
             }
 
             float xOffsetEachCard = 1f - (float)handCards.Count/20;
-            Debug.Log(xOffsetEachCard);
             int counter = 0;
             Vector3 newPosition;
             int numberOfCard = handCards.Count;
@@ -73,6 +82,29 @@ namespace CardBattle
             }
 
             cards.Clear();
+        }
+
+        public void SetCardUnavaliableUpdate()
+        {
+            this.transform.position = Vector3.Lerp(this.transform.position, this.unavaliablePosition, 1);
+        }
+
+        public void SetCardAvaliableUpdate()
+        {
+            this.transform.position = Vector3.Lerp(this.transform.position, this.originalPosition, 1);
+        }
+
+        public void SetCardUnavaliableUpdate(float time)
+        {
+            this.transform.position = Vector3.Lerp(this.transform.position, this.unavaliablePosition, time);
+        }
+
+        public void SetCardColorUnavaliable()
+        {
+            foreach(GameObject card in this.cards)
+            {
+                card.GetComponent<Card>().setColor(Color.grey);
+            }
         }
 
     }

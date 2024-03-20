@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3549917888704183484}
   - component: {fileID: 5433427536134957191}
+  - component: {fileID: 80651023977509543}
   m_Layer: 0
   m_Name: card_0
   m_TagString: Untagged
@@ -17,14 +18,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3549917888704183484
-Transform:
+--- !u!224 &3549917888704183484
+RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 547127581703841307}
-  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -32,6 +32,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4776413277681925269}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0.32, y: 0.48}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &5433427536134957191
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -70,8 +75,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -499118405
+  m_SortingLayer: 8
   m_SortingOrder: 0
   m_Sprite: {fileID: -1694968234, guid: abc7fc0754c56c348b8857446bf5cc31, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -84,6 +89,14 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!222 &80651023977509543
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 547127581703841307}
+  m_CullTransparentMesh: 1
 --- !u!1 &7137642390692191429
 GameObject:
   m_ObjectHideFlags: 0

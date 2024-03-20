@@ -4,6 +4,7 @@ using UnityEngine;
 using CardBattle;
 using Schema;
 using Unity.VisualScripting;
+using static SchemaEditor.Internal.CopyBuffer;
 
 namespace CardBattle
 {
@@ -34,6 +35,8 @@ namespace CardBattle
 
         public new string name;
 
+        public string description;
+
         private Transform gameObjectTransform;
 
         private Vector3 gameObjectOriginPosition;
@@ -42,6 +45,11 @@ namespace CardBattle
 
         private bool processedEffect = false;
 
+        private bool stayOnCard = false;
+
+        private float timeOffsetOfDescription = 1f;
+
+        private float timerForDescription = 0;
 
         // For using card animation
         private bool usingTheCard = false;
@@ -73,12 +81,24 @@ namespace CardBattle
             cardCode = cardScriptableObject.cardCode;
             name = cardScriptableObject.cardName;
             drawPilePosition = gameManager.drawPileGameObject.GetComponent<Transform>().position;
+            description = cardScriptableObject.description;
+            Debug.Log(spriteOriginPosition);
 
 
         }
 
         private void Update()
         {
+            // Debug.Log(timerForDescription);
+            if (stayOnCard)
+            {
+                timerForDescription += Time.deltaTime;
+                if(timerForDescription >= timeOffsetOfDescription)
+                {
+                    gameManager.EnableDescription(description);
+                    // gameManager.SetDescription(description);
+                }
+            }
             if (usingTheCard)
             {
                 if (!processedEffect)
@@ -103,19 +123,35 @@ namespace CardBattle
 
         private void OnMouseEnter()
         {
+            // gameManager.EnableDescription();
+            if (this.gameManager.gameStage != GameStage.playerRound)
+            {
+                return;
+            }
+            spriteOriginPosition = spriteTransform.position;
             spriteTransform.position = spriteTransform.position + new Vector3(0f, 0.2f, 0f);
             originLayerOrder = this.sprite.GetComponent<SpriteRenderer>().sortingOrder;
             this.sprite.GetComponent<SpriteRenderer>().sortingOrder += 40;
+            this.stayOnCard = true;
+            
         }
 
         private void OnMouseExit()
         {
+            gameManager.DisableDescription();
+            this.timerForDescription = 0;
+            if (this.gameManager.gameStage != GameStage.playerRound)
+            {
+                return;
+            }
             spriteTransform.position = spriteOriginPosition;
             this.sprite.GetComponent<SpriteRenderer>().sortingOrder = originLayerOrder;
+            this.stayOnCard = false;
         }
 
         private void OnMouseDown()
         {
+
             if(gameManager.CanUseACard(cardCode, energyCost))
             {
                 usingTheCard = true;
@@ -138,6 +174,11 @@ namespace CardBattle
         public void ProcessEffect()
         {
             this.cardBattleManager.ProcessCardEffect(this.cardCode);
+        }
+
+        public void setColor(Color color)
+        {
+            this.sprite.GetComponent<SpriteRenderer>().color = color;
         }
 
 
