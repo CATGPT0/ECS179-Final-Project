@@ -7,14 +7,17 @@ namespace Manager
     public class SceneManager : MonoBehaviour
     {
         private PlayerEvent playerEvent;
+        public SceneManager Instance { get; private set; }
         public enum Scene
         {
             MainMenu,
             World,
-            GameOver
+            GameOver,
+            CardBattleScene
         }
         void Awake()
         {
+            Instance = this;
             playerEvent = FindFirstObjectByType<PlayerEvent>();
             DontDestroyOnLoad(gameObject);
         }
@@ -25,29 +28,29 @@ namespace Manager
             //playerEvent.OnPlayerRespawn.AddListener(LoadWorldScene);
         }
 
-        public void LoadScene(Scene scene)
+        public static void LoadScene(Scene scene)
         {
             UnityEngine.SceneManagement.SceneManager.LoadScene(scene.ToString());
         }
 
-        public void LoadMainMenuScene()
+        public static void LoadMainMenuScene()
         {
             LoadScene(Scene.MainMenu);
         }
 
-        public void LoadWorldScene()
+        public static void LoadWorldScene()
         {
             LoadScene(Scene.World);
         }
 
-        public void LoadGameOverScene()
+        public static void LoadGameOverScene()
         {
             LoadScene(Scene.GameOver);
         }
 
-        public void Test()
+        public static void LoadCardBattleScene()
         {
-            Debug.Log("Test");
+            LoadScene(Scene.CardBattleScene);
         }
     }
 }
