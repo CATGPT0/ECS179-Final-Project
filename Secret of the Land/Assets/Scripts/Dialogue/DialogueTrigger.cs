@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using CardBattle;
 using UnityEngine;
 
 [Serializable]
@@ -27,6 +28,7 @@ public class DialogueTrigger : MonoBehaviour
         if (other.CompareTag("PlayerAttack"))
         {
             DialogueManager.Instance.StartDialogue(dialogue, sprite);
+            DialogueManager.Instance.npcCardEntryController = GetComponent<NPCCardEntryController>();
         }
     }
 

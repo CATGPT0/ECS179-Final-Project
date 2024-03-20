@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using CardBattle;
+using Manager;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -16,6 +17,7 @@ public class DialogueManager : MonoBehaviour
     private Image image;
     public Dialogue dialogue;
     public Image border;
+    public NPCCardEntryController npcCardEntryController;
     private int activeMessage = 0;
 
     void Awake()
@@ -65,6 +67,14 @@ public class DialogueManager : MonoBehaviour
         }
         text.text = dialogue.text[activeMessage];
         activeMessage++;
+    }
+
+    public void EnterCardScene()
+    {
+        var parent = GameObject.Find("CardBattle");
+        parent.AddComponent<NPCCardEntryController>();
+        parent.GetComponent<NPCCardEntryController>().npcBehavior = npcCardEntryController.npcBehavior;
+        SceneManager.LoadScene(SceneManager.Scene.CardBattleScene);
     }
 
     public void ContinueDialogue()
