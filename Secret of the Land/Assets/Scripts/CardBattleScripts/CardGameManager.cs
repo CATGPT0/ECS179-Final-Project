@@ -55,6 +55,7 @@ namespace CardBattle
 
         // Bool for checking if enemy is dead
         private bool enemyIsDead = false;
+        private bool playerIsDead = false;
 
         // number of cards player used
         private int cardsUsedNum;
@@ -129,10 +130,20 @@ namespace CardBattle
             if (enemyIsDead)
             {
                 resultCounter += Time.deltaTime;
-                Debug.Log(resultCounter);
+                
                 if(resultCounter > 3f)
                 {
                     Debug.Log("Win!");
+                    SceneManager.LoadWorldScene();
+                }
+                return;
+            }
+            if (playerIsDead)
+            {
+                resultCounter += Time.deltaTime;
+                if (resultCounter > 3f)
+                {
+                    Debug.Log("lose");
                     SceneManager.LoadWorldScene();
                 }
                 return;
@@ -185,6 +196,15 @@ namespace CardBattle
         /// </summary>
         private void BeforePlayerRoundUpdate()
         {
+            if(player.health <= 0)
+            {
+                Debug.Log("Lose");
+                this.GetComponent<EnemySetter>().GameStateSetter(true);
+                playerUIManager.EnableAnnouncer();
+                playerUIManager.setAnnouncerText("You lose");
+                
+                playerIsDead = true;
+            }
             // handCardManager.SetCardUnavaliableUpdate();
             handCardManager.SetCardColorUnavaliable();
             // 1. If the draw pile is empty, use discard pile to refill draw pile
@@ -413,8 +433,11 @@ namespace CardBattle
                 //enemy.Die();
                 enemyIsDead = true;
                 this.GetComponent<EnemySetter>().GameStateSetter(true);
-                
-                
+                this.playerUIManager.setAnnouncerText("You Win!");
+                this.playerUIManager.EnableAnnouncer();
+
+                handCardManager.SetCardColorUnavaliable();
+
 
 
             }

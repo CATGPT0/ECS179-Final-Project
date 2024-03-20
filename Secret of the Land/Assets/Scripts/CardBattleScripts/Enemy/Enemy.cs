@@ -49,5 +49,10 @@ namespace CardBattle
         {
             currentDamage = UnityEngine.Random.Range(minAttackDamage, maxAttackDamage);
         }
+
+        public void SetSprite()
+        {
+
+        }
     }
 }

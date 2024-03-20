@@ -20,6 +20,7 @@ public class EnemySetter : MonoBehaviour
         enemy.maxShield = nPCBehavior.MaxDefense;
         enemy.minShield = nPCBehavior.MinDefense;
         enemy.enemyActionsPattern = nPCBehavior.ActionsLoop;
+        enemy.GetComponent<SpriteRenderer>().sprite = nPCBehavior.sprite;
     }
 
     public void GameStateSetter(bool state)
