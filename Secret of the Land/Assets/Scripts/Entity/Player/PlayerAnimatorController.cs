@@ -14,6 +14,11 @@ namespace Controller
         private GameEvent playerDeathEvent;
         private AnimatorStateInfo animInfo;
         private bool canAttack = true;
+        public bool CanAttack
+        {
+            get { return canAttack; }
+            set { canAttack = value; }
+        }
         private bool isAttack = false;
         private bool inDialogue = false;
         private enum AnimationState

@@ -52,6 +52,13 @@ public class SkeletonProperties : Properties
         set { canAttack = value; }
     }
 
+    private bool isInit = false;
+    public bool IsInit
+    {
+        get { return isInit; }
+        set { isInit = value; }
+    }
+
     public override int Health
     {
         get { return health; }
@@ -189,5 +196,16 @@ public class SkeletonFSM : FSM
     protected void OnDrawGizmos()
     {
         Gizmos.DrawWireSphere(attackPoint.position, attackRange);
+    }
+
+    void OnEnable()
+    {
+        if (!properties.IsInit)
+        {
+            properties.IsInit = true;
+            ToState(State.Idle);
+            return;
+        }
+        agent.Warp(properties.CurrentPos + UnityEngine.Random.insideUnitCircle * 2f);
     }
 }
