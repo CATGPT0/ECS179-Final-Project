@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.UI;
+using Controller;
 
 public class InventoryManager : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class InventoryManager : MonoBehaviour
     public TextMeshProUGUI ItemInfo => itemInfo;
     public SlotController currentSlot;
     public EquipControler equipControler;
+    private GameObject monsterManager;
     private const int maxSlots = 10;
     private int slotCount = 0;
     private bool isOpen = false;
@@ -30,6 +32,7 @@ public class InventoryManager : MonoBehaviour
         equipControler = GetComponent<EquipControler>();
         instance = this;
         itemInfo.text = "";
+        monsterManager = GameObject.Find("MonsterManager");
     }
 
     void Update()
@@ -127,5 +130,8 @@ public class InventoryManager : MonoBehaviour
     {
         isOpen = !isOpen;
         inventoryPanel.SetActive(isOpen);
+        PlayerController.Instance.Player.properties.CanMove = !isOpen;
+        PlayerController.Instance.PlayerAnimation.CanAttack = !isOpen;
+        monsterManager.SetActive(!isOpen);
     }
 }

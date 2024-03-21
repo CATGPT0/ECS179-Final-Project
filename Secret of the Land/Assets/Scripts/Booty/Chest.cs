@@ -6,6 +6,7 @@ public class Chest : MonoBehaviour
 {
     public List<GameObject> consumables = new List<GameObject>();
     public List<GameObject> equips = new List<GameObject>();
+    public List<GameObject> guaranteed = new List<GameObject>();
     private AnimatorStateInfo stateInfo;
     private Animator animator;
     void Awake()
@@ -47,6 +48,13 @@ public class Chest : MonoBehaviour
         }
 
         foreach (var item in items)
+        {
+            var booty = Instantiate(item, transform.position, Quaternion.identity);
+            booty.transform.position = new Vector3(Random.Range(transform.position.x - 1f, transform.position.x + 1f), Random.Range(transform.position.y - 2f, transform.position.y + 2f), 0);
+            booty.transform.SetParent(GameObject.Find("Booties").transform);
+        }
+
+        foreach (var item in guaranteed)
         {
             var booty = Instantiate(item, transform.position, Quaternion.identity);
             booty.transform.position = new Vector3(Random.Range(transform.position.x - 1f, transform.position.x + 1f), Random.Range(transform.position.y - 2f, transform.position.y + 2f), 0);
