@@ -132,6 +132,6 @@ public class InventoryManager : MonoBehaviour
         inventoryPanel.SetActive(isOpen);
         PlayerController.Instance.Player.properties.CanMove = !isOpen;
         PlayerController.Instance.PlayerAnimation.CanAttack = !isOpen;
-        monsterManager.SetActive(!isOpen);
+        monsterManager.SetActive(!isOpen);  
     }
 }

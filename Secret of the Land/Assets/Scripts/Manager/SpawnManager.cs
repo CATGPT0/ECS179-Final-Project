@@ -23,6 +23,8 @@ public class SpawnManager : MonoBehaviour
     {
         SpawnSkeleton(MapTable.locations["Forest"].topLeft, MapTable.locations["Forest"].bottomRight, 10, Random.Range(1, 3));
         SpawnSlime(MapTable.locations["Forest"].topLeft, MapTable.locations["Forest"].bottomRight, 10, Random.Range(1, 3));
+        SpawnSkeleton(MapTable.locations["Forest2"].topLeft, MapTable.locations["Forest2"].bottomRight, 10, Random.Range(3, 6));
+        SpawnSlime(MapTable.locations["Forest2"].topLeft, MapTable.locations["Forest2"].bottomRight, 10, Random.Range(3, 6));
     }
 
     void SpawnSkeleton(Vector2 topLeft, Vector2 bottomRight, int amount = 1, int level = 1)
