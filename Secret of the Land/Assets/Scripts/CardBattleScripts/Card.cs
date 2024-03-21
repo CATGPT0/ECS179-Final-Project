@@ -4,7 +4,7 @@ using UnityEngine;
 using CardBattle;
 using Schema;
 using Unity.VisualScripting;
-using static SchemaEditor.Internal.CopyBuffer;
+// using static SchemaEditor.Internal.CopyBuffer;
 
 namespace CardBattle
 {

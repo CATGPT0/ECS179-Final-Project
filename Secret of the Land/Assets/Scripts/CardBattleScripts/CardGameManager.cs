@@ -78,7 +78,8 @@ namespace CardBattle
         float resultCounter = 0;
 
         // Entry
-        
+        public GameObject cardBattle;
+        private NPCBehavior nPCBehavior;
 
 
         private void Awake()
@@ -89,6 +90,8 @@ namespace CardBattle
             handCards = new List<int>();
             maxHandCards = 10;
             cardsUsedNum = 0;
+            cardBattle = GameObject.Find("CardBattle");
+            nPCBehavior = cardBattle.GetComponent<NPCCardEntryController>().npcBehavior;
         }
 
         private void Start()
@@ -137,9 +140,9 @@ namespace CardBattle
                 if(resultCounter > 3f)
                 {
                     Debug.Log("Win!");
-                    GameObject.Find("UI").SetActive(true);
-                    GameObject.Find("GamePlay").SetActive(true);
-                    SceneManager.UnloadScene(SceneManager.Scene.World);
+                    nPCBehavior.GamePlay.SetActive(true);
+                    nPCBehavior.UI.SetActive(true);
+                    SceneManager.UnloadScene(SceneManager.Scene.CardBattleScene);
                     
                 }
                 return;
@@ -149,9 +152,9 @@ namespace CardBattle
                 resultCounter += Time.deltaTime;
                 if (resultCounter > 3f)
                 {
-                    GameObject.Find("UI").SetActive(true);
-                    GameObject.Find("GamePlay").SetActive(true);
-                    SceneManager.UnloadScene(SceneManager.Scene.World);
+                    nPCBehavior.GamePlay.SetActive(true);
+                    nPCBehavior.UI.SetActive(true);
+                    SceneManager.UnloadScene(SceneManager.Scene.CardBattleScene);
                 }
                 return;
             }
