@@ -142,6 +142,14 @@ namespace CardBattle
                     Debug.Log("Win!");
                     nPCBehavior.GamePlay.SetActive(true);
                     nPCBehavior.UI.SetActive(true);
+                    if(nPCBehavior.Id == 1)
+                    {
+                        PlayerCard.Instance.Cards.Add(3);
+                    }
+                    else
+                    {
+                        PlayerCard.Instance.Cards.Add(4);
+                    }
                     SceneManager.UnloadScene(SceneManager.Scene.CardBattleScene);
                     
                 }
@@ -447,7 +455,7 @@ namespace CardBattle
                 //enemy.Die();
                 enemyIsDead = true;
                 this.GetComponent<EnemySetter>().GameStateSetter(true);
-                this.playerUIManager.setAnnouncerText("You Win!");
+                this.playerUIManager.setAnnouncerText("You Win! A card is added into your deck.");
                 this.playerUIManager.EnableAnnouncer();
 
                 handCardManager.SetCardColorUnavaliable();
