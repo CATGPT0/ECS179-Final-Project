@@ -21,4 +21,7 @@ Blade and Card: Secret of the Land is a combination of a traditional 2D top-down
 
 | Name | Role    | Subrole    |
 | :---:   | :---: | :---: |
-|  |    |    |
+| Yifan Cui |    |    |
+| Chelsea Huffman |    |    |
+| Jinzhuang Li |    |    |
+| Zachary Oren |    |    |
