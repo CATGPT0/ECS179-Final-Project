@@ -8,10 +8,10 @@ Blade and Card: Secret of the Land is a combination of a traditional 2D top-down
 **Price**: Free
 
 ## Brief Overview/Features ##
-- npc dialogue
-- card game w/ npc: rules??
-- fight off monsters with your sword
-- open treasure boxes and collect items
+- Explore the world to find hidden treasure chests, escape and fight monsters, and defeat the 3 monster bosses
+- Open treasure chests and collect powerups and weapons
+- Fight against monsters to level up and gain health back
+- Meet NPCs throughout the world and participate in a card game that can help you potentially gain advantages in combat
 
 ## Trailer ##
 
