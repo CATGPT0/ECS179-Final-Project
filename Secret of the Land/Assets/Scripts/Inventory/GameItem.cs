@@ -14,8 +14,26 @@ public class GameItem
     public GameItem(Item item)
     {
         this.item = item;
-        onItemUse += PlayerController.Instance.Player.ChangeHealth;
-        onItemEquip += PlayerController.Instance.Player.ChangeAttackPower;
-        onItemTeardown += PlayerController.Instance.Player.ChangeAttackPower;
+
+        if (item.itemType == ItemType.Consumable)
+        {
+            if (item.itemName == "HealthPotion")
+            {
+                onItemUse += PlayerController.Instance.Player.ChangeHealth;
+            }
+            else if (item.itemName == "ManaPotion")
+            {
+                onItemUse += PlayerController.Instance.Player.ChangeMana;
+            }
+            
+        }
+        else if (item.itemType == ItemType.Equipment)
+        {
+            onItemEquip += PlayerController.Instance.Player.ChangeAttackPower;
+            onItemTeardown += PlayerController.Instance.Player.ChangeAttackPower;
+        }
+        // onItemUse += PlayerController.Instance.Player.ChangeHealth;
+        // onItemEquip += PlayerController.Instance.Player.ChangeAttackPower;
+        // onItemTeardown += PlayerController.Instance.Player.ChangeAttackPower;
     }
 }
