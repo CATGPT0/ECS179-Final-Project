@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b53934310c82a9419597d8cbbd3801f, type: 3}
+  m_Name: IronSword
+  m_EditorClassIdentifier: 
+  itemName: IronSword
+  itemImage: {fileID: 1567449111, guid: 44ee90999b4e76b40ab6188abe2c0f5c, type: 3}
+  count: 0
+  itemInfo: 'A sturdy and reliable blade
+
+    Effect: +7 Attack Power'
+  itemType: 0
+  value: 7
