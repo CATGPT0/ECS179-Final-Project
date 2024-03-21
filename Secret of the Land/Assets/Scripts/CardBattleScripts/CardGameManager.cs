@@ -231,6 +231,7 @@ namespace CardBattle
                     {
                         DrawACard();
                         DrawACard();
+                        DrawACard();
                     }
                     break;
                 default:
