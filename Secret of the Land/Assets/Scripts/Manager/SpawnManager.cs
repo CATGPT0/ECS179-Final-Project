@@ -21,17 +21,16 @@ public class SpawnManager : MonoBehaviour
     }
     void Start()
     {
-        SpawnSkeleton(MapTable.locations["Forest"].topLeft, MapTable.locations["Forest"].bottomRight, 10);
-        SpawnSlime(MapTable.locations["Forest"].topLeft, MapTable.locations["Forest"].bottomRight, 10);
+        SpawnSkeleton(MapTable.locations["Forest"].topLeft, MapTable.locations["Forest"].bottomRight, 10, Random.Range(1, 3));
+        SpawnSlime(MapTable.locations["Forest"].topLeft, MapTable.locations["Forest"].bottomRight, 10, Random.Range(1, 3));
     }
 
-    void SpawnSkeleton(Vector2 topLeft, Vector2 bottomRight, int amount = 1)
+    void SpawnSkeleton(Vector2 topLeft, Vector2 bottomRight, int amount = 1, int level = 1)
     {
         for (int i = 0; i < amount; i++)
         {
         Vector3 spawnPosition = new Vector3(Random.Range(topLeft.x, bottomRight.x), Random.Range(bottomRight.y, topLeft.y), 0);
         spawnPosition = GetNearestPoint(spawnPosition);
-        int level = 1;
         GameObject skeleton = SpawnEngine.Spawn(skeletonPrefab, spawnPosition, Quaternion.identity, level);
         skeleton.transform.SetParent(monsterManager);
         SkeletonFSM skeletonFSM = skeleton.GetComponent<SkeletonFSM>();
@@ -41,13 +40,12 @@ public class SpawnManager : MonoBehaviour
         }
     }
 
-    void SpawnSlime(Vector2 topLeft, Vector2 bottomRight, int amount = 1)
+    void SpawnSlime(Vector2 topLeft, Vector2 bottomRight, int amount = 1, int level = 1)
     {
         for (int i = 0; i < amount; i++)
         {
         Vector3 spawnPosition = new Vector3(Random.Range(topLeft.x, bottomRight.x), Random.Range(bottomRight.y, topLeft.y), 0);
         spawnPosition = GetNearestPoint(spawnPosition);
-        int level = 1;
         GameObject slime = SpawnEngine.Spawn(slimePrefab, spawnPosition, Quaternion.identity, level);
         slime.transform.SetParent(monsterManager);
         SlimeFSM slimeFSM = slime.GetComponent<SlimeFSM>();
