@@ -249,9 +249,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.07332766}
   serializedVersion: 2
-  m_Radius: 0.8
+  m_Radius: 0.8733276
 --- !u!1 &7765098603027407598
 GameObject:
   m_ObjectHideFlags: 0
@@ -386,7 +386,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   attackPoint: {fileID: 7400210059710622148}
-  attackRange: 0.92
+  attackRange: 0.6
   player: {fileID: 0}
 --- !u!61 &6572955473674469352
 BoxCollider2D:
