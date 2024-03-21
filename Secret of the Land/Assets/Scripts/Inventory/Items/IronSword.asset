@@ -15,8 +15,9 @@ MonoBehaviour:
   itemName: IronSword
   itemImage: {fileID: 1567449111, guid: 44ee90999b4e76b40ab6188abe2c0f5c, type: 3}
   count: 0
-  itemInfo: 'A sturdy and reliable blade
+  itemInfo: 'A sturdy and reliable blade. Best sword in the village!
 
-    Effect: +7 Attack Power'
+    Effect:
+    +7 Attack Power'
   itemType: 0
   value: 7

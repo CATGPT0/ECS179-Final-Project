@@ -36,7 +36,7 @@ public class Chest : MonoBehaviour
         int count = Random.Range(1, 4);
         bool haveEquip = Random.Range(0, 2) == 0;
         List<GameObject> items = new List<GameObject>();
-        if (haveEquip)
+        if (haveEquip && equips.Count > 0)
         {
             Debug.Log("haveEquip");
             items.Add(equips[Random.Range(0, equips.Count)]);
