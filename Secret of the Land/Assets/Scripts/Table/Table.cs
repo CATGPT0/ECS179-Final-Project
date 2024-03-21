@@ -121,6 +121,7 @@ public static class Table
         { 9, 1.8f },
         { 10, 1.9f }
     };
+
     public static int CalculateXP(int monsterLevel, int playerLevel, EntityType.Type monsterType)
     {
         Debug.Log("Monster Level: " + monsterLevel);

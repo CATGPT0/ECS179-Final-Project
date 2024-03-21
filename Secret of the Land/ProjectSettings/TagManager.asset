@@ -14,6 +14,7 @@ TagManager:
   - Slime
   - NPC
   - PlayerAttack
+  - AirWall
   layers:
   - Default
   - TransparentFX

@@ -11,33 +11,29 @@ public class SpawnManager : MonoBehaviour
     [SerializeField]
     private GameObject slimePrefab;
     [SerializeField]
-    private Transform topLeft;
-    [SerializeField]
-    private Transform bottomRight;
-    [SerializeField]
     private PlayerController playerController;
+    private Transform monsterManager;
 
     void Awake()
     {
         playerController = FindFirstObjectByType<PlayerController>();
+        monsterManager = GameObject.Find("MonsterManager").transform;
     }
     void Start()
     {
-        //SpawnPlayer();
-        SpawnSkeleton();
-        SpawnSlime();
+        SpawnSkeleton(MapTable.locations["Forest"].topLeft, MapTable.locations["Forest"].bottomRight, 10);
+        SpawnSlime(MapTable.locations["Forest"].topLeft, MapTable.locations["Forest"].bottomRight, 10);
     }
 
-    void SpawnSkeleton()
+    void SpawnSkeleton(Vector2 topLeft, Vector2 bottomRight, int amount = 1)
     {
-        for (int i = 0; i < 10; i++)
+        for (int i = 0; i < amount; i++)
         {
-        Vector3 spawnPosition = new Vector3(Random.Range(transform.position.x+20, transform.position.x-20), Random.Range(transform.position.y+20, transform.position.y-20), 0);
+        Vector3 spawnPosition = new Vector3(Random.Range(topLeft.x, bottomRight.x), Random.Range(bottomRight.y, topLeft.y), 0);
         spawnPosition = GetNearestPoint(spawnPosition);
         int level = 1;
         GameObject skeleton = SpawnEngine.Spawn(skeletonPrefab, spawnPosition, Quaternion.identity, level);
-        Transform a = GameObject.Find("MonsterManager").transform;
-        skeleton.transform.SetParent(a);
+        skeleton.transform.SetParent(monsterManager);
         SkeletonFSM skeletonFSM = skeleton.GetComponent<SkeletonFSM>();
         skeleton.GetComponentInChildren<SkeletonEvent>().onMonsterDeath.AddListener(() => { playerController.Player.ReceiveXP(Table.CalculateXP(level,
                                                                                                                                             playerController.Player.properties.Level,
@@ -45,16 +41,15 @@ public class SpawnManager : MonoBehaviour
         }
     }
 
-    void SpawnSlime()
+    void SpawnSlime(Vector2 topLeft, Vector2 bottomRight, int amount = 1)
     {
-        for (int i = 0; i < 10; i++)
+        for (int i = 0; i < amount; i++)
         {
-        Vector3 spawnPosition = new Vector3(Random.Range(transform.position.x+20, transform.position.x-20), Random.Range(transform.position.y+20, transform.position.y-20), 0);
+        Vector3 spawnPosition = new Vector3(Random.Range(topLeft.x, bottomRight.x), Random.Range(bottomRight.y, topLeft.y), 0);
         spawnPosition = GetNearestPoint(spawnPosition);
         int level = 1;
         GameObject slime = SpawnEngine.Spawn(slimePrefab, spawnPosition, Quaternion.identity, level);
-        Transform a = GameObject.Find("MonsterManager").transform;
-        slime.transform.SetParent(a);
+        slime.transform.SetParent(monsterManager);
         SlimeFSM slimeFSM = slime.GetComponent<SlimeFSM>();
         slime.GetComponentInChildren<SlimeEvent>().onMonsterDeath.AddListener(() => { playerController.Player.ReceiveXP(Table.CalculateXP(level,
                                                                                                                                             playerController.Player.properties.Level,
@@ -70,7 +65,7 @@ public class SpawnManager : MonoBehaviour
 
     private Vector2 GetNearestPoint(Vector2 oldPoint)
     {
-        bool canWalk = NavMesh.SamplePosition(oldPoint, out NavMeshHit hit, 2.0f, NavMesh.AllAreas);
+        bool canWalk = NavMesh.SamplePosition(oldPoint, out NavMeshHit hit, 3.0f, NavMesh.AllAreas);
 
         if (canWalk)
         {
@@ -81,5 +76,17 @@ public class SpawnManager : MonoBehaviour
             Debug.LogError("Can't spawn skeleton at " + oldPoint);
         }
         return hit.position;
+    }
+
+    bool CanSpawnHere(Vector2 position, Vector2 size, LayerMask obstacleLayer)
+    {
+        // Optionally, you can add a rotation argument if your objects can be rotated
+        Quaternion noRotation = Quaternion.identity;
+        
+        // Perform the overlap box check
+        Collider2D hit = Physics2D.OverlapBox(position, size, 0, obstacleLayer);
+        
+        // If hit is null, no collider was overlapped
+        return hit == null;
     }
 }
