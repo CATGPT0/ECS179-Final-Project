@@ -873,7 +873,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HP: 10
   energy: 2
-  health: 5
+  health: 10
   shield: 0
 --- !u!1 &654001869
 GameObject:
@@ -4373,6 +4373,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackCard: {fileID: 7137642390692191429, guid: 112892e654b11204db8194091085cdd7, type: 3}
   defendCard: {fileID: 7137642390692191429, guid: 5ebc5419dc4d882488ea4b2d095881cc, type: 3}
+  deadlyStruggle: {fileID: 7137642390692191429, guid: b38b28b5ccbc4364d8c6bb4ffef52c78, type: 3}
+  energyBoost: {fileID: 7137642390692191429, guid: 3e1c59fcd3aa954469aece1519ac0e22, type: 3}
 --- !u!1 &1681739458
 GameObject:
   m_ObjectHideFlags: 0

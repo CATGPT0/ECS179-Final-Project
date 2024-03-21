@@ -13,6 +13,8 @@ namespace CardBattle
         // Prefebs
         public GameObject attackCard;
         public GameObject defendCard;
+        public GameObject deadlyStruggle;
+        public GameObject energyBoost;
 
         // Game object for new card after Update
         private GameObject newCard;
@@ -52,6 +54,7 @@ namespace CardBattle
             {
                 GameObject cardPrefeb = codeToCardObject(i);
                 newPosition = this.transform.position + new Vector3(xOffsetEachCard * counter + TotalXOffset, 0f, 0f);
+                Debug.Log("code is " + i);
                 newCard = Instantiate(cardPrefeb, newPosition, Quaternion.identity, this.transform);
                 cards.Add(newCard);
                 newCard.GetComponent<Card>().sprite.GetComponent<SpriteRenderer>().sortingOrder = counter;
@@ -68,6 +71,10 @@ namespace CardBattle
                     return attackCard;
                 case 2:
                     return defendCard;
+                case 3:
+                    return deadlyStruggle;
+                case 4:
+                    return energyBoost;
                 default:
                     Debug.Log("No card prefeb found with code" + code);
                     return null;

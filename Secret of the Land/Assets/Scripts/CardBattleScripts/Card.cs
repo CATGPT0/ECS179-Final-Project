@@ -103,6 +103,7 @@ namespace CardBattle
             {
                 if (!processedEffect)
                 {
+                    Debug.Log("Using " + cardCode);
                     gameManager.UseACard(cardCode, energyCost);
                     processedEffect = true;
                 }

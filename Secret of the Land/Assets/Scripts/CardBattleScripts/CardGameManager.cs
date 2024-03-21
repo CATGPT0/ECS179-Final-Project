@@ -426,6 +426,8 @@ namespace CardBattle
 
             // Update player Ui
             playerUIManager.setShield(player.shield);
+            playerUIManager.setEnergy(player.energy);
+            playerUIManager.setHealth(player.health);
 
             // If the enemy is dead, tell world we won
             if (enemy.HP <= 0)
@@ -467,12 +469,8 @@ namespace CardBattle
         // For debugging, this will let the drawPile become a stack of attack cards
         private void OnlyGetAttackCard()
         {
-            this.drawPile = new List<int>();
-            for (int i = 0; i < 10; i++)
-            {
-                int code = Random.Range(1, 3);
-                this.drawPile.Add(code);
-            }
+            this.drawPile = new List<int>() { 1, 2, 3, 4};
+            
         }
 
         private void ResetDrawPile()

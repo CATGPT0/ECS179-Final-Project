@@ -36,6 +36,7 @@ namespace CardBattle {
         /// </param>
         public void ProcessCardEffect(int cardCode) 
         {
+            Debug.Log("Processing" + cardCode);
             // Set delegate
             switch (cardCode)
             {
@@ -45,6 +46,12 @@ namespace CardBattle {
                     break;
                 case 2:
                     CardEffectDelegate = cardEffects.Effect_2_Defend;
+                    break;
+                case 3:
+                    CardEffectDelegate = cardEffects.Effect_3_DeadlyStruggle;
+                    break;
+                case 4:
+                    CardEffectDelegate = cardEffects.Effect_4_EnergyBoost;
                     break;
                 default:
                     throw new Exception("Card effect does not find with code " + cardCode);

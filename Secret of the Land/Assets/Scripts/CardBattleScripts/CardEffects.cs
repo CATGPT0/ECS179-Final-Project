@@ -27,6 +27,19 @@ namespace CardBattle
             Debug.Log("defend");
         }
 
+        public void Effect_3_DeadlyStruggle()
+        {
+            cardGameManager.enemy.takenDamage(2);
+            cardGameManager.player.IncreaseEnergy(1);
+            Debug.Log("ds");
+        }
+
+        public void Effect_4_EnergyBoost()
+        {
+            cardGameManager.player.IncreaseEnergy(4);
+            Debug.Log("EB");
+        }
+
 
     }
 }
