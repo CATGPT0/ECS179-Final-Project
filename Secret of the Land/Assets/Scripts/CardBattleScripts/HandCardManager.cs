@@ -56,6 +56,7 @@ namespace CardBattle
                 newPosition = this.transform.position + new Vector3(xOffsetEachCard * counter + TotalXOffset, 0f, 0f);
                 Debug.Log("code is " + i);
                 newCard = Instantiate(cardPrefeb, newPosition, Quaternion.identity, this.transform);
+                newCard.GetComponent<BoxCollider2D>().layerOverridePriority = counter;
                 cards.Add(newCard);
                 newCard.GetComponent<Card>().sprite.GetComponent<SpriteRenderer>().sortingOrder = counter;
 
