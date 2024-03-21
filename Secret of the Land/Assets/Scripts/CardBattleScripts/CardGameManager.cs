@@ -134,7 +134,10 @@ namespace CardBattle
                 if(resultCounter > 3f)
                 {
                     Debug.Log("Win!");
-                    SceneManager.LoadWorldScene();
+                    GameObject.Find("UI").SetActive(true);
+                    GameObject.Find("GamePlay").SetActive(true);
+                    SceneManager.UnloadScene(SceneManager.Scene.World);
+                    
                 }
                 return;
             }
@@ -143,8 +146,9 @@ namespace CardBattle
                 resultCounter += Time.deltaTime;
                 if (resultCounter > 3f)
                 {
-                    Debug.Log("lose");
-                    SceneManager.LoadWorldScene();
+                    GameObject.Find("UI").SetActive(true);
+                    GameObject.Find("GamePlay").SetActive(true);
+                    SceneManager.UnloadScene(SceneManager.Scene.World);
                 }
                 return;
             }
