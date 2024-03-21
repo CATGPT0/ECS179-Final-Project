@@ -49,7 +49,7 @@ public class Chest : MonoBehaviour
         foreach (var item in items)
         {
             var booty = Instantiate(item, transform.position, Quaternion.identity);
-            booty.transform.position = new Vector3(Random.Range(transform.position.x - 2f, transform.position.x + 2f), Random.Range(transform.position.y - 2f, transform.position.y + 2f), 0);
+            booty.transform.position = new Vector3(Random.Range(transform.position.x - 1f, transform.position.x + 1f), Random.Range(transform.position.y - 2f, transform.position.y + 2f), 0);
             booty.transform.SetParent(GameObject.Find("Booties").transform);
         }
     }
