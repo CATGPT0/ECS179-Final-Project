@@ -77,6 +77,9 @@ namespace CardBattle
         // Result counter
         float resultCounter = 0;
 
+        // Entry
+        
+
 
         private void Awake()
         {
