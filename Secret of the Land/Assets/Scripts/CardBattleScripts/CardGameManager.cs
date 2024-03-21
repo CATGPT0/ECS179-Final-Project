@@ -135,6 +135,7 @@ namespace CardBattle
         {
             if (enemyIsDead)
             {
+                playerUIManager.setEnemyHealth(0);
                 resultCounter += Time.deltaTime;
                 
                 if(resultCounter > 3f)
