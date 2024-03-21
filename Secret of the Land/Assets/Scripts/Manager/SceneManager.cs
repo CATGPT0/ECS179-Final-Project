@@ -33,6 +33,16 @@ namespace Manager
             UnityEngine.SceneManagement.SceneManager.LoadScene(scene.ToString());
         }
 
+        public static void LoadSceneAsync(Scene scene)
+        {
+            UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(scene.ToString(), UnityEngine.SceneManagement.LoadSceneMode.Additive);
+        }
+
+        public static void UnloadScene(Scene scene)
+        {
+            UnityEngine.SceneManagement.SceneManager.UnloadSceneAsync(scene.ToString());
+        }
+
         public static void LoadMainMenuScene()
         {
             LoadScene(Scene.MainMenu);

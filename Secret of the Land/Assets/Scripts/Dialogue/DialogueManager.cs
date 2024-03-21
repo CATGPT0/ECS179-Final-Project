@@ -74,7 +74,9 @@ public class DialogueManager : MonoBehaviour
         var parent = GameObject.Find("CardBattle");
         parent.AddComponent<NPCCardEntryController>();
         parent.GetComponent<NPCCardEntryController>().npcBehavior = npcCardEntryController.npcBehavior;
-        SceneManager.LoadScene(SceneManager.Scene.CardBattleScene);
+        GameObject.Find("UI").SetActive(false);
+        GameObject.Find("GamePlay").SetActive(false);
+        SceneManager.LoadSceneAsync(SceneManager.Scene.CardBattleScene);
     }
 
     public void ContinueDialogue()
