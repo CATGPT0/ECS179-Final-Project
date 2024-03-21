@@ -98,7 +98,7 @@ namespace CardBattle
         {
             gameStage = GameStage.beforePlayerRound;
             finishedTheStage = false;
-            OnlyGetAttackCard();
+            this.drawPile = PlayerCard.Instance.Cards;
 
             OnClickEndYourTurn = false;
 
