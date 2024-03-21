@@ -37,8 +37,24 @@ namespace CardBattle
         }
         public void takenDamage(int damage)
         {
+            Debug.Log("taken damage" + 2);
+            if(shield > 0)
+            {
+                int trueDamage = damage - shield;
+                if(trueDamage > 0)
+                {
+                    HP -= trueDamage;
+                    return;
+                }
+            }
             HP -= damage;
         }
+
+        public void SetShield(int amount)
+        {
+            shield += amount;
+        }
+
 
         public void Die()
         {
