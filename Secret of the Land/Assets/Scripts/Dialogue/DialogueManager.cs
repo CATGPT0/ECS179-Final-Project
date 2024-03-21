@@ -71,6 +71,8 @@ public class DialogueManager : MonoBehaviour
 
     public void EnterCardScene()
     {
+        npcCardEntryController.npcBehavior.UI = GameObject.Find("UI");
+        npcCardEntryController.npcBehavior.GamePlay = GameObject.Find("GamePlay");
         var parent = GameObject.Find("CardBattle");
         parent.AddComponent<NPCCardEntryController>();
         parent.GetComponent<NPCCardEntryController>().npcBehavior = npcCardEntryController.npcBehavior;

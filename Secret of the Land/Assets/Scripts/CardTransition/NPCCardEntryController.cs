@@ -19,6 +19,8 @@ namespace CardBattle
         public List<int> ActionsLoop;
         public Sprite sprite;
         public bool isWin;
+        public GameObject UI;
+        public GameObject GamePlay;
     }   
     public class NPCCardEntryController : MonoBehaviour
     {
