@@ -11,6 +11,7 @@ namespace CardBattle
     [System.Serializable]
     public class NPCBehavior
     {
+        public int Id;
         public int Health;
         public int MaxDamage;
         public int MinDamage;
