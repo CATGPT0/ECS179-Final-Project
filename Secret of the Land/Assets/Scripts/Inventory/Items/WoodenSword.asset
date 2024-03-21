@@ -14,7 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: WoodenSword
   itemImage: {fileID: -1599860611, guid: 44ee90999b4e76b40ab6188abe2c0f5c, type: 3}
-  count: 1
-  itemInfo: Most legendary adventures start with a wooden sword...
+  count: 0
+  itemInfo: 'Most legendary adventures start with a wooden sword...
+
+    Effect:
+    +3 Attack Power'
   itemType: 0
   value: 3
