@@ -26,6 +26,7 @@ namespace CardBattle
         {
             int enemyDefendShield = UnityEngine.Random.Range
                 (cardGameManager.enemy.minShield, cardGameManager.enemy.maxShield);
+            cardGameManager.enemy.AddShield(enemyDefendShield);
             Debug.Log("Enemy defending");
         }
 
@@ -36,7 +37,7 @@ namespace CardBattle
             switch (code)
             {
                 case 1:
-                    actionInformation = "Enemy will attack " + cardGameManager.enemy.currentDamage + " in next round";
+                    actionInformation = "Enemy will deal " + cardGameManager.enemy.currentDamage + " damage to you in next round";
                     return EnemyAction_1_Attack;
                 case 2:
                     actionInformation = "Enemy will defend in next round";

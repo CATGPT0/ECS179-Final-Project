@@ -44,13 +44,18 @@ namespace CardBattle
                 if(trueDamage > 0)
                 {
                     HP -= trueDamage;
+                    shield = 0;
                     return;
+                }
+                else
+                {
+                    shield -= damage;
                 }
             }
             HP -= damage;
         }
 
-        public void SetShield(int amount)
+        public void AddShield(int amount)
         {
             shield += amount;
         }

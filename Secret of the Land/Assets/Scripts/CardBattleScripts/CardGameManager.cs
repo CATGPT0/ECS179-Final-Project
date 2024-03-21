@@ -88,7 +88,7 @@ namespace CardBattle
             drawPile = new List<int>();
             discardPile = new List<int>();
             handCards = new List<int>();
-            maxHandCards = 10;
+            maxHandCards = 5;
             cardsUsedNum = 0;
             cardBattle = GameObject.Find("CardBattle");
             nPCBehavior = cardBattle.GetComponent<NPCCardEntryController>().npcBehavior;
@@ -322,6 +322,7 @@ namespace CardBattle
             // Reset player shield
             this.player.ResetShield();
             playerUIManager.setShield(player.shield);
+            playerUIManager.setEnemyShield(enemy.shield);
             finishedTheStage = true;
         }
 
