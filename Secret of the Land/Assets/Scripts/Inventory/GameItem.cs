@@ -21,9 +21,13 @@ public class GameItem
             {
                 onItemUse += PlayerController.Instance.Player.ChangeHealth;
             }
-            else if (item.itemName == "ManaPotion")
+            else if (item.itemName == "StrengthPotion")
             {
-                onItemUse += PlayerController.Instance.Player.ChangeMana;
+                onItemUse += PlayerController.Instance.Player.ChangeAttackPower;
+            }
+            else if (item.itemName == "DefensePotion")
+            {
+                onItemUse += PlayerController.Instance.Player.ChangeDefense;
             }
             
         }
