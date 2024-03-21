@@ -50,6 +50,13 @@ public class SlimeProperties : Properties
         set { canAttack = value; }
     }
 
+    private bool isInit = false;
+    public bool IsInit
+    {
+        get { return isInit; }
+        set { isInit = value; }
+    }
+
     public override int Health
     {
         get { return health; }
@@ -191,5 +198,16 @@ public class SlimeFSM : FSM
     public override void DestroySelf()
     {
         Destroy(gameObject);
+    }
+
+    void OnEnable()
+    {
+        if (!properties.IsInit)
+        {
+            properties.IsInit = true;
+            ToState(State.Idle);
+            return;
+        }
+        agent.Warp(properties.CurrentPos + Random.insideUnitCircle * 2f);
     }
 }

@@ -146,6 +146,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   consumables:
   - {fileID: 4497545176673609530, guid: b88609155a622e643b529a1049ae23f0, type: 3}
+  - {fileID: 4794940792193944217, guid: 176a511e92076d5419f12e0b05c18a37, type: 3}
   equips:
   - {fileID: 4497545176673609530, guid: f1e5583ca13f9974dae77d21322e34f1, type: 3}
 --- !u!95 &2244845218072845059

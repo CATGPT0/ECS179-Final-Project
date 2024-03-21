@@ -1,3 +1,4 @@
+using System;
 using Controller;
 using Plugins.KennethDevelops.Events;
 using UnityEngine;
@@ -180,7 +181,11 @@ public class Player : Entity
 
     public void ChangeHealth(int value)
     {
-        Debug.Log("Potion Used!");
         properties.Health += value;
+    }
+
+    internal void ChangeDefense(int value)
+    {
+        properties.Armor += value;
     }
 }
