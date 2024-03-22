@@ -67,6 +67,7 @@ The gameover UI consists of a Try Again button and a Quit button. I write the sc
 **The Health Bar**
 
 There is a health bar UI in the game which indicates the player's health. Also I use a slider with a health bar sprite to do it. The health bar will change the color when the player's health goes down 50% and 20% with the help of gradient. 
+![alt text](image-6.png)
 
 **The Stats Panel**
 
@@ -90,12 +91,14 @@ The player has an inventory system which allows him to pick up potions and sword
 **The dialogue UI**
 
 When the player use melee attack to a NPC, then the dialogue box will show up. I design and implement that dialogue box. I finish the Dialogue Manager to correctly control the dialogue between the player and the NPC. 
+![alt text](image-4.png)
 
 **The Help Panel**
 
 Shortcut: H to open and close on Windows/Mac
 
 The help panel is used to open a help page which has only texts on it. The help page helps player learn how to play the game.
+![alt text](image-5.png)
 
 **The Announcement Panel**
 
