@@ -15,7 +15,7 @@ Blade and Card: Secret of the Land is a combination of a traditional 2D top-down
 
 ## Trailer ##
 
-<a href="https://youtu.be/sDAz_RW6fDw" target="_blank"><img src="http://img.youtube.com/vi/sDAz_RW6fDw/0.jpg" alt="Blade & Card Trailer" /></a>
+<a href="https://www.youtube.com/watch?v=sDAz_RW6fDw" target="_blank"><img src="http://img.youtube.com/vi/sDAz_RW6fDw/0.jpg" alt="Blade & Card Trailer" /></a>
 
 ## Images ##
 
