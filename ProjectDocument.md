@@ -40,10 +40,13 @@ As producer, I made sure the project came together at the end. I ensured all nec
 
 Because our group was smaller, I asked what my group needed help with and took on the responsibility of creating a tilemap of the world. We had a sketch of what each scene should look like, and each scene corresponds with a level that the player could reach. I made sure to check-in with my group regarding my progress on the map because it was easier for me to share what I have completed rather than have them keep me updated with the code they were completing. There are images below regarding the design process of the map. During this process, I also played the game to see if there were issues in the code that needed to be addressed. When I did happen to find small bugs, such as lag in player movement, I messaged whoever was in charge of that aspect of the game about the issue. Yifan and Jinzhuang responded promptly to messages I sent checking in on progress that has been made and if they needed anything else from me, which made my role as producer run smoothly.
 
+Draft 1:  
 <img width="600" alt="map1" src="https://github.com/CATGPT0/ECS179-Final-Project/assets/72845247/c5cc1e58-0cd0-465a-9696-f3f1aca0372d">
 
+Draft 2:  
 <img width="600" alt="map2" src="https://github.com/CATGPT0/ECS179-Final-Project/assets/72845247/4076e435-700a-4e07-8d45-f637753d9622">
 
+Official World Map:  
 <img width="600" alt="map3" src="https://github.com/CATGPT0/ECS179-Final-Project/assets/72845247/8b3f28b4-0777-49e7-bf64-fe2e496a34e8">
 
 ## User Interface and Input - Yifan Cui
