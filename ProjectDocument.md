@@ -78,7 +78,26 @@ You should replay any **bold text** with your relevant information. Liberally us
 
 ## Press Kit and Trailer
 
-**Include links to your presskit materials and trailer.**
+Press Kit: [a relative link](PressKit.md)
+Trailer: link
+
+trailer:
+- Wanted to show different aspects of the world map so the player can see what there is to explore, increase curiosity
+- shows all the cool things you can do in the game like:
+- defeat monsters
+- open treasure chests
+- talk to npc
+- play card game and win
+- level up
+
+screenshots:
+- wanted to show what part of the world map looks like so player can again be interested
+- show the types of monsters in the game currently
+- show the popups that appear when leveling up, and what you gain
+- show card game
+- show what npc looks like
+- show what part of world looks like close up
+- display different windows with instructions, stats, inventory
 
 **Describe how you showcased your work. How did you choose what to show in the trailer? Why did you choose your screenshots?**
 
