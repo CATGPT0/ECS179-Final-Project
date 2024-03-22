@@ -64,9 +64,6 @@ Because our group was smaller, I asked what my group needed help with and took o
 **Describe how your work intersects with game feel, graphic design, and world-building. Include your visual style guide if one exists.**
 
 ## Game Logic - Jinzhuang Li
-
-**Document the game states and game data you managed and the design patterns you used to complete your task.**
-
 ### Card Game Logic
 **General Design**
 
