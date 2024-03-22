@@ -16,10 +16,10 @@
 **In this section, explain how the game should be played. Treat this as a manual within a game. Explaining the button mappings and the most optimal gameplay strategy is encouraged.**
 
 ### Button Mappings ###
-`W` - Move up  
-`A` - Move left  
-`S` - Move down  
-`D` - Move right  
+`W` or `up arrow` key - Move up  
+`A` or `left arrow` key - Move left  
+`S` or `down arrow` key - Move down  
+`D` or `right arrow` key - Move right  
 `E` - Display inventory window  
 `H` - Displays window with what keys do what  
 `tab` - Display current game stats  
