@@ -1,8 +1,7 @@
 # Blade & Card: Secret of the Land #
 
-## Summary ##
-
-**A paragraph-length pitch for your game.** 
+## Summary ##  
+You live in a magic world that has been invaded by monsters! You must travel through this world to defeat the monsters and find the secret of the world. Throughout your journey, you will run into NPCs that you can compete in card games against to gain future combative advantages; However, you will also run into monsters that will chase and attack you. Protect yourself and use all the resources you can to finally find the secret of the world.
 
 ## Gameplay Explanation ##
 - `W` or `up arrow` key - Move up  
