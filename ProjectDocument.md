@@ -1,7 +1,7 @@
 # Blade & Card: Secret of the Land #
 
 ## Summary ##  
-You live in a magic world that has been invaded by monsters! You must travel through this world to defeat the monsters and find the secret of the world. Throughout your journey, you will run into NPCs that you can compete in card games against to gain future combative advantages; However, you will also run into monsters that will chase and attack you. Protect yourself and use all the resources you can to finally find the secret of the world.
+You live in a magic world that has been invaded by monsters! You must travel through this world to defeat the monsters and find the secret of the world. Throughout your journey, you will run into NPCs that you can compete in card games against to gain future combative advantages; However, you will also run into monsters that will chase and attack you. Protect yourself and use all the resources you can to finally find the secret of the world. Good luck!
 
 ## Gameplay Explanation ##
 - `W` or `up arrow` key - Move up  
@@ -19,14 +19,9 @@ You live in a magic world that has been invaded by monsters! You must travel thr
 
 You as the player must navigate through the map and defeat the monsters that attack you. While navigating through the map, you should try to look for treasure chests. These chests contain items that will help you defeat enemies such as health potions, attack potions, defense potions, and swords of varying attack power. You can access these items by pressing `E` on the keyboard. You can look at the bottom left corner of the screen to see your health. If you get killed, selecting `Try Again` will restart the game, and you will start with the stats that you left off on. 
 
-When you find an NPC, `Left-click` on them to begin your interaction. The NPCs give you the option to play a card game against them in order to gain a future combative advantage. ** Insert how to play card game **.
-
-
-**Add it here if you did work that should be factored into your grade but does not fit easily into the proscribed roles! Please include links to resources and descriptions of game-related material that does not fit into roles here.**
+When you find an NPC, `Left-click` on them to begin your interaction. The NPCs give you the option to play a card game against them in order to gain a future combative advantage. The player will have 2 card piles, one is the "draw pile" and the other is the "discard pile". The player starts the game by holding some cards and mana crystals. During each round, the player can choose to either draw a card or gain 1 mana crystal. Cards require mana crystals to use, making this a trade-off. You must make the decisions based off of the prompts the NPC gives you. There are many types of cards: some of the cards can directly attack the enemies, some of the cards can provide protections like shields and health, and some of the cards can let you draw more cards and gain more mana crystals. Some of the cards can even let you turn defeat into victory!
 
 # Main Roles #
-
-Your goal is to relate the work of your role and sub-role in terms of the content of the course. Please look at the role sections below for specific instructions for each role.
 
 Below is a template for you to highlight items of your work. These provide the evidence needed for your work to be evaluated. Try to have at least four such descriptions. They will be assessed on the quality of the underlying system and how they are linked to course content. 
 
