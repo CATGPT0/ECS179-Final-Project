@@ -23,6 +23,8 @@ Blade and Card: Secret of the Land is a combination of a traditional 2D top-down
 
 <img width="500" alt="Level Up" src="https://github.com/CATGPT0/ECS179-Final-Project/assets/72845247/75b6ec30-d9c4-4bd0-a992-8b00081853cc">
 
+<img width="500" alt="Part of Map" src="https://github.com/CATGPT0/ECS179-Final-Project/assets/72845247/919e09e4-0757-4ffd-937f-8948ac632dda">
+
 <img width="500" alt="NPC Dialogue" src="https://github.com/CATGPT0/ECS179-Final-Project/assets/72845247/b1a75b51-02ab-4bc7-8f55-d84e7f8482f8">
 
 <img width="500" alt="Card Game vs. NPC" src="https://github.com/CATGPT0/ECS179-Final-Project/assets/72845247/8b9bee0b-301d-4140-8e71-7a38ace53aeb">
