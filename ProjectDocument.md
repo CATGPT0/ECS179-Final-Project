@@ -21,9 +21,13 @@
 `S` or `down arrow` key - Move down  
 `D` or `right arrow` key - Move right  
 `E` - Display inventory window  
-`H` - Displays window with what keys do what  
-`tab` - Display current game stats  
-`Left click` - Swing sword to attack monsters  
+- Shows inventory along with a description of what each object is and the effect the object has  
+`H` - Displays window summarizing button mappings
+`tab` - Display current game stats
+- Shows health, attack power, speed, armor, current level, and XP
+`Left click` - Swing sword to attack monsters
+- Does damage in direction the player is facing
+- Must face monster in order to do damage to it
 
 
 **Add it here if you did work that should be factored into your grade but does not fit easily into the proscribed roles! Please include links to resources and descriptions of game-related material that does not fit into roles here.**
