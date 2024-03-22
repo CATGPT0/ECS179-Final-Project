@@ -108,18 +108,17 @@ The enemies actions in card battle are following their pattern and keep looping 
 
 ## Press Kit and Trailer - Chelsea Huffman
 
-[Press Kit](PressKit.md)
+[Press Kit](PressKit.md)  
 [Trailer](https://youtu.be/sDAz_RW6fDw)
 
+**Trailer**
+The thumbnail for this trailer includes the title of the game along with an image from the game. I made this choice so people can get curious about what the game entails, and they would gain some initial insight into the game. In the trailer for this game, I wanted to advertise all the different features it has that makes the game fun to play. The first few clips show off different parts of the world map, so the player can see what there is to explore. This was included with the intention of providing the watcher with background information about the game's setting and increase their curiosity. Next, I displayed the finding treasure chests. I put this part before fighting off the monsters because the elements found in the treasure chest help the player defeat them. Then, I included a sneak peak of NPC dialogue which leads to a card game. This was included because the card game is also a main aspect of this game; Therefore, it's important that the player knows how to reach it, and get a sneak peak of what it looks like. The final clip was the player defeating the monsters and levelling up. This clip was a two-in-one because it shows what the game looks like when it is played, and it also shows what you can gain when you level up. I found the UI of our game to be very visually appealing, so I wanted to show off the different UI elements that appear. As for the song that the trailer is set to, it was similar to the song chosen in our actual game, but I felt like this built a small level of suspense to build up to the fighting part of the game trailer.
 
-trailer:
-- Wanted to show different aspects of the world map so the player can see what there is to explore, increase curiosity
-- shows all the cool things you can do in the game like:
-- defeat monsters
-- open treasure chests
-- talk to npc
-- play card game and win
-- level up
+**Press Kit**
+The press kit was created as a Markdown file, and I used the outline of the press kits from dopresskit.com to help me compile all the information it needed. The first thing that the user will see when they open the press kit is an image that provides some insight into the game, like what part of the land looks like and what a monster looks like. Then, upon scrolling, they will see a brief description about the game and the purpose of it. I wanted to set the scene for the user on what they would be playing if they continued with downloading the game. The trailer appears next on the page so the user can gain additional insight into the game and understand how it is meant to be played. Following the trailer are screenshots that I believed were useful to share, and an "About the Team" section that contains everyones roles and subroles.
+
+**Screenshots**
+
 
 screenshots:
 - wanted to show what part of the world map looks like so player can again be interested
