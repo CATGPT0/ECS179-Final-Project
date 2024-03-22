@@ -78,7 +78,7 @@ You should replay any **bold text** with your relevant information. Liberally us
 
 ## Press Kit and Trailer
 
-Press Kit: [a relative link](PressKit.md)
+[Press Kit](PressKit.md)
 Trailer: link
 
 trailer:
