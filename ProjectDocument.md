@@ -24,15 +24,6 @@ When you find an NPC, `Left-click` on them to begin your interaction. The NPCs g
 
 # Main Roles #
 
-Below is a template for you to highlight items of your work. These provide the evidence needed for your work to be evaluated. Try to have at least four such descriptions. They will be assessed on the quality of the underlying system and how they are linked to course content. 
-
-*Short Description* - Long description of your work item that includes how it is relevant to topics discussed in class. [link to evidence in your repository](https://github.com/dr-jam/ECS189L/edit/project-description/ProjectDocumentTemplate.md)
-
-Here is an example:  
-*Procedural Terrain* - The game's background consists of procedurally generated terrain produced with Perlin noise. The game can modify this terrain at run-time via a call to its script methods. The intent is to allow the player to modify the terrain. This system is based on the component design pattern and the procedural content generation portions of the course. [The PCG terrain generation script](https://github.com/dr-jam/CameraControlExercise/blob/513b927e87fc686fe627bf7d4ff6ff841cf34e9f/Obscura/Assets/Scripts/TerrainGenerator.cs#L6).
-
-You should replay any **bold text** with your relevant information. Liberally use the template when necessary and appropriate.
-
 ## Producer - Chelsea Huffman
 
 For this project, our group had different schedules that made scheduling team meetings difficult. Therefore, we decided to communicate using Discord. Additionally, since our project ended up only having 3 active members, I played a smaller role being a producer. Yifan and Jinzhuang worked together to create the game, and it made more logistical sense for them to communicate directly with each other on what phase of the project they were working on. They made sure to constantly push their changes onto Github, and were in communication with each other when dealing with repo management. I would constantly pull from Github to see the progress that was being made on the project. I also made sure to check how well we were following the schedule that we created on our initial plan document, but we fell a little bit behind schedule. Therefore, we had to prioritize what to implement, and both of them told me what they were able to and unable to accomplish by the deadline. For the game progress meetings, I worked with the other teams to find times that worked well with both groups, and joined in on the meetings to understand some of the technical work the team has done.
