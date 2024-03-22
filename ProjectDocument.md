@@ -38,30 +38,53 @@ Here is an example:
 
 You should replay any **bold text** with your relevant information. Liberally use the template when necessary and appropriate.
 
-## Producer
+## Producer - Chelsea Huffman
 
 **Describe the steps you took in your role as producer. Typical items include group scheduling mechanisms, links to meeting notes, descriptions of team logistics problems with their resolution, project organization tools (e.g., timelines, dependency/task tracking, Gantt charts, etc.), and repository management methodology.**
 
-## User Interface and Input
+## User Interface and Input - Yifan Cui
 
 **Describe your user interface and how it relates to gameplay. This can be done via the template.**
 **Describe the default input configuration.**
 
 **Add an entry for each platform or input style your project supports.**
 
-## Movement/Physics
+## Movement/Physics - Yifan Cui
 
 **Describe the basics of movement and physics in your game. Is it the standard physics model? What did you change or modify? Did you make your movement scripts that do not use the physics system?**
 
-## Animation and Visuals
+## Animation and Visuals - Jinzhuang Li
 
 **List your assets, including their sources and licenses.**
 
 **Describe how your work intersects with game feel, graphic design, and world-building. Include your visual style guide if one exists.**
 
-## Game Logic
+## Game Logic - Jinzhuang Li
 
 **Document the game states and game data you managed and the design patterns you used to complete your task.**
+
+### Card Game Logic
+**General Design**
+
+The card battle in our game is like Slay the Spire and Inscryption. I want the player have a trade-off every time in player round. In order to do this, I limited the resource of player in each round. The player can only get either energy or cards. To help player make choice, the enemy action in next round will  be displayed on the head of screen so player will not dropped into a boring loop of just restore each resouce one time every two round.
+
+Some card can add shields of player and defend some demage in thie round, but the shield can only exist in one round. Therefore the right time of defend and always remember to keep some defend card on hand is important.
+
+**Cards**
+
+A card game most have various cards. Therefore a pattern to make adding different cards in future is my goal. I used scriable object so I can easily create new card perfebs. In order to implement the effects in game, I give each type of card an public integer field `ID`. This is used by `CardBattleManager` to decide each card effects. Also, IDs allow the game manager store the piles into a integer list. When player is using a card, the card will give `CardGameManager` an ID and destroy itself. The `CardGameManager` will send this ID to `CardBattleManager` to process effect and `HandCardManager` to remove the card from hand. The Deck of player is also a integer list that will not be destroy when loading scene. Every time card battle start, the `drawPile` will get a copy of player deck. Winning a card battle will give player a powerful card in deck so the player can keep their cards in RPG world and become stronger after each battle.
+
+**Hand Cards UI**
+
+The hand cards in our games are game objects. I used `OnMouseEnter()` to implement the effect of lifting the card when player's mouse is on the card. If the mouse is stay one the card for a while, the player can also see a description of that card. This is implemented by using a counter to control the game object of that banner.
+
+**Battle Logic**
+
+In our card game there are 6 game stages. `BeforePlayerRound`, `PlayerRound`, `AfterPlayerRound`, `BeforeEnemyRound`, `EnemyRound`, and `AfterEnemyRound`. Different stage have diffent events. In `BeforePlayerRound` the player can choose to get card or get energy and hand cards are not avaliable in this stage. In `PlayerRound` the player can use hand cards to fight with enemy or just prepare for next round. `AfterPlayerRound` will update the hand cards UI for player. `BeforeEnemyRound` has no function so far. `EnemyRound` is where enemy action will process. In `AfterEnemyRound` the enemy will decide what is the next action in next enemy round so that the player can see the enemy action when player making choise in `BeforePlayerRound`.
+
+**Enemy**
+
+The enemies actions in card battle are following their pattern and keep looping until the battle end. For example, if an enemy has pattern "Attack, Defend, Defend", then the enemy will attack in first round, defend in second round, and defend in third round, and keep looping. If the player get the pattern of an enemy, it is possible to predict the action type before two or three round. However, the amount of damage or shield the enemy will attack or defend is still randomized. This number can only be seen on UI before the player round.
 
 # Sub-Roles
 
@@ -73,20 +96,21 @@ You should replay any **bold text** with your relevant information. Liberally us
 
 **Document the sound style.** 
 
-## Gameplay Testing
+## Gameplay Testing - Yifan Cui
 
 **Add a link to the full results of your gameplay tests.**
 
 **Summarize the key findings from your gameplay tests.**
 
-## Narrative Design
+## Narrative Design - tbd
 
 **Document how the narrative is present in the game via assets, gameplay systems, and gameplay.** 
 
-## Press Kit and Trailer
+## Press Kit and Trailer - Chelsea Huffman
 
 [Press Kit](PressKit.md)
-Trailer: link
+[Trailer](https://youtu.be/sDAz_RW6fDw)
+
 
 trailer:
 - Wanted to show different aspects of the world map so the player can see what there is to explore, increase curiosity
@@ -108,6 +132,6 @@ screenshots:
 
 **Describe how you showcased your work. How did you choose what to show in the trailer? Why did you choose your screenshots?**
 
-## Game Feel and Polish
+## Game Feel and Polish - Yifan Cui
 
 **Document what you added to and how you tweaked your game to improve its game feel.**

@@ -42,7 +42,7 @@ Blade and Card: Secret of the Land is a combination of a traditional 2D top-down
 
 | Name | Role    | Subrole    |
 | :---:   | :---: | :---: |
-| Yifan Cui |    |    |
-| Chelsea Huffman |    |    |
-| Jinzhuang Li |    |    |
+| Yifan Cui |  User Interface and Input, Movement/Physics  |  Gameplay Testing, Game Feel  |
+| Chelsea Huffman |  Producer  |  Press Kit and Trailer  |
+| Jinzhuang Li |  Game Logic, Animation and Visuals  |  Audio  |
 | Zachary Oren |    |    |
