@@ -20,7 +20,7 @@ You live in a magic world that has been invaded by monsters! You must travel thr
 You as the player must navigate through the map and defeat the monsters that attack you. While navigating through the map, you should try to look for treasure chests. These chests contain items that will help you defeat enemies such as health potions, attack potions, defense potions, and swords of varying attack power. You can access these items by pressing `E` on the keyboard. You can look at the bottom left corner of the screen to see your health. If you get killed, selecting `Try Again` will restart the game, and you will start with the stats that you left off on. 
 
 When you find an NPC, `Left-click` on them to begin your interaction. The NPCs give you the option to play a card game against them in order to gain a future combative advantage. The player will have 2 card piles, one is the "draw pile" and the other is the "discard pile". The player starts the game by holding some cards and mana crystals. During each round, the player can choose to either draw a card or gain 1 mana crystal. Cards require mana crystals to use, making this a trade-off. You must make the decisions based off of the prompts the NPC gives you. There are many types of cards: some of the cards can directly attack the enemies, some of the cards can provide protections like shields and health, and some of the cards can let you draw more cards and gain more mana crystals. Some of the cards can even let you turn defeat into victory!
-
+***
 # Main Roles #
 
 Below is a template for you to highlight items of your work. These provide the evidence needed for your work to be evaluated. Try to have at least four such descriptions. They will be assessed on the quality of the underlying system and how they are linked to course content. 
@@ -48,19 +48,61 @@ Draft 2:
 
 Official World Map:  
 <img width="600" alt="map3" src="https://github.com/CATGPT0/ECS179-Final-Project/assets/72845247/8b3f28b4-0777-49e7-bf64-fe2e496a34e8">
-
+***
 ## User Interface and Input - Yifan Cui
 
 **Describe your user interface and how it relates to gameplay. This can be done via the template.**
 **Describe the default input configuration.**
 
 **Add an entry for each platform or input style your project supports.**
-
+***
 ## Movement/Physics - Yifan Cui
 
 **Describe the basics of movement and physics in your game. Is it the standard physics model? What did you change or modify? Did you make your movement scripts that do not use the physics system?**
-
+***
 ## Animation and Visuals - Jinzhuang Li
+
+### RPG Art
+
+All the art and animation are from (?)
+
+
+### Card Battle Art
+
+#### Cards
+
+My design is to use the color of cards to represent the function. For example, in our project, red card will always deal damage to enemy and black card is used to do something else except attack. 
+
+![](./ExamplePic/CardArt1.png)
+* The red card with a sword is attack card, this card will deal 2 damage to enemy.
+* The black card with a shield is defend card, this card will increase the shield to defend 2 demage in this round. Notice that this card will not deal damage to enemy
+
+
+![](./ExamplePic/CardArt2.png)
+* The red card with a broken sword is deadly struggle card, this card will deal 2 damage to enemy and restore 1 energy. perfect for those have no energy.
+* The black card with a black crystal is energy boost card, this card will restore 4 energy for player. This card is also black because it will not deal damage to enemy.
+
+
+This design can give player a feel of which cards are in hand.
+***
+### Card Battle UI
+
+In UI, we need icon of energy, draw pile, shield, health, and next-round button.
+
+![](./ExamplePic/CrystalAndDrawPile.png)
+The purple crystal is the energy the enemy have and the pile is the draw pile that the player can draw cards from. Both of them are button so the player can click one of them to make choice before the player round.
+
+![](./ExamplePic/PlayerHealth.png)
+The shield and heart under the hand cards are the shields and health of player. 
+
+![](./ExamplePic/EnemyHealth.png)
+The shield and heart under the enemy are the shields and health of enemy.
+
+![](./ExamplePic/EnemyAction.png)
+The text above enemy shows the action it will do in next round.
+
+The animation of using a card used `Vector3.Lerp()` to let the card slide back to the draw pile.
+
 
 **List your assets, including their sources and licenses.**
 
@@ -70,17 +112,29 @@ Official World Map:
 ### Card Game Logic
 **General Design**
 
-The card battle in our game is like Slay the Spire and Inscryption. I want the player have a trade-off every time in player round. In order to do this, I limited the resource of player in each round. The player can only get either energy or cards. To help player make choice, the enemy action in next round will  be displayed on the head of screen so player will not dropped into a boring loop of just restore each resouce one time every two round.
 
+The card battle in our game is like Slay the Spire and Inscryption. I want the player have a trade-off every time in player round. In order to do this, I limited the resource of player in each round. The player can only get either energy or cards. To help player make choice, the enemy action in next round will  be displayed on the head of screen so player will not dropped into a boring loop of just restore each resouce one time every two round.
+![](./ExamplePic/CardBattleGeneral.png)
 Some card can add shields of player and defend some demage in thie round, but the shield can only exist in one round. Therefore the right time of defend and always remember to keep some defend card on hand is important.
 
 **Cards**
 
-A card game most have various cards. Therefore a pattern to make adding different cards in future is my goal. I used scriable object so I can easily create new card perfebs. In order to implement the effects in game, I give each type of card an public integer field `ID`. This is used by `CardBattleManager` to decide each card effects. Also, IDs allow the game manager store the piles into a integer list. When player is using a card, the card will give `CardGameManager` an ID and destroy itself. The `CardGameManager` will send this ID to `CardBattleManager` to process effect and `HandCardManager` to remove the card from hand. The Deck of player is also a integer list that will not be destroy when loading scene. Every time card battle start, the `drawPile` will get a copy of player deck. Winning a card battle will give player a powerful card in deck so the player can keep their cards in RPG world and become stronger after each battle.
+A card game most have various cards. Therefore a pattern to make adding different cards in future is my goal. I used scriable object so I can easily create new card perfebs. 
+
+![](./ExamplePic/AttackCard.png)
+
+![](./ExamplePic/AttackCardScriptable.png)
+
+In order to implement the effects in game, I give each type of card an public integer field `CardCode` as an ID. This is used by `CardBattleManager` to decide each card effects. Also, IDs allow the game manager store the piles into a integer list. When player is using a card, the card will give `CardGameManager` an ID and destroy itself. The `CardGameManager` will send this ID to `CardBattleManager` to process effect and `HandCardManager` to remove the card from hand. The Deck of player is also a integer list that will not be destroy when loading scene. Every time card battle start, the `drawPile` will get a copy of player deck. Winning a card battle will give player a powerful card in deck so the player can keep their cards in RPG world and become stronger after each battle.
 
 **Hand Cards UI**
 
-The hand cards in our games are game objects. I used `OnMouseEnter()` to implement the effect of lifting the card when player's mouse is on the card. If the mouse is stay one the card for a while, the player can also see a description of that card. This is implemented by using a counter to control the game object of that banner.
+The hand cards in our games are game objects. I used `OnMouseEnter()` to implement the effect of lifting the card when player's mouse is on the card.
+![](./ExamplePic/HandCardUI.png)
+If the mouse is stay one the card for a while, the player can also see a description of that card. This is implemented by using a counter to control the game object of that banner.
+
+![](./ExamplePic/HandCardDescription.png)
+
 
 **Card Battle Logic**
 
