@@ -14,9 +14,9 @@ public static class MapTable
     {
         { "Forest", new MapLocation() { topLeft = new Vector2(-157, 282), bottomRight = new Vector2(-104, 237) } },
         { "Forest2", new MapLocation() { topLeft = new Vector2(-21, 273), bottomRight = new Vector2(31, 200) } },
-        { "GrassLand1", new MapLocation() { topLeft = new Vector2(1001, 0), bottomRight = new Vector2(2000, 1000) } },
+        { "SnowLand", new MapLocation() { topLeft = new Vector2(37, 272), bottomRight = new Vector2(189, 233) } },
         { "GrassLand2", new MapLocation() { topLeft = new Vector2(0, 1001), bottomRight = new Vector2(1000, 2000) } },
-        { "Village", new MapLocation() { topLeft = new Vector2(1001, 1001), bottomRight = new Vector2(2000, 2000) } }
+        { "Village", new MapLocation() { topLeft = new Vector2(40, 225), bottomRight = new Vector2(105, 193) } }
     };
 
 }

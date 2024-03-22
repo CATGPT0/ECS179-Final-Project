@@ -1,4 +1,5 @@
 # Blade & Card: Secret of the Land #
+[Click here to download published version on itchio](https://catgpt0.itch.io/blade-card-secret-of-the-land)
 
 ## Summary ##  
 You live in a magic world that has been invaded by monsters! You must travel through this world to defeat the monsters and find the secret of the world. Throughout your journey, you will run into NPCs that you can compete in card games against to gain future combative advantages; However, you will also run into monsters that will chase and attack you. Protect yourself and use all the resources you can to finally find the secret of the world. Good luck!
@@ -23,15 +24,6 @@ When you find an NPC, `Left-click` on them to begin your interaction. The NPCs g
 ***
 # Main Roles #
 
-Below is a template for you to highlight items of your work. These provide the evidence needed for your work to be evaluated. Try to have at least four such descriptions. They will be assessed on the quality of the underlying system and how they are linked to course content. 
-
-*Short Description* - Long description of your work item that includes how it is relevant to topics discussed in class. [link to evidence in your repository](https://github.com/dr-jam/ECS189L/edit/project-description/ProjectDocumentTemplate.md)
-
-Here is an example:  
-*Procedural Terrain* - The game's background consists of procedurally generated terrain produced with Perlin noise. The game can modify this terrain at run-time via a call to its script methods. The intent is to allow the player to modify the terrain. This system is based on the component design pattern and the procedural content generation portions of the course. [The PCG terrain generation script](https://github.com/dr-jam/CameraControlExercise/blob/513b927e87fc686fe627bf7d4ff6ff841cf34e9f/Obscura/Assets/Scripts/TerrainGenerator.cs#L6).
-
-You should replay any **bold text** with your relevant information. Liberally use the template when necessary and appropriate.
-
 ## Producer - Chelsea Huffman
 
 For this project, our group had different schedules that made scheduling team meetings difficult. Therefore, we decided to communicate using Discord. Additionally, since our project ended up only having 3 active members, I played a smaller role being a producer. Yifan and Jinzhuang worked together to create the game, and it made more logistical sense for them to communicate directly with each other on what phase of the project they were working on. They made sure to constantly push their changes onto Github, and were in communication with each other when dealing with repo management. I would constantly pull from Github to see the progress that was being made on the project. I also made sure to check how well we were following the schedule that we created on our initial plan document, but we fell a little bit behind schedule. Therefore, we had to prioritize what to implement, and both of them told me what they were able to and unable to accomplish by the deadline. For the game progress meetings, I worked with the other teams to find times that worked well with both groups, and joined in on the meetings to understand some of the technical work the team has done.
@@ -51,15 +43,95 @@ Official World Map:
 ***
 ## User Interface and Input - Yifan Cui
 
-**Describe your user interface and how it relates to gameplay. This can be done via the template.**
-**Describe the default input configuration.**
+### General UI
 
+<<<<<<< HEAD
 **Add an entry for each platform or input style your project supports.**
 ***
 ## Movement/Physics - Yifan Cui
 
 **Describe the basics of movement and physics in your game. Is it the standard physics model? What did you change or modify? Did you make your movement scripts that do not use the physics system?**
 ***
+=======
+**The Main Menu UI**
+
+The Main Menu UI consists of a StartGame button and a Quit button. There is also border around the main menu. I write the scripts to control the button behaviors to make sure it works properly.
+
+**The GameOver UI**
+
+The gameover UI consists of a Try Again button and a Quit button. I write the scripts to control the button behaviors to make sure it works properly.
+
+### In Game UI
+
+**The Health Bar**
+
+There is a health bar UI in the game which indicates the player's health. Also I use a slider with a health bar sprite to do it. The health bar will change the color when the player's health goes down 50% and 20% with the help of gradient. 
+![alt text](image-6.png)
+
+**The Stats Panel**
+
+Shortcut: Tab to open and close on Windows/Mac
+The statistics bar shows the player's health/max health, speed, armor, attack power, current xp and current level. It will change when the player levels up with the help of Unity event system.
+
+![alt text](image.png)
+
+**The level up and get xp UI**
+
+When the player gets some xp or levels up. Some some tabs of UI will show up at the right side of the screen. These UI will dissolve after 1 sec on by one with the controll of the coroutine. These info will tell player how many properties he gains.
+![alt text](image-1.png)
+![alt text](image-2.png)
+
+**The Inventory UI**
+
+Shortcut: E to open and close on Windows/Mac
+The player has an inventory system which allows him to pick up potions and sword. I create the scriptableobject for these items, slots, bags, and related events like OnItemUsed to correctly trigger these events at the appropriate time. The player can see all the potions/sword he have and use or delete them when pressing b.
+![alt text](image-3.png)
+
+**The dialogue UI**
+
+When the player use melee attack to a NPC, then the dialogue box will show up. I design and implement that dialogue box. I finish the Dialogue Manager to correctly control the dialogue between the player and the NPC. 
+![alt text](image-4.png)
+
+**The Help Panel**
+
+Shortcut: H to open and close on Windows/Mac
+
+The help panel is used to open a help page which has only texts on it. The help page helps player learn how to play the game.
+![alt text](image-5.png)
+
+**The Announcement Panel**
+
+When something happens, it will show up in the announcement panel at the top of the screen.
+
+## Movement/Physics - Yifan Cui
+
+### Event System
+
+**Event**
+
+I implement the events for both player and monsters. This includes OnPlayerHealthChanged, OnPlayerAttack, OnPlayerDeathEnter, OnPlayerDeathExit, OnPlayerRespawn, onPlayerLevelUp etc. for player and onMonsterDeath, onMonsterHealthChanged for the monsters.
+
+### Player
+
+**Movement**
+
+The player movement is implemented by detecting the input X and Y axis then modifying the transform.position. We use WASD to control the movement of the player. I store the variable movement and lastMovement in the playerController.cs to make sure the player can flip to the correct position when idling or moving. 
+
+**Attack**
+
+The player use a "Fire1" key to attack other enemies. I create the box colliders for player and each enemies. When detecing correct tag, the damage engine will be passed in the properties of attackers and defenders. Then the damage will be calculated and OnPlayerHit/OnMonsterHit, OnPlayerDeath/OnMonsterDeath will be triggered. I also did the interface to let the animation designer know when to change to animation.
+
+### Monster
+
+**Movement**
+
+The movement of the player is implemented by the Finite State Machine(FSM). The finite state machine consists of state such as Idle, Attack, Patrol, Chase, React... and each state has 3 steps: OnEnter(), OnUpdate() and OnExit(). We use the FSM to control the movement and attack of the monster. The monster will be idle at the beginning of the game. Then after some periods, the monster will find a random point to patrol around and enter idle state again. When the monster "sees" the player (this part is controlled by a triggered hitbox and bool variable isInSight), it will enter the chase state. When  it loses the player, it will enter the idle state. The tilemap in the game is baked by the NavMesh 2D modifier so that the monsters with NavMesh Agent component can find the player with SetDestination().
+
+**Attack**
+
+The attack of the monsters is also controlled by the FSM. When the monster enter the Chase state, it will follow the player. I use Gizmo to draw the circle to indicate the attack range of the monster. Therefore, when the distance between the player and monster is small enough, in other words, the colliders overlap, the monster will enter the attack state. I use the keyframe on the monster attack animation to control the hitbox. When the player escapes, the monster will enter chase state and follow the player.
+
+>>>>>>> 03d0873659391796f78925bb7ee8bf19e5b30657
 ## Animation and Visuals - Jinzhuang Li
 
 ### RPG Art
@@ -156,9 +228,7 @@ The enemies actions in card battle are following their pattern and keep looping 
 
 ## Gameplay Testing - Yifan Cui
 
-**Add a link to the full results of your gameplay tests.**
-
-**Summarize the key findings from your gameplay tests.**
+Please refer to link: https://docs.google.com/document/d/1rbTBrPNn8kBCKlrBnKNSLHSq15ZqHgZbLJBqnMVlvlQ/edit?usp=sharing
 
 ## Narrative Design - tbd
 
@@ -181,4 +251,33 @@ I wanted to use these screenshots to showcase our game's UI. First, I chose to d
 
 ## Game Feel and Polish - Yifan Cui
 
-**Document what you added to and how you tweaked your game to improve its game feel.**
+### Player
+
+**Attack**
+
+When I first created the animation for the player attack, I find the player can move all around when attacking. It will lead to player cannot flip to the correct direction when attacking. And I get that fixed.
+
+**Leveling system**
+
+I find the player is too hard to level up at the beginning of the game so I decrease the xp threshold for each level to let the player get started easier!
+
+**Less Guide**
+
+There is not too much guide when player first enter the game, so I put some chests on the way to the village to better guide the player.
+
+
+###Monster
+
+**Attack**
+
+The attack range for the skeleton is too large, I modify the hitbox to decrease the area of it.
+
+**Movement**
+
+This is a very time consuming modification. Because of the NavMesh modifer, the monster always gets stuck when chasing the player. I create a HandleStuck function in the FSM to make sure if the monster gets stuck it can come out.
+
+###Environment
+
+**Obstacle**
+
+Some objects on the tilemap do not work as desired. Player can walk on the roof of the houses. Also, some obstacles' collider box is too large that player can hardly move around.
