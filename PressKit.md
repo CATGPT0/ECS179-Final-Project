@@ -17,7 +17,7 @@ Blade and Card: Secret of the Land is a combination of a traditional 2D top-down
 
 ## Images ##
 
-<img width="400" alt="World Map 1" src="https://github.com/CATGPT0/ECS179-Final-Project/assets/72845247/9ef5c366-7153-498f-9aad-cf769e06a987">
+<img width="400" margin="30" alt="World Map 1" src="https://github.com/CATGPT0/ECS179-Final-Project/assets/72845247/9ef5c366-7153-498f-9aad-cf769e06a987">
 
 <img width="400" alt="Fight Monsters" src="https://github.com/CATGPT0/ECS179-Final-Project/assets/72845247/f7f8eaf1-799f-45cc-8886-0dae6d204be9">
 
@@ -33,8 +33,7 @@ Blade and Card: Secret of the Land is a combination of a traditional 2D top-down
 
 <img width="400" alt="Inventory" src="https://github.com/CATGPT0/ECS179-Final-Project/assets/72845247/d5b57bd3-2b22-420f-bbcb-07a728df2f06">
 
-
-
+<img width="400" alt="Inventory" src="https://github.com/CATGPT0/ECS179-Final-Project/assets/72845247/22df60fc-180c-4538-bf81-9d96e2ef18fc">
 
 
 ## About the Team ##
