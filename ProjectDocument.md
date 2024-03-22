@@ -73,14 +73,19 @@ There is a health bar UI in the game which indicates the player's health. Also I
 Shortcut: Tab to open and close on Windows/Mac
 The statistics bar shows the player's health/max health, speed, armor, attack power, current xp and current level. It will change when the player levels up with the help of Unity event system.
 
+![alt text](image.png)
+
 **The level up and get xp UI**
 
 When the player gets some xp or levels up. Some some tabs of UI will show up at the right side of the screen. These UI will dissolve after 1 sec on by one with the controll of the coroutine. These info will tell player how many properties he gains.
+![alt text](image-1.png)
+![alt text](image-2.png)
 
 **The Inventory UI**
 
-Shortcut: B to open and close on Windows/Mac
+Shortcut: E to open and close on Windows/Mac
 The player has an inventory system which allows him to pick up potions and sword. I create the scriptableobject for these items, slots, bags, and related events like OnItemUsed to correctly trigger these events at the appropriate time. The player can see all the potions/sword he have and use or delete them when pressing b.
+![alt text](image-3.png)
 
 **The dialogue UI**
 
