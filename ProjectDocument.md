@@ -15,14 +15,15 @@
 
 **In this section, explain how the game should be played. Treat this as a manual within a game. Explaining the button mappings and the most optimal gameplay strategy is encouraged.**
 
-`W` - Move up
-`A` - Move left
-`S` - Move down
-`D` - Move right
-`E` - Display inventory window
-`H` - Displays window with what keys do what
-`tab` - Display current game stats
-`Left click` - Swing sword to attack monsters
+### Button Mappings ###
+`W` - Move up  
+`A` - Move left  
+`S` - Move down  
+`D` - Move right  
+`E` - Display inventory window  
+`H` - Displays window with what keys do what  
+`tab` - Display current game stats  
+`Left click` - Swing sword to attack monsters  
 
 
 **Add it here if you did work that should be factored into your grade but does not fit easily into the proscribed roles! Please include links to resources and descriptions of game-related material that does not fit into roles here.**
