@@ -2,19 +2,9 @@
 
 ## Summary ##
 
-**A paragraph-length pitch for your game.**
-
-## Project Resources
-
-[Web-playable version of your game.](https://itch.io/)  
-[Trailor](https://youtube.com)  
-[Press Kit](https://dopresskit.com/)  
-[Proposal: make your own copy of the linked doc.](https://docs.google.com/document/d/1qwWCpMwKJGOLQ-rRJt8G8zisCa2XHFhv6zSWars0eWM/edit?usp=sharing)  
+**A paragraph-length pitch for your game.** 
 
 ## Gameplay Explanation ##
-
-**In this section, explain how the game should be played. Treat this as a manual within a game. Explaining the button mappings and the most optimal gameplay strategy is encouraged.**
-
 - `W` or `up arrow` key - Move up  
 - `A` or `left arrow` key - Move left  
 - `S` or `down arrow` key - Move down  
