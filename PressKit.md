@@ -17,21 +17,21 @@ Blade and Card: Secret of the Land is a combination of a traditional 2D top-down
 
 ## Images ##
 
-<img width="450" alt="World Map 1" src="https://github.com/CATGPT0/ECS179-Final-Project/assets/72845247/9ef5c366-7153-498f-9aad-cf769e06a987">
+<img width="400" alt="World Map 1" src="https://github.com/CATGPT0/ECS179-Final-Project/assets/72845247/9ef5c366-7153-498f-9aad-cf769e06a987">
 
-<img width="450" alt="Fight Monsters" src="https://github.com/CATGPT0/ECS179-Final-Project/assets/72845247/f7f8eaf1-799f-45cc-8886-0dae6d204be9">
+<img width="400" alt="Fight Monsters" src="https://github.com/CATGPT0/ECS179-Final-Project/assets/72845247/f7f8eaf1-799f-45cc-8886-0dae6d204be9">
 
-<img width="450" alt="Level Up" src="https://github.com/CATGPT0/ECS179-Final-Project/assets/72845247/75b6ec30-d9c4-4bd0-a992-8b00081853cc">
+<img width="400" alt="Level Up" src="https://github.com/CATGPT0/ECS179-Final-Project/assets/72845247/75b6ec30-d9c4-4bd0-a992-8b00081853cc">
 
-<img width="450" alt="Part of Map" src="https://github.com/CATGPT0/ECS179-Final-Project/assets/72845247/919e09e4-0757-4ffd-937f-8948ac632dda">
+<img width="400" alt="Part of Map" src="https://github.com/CATGPT0/ECS179-Final-Project/assets/72845247/919e09e4-0757-4ffd-937f-8948ac632dda">
 
-<img width="450" alt="NPC Dialogue" src="https://github.com/CATGPT0/ECS179-Final-Project/assets/72845247/b1a75b51-02ab-4bc7-8f55-d84e7f8482f8">
+<img width="400" alt="NPC Dialogue" src="https://github.com/CATGPT0/ECS179-Final-Project/assets/72845247/b1a75b51-02ab-4bc7-8f55-d84e7f8482f8">
 
-<img width="450" alt="Card Game vs. NPC" src="https://github.com/CATGPT0/ECS179-Final-Project/assets/72845247/8b9bee0b-301d-4140-8e71-7a38ace53aeb">
+<img width="400" alt="Card Game vs. NPC" src="https://github.com/CATGPT0/ECS179-Final-Project/assets/72845247/8b9bee0b-301d-4140-8e71-7a38ace53aeb">
 
-<img width="450" alt="Help menu" src="https://github.com/CATGPT0/ECS179-Final-Project/assets/72845247/0c1f3f2c-93e8-4209-92a1-3ed15470df41">
+<img width="400" alt="Help menu" src="https://github.com/CATGPT0/ECS179-Final-Project/assets/72845247/0c1f3f2c-93e8-4209-92a1-3ed15470df41">
 
-<img width="450" alt="Inventory" src="https://github.com/CATGPT0/ECS179-Final-Project/assets/72845247/d5b57bd3-2b22-420f-bbcb-07a728df2f06">
+<img width="400" alt="Inventory" src="https://github.com/CATGPT0/ECS179-Final-Project/assets/72845247/d5b57bd3-2b22-420f-bbcb-07a728df2f06">
 
 
 
