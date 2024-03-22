@@ -15,19 +15,22 @@
 
 **In this section, explain how the game should be played. Treat this as a manual within a game. Explaining the button mappings and the most optimal gameplay strategy is encouraged.**
 
-### Button Mappings ###
-`W` or `up arrow` key - Move up  
-`A` or `left arrow` key - Move left  
-`S` or `down arrow` key - Move down  
-`D` or `right arrow` key - Move right  
-`E` - Display inventory window  
-- Shows inventory along with a description of what each object is and the effect the object has  
-`H` - Displays window summarizing button mappings
-`tab` - Display current game stats
+- `W` or `up arrow` key - Move up  
+- `A` or `left arrow` key - Move left  
+- `S` or `down arrow` key - Move down  
+- `D` or `right arrow` key - Move right  
+- `E` - Display inventory window  
+  - Shows inventory along with a description of what each object is and the effect the object has  
+- `H` - Displays window summarizing button mappings
+- `tab` - Display current game stats
 - Shows health, attack power, speed, armor, current level, and XP
-`Left click` - Swing sword to attack monsters
-- Does damage in direction the player is facing
-- Must face monster in order to do damage to it
+- `Left-click` - Swing sword to attack monsters
+  - Does damage in direction the player is facing
+  - Must face monster in order to do damage to it
+
+You as the player must navigate through the map and defeat the monsters that attack you. While navigating through the map, you should try to look for treasure chests. These chests contain items that will help you defeat enemies such as health potions, attack potions, defense potions, and swords of varying attack power. You can access these items by pressing `E` on the keyboard. You can look at the bottom left corner of the screen to see your health. If you get killed, selecting `Try Again` will restart the game, and you will start with the stats that you left off on. 
+
+When you find an NPC, `Left-click` on them to begin your interaction. The NPCs give you the option to play a card game against them in order to gain a future combative advantage. ** Insert how to play card game **.
 
 
 **Add it here if you did work that should be factored into your grade but does not fit easily into the proscribed roles! Please include links to resources and descriptions of game-related material that does not fit into roles here.**
