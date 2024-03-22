@@ -17,7 +17,7 @@ public static class Table
 
     public static Dictionary<EntityType.Type, Dictionary<int, int>> attackPowerTable = new Dictionary<EntityType.Type, Dictionary<int, int>>()
     {
-        { EntityType.Type.Slime, new Dictionary<int, int>() { { 1, 10 }, { 2, 12 }, { 3, 14 }, { 4, 16 }, { 5, 18 }, { 6, 20 }, { 7, 22 }, { 8, 24 }, { 9, 26 }, { 10, 30 } } },
+        { EntityType.Type.Slime, new Dictionary<int, int>() { { 1, 10 }, { 2, 11 }, { 3, 12 }, { 4, 13 }, { 5, 14 }, { 6, 15 }, { 7, 16 }, { 8, 18 }, { 9, 20 }, { 10, 22 } } },
         { EntityType.Type.Goblin, new Dictionary<int, int>() { { 1, 10 }, { 2, 12 }, { 3, 14 }, { 4, 16 }, { 5, 18 }, { 6, 20 }, { 7, 22 }, { 8, 24 }, { 9, 26 }, { 10, 30 } } },
         { EntityType.Type.Orc, new Dictionary<int, int>() { { 1, 10 }, { 2, 12 }, { 3, 14 }, { 4, 16 }, { 5, 18 }, { 6, 20 }, { 7, 22 }, { 8, 24 }, { 9, 26 }, { 10, 30 } } },
         { EntityType.Type.Troll, new Dictionary<int, int>() { { 1, 10 }, { 2, 12 }, { 3, 14 }, { 4, 16 }, { 5, 18 }, { 6, 20 }, { 7, 22 }, { 8, 24 }, { 9, 26 }, { 10, 30 } } },
@@ -28,12 +28,12 @@ public static class Table
 
     public static Dictionary<EntityType.Type, Dictionary<int, int>> armorTable = new Dictionary<EntityType.Type, Dictionary<int, int>>()
     {
-        { EntityType.Type.Slime, new Dictionary<int, int>() { { 1, 0 }, { 2, 1 }, { 3, 2 }, { 4, 3 }, { 5, 4 }, { 6, 5 }, { 7, 6 }, { 8, 7 }, { 9, 8 }, { 10, 10 } } },
+        { EntityType.Type.Slime, new Dictionary<int, int>() { { 1, 0 }, { 2, 1 }, { 3, 1 }, { 4, 2 }, { 5, 2 }, { 6, 3 }, { 7, 3 }, { 8, 4 }, { 9, 5 }, { 10, 6 } } },
         { EntityType.Type.Goblin, new Dictionary<int, int>() { { 1, 0 }, { 2, 1 }, { 3, 2 }, { 4, 3 }, { 5, 4 }, { 6, 5 }, { 7, 6 }, { 8, 7 }, { 9, 8 }, { 10, 10 } } },
         { EntityType.Type.Orc, new Dictionary<int, int>() { { 1, 0 }, { 2, 1 }, { 3, 2 }, { 4, 3 }, { 5, 4 }, { 6, 5 }, { 7, 6 }, { 8, 7 }, { 9, 8 }, { 10, 10 } } },
         { EntityType.Type.Troll, new Dictionary<int, int>() { { 1, 0 }, { 2, 1 }, { 3, 2 }, { 4, 3 }, { 5, 4 }, { 6, 5 }, { 7, 6 }, { 8, 7 }, { 9, 8 }, { 10, 10 } } },
         { EntityType.Type.Dragon, new Dictionary<int, int>() { { 1, 0 }, { 2, 1 }, { 3, 2 }, { 4, 3 }, { 5, 4 }, { 6, 5 }, { 7, 6 }, { 8, 7 }, { 9, 8 }, { 10, 10 } } },
-        { EntityType.Type.Skeleton, new Dictionary<int, int>() { { 1, 0 }, { 2, 1 }, { 3, 2 }, { 4, 3 }, { 5, 4 }, { 6, 5 }, { 7, 6 }, { 8, 7 }, { 9, 8 }, { 10, 10 } } },
+        { EntityType.Type.Skeleton, new Dictionary<int, int>() { { 1, 0 }, { 2, 1 }, { 3, 2 }, { 4, 3 }, { 5, 4 }, { 6, 6 }, { 7, 8 }, { 8, 10 }, { 9, 12 }, { 10, 14 } } },
         { EntityType.Type.Player, new Dictionary<int, int>() { { 1, 0 }, { 2, 1 }, { 3, 2 }, { 4, 3 }, { 5, 4 }, { 6, 5 }, { 7, 6 }, { 8, 7 }, { 9, 8 }, { 10, 10 } } }
     };
 
