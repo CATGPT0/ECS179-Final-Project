@@ -45,7 +45,6 @@ Official World Map:
 
 ### General UI
 
-<<<<<<< HEAD
 **Add an entry for each platform or input style your project supports.**
 ***
 ## Movement/Physics - Yifan Cui
@@ -131,7 +130,6 @@ The movement of the player is implemented by the Finite State Machine(FSM). The 
 
 The attack of the monsters is also controlled by the FSM. When the monster enter the Chase state, it will follow the player. I use Gizmo to draw the circle to indicate the attack range of the monster. Therefore, when the distance between the player and monster is small enough, in other words, the colliders overlap, the monster will enter the attack state. I use the keyframe on the monster attack animation to control the hitbox. When the player escapes, the monster will enter chase state and follow the player.
 
->>>>>>> 03d0873659391796f78925bb7ee8bf19e5b30657
 ## Animation and Visuals - Jinzhuang Li
 
 ### RPG Art
