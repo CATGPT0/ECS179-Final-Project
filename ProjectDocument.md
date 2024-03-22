@@ -1,4 +1,4 @@
-# The title of your game #
+# Blade & Card: Secret of the Land #
 
 ## Summary ##
 
