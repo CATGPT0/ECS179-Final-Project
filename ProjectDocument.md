@@ -132,11 +132,6 @@ The attack of the monsters is also controlled by the FSM. When the monster enter
 
 ## Animation and Visuals - Jinzhuang Li
 
-### RPG Art
-
-All the art and animation are from (?)
-
-
 ### Card Battle Art
 
 #### Cards
